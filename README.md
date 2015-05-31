@@ -72,7 +72,8 @@ This MP campaign was carefully  put together with the assistance, support and sc
 
 ### Server
 Recommend server settings for optimal gameplay
-| Option | Recommende settings & information |
+
+| Option | Recommended settings & information |
 |------------|------------------------------------------|
 | Difficulty | expert |
 | Map | Altis |
