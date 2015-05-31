@@ -32,42 +32,39 @@ Wolfpack is a multiplayer (14 slots) special operations campaign consisting of t
 ### Features
 * 10 SpecOp/Recon Missions;
 * 3 Bootcamp training missions;
-* 1 Warmup & Training mission with 11 side-missions
+* 1 Warm-up Mission for warming up, modline testing and general training (11 tasks/side-missions)
 * Challenging and Immersive gameplay in a lively area of operations;
 * Detailed SpecOp style briefings (ingame and PDF/TXT for forum briefings);
 * Optimized for dedicated server play;
 * Challenging opponents.
-* Automatic detection of ACRE(2)/TFAR and AGM mods
+* Automatic detection of ACRE2, TFAR, cTAB and ACE3 add-ons
 
 ### Storyline
 June 2034, Altis is in turmoil. The island has been cut off from the outside world due to economical and physical blockades. The local populous has grown impatient with the government and the AFF in particular. Several demonstrations have resulted in the deaths of tens of civilians.
 
 The government was losing control rapidly and called in the help of CSAT. A mistake that would cost them dearly. CSAT saw a golden opportunity to get a much needed foothold in the Mediterranean area. The AAF requested a single battalion of CSAT Infantry. Instead CSAT send the entire 2nd brigade and soon CSAT outnumbers AAF by 11:1. Altis government realized that they lost control completely and stepped down. CSAT General Tehrani has since been in power and controls all of Altis and Stratis.
 
-CSAT is now proven a serious threat to the European region. As diplomatic efforts have not lead to the anticipated result, NATO decided to send a rapid task force to free both islands from CSAT oppression..DEVGRU has been ordered by J.S.O.C. to take out several high value threads on Altis before the NATO campaign commences. Wolf has been tasked with executing 10 missions over a period of 3-4 weeks. Your first mission commences 11 June.
+CSAT is now proven a serious threat to the European region. As diplomatic efforts have not lead to the anticipated result, NATO decided to send a rapid task force to free both islands from CSAT oppression. DEVGRU has been ordered by J.S.O.C. to take out several high value threads on Altis before the NATO campaign commences. Wolf has been tasked with executing 10 missions over a period of 3-4 weeks. Your first mission commences 11 June.
 
 ### Author
-whiztler / http://forums.bistudio.com/member.php?144637-whiztler"
+Whiztler [BIS Forum](http://forums.bistudio.com/member.php?144637-whiztler) / [Steam](http://steamcommunity.com/id/whiztler/myworkshopfiles/)
 
 ### Credits & Acknowledgements
 This MP campaign was carefully  put together with the assistance, support and scripts from the following individuals/groups:
 
 [Nopryl](www.nopryl.no) - [CIA community](ciahome.net) - [Killzone Kid](http://killzonekid.com/) - Mad T - Anjan Riot - Void -  Zorrobyte - Tonic
 
-
-## WOLFPACK CAMPAIGN PACKAGE
-
-### Included in the Wolfpack campaign package:
-* 10 special operations/recon missions
-* 3 bootcamp training missions
-* Detailed mission briefings in PDF and TXT (for use on forums etc)
-* Media to be used with forum postings (mission cover image, AO map, objectives, etc)
-* This readme document
+### License
+Wolfpack Vol. 1 and Wolfpack Vol. 2 are licensed under the Arma Public License (APL).
 
 ### CHANGELOG
 
 [Changelog can be found here](https://github.com/whiztler/Wolfpack/blob/master/Changelog.md)
 
+> ** Feedback / Questions **
+> Questions, feedback, comments? Hop on the BIS forum and let me know:
+> * [Wolfpack Vol. 1 on the BIS Forums](http://forums.bistudio.com/showthread.php?177397-MP-CO14-Campaign-Wolfpack-Vol-1)
+> * [Wolfpack Vol. 2 on the BIS Forums](http://forums.bistudio.com/showthread.php?179223-MP-CO14-Campaign-Wolfpack-Vol-2)
 
 ## Wolfpack Client / Server information
 
@@ -78,12 +75,14 @@ Recommend server settings for optimal gameplay
 |------------|------------------------------------------|
 | Difficulty | expert                                   |
 | Map        | Altis                                    |
-| Mods       | CBA A3 (Recommended: ACRE/TFAR, cTAB, ACE3, ASR AI) |
+| Mods       | CBA A3 (Recommended: ACRE/TFAR, cTAB, ACE3) |
 | Style      | COOP                                     |
 | Slots      | 15 (14 players + 1 optional headless client)   |
 | Duration   | 1-4 hours depending on style of gameplay |
 
 **Add-ons	: Server required add-ons: CBA A3**
+
+Wolfpack missions have also been tested (to work with) with the optional AI behavior mods 'ASR AI' and 'TPW CAS'.
 
 ### Client
 Required add-ons
@@ -93,6 +92,8 @@ Recommended client add-ons
 * [ACRE2](http://www.armaholic.com/page.php?id=19324) -or- [Taskforce Radio (TFAR)](http://www.armaholic.com/page.php?id=23615)
 * [Commanders Tablet (cTAB)](http://www.armaholic.com/page.php?id=22992)
 * [Advanced Combat Environment 3 (ACE3)](http://www.armaholic.com/page.php?id=18949)
+
+> ** Official PLAY WITH SIX repo**: [Wolfpack PWS repo](pws:) / [Web link](http://play.withsix.com/arma-3/collections/-ms0s9NY70qxMNWI7-ONBg/Wolfpack-(Official))
 
 ## Testing
 Each mission has its own 'Mission Objectives Test Script' to test mission critical triggers and exfil. The 
