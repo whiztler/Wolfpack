@@ -18,12 +18,12 @@
 Wolfpack only requires the CBA A3 addon to function. 
 
 ### Required add-ons
-* Community Based Addons A3 (CBA)
+* [CBA A3 - Community Based Addons](http://www.armaholic.com/page.php?id=18767)
 
 ### Optional/Recommended add-ons
-* Advanced Combat Radio Environment (ACRE / ACRE 2) -or- Taskforce Arrowhead Radio (TFAR)
-* Commanders Tablet (cTab).
-* Advanced Combat Environment 3 (ACE3). Note tat AGM is no longer supported
+* [Advanced Combat Radio Environment (ACRE 2)](http://www.armaholic.com/page.php?id=19324) -or- [Taskforce Arrowhead Radio (TFAR)](http://www.armaholic.com/page.php?id=23615)
+* [Commanders Tablet (cTAB)](http://www.armaholic.com/page.php?id=22992)
+* [Advanced Combat Environment 3 (ACE3)](http://www.armaholic.com/page.php?id=18949). Note tat AGM is no longer supported
 
 
 ## DESCRIPTION
