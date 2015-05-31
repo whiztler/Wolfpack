@@ -1,4 +1,4 @@
-# Wolfpack Vol. 1 & 2
+![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
 
 
 
