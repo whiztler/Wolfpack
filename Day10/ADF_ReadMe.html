@@ -1,0 +1,500 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ADF Readme</title>
+<link href="Core/I/adf.css" rel="stylesheet" type="text/css" />
+<link href="Core/I/prism.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body class="language-sql">
+<div id="floatdiv">
+  <h3>Index</h3>
+  <ul>
+    <li><a href="#features">New Features</a></li>
+    <li><a href="#chglog">Changelog</a></li>
+    <li><a href="#introd">Introduction</a></li>
+    <li><a href="#missdev">Mission Development</a></li>
+    <li><a href="#cfgmission">Configuring your mission</a>
+      <ul>
+        <li><a href="#descext">description.ext</a></li>
+        <li><a href="#initcfg">ADF_init_config.sqf</a></li>
+        <ul>
+        	<li><a href="#general">General</a></li>
+            <li><a href="#gearLoadout">Gear &amp; Loadout</a></li>
+            <li><a href="#misbal">Mission Balancing</a></li>
+            <li><a href="#caching">Unit &amp; Vehicle Caching</a></li>
+            <li><a href="#viewDist">View Distance</a></li>
+            <li><a href="#farp">F.A.R.P. Repair/Refuel/Rearm</a></li>
+            <li><a href="#mhq">Respawn / Mobile HQ (Mobile Respawn FOB)</a></li>
+            <li><a href="#mods">Misc. third party mods/scripts</a></li>
+        </ul>
+        <li><a href="#ACE3Settings">ACE3 Settings</a></li>
+      </ul>
+    </li>
+    <li><a href="#sod">Advanced Editing</a></li>
+    <li><a href="#legal">Legal</a></li>
+  </ul>
+</div>
+<header> 
+  <!--  <nav>
+    <ul>
+      <li>Your menu</li>
+    </ul>
+  </nav>--> 
+</header>
+<section>
+  <article>
+    <h1><img src="Core/I/ADF_logo.png" width="500" height="240" alt="ADF - Arma Mission Development Framework" /></h1>
+    <h3 id="curver">Current version</h3>
+    <p>version: 1.39<br />
+      build: Final</p>
+    <h2 id="features">New Features 1.39</h2>
+    <p>ADF 1.39 is a major change release that comprises of script optimization and new features such as:</p>
+    <ul>
+      <li><strong>Support for multiple Headless Clients with automatic Load Balancing</strong> - ADF 1.39 offers up to three HC's that should be named ADF_HC1, ADF_HC2, ADF_HC3. The mission maker can enable/disable load balancing. When enabled ADF transfers AI groups across available HC's (Round Robin method). See 'Core\ADF_HC.sqf' for more information.</li>
+      <li><strong>ACE3 support</strong> - ADF 1.39 automatically detects the ACE3 mod (and cTAB, TFAR, ACRE2) on both clients and the server and applies loadout/supplies to personnel and vehicles where needed.</li>
+      <li><strong>Clan presets</strong> - ADF 1.39 offers presets for call signs and radio configuration. Preconfigured presets are available for Nopryl, SHAPE, Wolfpack and custom. Mission makers can edit the presets to enable their own group call signs (Fox, Wolf, etc) and radio frequency/channel plan.</li>
+      <li><strong>Extended debug information</strong> - when ADF_debug is enabled an extensive log of debug information is show on screen and written to the server RPT file. Note that the debug function influencies FPS by a few frames.</li>
+      <li><strong>Extended Loadout options</strong> - Predefined (ADF) loadout, Vanilla + ACE/CTAB/TFAR/ACRE loadout, No Loadout (for third party loadout mods)</li>
+    </ul>
+    <p>Due to the many changes 1.39 is <strong>not  compatible</strong> with missions made with previous ADF versions.</p>
+    <h3 id="chglog">Changelog</h3>
+    <h4> 1.38 - 1.39</h4>
+    <div id="logBox">
+      <ul>
+        <li>ADDED: Preliminary GitHub support [https://github.com/whiztler/ADF/tree/master]</li>
+        <li>ADDED: Debug function: OpFor Detection</li>
+        <li>ADDED: ACE3 mod support (auto detect)</li>
+        <li>ADDED: Support for up to 3 HC's with load balancing</li>
+        <li>ADDED: BIS DLC support (auto detect premium DLC)</li>
+        <li>ADDED: Custom call signs configuration (Fox, Wolf, etc)</li>
+        <li>ADDED: Call Signs and Radio Freq's/Channels presets (Nopryl, SHAPE, Wolfpack, Custom, Default)</li>
+        <li>ADDED: Debug feedback (both system chat and RPT log). ADF_Debug needs to be set to 'true' for it to work.</li>
+        <li>ADDED: Marksman DLC items</li>
+        <li>UPDATED: cTAB now auto detected. cTAB does not re-initialize preset call signs!</li>
+        <li>UPDATED: ADF_fnc_LoadoutWest.sqf
+          <ul>
+            <li>Replaced: AGM components with ACE3 components</li>
+            <li>Added: ACE3 components where applicable</li>
+            <li>Added: MG role to INF</li>
+            <li>Added: MicroDAGR (TFAR, ACE3, cTAB - ACE3 prevails when both cTAB and ACE3 are selected)</li>
+            <li>Updated: SOR/SOD loadouts (black uniforms and small optimization)</li>
+            <li>Updated: SOR Sniper Teams (DLC dependent)</li>
+          </ul>
+        </li>
+        <li>UPDATED: init.sqf
+          <ul>
+            <li>Updated: execution order re HC vs ZBE Caching. With HC active server caching is deactivated</li>
+            <li>Script optimization</li>
+          </ul>
+        </li>
+        <li>UPDATED: ADF_init_config.sqf
+          <ul>
+            <li>Added: enhanced ACRE2 functionalities (WIP)</li>
+            <li>Added: Dev Build version management</li>
+            <li>Added: NoLoadout option for loadout MOD's or plain vanilla loadout</li>
+            <li>Added: Call Signs option</li>
+            <li>Added: Presets option (call signs and radio freqs/channels)</li>
+            <li>Added: Dynamic AI Creator (DAC) option (WIP)</li>
+            <li>Changed: _ADF_HC_init_ option set to 'true' by default</li>
+          </ul>
+        </li>
+        <li>UPDATED: ADF_HC.sqf
+          <ul>
+            <li>Added support for multiple HC's</li>
+            <li>Added load balacing across multiple HC's (can be switched on/off in ADF_init_config</li>
+            <li>Script optimization</li>
+          </ul>
+        </li>
+        <li>UPDATED: ADF_init_pre.sqf
+          <ul>
+            <li>Added Added ACE3 / Ares / RHS / AiATP / TEC-CSAT mod autodetection support</li>
+            <li>Added DLC support</li>
+            <li>Added Debug write function</li>
+            <li>Script optimization</li>
+          </ul>
+        </li>
+        <li>UPDATED: All crate &amp; vehicle scrips (ACE3 support and optimizations)</li>
+        <li>UPDATED: updated and optimized all scripts</li>
+        <li> REMOVED: AGM mod support</li>
+        <li>REMOVED: Various obsolete scripts</li>
+      </ul>
+    </div>
+    <h2 id="introd">Introduction</h2>
+    <p>ADF has been set-up for mission developers to created complex missions in &lt; 1 hour. The framework offers a full joint operations company with various pre-configured presets for Nopryl, SHAPE, Wolfpack, etc. Crates and vehicle loadout is pre-configured according to the role of the team that is using the crate/vehicle.</p>
+    <p>At first glance, the ADF seems complex, but you'll probably   need to work with only two files: <strong>description.ext</strong> and <strong>ADF_init_config.sqf</strong>. Once you get the hang of ADF you'll be able to do more advanced things such as <a href="#sod">scripting units</a> to spawn after the mission has started. All scripts and files have been well documented. Please use a dedicated editor such as Notepad++ to work with mission files. Search on Armaholic for Notepad++ to get the latest version. Alternatively you can use the <a href="https://github.com/whiztler/ADF/blob/beta11/Core/I/SQF_whiz.xml">plugin I use</a> which can be found in the <strong>Core\I\</strong> folder. To install the plugin, open Notepad++, from the Language menu select 'Define your language', click on import and select the 'SQF_whiz.xml' file. Restart Notepad++ and your good to go. </p>
+    <h3>Performance</h3>
+    <p>ADF has been optimized for multiplayer coop missions. All required (and user configured) scripts and options load during the mission init. There are NO loops exccept:</p>
+    <ul>
+      <li><strong>Headless Client loadbalacing</strong> (when enabled). Will transfer units to the HC's every 30 seconds</li>
+      <li><strong>GM / Zeus</strong>. Will transfer server/client items to Curators every 10 seconds</li>
+      <li><strong>Performance reporting</strong> (FPS). Every 60 seconds server performance is stamped into the RPT. If the server FPS drops than the function stamps the server performance more frequently (FPS &lt; 40, every 15 secs | FPS &lt; 30, every 10 secs | FPS &lt; 20, every 5 secs | FPS &lt; 15, every second).</li>
+    </ul>
+    <p>Above functions are as much optimized as possible and will not affect game play performance.</p>
+    <p>Performance could be further optimized but this means that most functionality of ADF would be rewriten as functions. This will make it a lot harden for beginner (and semi advanced) mission makers. Therefor the choice was made  to balance 'easy of use' with performance.</p>
+    <h2 id="missdev">Mission Development</h2>
+    <p>To really use ADF to the fullest I recommend that you read/study-up on a few existing mission development tuts/pages. More information <a href="http://www.nopryl.no/smfprod/index.php?topic=5723.0">here</a>.<br />
+      Excellent scripting tutorials are: </p>
+    <ul>
+      <li><a href="http://forums.bistudio.com/showthread.php?154047-Arma-3-Scripting-Tutorial-For-Noobs" title="Fockers Arma3 scripting tutorials" target="_blank">http://forums.bistudio.com/showthread.php?154047-Arma-3-Scripting-Tutorial-For-Noobs</a></li>
+      <li><a href="http://killzonekid.com/" title="Killzone Kid" target="_blank">http://killzonekid.com/</a></li>
+    </ul>
+    <h3>ADF Template</h3>
+    <p>The ADF template mission is a starting point for rapid mission creating. The template mission features 114 pre-defined units:</p>
+    <table id="ADF_table" summary="ADF Company Structure">
+      <colgroup>
+      <col class="ADFtbl-odd" />
+      <col class="ADFtbl-even" />
+      <col class="ADFtbl-odd" />
+      <col class="ADFtbl-even" />
+      <col class="ADFtbl-odd" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col" id="ADFtbl-cmd">CO Command</th>
+          <th scope="col" id="ADFtbl-inf">Infantry platoon</th>
+          <th scope="col" id="ADFtbl-cav">Cavalry Battery</th>
+          <th scope="col" id="ADFtbl-air">Air Wing</th>
+          <th scope="col" id="ADFtbl-sor">Special Op Squadron</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Command Element</td>
+          <td>Platoon Command</td>
+          <td>Battery Command (DC)</td>
+          <td>Wing Command</td>
+          <td>SO Command</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>2 Rifle Squads</td>
+          <td>1 APC Squadron</td>
+          <td>1 AH99 team</td>
+          <td>1 SpecOp AssaultTeam</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&gt;&gt; 2 fire teams / squad</td>
+          <td>1 MBT Squadron</td>
+          <td>1 AH9 team</td>
+          <td>1 Demo Team</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>1 Weapons Squad</td>
+          <td>2 Artillery teams</td>
+          <td>2 x UH-80 teams</td>
+          <td>1 Recon Team</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&gt;&gt; 1 Weapons Team</td>
+          <td></td>
+          <td>1 x CH-67 team</td>
+          <td>1 Frogman Team</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&gt;&gt; 1 Heavy Weapons Team</td>
+          <td></td>
+          <td>2 x A64</td>
+          <td>2 Sniper Teams</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>1 JTAC</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The units have specific names that <strong>cannot</strong> be changed else the framework cannot perform loadout / radio/ callsign configuration. You <strong>can</strong> change however the unit 'Description'. All units get their loadout as defined (by the mission maker) in the ADF_init_config.sqf (<a href="#initcfg">see below</a>). </p>
+    <p>Note that the template mission also features vehicles. The vehicles are named so that you know which vehicle belongs to which group/unit. All vehicles are supplied with kit according to the role of the group they belong to. Same goes for the various crates.</p>
+    <h2 id="cfgmission">Configuring your mission</h2>
+    <p>Start with opening the ADF template mission in the mission editor. Please note that if you save it with a new name that you should copy the script/template files from the ADF folder to your mission folder.</p>
+    <h3 id="descext">description.ext</h3>
+    <p>With Notepad++ open description.ext which can be found in the mission root folder.</p>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">maxPlayers =<strong> 117</strong>;</span>' into the number of playable slots. E.g. maxPlayers = <strong>32</strong>; This number needs to match the number of playable slots exactly. This number should include all HC's!</li>
+      <li>Change '<span class="adf_topic">respawn = &quot;<strong>BASE</strong>&quot;;</span>' into the method of respawn. When no respawn is allowed than use BIRD. E.g. respawn = &quot;<strong>BIRD</strong>&quot;;</li>
+      <li>Change '<span class="adf_topic">respawnDelay = <strong>30</strong>;</span>' into the number of seconds the player waits for respawn (respawn timer). If you you have 'respawn = &quot;BIRD&quot;;' (no respawn) then respawnDelay has no effect at all.</li>
+      <li>Change '<span class="adf_topic">author = &quot;<strong>Whiztler</strong>&quot;;</span>' into the name of the mission developer (you). E.g. author = &quot;<strong>John</strong>&quot;; (free text without formatting)</li>
+      <li>Change '<span class="adf_topic">overviewText = &quot;<strong>ADF by Whiztler</strong>&quot;;</span>' into a short mission description/name. E.g. overviewText = &quot;<strong>Operation Red Thunder by John</strong>&quot;; (free text without formatting)</li>
+      <li>Change '<span class="adf_topic">onLoadName = &quot;<strong>A D F</strong>&quot;;'</span> into your mission name. E.g. onLoadName = &quot;<strong>Operation Red Thunder</strong>&quot;; This appears in the mission loading screen before the mission briefing and is displayed with the mission_intro picture. (free text without formatting)</li>
+      <li>Change '<span class="adf_topic">onLoadMission = &quot;<strong>Arma Mission Development Framework</strong>&quot;;</span>' into a 1 paragraph mission description. E.g. onLoadMission = &quot;<strong>Assault Delta Hill and the Power Station and wait for further orders.</strong>&quot;; This appears in the mission loading screen before the mission briefing and is displayed with the mission_intro picture. (free text without formatting)</li>
+      <li>Change '<span class="adf_topic">loadScreen = &quot;<strong>Img\mission_intro_ADF.paa</strong>&quot;;</span>' This is the mission intro picture that is show while the mission is loading. SHAPE/Nopryl/etc. pictures can be found in the /Img folder. E.g. loadScreen = &quot;<strong>Img\mission_intro_Nopryl.paa</strong>&quot;; You can create your own mission intro image to give your mission some extra sauce.</li>
+      <li>Change '<span class="adf_topic">onLoadIntro = &quot;<strong>Powered by ADF</strong>&quot;;</span>' into some additional information you might want your players to know about. (free text without formatting)</li>
+      <li>Save and close.</li>
+    </ol>
+    <h3 id="initcfg">ADF_init_config.sqf</h3>
+    <p>With Notepad++ open ADF_init_config.sqf which can be found in the mission root folder. This is your main mission configuration. Basically everything, from loadout to radio/call sign presets can be configured here. <strong>If you are not sure if you need to change a value then best leave it as is</strong>. Make sure to test your mission in between changes, else you might loose track of your mission development process.</p>
+    <h4 id="general">General</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">_ADF_mission_version = <strong>1.0</strong>;</span>' into your current mission version. I high recommend you use version management to keep track of development progress/changes. When using e.g. _ADF_mission_version = 3; than save you mission as e.g. '<strong>myMission_version_3</strong>'</li>
+      <li>Change '<span class="adf_topic">_ADF_mission_init_time = <strong>30</strong>;</span>' into the number of seconds the mission needs to initialize. With COOP missions it is important that the server (and clients) get enough time to initialize properly. Rule of the thumb is minimum 30 secs and add 1 sec per 2 players. 30 players = 45 seconds. The maximum should be 90 seconds (for 50+ players).</li>
+      <li>Change '<span class="adf_topic">_ADF_HC_init = <strong>true</strong>;</span>' to <strong>true</strong> or <strong>false</strong>. If you do not want to use the HC and the HC is active on the server then set this to false else leave as is as the script will automatically detect HC presence.</li>
+      <li>Change '<span class="adf_topic">_ADF_HCLB_enable = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true when using multiple HC's to enable load balancing of AI group's across the HC's.</li>
+      <li>Change '<span class="adf_topic">ADF_playerSide = WEST;</span>' to <strong>WEST</strong> or <strong>EAST</strong> or <strong>GUER</strong> or <strong>CIV</strong>. Set to the side that playable units are on. <em>Please note that only WEST loadout presets exist in the ADF template.</em></li>
+      <li>Change '<span class="adf_topic">ADF_debug = <strong>false</strong>;</span>' to <strong>true</strong> of <strong>false</strong>. If you need to debug your mission then set to true. Debug information is displayed on screen and written to the mission RPT. Please note that debug can be resource heavy so FPS might be considerably lower. Don't enable ADF_debug with lots of clients else the server will crumble.</li>
+      <li>Change '<span class="adf_topic">ADF_Log_ServerPerfEnable = <strong>true</strong>;</span>' to <strong>true</strong> of <strong>false</strong>. When set to true, server performance information is added to the RPT logfile. The frequency is based on the server performance. If FPS &gt; 40 than every 60 seconds.  If FPS &lt; 40 than every 15 seconds.  If FPS &lt; 30 than every 10 seconds.  If FPS &lt; 20 than every 5 seconds and if server FPS drops below 15 than it is logged every second. Once server FPS decreases/increases, the frequency of logging changes also.</li>
+      <li>Change '<span class="adf_topic">'ADF_clanName = &quot;<strong>A D F</strong>&quot;;</span>' into the name of your clan. This is freetext so any name will do. E.g. ADF_clanName = &quot;<strong>Nopryl</strong>&quot;; The name is displayed in hints, mission roster, briefing, etc.</li>
+      <li>Change '<span class="adf_topic">ADF_clanTAG = &quot;<strong>ADF</strong>&quot;;</span>' into the tag of your clan. This is freetext so any tag will do. E.g. ADF_clanTAG = <strong>&quot;L.A.M.B.S</strong>&quot;;  The tag is displayed in hints, mission roster, briefing, etc.</li>
+      <li>Change '<span class="adf_topic">ADF_clanLogo = &quot;<strong>Img\clan_logo_ADF.paa</strong>&quot;;</span>' to your clan logo. Clan logo's can be found in the Img\ folder. E.g. ADF_clanLogo = &quot;Img\<strong>clan_logo_Nopryl.paa</strong>&quot;; The clan logo is used for hints, intro screens, etc. Preset images can be found in the '\Img' folder.</li>
+      <li>Change '<span class="adf_topic">ADF_clanFlag = &quot;<strong>Img\clan_flag_ADF.paa</strong>&quot;;</span>' to your clan flag. The flag image can be displayed on flags in-game. See the flagpole in the ADF mission with the Nopryl flag for instance (<strong>clan_flag_Nopryl.paa</strong>). Preset images can be found in the '\Img' folder.</li>
+      <li>Change '<span class="adf_topic">_ADF_MissionIntroImage = &quot;<strong>Img\mission_cover_ADF.paa</strong>&quot;;</span>' to your own image that is displayed after the mission initialization (in-game). E.g. _ADF_MissionIntroImage = &quot;Img\mission_cover_<strong>nopryl</strong>.paa. Preset images can be found in the '\Img' folder.</li>
+      <li>Change '<span class="adf_topic">ADF_Clan_uniformInsignia = <strong>true</strong>;</span>' to <strong>true</strong> or <strong>false</strong>. The clan insignia can be configured in the missionConfig.hpp (mission root folder) file. Default is Nopryl.</li>
+      <li>Change '<span class="adf_topic">_ADF_preset = &quot;<strong>Default</strong>&quot;;</span>' to either <strong>Default</strong> or <strong>Nopryl</strong> or <strong>SHAPE</strong> or <strong>Wolfpack</strong> or <strong>Custom</strong>. The preset file represents clan call signs and preconfigured radio frequencies. The preset file can be found here: 'Core\F\ADF_fnc_presets.sqf'. If you wish to create your own preset than edit the <strong>custom</strong> preset and select _ADF_preset = &quot;Custom&quot;;</li>
+    </ol>
+    <h4 id="gearLoadout">Gear &amp; Loadout</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">ADF_sameGearRespawn = <strong>true</strong>;</span>' to <strong>true</strong> or <strong>false</strong>. In case of respawn this determines if players respawn with the same loadout as when they died. If ACE3 is active it will use the ACE sameGear function. Else it will use the ADF sameGear function.</li>
+      <li>Change '<span class="adf_topic">_ADF_customLoadout_MOD = <strong>true</strong>;</span>' to <strong>true</strong> or <strong>false</strong>. When set to true it will use the preconfigured loadout scripts. When set to false it will use the BIS Vanilla gear + items from active mods such as cTAB, ACE3 and TFAR/ACRE2.</li>
+      <li>Change '<span class="adf_topic">_ADF_noLoadout = <strong>false</strong>;</span>' to <strong>true</strong> or <strong>false</strong>. When set to true, ADF will not load any gear scripts. This is useful when using a custom loadout/gear mod. <em>Please note that call sign/radio frequencies are loaded no matter if you set '_ADF_noLoadout to true or false</em>.</li>
+      <li>Change '<span class="adf_topic">_ADF_uniform_inf = &quot;<strong>U_B_CombatUniform_mcam</strong>&quot;;</span>' to the classname of the uniform of <strong>infantry</strong> units. If you wish to change, classnames can be found here: <a href="https://community.bistudio.com/wiki/Arma_3_CfgWeapons_Equipment" title="BIS Assets" target="_blank">https://community.bistudio.com/wiki/Arma_3_CfgWeapons_Equipment</a>. <em>Please note that vehicle/air crew members and snipers get default uniforms</em>.</li>
+      <li>Change '<span class="adf_topic">_ADF_uniform_sor = &quot;<strong>U_B_CombatUniform_mcam_vest</strong>&quot;;</span>' to  the classname of the uniform of <strong>specop</strong> units. If you wish to change, classnames can be found here: <a href="https://community.bistudio.com/wiki/Arma_3_CfgWeapons_Equipment" title="BIS Assets" target="_blank">https://community.bistudio.com/wiki/Arma_3_CfgWeapons_Equipment</a>.</li>
+      <li>Change '<span class="adf_topic">_ADF_add_NVGoggles = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. If set to false than all units do NOT get night vision goggles.  Only applies when _ADF_noLoadout is set to false.</li>
+      <li>Change '<span class="adf_topic">_ADF_add_GPS = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. This determines if ALL units get a BIS GPS. If set to false than only leadership units get a GPS.  Only applies when _ADF_noLoadout is set to false.</li>
+      <li>Change <span class="adf_topic">'_ADF_Thermal = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. This enables (true) or disables (false) thermal sights in both vehicle weapons and personal weapons.</li>
+      <li>Change '<span class="adf_topic">_ADF_INF_assault_weapon = <strong>1</strong>;</span>' to <strong>1</strong> for the MX-series or to <strong>2</strong> for the TRG-series. This determines the assault weapon loadout for <strong>infantry</strong> units.</li>
+      <li>Change '<span class="adf_topic">_ADF_INF_LMG_weapon = <strong>1</strong>;</span>' to <strong>1</strong> for the MX-SW autorifleman weapon or to <strong>2</strong> for the MK200 autorifleman weapon.</li>
+      <li>Change '<span class="adf_topic">_ADF_INF_hand_weapon = <strong>1</strong>;</span>' to <strong>1</strong> for the P07  hand weapon or to <strong>2</strong> for the 4-five .45 hand weapon for <strong>infantry</strong> units.</li>
+      <li>Change '<span class="adf_topic">_ADF_INF_scopes = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. This determines if ALL infantry units get a MCRO scope. If set to false than only leadership and machinegunners gets scopes.</li>
+      <li>Change '<span class="adf_topic">_ADF_SOR_assault_weapon = <strong>1</strong>;</span>' to <strong>1</strong> for the MX black series, or to <strong>2</strong> for the TRG series or to <strong>3</strong> for the MX Compact series. This determines the assault weapon loadout for <strong>SpecOp/Recon</strong> units.</li>
+      <li>Change '<span class="adf_topic">_ADF_SOR_hand_weapon = <strong>1</strong>;</span>' to <strong>1</strong>for the 4-five .45. hand weapon or to <strong>2</strong> for the P07 hand weapon for <strong>SpecOp/Recon</strong> units</li>
+      <li>Change '<span class="adf_topic">_ADF_CAV_assault_weapon = <strong>1</strong>;</span>' to <strong>1</strong>for the  MX Compact series  or to <strong>2</strong>for the Vermin SMG. This determines the primary weapon loadout for <strong>Cavalry crew</strong> units.</li>
+      <li>Change '<span class="adf_topic">_ADF_ACE3_microDAGR_all = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true, all units will get a ACE3 microDAGR. When set to false, no units will get a ACE3 microDAGR unless <strong>_ADF_ACE3_microDAGR_leaders</strong>is set to true. In that case leadership units get a ACE3 microDAGR.  Only applies when _ADF_noLoadout is set to false.</li>
+      <li>Change '<span class="adf_topic">_ADF_ACE3_microDAGR_leaders = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true, leadership will get a ACE3 microDAGR. When set to false all units will get a ACE3 microDAGR when <span class="adf_topic">_ADF_ACE3_microDAGR_all</span>is set to true, else no one will get a ACE3 microDAGR.  Only applies when _ADF_noLoadout is set to false.</li>
+      <li>Change '<span class="adf_topic">_ADF_cTAB_side = <strong>ADF_playerSide</strong>;</span>'  to <strong>WEST</strong> or <strong>EAST</strong> if you wish cTAB for another side as the player side. Only change if you know what you're doing slse leave as is.</li>
+      <li>Change '<span class="adf_topic">_ADF_cTAB_microDAGR_all = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true, all units will get a cTAB microDAGR. When set to false, no units will get a cTAB microDAGR unless <strong>_ADF_cTAB_microDAGR_leaders</strong>is set to true. In that case leadership units get a cTAB microDAGR. Note that when both ACE3 and cTAB microDAGR are set to true, the ACE3 microDAGR prevails and cTAB is set to false.  Only applies when _ADF_noLoadout is set to false.</li>
+      <li>Change '<span class="adf_topic">_ADF_cTAB_microDAGR_leaders = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true, leadership will get a cTAB microDAGR. When set to false all units will get a cTAB microDAGR when <span class="adf_topic">_ADF_cTAB_microDAGR_all</span>is set to true, else no one will get a cTAB microDAGR. Note that when both ACE3 and cTAB microDAGR are set to true, the ACE3 microDAGR prevails and cTAB is set to false.  Only applies when _ADF_noLoadout is set to false.</li>
+      <li>Change '<span class="adf_topic">_ADF_TFAR_personalRadio = &quot;<strong>tf_rf7800str</strong>&quot;;</span>' to  the classname of the TFAR personal rifleman radio.  If you wish to change, classnames can be found here: <a href="https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes" title="TFAR radio classes" target="_blank">https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes</a></li>
+      <li>Change '<span class="adf_topic">_ADF_TFAR_SWRadio = &quot;<strong>tf_anprc152</strong>&quot;;</span>' to the classname of the TFAR short wave radio. If you wish to change, classnames can be found here: <a href="https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes" title="TFAR radio classes" target="_blank">https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes</a></li>
+      <li>Change '<span class="adf_topic">_ADF_TFAR_LRRadio = &quot;<strong>tf_rt1523g_big</strong>&quot;;</span>' to the classname of the TFAR long range radio. If you wish to change, classnames can be found here: <a href="https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes" title="TFAR radio classes" target="_blank">https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes</a></li>
+      <li>Change '<span class="adf_topic">_ADF_TFAR_LRRadioSOR = &quot;<strong>ft_rt1523g_black</strong>&quot;;</span>' to the classname of the TFAR long range radio for <strong>Recon/Specop</strong> units.  If you wish to change, classnames can be found here: <a href="https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes" title="TFAR radio classes" target="_blank">https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Classes</a></li>
+      <li>Change '<span class="adf_topic">_ADF_TFAR_microDAGR = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. This determines if all units get the TFAR microDAGR. Can be used in conjunction with the ACE3/cTAB microdagr.</li>
+      <li>Change '<span class="adf_topic">ADF_TFAR_preset = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true, the mission will use TFAR radio frequencies as defined in the <strong>ADF_preset</strong> ( 'Core\F\ADF_fnc_presets.sqf'.). If set to false than all radio's will use a flatnet for SW and one for LR.</li>
+      <li>Change '<span class="adf_topic">_ADF_ACRE_personalRadio = &quot;<strong>ACRE_PRC343</strong>&quot;;</span>' to the classname of the ACRE2 personal radio. If you wish to change, classnames can be found here: <a href="http://gitlab.idi-systems.com/idi-systems/acre2-public/wikis/basic-concepts" title="ACRE2 radio classnames" target="_blank">http://gitlab.idi-systems.com/idi-systems/acre2-public/wikis/basic-concepts</a></li>
+      <li>Change '<span class="adf_topic">_ADF_ACRE_SWRadio = &quot;<strong>ACRE_PRC148</strong>&quot;;</span>' to the classname of the ACRE2 commander radio.  If you wish to change, classnames can be found here: <a href="http://gitlab.idi-systems.com/idi-systems/acre2-public/wikis/basic-concepts" title="ACRE2 radio classnames" target="_blank">http://gitlab.idi-systems.com/idi-systems/acre2-public/wikis/basic-concepts</a></li>
+      <li>Change '<span class="adf_topic">_ADF_ACRE_LRRadio = &quot;<strong>ACRE_PRC117F</strong>&quot;;</span>' to the classname of the ACRE2 long range radio.  If you wish to change, classnames can be found here: <a href="http://gitlab.idi-systems.com/idi-systems/acre2-public/wikis/basic-concepts" title="ACRE2 radio classnames" target="_blank">http://gitlab.idi-systems.com/idi-systems/acre2-public/wikis/basic-concepts</a></li>
+      <li>Change '<span class="adf_topic">_ADF_ACRE_fullDuplex = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>.  Sets the duplex of radio transmissions. If set to <strong>true</strong>, it means that you will receive transmissions even while talking and multiple people can speak at the same time.</li>
+      <li>Change '<span class="adf_topic">_ADF_ACRE_interference = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Sets whether transmissions will interfere with each other. This, by default, causes signal loss when multiple people are transmitting on the same frequency..</li>
+      <li>Change '<span class="adf_topic">_ADF_ACRE_AIcanHear = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>.  Sets whether AI can detect players speaking.</li>
+      <li>Change '<span class="adf_topic">ADF_ACRE_preset = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true, the mission will use ACRE2 radio frequencies as defined in the <strong>ADF_preset</strong> ( 'Core\F\ADF_fnc_presets.sqf'.). If set to false than all radio's will use a flatnet for SW and one for LR. Please note that ACRE2 is WIP</li>
+    </ol>
+    <h4 id="misbal">Mission Balancing</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">_ADF_misBal = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Load balancing   (number of AI's vs number of players). For scripted missions only!  See 'Core/F/ADF_fnc_missionBalancer.sqf' for more information.</li>
+      <li>Change '<span class="adf_topic">_ADF_misBal_low = <strong>10</strong>;</span>' to the number of players that represent a <strong>low</strong> number for the mission balancer. For scripted missions only!  See 'Core/F/ADF_fnc_missionBalancer.sqf' for more information.</li>
+      <li>Change '<span class="adf_topic">_ADF_misBal_high = <strong>30</strong>;</span>' to the number of players that represent a <strong>high</strong> number for the mission balancer. For scripted missions only!  See 'Core/F/ADF_fnc_missionBalancer.sqf' for more information.</li>
+    </ol>
+    <h4 id="caching">Unit &amp; Vehicle Caching</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">_ADF_Caching = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. When set to true AI groups will be cached according to a preset distance. Note that ADF_Caching is automatically disabled when a HC is active.</li>
+      <li>Change '<span class="adf_topic">_ADF_Caching_unitDistance = <strong>1000</strong>;</span>' to the distance from players that AI  groups will be cached. </li>
+      <li>Change '<span class="adf_topic">_ADF_Caching_vehicleDistance_land = <strong>250</strong>;</span>' to the distance from players that AI ground vehicles will   be cached.</li>
+      <li>Change '<span class="adf_topic">_ADF_Caching_vehicleDistance_air = <strong>1500</strong>;</span>' to the distance from players that AI air vehicles will   be cached.</li>
+      <li>Change '<span class="adf_topic">_ADF_Caching_vehicleDistance_sea = <strong>2000</strong>;</span>' to the distance from players that AI sea vehicles will   be cached.</li>
+      <li>Change '<span class="adf_topic">_ADF_Caching_debugInfo = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to log (screen and RPT) caching information.</li>
+    </ol>
+    <h4 id="viewDist">View Distance</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">setViewDistance <strong>1500</strong>;</span>' to the default view distance for players</li>
+      <li>Change '<span class="adf_topic">ADF_VD_foot = <strong>2000</strong>;</span>' to the <strong>maximum</strong> view distance for players on foot</li>
+      <li>Change '<span class="adf_topic">ADF_VD_vehicle = <strong>3000</strong>;</span>' to the <strong>maximum</strong> view distance for players inside a ground/sea vehicle</li>
+      <li>Change '<span class="adf_topic">ADF_VD_air = <strong>7500</strong>;</span>' to the <strong>maximum</strong> view distance for players inside an aircraft.</li>
+      <li>Change '<span class="adf_topic">ADF_VD_allowNoGrass = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Allow players to change the terrain details option to <strong>low</strong> (no grass)</li>
+    </ol>
+    <h4 id="farp">F.A.R.P. Repair/Refuel/Rearm</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">ADF_FARP_repairTime = <strong>180</strong>;</span>' to the <strong>maximum</strong> time in seconds it takes to repair a vehicle at the FARP.</li>
+      <li>Change '<span class="adf_topic">ADF_FARP_reloadTime = <strong>10</strong>;</span>' to the <strong>maximum</strong> time in seconds it takes to re-arm each turret magazine at the FARP.</li>
+      <li>Change '<span class="adf_topic">ADF_FARP_refuelTime = <strong>90</strong>;</span>' to the <strong>maximum</strong> time in seconds it takes to refuel a vehicle at the FARP.</li>
+    </ol>
+    <h4 id="mhq">Respawn / Mobile HQ (Mobile Respawn FOB)</h4>
+    <ol class="ADF_OL">
+      <li>Change '<span class="adf_topic">ADF_Tickets = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to enable the respawn ticket system (limited player respawns). Make sure that respawn is set to <strong>&quot;BASE&quot;</strong> in the description.ext</li>
+      <li>Change '<span class="adf_topic">_ADF_wTixNr = <strong>10</strong>;</span>' to the number of maximum respawns allowed for the <strong>WEST</strong> side (blufor)</li>
+      <li>Change '<span class="adf_topic">_ADF_eTixNr = <strong>15</strong>;</span>' to the number of maximum respawns allowed for the <strong>EAST</strong> side (opfor). Leave as is when no OpFor playable units are used.</li>
+      <li>Change '<span class="adf_topic">_ADF_mhq_enable = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to enable the Mobile HQ (MHQ). Players will respawn at the MHQ once the MHQ is deployed ingame.</li>
+      <li>Change '<span class="adf_topic">_ADF_mhq_respawn_nr = <strong>3</strong>;</span>' to the number respawns for a destroyed MHQ vehicle. If there are no more respawns available, the respawn marker (location where players respawn) is move to the last know 'safe position' of the MHQ.</li>
+      <li>Change '<span class="adf_topic">ADF_mhq_respawn_time = <strong>15</strong>;</span>' to the number of <strong>minutes</strong> it takes before a destroyed MHQ vehicle respawns (at the game's original start position, e.g. where the mission developer placed the MHQ vehicle in the editor).</li>
+      <li>Change '<span class="adf_topic">_ADF_mhq_respawn_class = &quot;<strong>B_APC_Tracked_01_CRV_F</strong>&quot;;</span>' to MHQ vehicle classname (default is the 'Bobcat'). Any vehicle can be used.  If you wish to change, classnames can be found here: <a href="https://community.bistudio.com/wiki/Arma_3_CfgVehicles_WEST" title="BIS Assets vehicles" target="_blank">https://community.bistudio.com/wiki/Arma_3_CfgVehicles_WEST</a></li>
+      <li>Change '<span class="adf_topic">_ADF_mhq_deploy_time = <strong>120</strong>;</span>' to the time in <strong>seconds</strong> it takes to deploy the MHQ (unpack the FOB). Setting this to a few minutes will add some immersion.</li>
+      <li>Change '<span class="adf_topic">_ADF_mhq_packup_time = <strong>180</strong>;</span>' to the time in <strong>seconds</strong> it takes to mobilize the MHQ (pack-up the FOB). Setting this to a few minutes will add some immersion. </li>
+    </ol>
+    <h4 id="mods">Misc. third party mods/scripts</h4>
+    <ol class="ADF_OL">
+      <li> '<span class="adf_topic">_ADF_DAC = <strong>false</strong>;</span>' is WIP. Leave as is.</li>
+      <li>Change '<span class="adf_topic">_ADF_civKia_enable = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true if you want to keep track of civilians killed by players.</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_uCiv = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to enable ambient <strong>civilian persons</strong> that spawn around the player(s).</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_uCiv_nr =<strong> 1</strong>;</span>' to the number of civilians that spawn around the players. This number is the <strong>maximum</strong> number of civilian spawns (no matter the amount of players).</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_uCiv_wpnr =<strong> 5</strong>;</span>' to the number of waypoint civilians will use to walk around. Do not change this unless you know what you are doing.</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_uCiv_dist = <strong>500</strong>;</span>' to the  distance that civilians will spawn from the nearest player location. Do not set too high!</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_vCiv = <strong>false</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to enable ambient <strong>civilian vehicles</strong> (driving) that spawn around the player(s).</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_vCiv_nr = <strong>1</strong>;</span>' to the number of civilian vehicles that spawn around the players. This number is the <strong>maximum</strong> number of vehicle spawns (no matter the amount of players).</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_vCiv_dist = <strong>500</strong>;</span>' to the  distance that civilian vehicles will spawn from the nearest player location. Do not set too high!</li>
+      <li>Change '<span class="adf_topic">_ADF_ambient_vCiv_del = <strong>1000</strong>;</span>' to  the  distance that civilian vehicles will de-spawn from the nearest player location. Do not set too high!</li>
+      <li>Change '<span class="adf_topic">_ADF_CleanUp = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to enable cleaning up of dead bodies (friendly, enemy, vehicles, etc.).</li>
+      <li>Change '<span class="adf_topic">_ADF_CleanUp_viewDist = <strong>500</strong>;</span>' to set the minimum distance in meters from a player unit to allow deletion of dead bodies/vehicles, if you don't care if player sees the deletion, set it to 0.</li>
+      <li>Change '<span class="adf_topic">_ADF_CleanUp_manTimer = <strong>300</strong>;</span>' to the number of <strong>seconds</strong> it takes for the script to delete a dead bodies when the viewDist param has cleared</li>
+      <li>Change '<span class="adf_topic">_ADF_CleanUp_vehTimer = <strong>600</strong>;</span>'to the number of <strong>seconds</strong> it takes for the script to delete a destroyed vehicle when the viewDist param has cleared</li>
+      <li>Change '<span class="adf_topic">_ADF_CleanUp_abaTimer = <strong>6000</strong>;</span>' to the number of <strong>seconds</strong> a deserted/unmanned vehicle will be deleted.</li>
+      <li>Change '<span class="adf_topic">_ADF_zeusEagle = <strong>true</strong>;</span>'  to <strong>true</strong> or <strong>false</strong>. Set to true to enable the Zeus Eagle? False removes the eagle.</li>
+    </ol>
+    <h3 id="ACE3Settings">ACE3 Settings</h3>
+    <p>The mission maker can enforce certain ACE3 settings. <a href="http://ace3mod.com/wiki/framework/settings.html">How to do this can be found here</a>. For ADF you do <strong>not</strong> need to included the '<em>ACE_server.pbo</em>`. Instead you copy the exported settings (clipboard) into the `<strong>missionConfig.hpp</strong>` located in the root folder. Find the '<em>class ACE_Settings {</em>' and copy over the indented existing settings (in between the // Custom ACE3 Setting below'' and '// Custom ACE3 Setting above'). E.g.:</p>
+    <pre><code>
+    // ACE3 settings
+
+    class ACE_Settings {
+    	// Custom ACE3 Setting below
+        class ace_common_forceAllSettings {
+            value = 0;
+            typeName = "BOOL";
+            force = 1;
+        };
+        class ace_frag_enabled {
+            value = 1;
+            typeName = "BOOL";
+            force = 1;
+        };
+    
+        ... 
+        
+        };
+        class ace_advanced_ballistics_simulationRadius {
+            value = 3000;
+            typeName = "SCALAR";
+            force = 1;
+        };
+        // Custom ACE3 Setting above
+    }; // Close ACE Settings
+    </code></pre>
+    <h2 id="sod">Advanced editing</h2>
+    <p>This section covers spawning of units/groups by scripts. Spawning using scripts we'll call Spawn on Demand (SOD). This enables mission makers to spawn units/groups/vehicles only when it is required/triggered and thus save server/HC performance. SOD can make your missions less linear and more dynamic. </p>
+    <p>ADF offers a few well documented sample scripts for you to learn about SOD. You'll find them in the Core\ folder (<strong>ADF_DSG-Airborne.sqf</strong>, <strong>ADF_DSG-FootPatrols.sqf</strong>, <strong>ADF_DSG-Armored.sqf</strong>)</p>
+    <h3>The basics</h3>
+    <p>To spawn a unit/group/vehicle ARMA3 requires some information that the script should provide:</p>
+    <ol>
+      <li><strong>Location</strong> - this can either be at the location of a marker, an object or even an existing (named) unit/group/player. You can also spawn using X,Y coordinates.</li>
+      <li><strong>Group</strong> - In case of spawning units and crewed vehicles you need to put them in a group. This group can be an existing group or a newly created group. For spawning empty vehicles creating a group is not required. </li>
+      <li><strong>Classname</strong> - The classname determines the type of unit/vehicle you are spawning. </li>
+    </ol>
+    <h3>Spawning a group of infantry</h3>
+    <p>We'll spawn a group of Opfor infantry once Blufor units enter a trigger-area. After we have spawned the Opfor group we'll order them to go on patrol. But first, using the ARMA3 editor, let's place a marker on the map and name it 'marker1'. The marker location represents the location where we will spawn our group of Opfor soldiers.</p>
+    <p>Open Notepad++ with a blank file and select SQF as the scripting <strong>language</strong> from the menu</p>
+    <p>We'll start by defining a variable for the group. This can be a local variable that we'll only use to create the group and nothing more. The local variable is deleted once the script has finished execution:</p>
+    <pre><code>
+
+// Create local vars for all connected clients:
+_g = []; // Infantry group/section/squad variable
+
+</code></pre>
+    <p>The '_g' is the local variable that is used to identify the group. We basically create an empty fireteam which we can fill with units. The '[]' brackets are enclosures for an array. An array is basically a list of data, in our case units. A filled array could look like this [Soldier1, Soldier2, Soldier3]. Each item is seperated with a comma.</p>
+    <p>Now that we have created an empty group, let's continue with the creation of the patrol units that are part of our still empty group. But first we inform ARMA3 that the units should only be created by the server or the headless client. If we don't do this than every connected client (all players and the server) will create a group of units. With 10 players conntected this means 10 Opfor groups. And we only want to create a single group of units.</p>
+    <pre><code>
+
+// Groups are created by/on the HC or server and visible for all clients.
+if (!ADF_HC_execute) exitWith {}; // Autodetect: execute on the HC else execute on the server
+
+</code></pre>
+    <p>Above 'if (!ADF_HC_execute) exitWith {};' means that only the HC or the server can continue with the script. All other clients (including all players) will exit the script (exitWith {};).</p>
+    To create the units and store them in our '_g" group we use a ARMA3 function: <strong>BIS_fnc_spawnGroup</strong>. More information on this function can be found here: <a href="https://community.bistudio.com/wiki/BIS_fnc_spawnGroup" title="BIS_fnc_spawnGroup">https://community.bistudio.com/wiki/BIS_fnc_spawnGroup</a>
+    <pre><code>
+
+// Create a CSAT Recon Sentry group
+_g = [
+	getMarkerPos "marker1", // "marker1" is the location where the group is created
+	EAST, // The side of the group
+	(configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OI_reconSentry") // See http://community.bistudio.com/wiki/Ambient_Combat_Manager_-_Group_types for different types of groups.
+] call BIS_fnc_spawnGroup; // Function that creates the group
+
+</code></pre>
+    <p>In above script we use the group variable (_g) call the BIS_fnc_spawnGroup function. We supply the function with the position we want the group to spawn at (<strong>getMarkerPos "marker1"</strong>), the side of the group that we want to spawn (<strong>EAST</strong>), then we use a predefined group from the ARMA3 config (<strong>configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OI_reconSentry"</strong>). The (configFile >> ... "OI_reconSentry") part is a predefined group in ARMA3. Just like in the editor when you place a group of soldiers, the group consists of predefined units with loadout specifically for their role. Just like in the editor you can use these predefined groups with scripting as well. The group 'templates' are stored in what is called the ARMA3 configFile. Basically a database of sorts that stores all preconfigured information that is needed by the ARMA3 engine. You can retrieve this information by clicking on the 'Config Viewer' icon (top of the screen) in the editor. In case of predefined groups, you can also look up the information on the BIS Wiki (much quicker than the editor): <a href="http://community.bistudio.com/wiki/Ambient_Combat_Manager_-_Group_types" title="BIS Ambient Combat Manager" target="_blank">http://community.bistudio.com/wiki/Ambient_Combat_Manager_-_Group_types</a>. The page explains how to make up the (configFile >> ... "OI_reconSentry") line of code.</p>
+    <p>So now we have spawned a group at the marker1 location. But they have no orders so they will just stand there and look dangerous. We want them to go on patrol. For that we call another function that tells them to go on patrol based on parameters that we feed into the function. Easy as pie:</p>
+    <pre><code>
+
+// Set patrol options
+[
+    _g, // Group local variable (does not need to be unique)
+    getMarkerPos "marker1", // This is where the group will start patrolling. 
+    125, // The radius in meters that determines the patrol size area.
+    6, // The number of waypoints generated (use 4 to max 12 for really large areas. 5-7 is a good number.)
+    "MOVE", // Waypoint type. ("MOVE", "DESTROY", "SAD", "SENTRY", "GUARD")
+    "SAFE", // Behaviour type. ("CARELESS", "SAFE", "AWARE", "COMBAT", "STEALTH")
+    "YELLOW", // Combat mode. ("BLUE" (Never fire), "GREEN" (Hold fire - defend only), "WHITE" (Hold fire, engage at will), "YELLOW" (Fire at will), "RED" (Fire at will, engage at will))
+    "LIMITED", // Waypoint patrol speed. ("LIMITED", "NORMAL", "FULL")
+    "COLUMN", // Patrol formation. ("COLUMN", "STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "LINE", "FILE", "DIAMOND")
+    "this spawn CBA_fnc_taskSearchHouse", // Units will search houses (does not work afaik)
+    [1,4,9]
+] call CBA_fnc_taskPatrol; // Function (CBA) to create the patrol options
+
+</code></pre>
+    <p>We are using the CBA A3 function <strong>CBA_fnc_taskPatrol</strong> for this. It is a quick 'n' dirty solution to created random patrols. We use the same group variable and also the spawn position (they are already there) to start their patrol.<br />
+      We tell them the radius of the patrol area (measured from the start position (marker1) and then feed the function with waypoint information.<br />
+      The last array with three numbers is the min, avg, max time the group waits at each waypoint.<br />
+      More information: <a href="https://dev.withsix.com/docs/cba/files/ai/fnc_taskPatrol-sqf.html" title="CBA task patrol function" target="_blank">https://dev.withsix.com/docs/cba/files/ai/fnc_taskPatrol-sqf.html</a></p>
+    <p>So that's it. We created a 2 pax patrol group and gave them a patrol order with random waiypoints that are created by the CBA function.<br />
+      Save the script in the Scr folder as ' Scr\<strong>patrol.sqf</strong>'. The entire script (without the comments) looks like this:</p>
+    <pre><code>
+// patrol.sqf
+
+_g = [];
+
+if (!ADF_HC_execute) exitWith {}; 
+
+_g = [getMarkerPos "marker1",	EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OI_reconSentry")] call BIS_fnc_spawnGroup;
+[_g, getMarkerPos "marker1", 125, 6, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; 
+
+</code></pre>
+    <p class="ADF_remark">Note that if you are not using the ADF framework, then replace: <strong>if (!ADF_HC_execute) exitWith {};</strong> with <strong>if (!isServer) exitWith {};</strong></p>
+    <p>Now you can create a Trigger in the editor with the following settings (I only mention the settings you need to change):</p>
+    <ul>
+      <li>Axis A: <strong>500</strong></li>
+      <li>Axis B: <strong>500</strong></li>
+      <li>Activation: <strong>BLUFOR</strong></li>
+      <li>On Act.: <strong>0 = execVM &quot;Scr\Patrol.sqf&quot;;</strong></li>
+    </ul>
+    <p>If you haven't already, create/place a marker on the map and name it &quot;marker1&quot;. You may place the marker anywhere you want, inside or outside the trigger area. This is the position your enemy patrol group will spawn and start their patrol from.<br />
+      Save your mission and test by entering the trigger area as a Blufor unit. The enemy patrol should spawn immediately.</p>
+    <p>You can spawn single units, groups, crewed vehicles, empty vehicles, etc. Have a look at the sample spawn scripts. You find then in the Core\ folder (<strong>ADF_DSG-Airborne.sqf</strong>, <strong>ADF_DSG-FootPatrols.sqf</strong>, <strong>ADF_DSG-Armored.sqf</strong>). For further reading on spawning units and such, have a look at:</p>
+    <ul>
+      <li><a href="https://community.bistudio.com/wiki/BIS_fnc_spawnVehicle" title="BIS spawn vehicle function" target="_blank">https://community.bistudio.com/wiki/BIS_fnc_spawnVehicle</a></li>
+      <li><a href="https://community.bistudio.com/wiki/createGroup" title="BIS function createGroup" target="_blank">https://community.bistudio.com/wiki/createGroup</a></li>
+      <li><a href="https://community.bistudio.com/wiki/createUnit" title="BIS function createUnit" target="_blank">https://community.bistudio.com/wiki/createUnit</a></li>
+      <li><a href="https://community.bistudio.com/wiki/createUnit_array" title="BIS function createUnitArray" target="_blank">https://community.bistudio.com/wiki/createUnit_array</a></li>
+      <li><a href="https://community.bistudio.com/wiki/createVehicle" title="BIS createVehicle">https://community.bistudio.com/wiki/createVehicle</a></li>
+      <li><a href="https://community.bistudio.com/wiki/createVehicle_array" title="BIS createVehicleArray">https://community.bistudio.com/wiki/createVehicle_array</a></li>
+    </ul>
+  </article>
+</section>
+<aside>
+  <h2 id="legal">Legal</h2>
+  <p>This file is part of the Arma Mission Development Framework (ADF). ADF is released under the Arma Public Licence (APL): <a href="https://www.bistudio.com/community/licenses/arma-public-license">https://www.bistudio.com/community/licenses/arma-public-license</a></p>
+  <p> ADF uses the following third party scripts:</p>
+  <ul>
+    <li> F3 Spectator is part of the F3 Framework (<a href="http://ferstaberinde.com/f3/en/">http://ferstaberinde.com/f3/en/</a>)</li>
+    <li> TAW View Distance by Tonic (<a href="http://forums.bistudio.com/showthread.php?151669-TAW-View-Distance-Script">http://forums.bistudio.com/showthread.php?151669-TAW-View-Distance-Script</a>)</li>
+    <li> ZBE_caching by Zorrobyte (<a href="http://forums.bistudio.com/showthread.php?179777-ZBE_Cache-AI-amp-Vehicle-caching-script-addon">http://forums.bistudio.com/showthread.php?179777-ZBE_Cache-AI-amp-Vehicle-caching-script-addon</a>)</li>
+    <li> MAD Ambient Life by MAD T (<a href="http://forums.bistudio.com/showthread.php?166896-MAD-Ambient-Life-(SP-MP)">http://forums.bistudio.com/showthread.php?166896-MAD-Ambient-Life-(SP-MP)</a>)</li>
+    <li> Delete All by Anjan (<a href="http://www.thebutcherbay.org/showthread.php?tid=63">http://www.thebutcherbay.org/showthread.php?tid=63</a>)</li>
+    <li> Void Map Marker by Void (<a href="http://www.armaholic.com/forums.php?m=posts&q=25540">http://www.armaholic.com/forums.php?m=posts&amp;q=25540</a>)</li>
+  </ul>
+  <p> Commercial exploitation of the Software without written permission from The Author(s) is expressly prohibited. ADF is distributed without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. The Software is not an official addon or tool. Use of the Software (in whole or in part) is entirely at your own risk.</p>
+</aside>
+<footer></footer>
+<script src="Core/I/prism.js"></script> 
+<script src="Core/I/adf.js"></script> 
+<script type="text/javascript">  
+    floatingMenu.add('floatdiv',  
+        {  
+            targetRight: 10,  
+            targetTop: 10,  
+            snap: true  
+        });  
+</script>
+</body>
+</html>

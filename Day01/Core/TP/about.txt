@@ -1,0 +1,5 @@
+ARMA Mission Development Framework
+
+ADF core third party scripts only!
+
+You may remove a specific folder or all TP folders from you mission if you do not intent to use third party scripts.

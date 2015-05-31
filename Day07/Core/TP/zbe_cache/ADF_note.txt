@@ -1,0 +1,10 @@
+Please note that when updating the zeb_cache script you change the links in main.sqf from:
+
+execFSM "zbe_cache\...
+
+to:
+
+execFSM "Core\TP\zbe_cache\
+
+
+Lines: 49, 50, 66, 93

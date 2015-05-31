@@ -1,0 +1,94 @@
+/****************************************************************
+ARMA Mission Development Framework
+ADF version: 1.38 / MAR 2015
+
+Script: Mission config
+Author: Whiztler
+Script version: 2.2
+
+Game type: n/a
+File: description.ext
+****************************************************************/
+
+/**********  Mission type settings **********/
+class Header {
+	gameType = Coop; // A3: Coop, DM, TDM, CTF, SC, CTI, RPG, Sandbox, Seize, Defend
+	minPlayers = 1;
+	maxPlayers = 15; // 14 players + 1 HC
+	playerCountMultipleOf = 1; // Coop setting. Set to 0 for other game types
+};
+
+/**********  Respawn & JIP Settings **********/
+respawn = "BIRD"; //  "NONE" = No respawn, "BIRD" = Respawn as a seagull, "INSTANT" - Respawn just where you died, "BASE" - Respawn in base. 
+respawnDelay = 0; // Respawn delay time in seconds (set to 3 for testing, set to 300 for final)
+RespawnDialog = 0; // Respawn dialog in case of multiple locations
+joinUnassigned = 1; // Where 0 forces joining players into the first empty slot, 1 leaves them to select their own slot
+
+// Respawn Ticket system init. Vars defined in init
+//respawnTemplatesWest[] = {"Counter", "Tickets", "spectator"};
+//respawnTemplatesEast[] = {"Counter", "Tickets"};
+//respawnTemplatesCiv[] = {"Counter"};
+
+/**********  Loading Screen **********/
+author = "Whiztler";
+overviewText = "Wolfpack Vol. 1 / Day 05 - v1.60";
+onLoadMission = "Wolfpack Vol. 1 // Day 5 - Bullseye";
+onLoadName = "Bullseye";
+onLoadIntroTime = false;
+onLoadMissionTime = false;
+loadScreen = "Img\intro_day5.paa";
+onLoadIntro = "";
+
+/**********  Mission specific settings **********/
+showGPS = 1; // Allow GPS where (0=disallowed), (1=allowed)
+showCompass = 1; // Allow Compass (0=disallowed), (1=allowed)
+showWatch = 1; // Allow Watch (0=disallowed), (1=allowed)
+showMap = 1;  // Allow Map (0=disallowed), (1=allowed)
+forceRotorLibSimulation = 1; // (0=options based), (1=force enable), (2=force disable)
+disableChannels[]={1,2,3,4}; // Restrict chat channels where (0=Global),(1=Side),(2=Command),(3=Group),(4=Vehicle),(5=Direct),(6=System)
+
+
+/***********************************   DO NOT EDIT BELOW THIS LINE!   **********************************/
+
+// TAW View distance
+#include "Core\TP\taw_vd\dialog.hpp"
+class CfgFunctions
+{
+	#include "functions.hpp"
+	#include "Core\TP\taw_vd\CfgFunctions.hpp"
+};
+
+// End Screen / Debriefing
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "Mission Completed";
+		subtitle = "Bullseye";
+		description = "DEVGRU: Well done men. Vodka and medals await upon your return!";
+		pictureBackground = "Img\intro_day5.paa"; // eg. "img\yourpicture.jpg" no picture? use "";
+		picture = "b_HQ"; // Marker icon
+		pictureColor[] = {0.0,0.3,0.6,1}; // Overlay color
+	};
+	class End2
+	{
+		title = "Mission FAILED";
+		subtitle = "Bullseye";
+		description = "DEVGRU: We need that Intel! Commander, prepare your man to return to Pygros";
+		pictureBackground = "Img\intro_day5.paa"; // eg. "img\yourpicture.jpg" no picture? use "";
+		pictureColor[] = {0.0,0.3,0.6,1}; // Overlay color
+	};
+	class Killed
+	{
+		title = "Entire Wolf team K.I.A.";
+		subtitle = "Bullseye";
+		description = "DEVGRU: We need that Intel! Commander, prepare your man to return to Pygros";
+		pictureBackground = "Img\intro_day5.paa"; // eg. "img\yourpicture.jpg" no picture? use "";
+		pictureColor[] = {0.0,0.3,0.6,1}; // Overlay color
+	};			
+};
+
+disabledAI = 1; // Enable AI's to fill empty playable slots (0=disable), (1=enable)
+enableDebugConsole = 1;	// Enable the debug console where (0=disabled),(1=Admins Only),(2=Everyone) DO NOT SET AS 2!
+aiKills = 0;
+enableItemsDropping = 0;

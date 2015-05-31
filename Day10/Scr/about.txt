@@ -1,0 +1,3 @@
+ARMA Mission Development Framework
+
+Put mission specific scripts in this folder.

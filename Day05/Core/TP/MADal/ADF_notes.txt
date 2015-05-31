@@ -1,0 +1,10 @@
+MAD_civilians.sqf
+
+Added the following @129:
+if (isServer && _ADF_civKia_enable) then {_civ addEventhandler ["killed",ADF_fnc_civKia_EH];} // ADF 1.22
+
+
+MAD_traffic.sqf
+
+Added the following @156:
+if (isServer && _ADF_civKia_enable) then {_civ addEventhandler ["killed",ADF_fnc_civKia_EH];} // ADF 1.22
