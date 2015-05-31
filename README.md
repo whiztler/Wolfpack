@@ -1,26 +1,35 @@
 # Wolfpack Vol. 1 & 2
 
-### ABOUT WOLFPACK
 
-| Version | 1.60 |
+
+
+## ABOUT WOLFPACK
+
+|  |  |
 |-------------:|--------------|
+| Version | 1.60 |
 | Release date | xx June 2015 |
 | ADF | 1.39 |
 | ARMA III | 1.46 |
 
-#### Required add-ons
+
+## ADD-ONS
+
+Wolfpack only requires the CBA A3 addon to function. 
+
+### Required add-ons
 * Community Based Addons A3 (CBA)
 
-#### Optional/Recommended add-ons
-* Advanced Combat Radio Environment (ACRE / ACRE 2) 
-* Taskforce Arrowhead Radio (TFAR)
+### Optional/Recommended add-ons
+* Advanced Combat Radio Environment (ACRE / ACRE 2) -or- Taskforce Arrowhead Radio (TFAR)
 * Commanders Tablet (cTab).
-* Advanced Combat Environment 3 (ACE3)
+* Advanced Combat Environment 3 (ACE3). Note tat AGM is no longer supported
 
-### DESCRIPTION
+
+## DESCRIPTION
 Wolfpack is a multiplayer (14 slots) special operations campaign consisting of ten challenging assault, demolition and reconnaissance missions and three bootcamp training missions. 
 
-#### Features
+### Features
 * 10 SpecOp/Recon Missions;
 * 3 Bootcamp training missions;
 * Challenging and Immersive gameplay in a lively area of operations;
@@ -29,24 +38,25 @@ Wolfpack is a multiplayer (14 slots) special operations campaign consisting of t
 * Challenging opponents.
 * Automatic detection of ACRE(2)/TFAR and AGM mods
 
-#### Storyline
+### Storyline
 June 2034, Altis is in turmoil. The island has been cut off from the outside world due to economical and physical blockades. The local populous has grown impatient with the government and the AFF in particular. Several demonstrations have resulted in the deaths of tens of civilians.
 
 The government was losing control rapidly and called in the help of CSAT. A mistake that would cost them dearly. CSAT saw a golden opportunity to get a much needed foothold in the Mediterranean area. The AAF requested a single battalion of CSAT Infantry. Instead CSAT send the entire 2nd brigade and soon CSAT outnumbers AAF by 11:1. Altis government realized that they lost control completely and stepped down. CSAT General Tehrani has since been in power and controls all of Altis and Stratis.
 
 CSAT is now proven a serious threat to the European region. As diplomatic efforts have not lead to the anticipated result, NATO decided to send a rapid task force to free both islands from CSAT oppression..DEVGRU has been ordered by J.S.O.C. to take out several high value threads on Altis before the NATO campaign commences. Wolf has been tasked with executing 10 missions over a period of 3-4 weeks. Your first mission commences 11 June.
 
-#### Author
+### Author
 whiztler / http://forums.bistudio.com/member.php?144637-whiztler"
 
-#### Credits & Acknowledgements
+### Credits & Acknowledgements
 This MP campaign was carefully  put together with the assistance, support and scripts from the following individuals/groups:
 
-Nopryl (www.nopryl.no) - CIA community (ciahome.net) = Killzone Kid = Mad T = Anjan Riot - Void -  Zorrobyte - Tonic
+[Nopryl](www.nopryl.no) - [CIA community](ciahome.net) - [Killzone Kid](http://killzonekid.com/) - Mad T - Anjan Riot - Void -  Zorrobyte - Tonic
 
-### WOLFPACK CAMPAIGN PACKAGE
 
-#### Included in the Wolfpack campaign package:
+## WOLFPACK CAMPAIGN PACKAGE
+
+### Included in the Wolfpack campaign package:
 * 10 special operations/recon missions
 * 3 bootcamp training missions
 * Detailed mission briefings in PDF and TXT (for use on forums etc)
@@ -54,79 +64,35 @@ Nopryl (www.nopryl.no) - CIA community (ciahome.net) = Killzone Kid = Mad T = An
 * This readme document
 
 ### CHANGELOG
-````
-Version 1.54
-- Added: Automatic detection of AGM > Earplugs, ammo, map tools, etc.
-- Fixed: Resistance camps day 4
-- Updated: Various optimizations
-- Updated: Chest rig added to certain crates.
-- Updated: Finetuned loadouts, less weight, more task orientated.
 
-Version 1.53
-- Updated: JSOC TOC communication (all missions).
-- Updated: Bootcamp training missions > Quiet timers, instructor information - learning management.
-- Fixed: various bugs day 8, & 10. Thanks for the feedback everyone!
+[Changelog can be found here](https://github.com/whiztler/Wolfpack/blob/master/Changelog.md)
 
-Version 1.52
-- Added: Automatic detection of ACRE, TFAR or Vanilla
-- Updated: TFAR radios do not replace backpacks. All units supplied with an PRC-152.
-- Updated: Crates updated with TFAR radios (when applicable) and additional uniforms.
 
-Version 1.51
-- Fixed: Various bugs day 3,4 & 6. Thanks for the feedback everybody!
-- Added: mots.sqf - Mission Objectives Test Script. See readme PDF for more information
+## Wolfpack Client / Server information
 
-Version 1.50
-- Released: Volume 2
-
-Version 1.22
-- Fixed: Loadout client was executed twice, causing all kinds of issues.
-
-Version 1.21
-Added: Basic & Advanced Wolfpack training missions
-Fixed: Detection script error
-Updated: Wolfpack_Vol1 readme document re Wolfpack Training Missions
-
-Version 1.20
-Updated: Arma v1.20
-Updated: LAF3 v1.02
-Fixed: cTab didn't load
-Fixed: Opfor balancing
-
-Version 1.10
-Fixed: exfil features in all 5 ops
-Fixed: Fire missions in Day 2 and 3
-Fixed: 'Endmission' triggers
-Added: vehicle pool from 1.18 update
-
-Version 1.00
-Initial public release
-````
-
-### Wolfpack Client / Server information
-
-SERVER
+### Server
 Recommend server settings for optimal gameplay
-Difficulty	: expert
-Map		: Altis (Vanilla)
-Mods		: CBA (Recommended: ACRE/TFAR, cTAB, AGM)
-Style		: COOP
-Slots		: 14
-Duration	: 1-4 hours depending on style of gameplay
+| Option | Recommende settings & information |
+|------------|------------------------------------------|
+| Difficulty | expert |
+| Map | Altis |
+| Mods | [CBA A3](http://www.armaholic.com/page.php?id=18767) (Recommended: [ACRE2](http://www.armaholic.com/page.php?id=19324) / [TFAR](http://www.armaholic.com/page.php?id=23615), [cTAB](http://www.armaholic.com/page.php?id=22992), [ACE3](http://www.armaholic.com/page.php?id=18949) |
+| Style | COOP |
+| Slots | 15  (14 players plus 1 optional HC) |
+| Duration | 1-4 hours depending on style of gameplay |
 
-Add-ons	: Server required add-ons: CBA A3
+**Add-ons	: Server required add-ons: CBA A3**
 
-CLIENT
+### Client
 Required add-ons
-* CBA A3 - Community Based Addons - http://www.armaholic.com/page.php?id=18767
+* [CBA A3 - Community Based Addons](http://www.armaholic.com/page.php?id=18767)
 
 Recommended client add-ons
-* A.C.R.E. - http://www.armaholic.com/page.php?id=19324 -or- TFAR - http://www.armaholic.com/page.php?id=23615
-* Commanders Tablet (cTAB) - http://www.armaholic.com/page.php?id=22992
-* JayArma3Lib (Included in ACRE)
-* ST-Hud for ARMA 3 - http://www.armaholic.com/page.php?id=18949
+* [ACRE2](http://www.armaholic.com/page.php?id=19324) -or- [Taskforce Radio (TFAR)](http://www.armaholic.com/page.php?id=23615)
+* [Commanders Tablet (cTAB)](http://www.armaholic.com/page.php?id=22992)
+* [Advanced Combat Environment 3 (ACE3)](http://www.armaholic.com/page.php?id=18949)
 
-TESTING
+## Testing
 Each mission has its own 'Mission Objectives Test Script' to test mission critical triggers and exfil. The 
 script works in a dedicated server environment and can be evoked by a server admin (or anyone who 
 has server admin access).
@@ -137,17 +103,18 @@ has server admin access).
 * Hit the escape key to bring up the 'debug console';
 * in the execute window enter:  null = execVM "mots.sqf";
 
-Note that the mots.sqf script exposes all mission spoilers as all players are teleported directly to/from the 
+> Note that the mots.sqf script exposes all mission spoilers as all players are teleported directly to/from the 
 objectives/exfil location. Some action that require radio triggers [0-0-4] need to be executed 
 manually. Instructions to do so will be advised when 
 needed. 
 
-INSTALLING
-Multiplayer / Dedicated Server
+
+## Installing
+### Multiplayer / Dedicated Server
 Copy/Move the .pbo files location in the 'Missions' folder (in case you download the ZIP) to your 
 Steam/SteamApps/common/ArmA 3/MPMissions folder.
 
-Single player
+### Single player
 All missions (incl the bootcamp training missions) can  be played in single player mode: 
 * Copy/Move the .pbo files location in the 'Missions' folder (in case you download the ZIP) to your Steam/SteamApps/common/ArmA 3/MPMissions folder.
 * Start Arma3
@@ -158,42 +125,42 @@ All missions (incl the bootcamp training missions) can  be played in single play
 * Select the Wolfpack mission you want to play
 * Done!
 
-Missions Vol. 1
+## Missions Vol. 1
 
-DAY 01 - THE PACKAGE
+### DAY 01 - THE PACKAGE
 Our area of operation lies north of Athira. JSOC expects a HVT to arrive and inspect the CSAR Frini base tomorrow.  Wolf will eliminate the HVT once he arrives at the base. Due to the sensitive nature of this mission, detailed objectives will be given on a need to know basis once you have reached the RV. Our local on the ground will do an extensive briefing.
 
-DAY 02 - KAJMAN FIRE
+### DAY 02 - KAJMAN FIRE
 CSAT has taken over the Abdera Airfield and turned the airfield into a helicopter base. The base is home to the 127 AAC Squadron with 6 or 8 Kajman Attack helicopters and to the 17 Air Support Group. About one kilometer north east lies the village of Krya Nera. This used to be a little fisherman's village until CSAT stationed a small fleet of attack vessels there. Primary objective: Abdera Airfield, sabotage all Kajman Attack helicopters stationed at the airfield. Secondary objective: Krya Nera Naval Base, take control of the Naval Base and wait for further instructions.
 
-DAY 03 - SWITCH OFF
+### DAY 03 - SWITCH OFF
 CSAT's primary communications station is situated on the outskirts of Kavala. It is essential we disrupt communications before we commence the NATO invasion. The nearby power station provides power to the Kavala region, including the communications station. We need to take both out in order to be sure that CSAT's ability to communicate is disrupted. Primary objective: Sabotage the communications station.  Secondary objective: Sabotage the power station. 
 
-DAY 04 - TOP SCREEN
+### DAY 04 - TOP SCREEN
 CSAT's propaganda campaign is out of control. Their fear and retribution series broadcasted on television and radio has caused grave concerns both locally and abroad. We need the local populous on our side once the invasions commences. We need to shut down the Altis Broadcasting Company (ABC) in the Capital of Altis, Pyrgos.Sabotage the ABC headquarters. You'll be filled in on the specifics once you are close to the objective.
 
-DAY 05 - BULLSEYE
+### DAY 05 - BULLSEYE
 Maj. F. Kallaziz's replacement has arrived in Pyrgos, Maj. Farrokhzad. We know very little about Maj. Farrokhzad. According to Nikko, the major has already made his mark by having tens of civilians arrested. Supposedly there is a public hanging the day after tomorrow. CIA and MIS are working hard to get more intel about this guy. So it looks like your Wolf troops are going back to Pyrgos. Your objective is to find intel on Maj. Farrokhzad.
 
-Missions Vol. 2
+## Missions Vol. 2
 
-DAY 06 - RIGA HILL
+### DAY 06 - RIGA HILL
 Intel shows a large AA-emplacement at a base west of Zoros Bay (codename 'Istanbul'). which gets its intel from a radar site a little north east (codename 'Barcelona'). Your orders are to insert west of Zoros Bay and take out the radar installation at Barcelona and the AA-emplacements at Istanbul.
 
-DAY 07 - U-12
+### DAY 07 - U-12
 Our man on the ground, Nikkos got captured by CSAT Intelligence Services. Nikkos knows too much about the upcoming campaign. We need to break him out before they fly him back to the CSAT capital.Nikkos is currently being held in a secret prison codenamed 'U-12'. It is located in Thelos Bay on the east coast of Altis.  Wolf is to secure and retrieve Nikkos Fotopoulos.
 
-DAY 08 - ICE TIGER
+### DAY 08 - ICE TIGER
 The last two weeks, SatNav has been tracking a heavy armored squadron consisting of 6 T100 MBT's, 1 x Tigris and APC's plus supporting units. SatNav lost Ice Tiger due to severe overcast weather. According to Nikkos, Ice Tiger should be in the North Western part of Altis. We need confirmation on its exact location. Your orders are to locate Ice Tiger.
 
-DAY 09 - DRAGONFLY
+### DAY 09 - DRAGONFLY
 Two days ago the 127 Republican Wing Squadron, an elite squadron of TO-199 bombers touched down at Stratis Airbase. The 13th MEU is scheduled to assault Stratis in three days. This can only happen when those TO-199's have been disposed off.  We'll advise objectives and targets when you're on the ground.
 
-DAY 10 - DOBERMAN
+### DAY 10 - DOBERMAN
 Your last mission is a high risk mission in Kavala. We are still gathering intel. We'll brief you when you're oscar mike.
 
 
-Wolfpack Bootcamp Training Missions
+## Wolfpack Bootcamp Training Missions
 
 The Wolf bootcamp training consists of three training missions:
 1.	Basic Training (Part of Wolfpack Vol 1)
@@ -205,37 +172,37 @@ With the 'Basic Training' and 'Advanced Training' missions you can train yoursel
 
 The exercise is over once you have been detected by CSAT or when you successfully reach Thronos Castle undetected. The mission will then end automatically.
 
-WOLF  SKILL TRAINING 
+### Wolf skill training
 
-Assault
+#### Assault
 Assault operations are often used in combination with force recon operations. Assault operations require careful planning and tactics to maximize surprise and combat effectiveness.
 Wolf operators are hardly ever used for full frontal assault operations. A typical assault operations comprised of taking out HVT's (persons or objects), assault and secure small compounds, assault small convoy's, etc. Assault operations are carried out combat efficiently and swiftly so the enemy has no time to organize a counter attack. By the time the enemy realizes something is wrong, the Wolf troops are long gone.
 
-Reconnaissance
+#### Reconnaissance
 Reconnaissance or recce or recon is a term used for gathering intelligence by visual observation or other detection methods, about the activities and resources of an enemy or potential enemy, or about the meteorologic, hydrographic, or geographic characteristics of a particular area.
 
 Path finding or route recon is oriented on a given route or a general direction of travel, to provide information on route conditions or activities along the route. The wolf commander relies on information about locations along his determined route: which those that would provide best cover and concealment; bridge by construction type, dimensions, and classification; or for landing zones or pickup zones, if the need arises.
 TOC or the Wolf unit commander may act upon a force-oriented route recon by which the enemy could influence movement along that route. For the recon troops, stealth and speed ?in conjunction with detailed intelligence-reporting?are crucial. The recon unit must remain far enough ahead of the Wolf troop or squadron to assist in early warning and to prevent the troop or squadron from becoming surprised.
 
-Covert patrol
+#### Covert patrol
 The AO terrain is ideal for covert travel. A little preparation re path tactics enables you to travel through the AO without being detected by road vehicles and aerial vehicles.
 Depending on team layout, it is wise to send a 2 man scouting party ahead of the troop. Once deemed safe, the troop can advance in a bounding fashion ensuring patrol safety and maintaining situational awareness.
 Make sure that each team member knows its task in case of holding (360 security, which direction to secure), in case of contact (how to proceed, how to retreat) and in case of fast travel (which direction to look/cover). This way team members rely on each other for optimal awareness and security. This way, and only this way is the team able to move swiftly.
 
-Demolition
+#### Demolition
 The Expert Training mission is a demo exercise. The how, what and when will be briefed during the training exercise.
 Make sure you carry enough demo ammo to complete the objective. Always make sure you carry extra demo ammo just in case you are dealing with duds or targets that require multiple demolitions.
 
-Demo op considerations:
+##### Demo op considerations:
 * When approaching the demo objective make sure you have two exfil strategies. One for in case things go as planned and one for in case things don't go as planned.
 * Make sure that only your demo team approaches the object. The demo team sets charges. The rest of the squadron provides security and path finding/exfil tactics.
 * Make sure you use the right demo ammo and make sure to use enough to neutralize the object. You do not want to return to the object for a second demo.
 
 Demo and assault ops are the most challenging types of missions for a recon/special operations team. At some point you'll need to break covertness in order to carry out the objective. In order to maintain optimal security, make sure you plan for various scenarios/outcomes. Make sure you troop(leaders) are aware of the scenarios in case things go belly up. Planning for the unexpected increases your chance of getting out alive significantly.
 
-1. BASIC TRAINING
+## 1. BASIC TRAINING
 
-Prerequisites:
+### Prerequisites:
 * Standard Operating Procedures
 * ACRE/TFAR communication skills (incl. whisper mode)
 * Standard patrol tactics
@@ -248,15 +215,15 @@ Basic training prepares Wolf members in regards to the following skill set:
 * Radio comms
 * Infiltration
 
-Additional leadership (CO/RTL) skill set:
+### Additional leadership (CO/RTL) skill set:
 * Path finding
 * Team tactics/Role Specific
 * Insert/Exfil tactics
 * Comms tactics
 
-Qualification/Result: Special Operations / Recon Assault Specialist
+Qualification/Result: **Special Operations / Recon Assault Specialist**
 
-Instructor/Learning Management
+### Instructor/Learning Management
 The instructor will need to pay special attention to the following aspects:
 * Using the map for planning LR stealth patrol. Usage of terrain to the utmost advantage.
 * Communication. Only base essential communication. No chit-chat whatsoever! Direct/whisper comm (no radio). 
@@ -270,9 +237,9 @@ topics/skill sets.
 
 Leadership will get 10 minutes ingame time to prepare/brief.
 
-2. ADVANCED TRAINING
+## 2. ADVANCED TRAINING
 
-Prerequisites:
+### Prerequisites:
 * Basic training successfully completed
 * Wolfpack day 1 completed
 
@@ -284,15 +251,15 @@ Advanced training prepares Wolf members in regards to the following skill set:
 * Roles: demo/recon/marksman/assault
 * Leadership (CO/XO/RTL)
 
-Additional leadership (CO/RTL) skill set:
+### Additional leadership (CO/RTL) skill set:
 * Path finding multiple battle points/control points
 * Specialized teams (diving, LR Recon/UAV)
 * Multiple infil/exfil scenarios
 * Speed vs Stealth
 
-Qualification/Result: Specialist (role specialization/RTL)
+Qualification/Result: ** Specialist (role specialization/RTL) **
 
-Instructor/Learning Management
+### Instructor/Learning Management
 
 The instructor will need to pay special attention to the following aspects:
 * Accurate navigation (map only, constant 360 awareness, POI navigating). 
@@ -305,9 +272,9 @@ Advanced navigation/patrol instructions can be given during the mission init pha
 
 Leadership will get 5 minutes ingame time to prepare/brief.
 
-3. EXPERT TRAINING
+## 3. EXPERT TRAINING
 
-Prerequisites:
+### Prerequisites:
 * Advanced training successfully completed
 * Wolfpack day 1-5 (volume 1) completed
 
@@ -317,14 +284,14 @@ Expert training prepares Wolf members in regards to the following skill set:
 * Team logistics
 * Overall mission strategy
 
-Additional leadership (CO) skill set:
+### Additional leadership (CO) skill set:
 * Overall leadership in dangerous/hostile situations
 * Ability to comm important information effectively
 * Making decisions under extreme pressure
  
-Qualification/Result: Expert / Commander
+Qualification/Result: ** Expert / Commander **
 
-Instructor/Learning Management
+### Instructor/Learning Management
 
 The instructor will need to pay special attention to the following aspects:
 * Stealth patrol, ability to deal with POI 
