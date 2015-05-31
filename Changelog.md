@@ -4,8 +4,26 @@
 - Updated: All missions updated for new framework version- 
 - Removed: AGM support
 
-**Version 1.55-1.59**
-- Internal release
+** Version 1.58 **
+- Fixed: cTab group markers in tablet & android device.
+- Added: Heli DLC aircraft/objects
+- Added: additional AGM loadout
+- Updated: infil/exfil locations
+
+** Version 1.57 **
+- Added: TFAR: same SW radio frequencies for all units.
+- Updated ingame briefings. Briefing markers/anchors added (as req).
+- Updated: Infil positions closer to the RV (as req).
+- Updated: various optimizations
+
+** Version 1.56 **
+- Fixed: Air infills. No more water landings / crashes.
+
+** Version 1.55 **
+- Added: Warmup Mission for warmup, modline testing and training. JIP/Respawn enabled. See Readme PDF for more information.
+- Fixed: TFAR radios since 1.28 Hotfix.
+- Added: cTab Hemet cams (if cTab is enabled).
+- Updated: AI optimization.
 
 **Version 1.54**
 - Added: Automatic detection of AGM > Earplugs, ammo, map tools, etc.
