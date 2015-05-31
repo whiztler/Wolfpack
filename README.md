@@ -27,11 +27,12 @@ Wolfpack only requires the CBA A3 addon to function.
 
 
 ## DESCRIPTION
-Wolfpack is a multiplayer (14 slots) special operations campaign consisting of ten challenging assault, demolition and reconnaissance missions and three bootcamp training missions. 
+Wolfpack is a multiplayer (14 slots) special operations campaign consisting of ten challenging assault, demolition and reconnaissance missions, three bootcamp training missions and a WarmUp and Training mission.
 
 ### Features
 * 10 SpecOp/Recon Missions;
 * 3 Bootcamp training missions;
+* 1 Warmup & Training mission with 11 side-missions
 * Challenging and Immersive gameplay in a lively area of operations;
 * Detailed SpecOp style briefings (ingame and PDF/TXT for forum briefings);
 * Optimized for dedicated server play;
@@ -77,9 +78,9 @@ Recommend server settings for optimal gameplay
 |------------|------------------------------------------|
 | Difficulty | expert                                   |
 | Map        | Altis                                    |
-| Mods       | CBA (Recommended: ACRE/TFAR, cTAB, ACE3) |
+| Mods       | CBA A3 (Recommended: ACRE/TFAR, cTAB, ACE3, ASR AI) |
 | Style      | COOP                                     |
-| Slots      | 15                                       |
+| Slots      | 15 (14 players + 1 optional headless client)   |
 | Duration   | 1-4 hours depending on style of gameplay |
 
 **Add-ons	: Server required add-ons: CBA A3**
@@ -222,7 +223,7 @@ Basic training prepares Wolf members in regards to the following skill set:
 * Insert/Exfil tactics
 * Comms tactics
 
-Qualification/Result: **Special Operations / Recon Assault Specialist**
+> Qualification/Result: **Special Operations / Recon Assault Specialist**
 
 ### Instructor/Learning Management
 The instructor will need to pay special attention to the following aspects:
@@ -236,7 +237,7 @@ Map reading/using/planning instructions can be given during the mission init pha
 from the lobby to the map screen. Instructor will need 10-15 minutes to go through previously mentioned 
 topics/skill sets.
 
-Leadership will get 10 minutes ingame time to prepare/brief.
+> Leadership will get 10 minutes ingame time to prepare/brief.
 
 ## 2. ADVANCED TRAINING
 
@@ -258,7 +259,7 @@ Advanced training prepares Wolf members in regards to the following skill set:
 * Multiple infil/exfil scenarios
 * Speed vs Stealth
 
-Qualification/Result: ** Specialist (role specialization/RTL) **
+> Qualification/Result: ** Specialist (role specialization/RTL) **
 
 ### Instructor/Learning Management
 
@@ -271,7 +272,7 @@ The instructor will need to pay special attention to the following aspects:
 
 Advanced navigation/patrol instructions can be given during the mission init phase when all players go from the lobby to the map screen. Instructor will need 10-15 minutes to go through previously mentioned topics/skill sets.
 
-Leadership will get 5 minutes ingame time to prepare/brief.
+> Leadership will get 5 minutes ingame time to prepare/brief.
 
 ## 3. EXPERT TRAINING
 
@@ -290,7 +291,7 @@ Expert training prepares Wolf members in regards to the following skill set:
 * Ability to comm important information effectively
 * Making decisions under extreme pressure
  
-Qualification/Result: ** Expert / Commander **
+> Qualification/Result: ** Expert / Commander **
 
 ### Instructor/Learning Management
 
@@ -304,4 +305,4 @@ This mission end when a team member is discovered by Opfor or a civilian.
 
 Since this is the main airport, expect lots of air traffic.
 
-Leadership will get 2 minutes ingame time to prepare/brief.
+> Leadership will get 2 minutes ingame time to prepare/brief.
