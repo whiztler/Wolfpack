@@ -73,14 +73,14 @@ This MP campaign was carefully  put together with the assistance, support and sc
 ### Server
 Recommend server settings for optimal gameplay
 
-| Option | Recommended settings & information |
+| Option     | Recommended settings & information       |
 |------------|------------------------------------------|
-| Difficulty | expert |
-| Map | Altis |
-| Mods | [CBA A3](http://www.armaholic.com/page.php?id=18767) (Recommended: [ACRE2](http://www.armaholic.com/page.php?id=19324) / [TFAR](http://www.armaholic.com/page.php?id=23615), [cTAB](http://www.armaholic.com/page.php?id=22992), [ACE3](http://www.armaholic.com/page.php?id=18949) |
-| Style | COOP |
-| Slots | 15  (14 players plus 1 optional HC) |
-| Duration | 1-4 hours depending on style of gameplay |
+| Difficulty | expert                                   |
+| Map        | Altis                                    |
+| Mods       | CBA (Recommended: ACRE/TFAR, cTAB, ACE3) |
+| Style      | COOP                                     |
+| Slots      | 15                                       |
+| Duration   | 1-4 hours depending on style of gameplay |
 
 **Add-ons	: Server required add-ons: CBA A3**
 
