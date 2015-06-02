@@ -1,8 +1,8 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
+![Wolfpack Vol 1 & 2](wolfpack_header_02.png)
 
 
 
-## Changelog
+# Changelog
 
 **Version 1.60**
 - Added: Dedicated support for headless client
@@ -59,21 +59,21 @@
 - Fixed: Loadout client was executed twice, causing all kinds of issues.
 
 **Version 1.21**
-Added: Basic & Advanced Wolfpack training missions
-Fixed: Detection script error
-Updated: Wolfpack_Vol1 readme document re Wolfpack Training Missions
+- Added: Basic & Advanced Wolfpack training missions
+- Fixed: Detection script error
+- Updated: Wolfpack_Vol1 readme document re Wolfpack Training Missions
 
 **Version 1.20**
-Updated: Arma v1.20
-Updated: LAF3 v1.02
-Fixed: cTab didn't load
-Fixed: Opfor balancing
+- Updated: Arma v1.20
+- Updated: LAF3 v1.02
+- Fixed: cTab didn't load
+- Fixed: Opfor balancing
 
 **Version 1.10**
-Fixed: exfil features in all 5 ops
-Fixed: Fire missions in Day 2 and 3
-Fixed: 'Endmission' triggers
-Added: vehicle pool from 1.18 update
+- Fixed: exfil features in all 5 ops
+- Fixed: Fire missions in Day 2 and 3
+- Fixed: 'Endmission' triggers
+- Added: vehicle pool from 1.18 update
 
 **Version 1.00**
-Initial public release
+- Initial public release
