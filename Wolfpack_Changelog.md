@@ -1,3 +1,9 @@
+![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
+
+
+
+## Changelog
+
 **Version 1.60**
 - Added: Dedicated support for headless client
 - Added: Dedicated support for ACE3
