@@ -1,4 +1,4 @@
-<div style="text-align:center">![Wolfpack Vol 1 & 2](wolfpack_header_02.png)</div>
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # ABOUT WOLFPACK
 
@@ -51,3 +51,5 @@ This MP campaign was carefully  put together with the assistance, support and sc
 
 ## License
 Wolfpack Vol. 1 and Wolfpack Vol. 2 are licensed under the Arma Public License (APL).
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
