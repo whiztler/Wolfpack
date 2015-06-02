@@ -1,6 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Testing
 Each mission has its own 'Mission Objectives Test Script' to test mission critical triggers and exfil. The 
@@ -17,3 +15,5 @@ has server admin access).
 objectives/exfil location. Some action that require radio triggers [0-0-4] need to be executed 
 manually. Instructions to do so will be advised when 
 needed. 
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

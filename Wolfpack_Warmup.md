@@ -1,6 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # WarmUp Mission (Wolfpack WTT)
 
@@ -40,4 +38,4 @@ observation post-
 - Rodopoli - Destroy the communication station 
 - Paros - Neutralize a Supply Convoy (stationary)
 
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

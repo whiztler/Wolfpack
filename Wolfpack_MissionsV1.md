@@ -1,7 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Missions Volume 1
 
@@ -19,3 +16,5 @@ CSAT's propaganda campaign is out of control. Their fear and retribution series 
 
 ## DAY 05 - BULLSEYE
 Maj. F. Kallaziz's replacement has arrived in Pyrgos, Maj. Farrokhzad. We know very little about Maj. Farrokhzad. According to Nikko, the major has already made his mark by having tens of civilians arrested. Supposedly there is a public hanging the day after tomorrow. CIA and MIS are working hard to get more intel about this guy. So it looks like your Wolf troops are going back to Pyrgos. Your objective is to find intel on Maj. Farrokhzad.
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

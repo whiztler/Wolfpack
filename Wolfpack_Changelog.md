@@ -1,6 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_02.png)
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Changelog
 
@@ -77,3 +75,5 @@
 
 **Version 1.00**
 - Initial public release
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

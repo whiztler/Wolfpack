@@ -1,7 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Client / Server information
 
@@ -31,3 +28,5 @@ Recommended client add-ons
 * [Advanced Combat Environment 3 (ACE3)](http://www.armaholic.com/page.php?id=18949)
 
 > Official PLAY WITH SIX repo: [Wolfpack PWS repo](pws:) / [Web link](http://play.withsix.com/arma-3/collections/-ms0s9NY70qxMNWI7-ONBg/Wolfpack-(Official))
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

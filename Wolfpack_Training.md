@@ -1,7 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Wolfpack Bootcamp Training Missions
 
@@ -147,3 +144,5 @@ This mission end when a team member is discovered by Opfor or a civilian.
 Since this is the main airport, expect lots of air traffic.
 
 > Leadership will get 2 minutes ingame time to prepare/brief.
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

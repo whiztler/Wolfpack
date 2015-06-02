@@ -1,7 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
-
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Installing
 
@@ -19,3 +16,5 @@ All missions (incl the bootcamp training missions) can  be played in single play
 * Select LAN as host, click 'OK'
 * Select the Wolfpack mission you want to play
 * Done!
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)

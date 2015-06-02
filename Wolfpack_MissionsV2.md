@@ -1,5 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
-
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
 
 # Missions Vol. 2
 
@@ -17,3 +16,5 @@ Two days ago the 127 Republican Wing Squadron, an elite squadron of TO-199 bombe
 
 ## DAY 10 - DOBERMAN
 Your last mission is a high risk mission in Kavala. We are still gathering intel. We'll brief you when you're oscar mike.
+
+> [Back to Index](https://github.com/whiztler/Wolfpack/blob/master/Readme.md)
