@@ -1,4 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_02.png)
+<div style="text-align:center">![Wolfpack Vol 1 & 2](wolfpack_header_02.png)</div>
 
 # ABOUT WOLFPACK
 
