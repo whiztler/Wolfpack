@@ -61,7 +61,6 @@ Wolfpack Vol. 1 and Wolfpack Vol. 2 are licensed under the Arma Public License (
 
 [Changelog can be found here](https://github.com/whiztler/Wolfpack/blob/master/Changelog.md)
 
-> ** Feedback / Questions **
 > Questions, feedback, comments? Hop on the BIS forum and let me know:
 > * [Wolfpack Vol. 1 on the BIS Forums](http://forums.bistudio.com/showthread.php?177397-MP-CO14-Campaign-Wolfpack-Vol-1)
 > * [Wolfpack Vol. 2 on the BIS Forums](http://forums.bistudio.com/showthread.php?179223-MP-CO14-Campaign-Wolfpack-Vol-2)
@@ -93,7 +92,7 @@ Recommended client add-ons
 * [Commanders Tablet (cTAB)](http://www.armaholic.com/page.php?id=22992)
 * [Advanced Combat Environment 3 (ACE3)](http://www.armaholic.com/page.php?id=18949)
 
-> ** Official PLAY WITH SIX repo**: [Wolfpack PWS repo](pws:) / [Web link](http://play.withsix.com/arma-3/collections/-ms0s9NY70qxMNWI7-ONBg/Wolfpack-(Official))
+> Official PLAY WITH SIX repo: [Wolfpack PWS repo](pws:) / [Web link](http://play.withsix.com/arma-3/collections/-ms0s9NY70qxMNWI7-ONBg/Wolfpack-(Official))
 
 ## Testing
 Each mission has its own 'Mission Objectives Test Script' to test mission critical triggers and exfil. The 
