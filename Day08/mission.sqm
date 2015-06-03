@@ -97,8 +97,8 @@ class Mission
 	randomSeed=14985924;
 	class Intel
 	{
-		briefingName="Wolfpack Vol-2 / Day 08";
-		overviewText="Day 06 - Ice Tiger";
+		briefingName="CO15 - Wolfpack Vol 2 / Day 08";
+		overviewText="Day 08 - Ice Tiger";
 		resistanceEast=1;
 		timeOfChanges=9000;
 		startWeather=1;

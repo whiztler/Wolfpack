@@ -89,7 +89,7 @@ class Mission
 	randomSeed=13927926;
 	class Intel
 	{
-		briefingName="Wolfpack Expert Training";
+		briefingName="CO12 - Wolfpack Expert Training";
 		overviewText="Complete all objectives within the pre-defined time frame";
 		timeOfChanges=5400;
 		startWeather=0.049999997;

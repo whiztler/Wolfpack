@@ -67,7 +67,7 @@ class Mission
 	randomSeed=13927926;
 	class Intel
 	{
-		briefingName="Wolfpack Advanced Training";
+		briefingName="CO12 - Wolfpack Advanced Training";
 		overviewText="Covertly get to Thronos Castle within the pre-defined time frame";
 		timeOfChanges=9000;
 		startWeather=0.25;

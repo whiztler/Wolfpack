@@ -114,7 +114,7 @@ class Mission
 	randomSeed=14985924;
 	class Intel
 	{
-		briefingName="Wolfpack Vol-2 / Day 06";
+		briefingName="CO15 - Wolfpack Vol 2 / Day 06";
 		overviewText="Day 06 - Riga Hill";
 		resistanceEast=1;
 		timeOfChanges=9000;

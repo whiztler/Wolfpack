@@ -27,7 +27,7 @@ ADF_mod_ACE3 		= isClass (configFile >> "CfgPatches" >> "ace_common"); // ACE3 C
 ADF_mod_AIA	 		= isClass (configFile >> "CfgPatches" >> "AiA_Core"); // All in Arma (Terrain Pack) V1.39 B7
 ADF_mod_Ares 		= isClass (configFile >> "CfgPatches" >> "Ares"); // Ares Zeus V1.39 B7
 ADF_mod_CSAT 		= isClass (configFile >> "CfgPatches" >> "TEC_CSAT"); // TEC CSAT V1.39 B7
-ADF_mod_RHS	 		= isClass (configFile >> "CfgPatches" >> "rhs_main"); // ACE3 Core V1.39 B7
+ADF_mod_RHS	 		= isClass (configFile >> "CfgPatches" >> "rhs_main"); // Red Hammer Studios V1.39 B7
 
 // Init global mission vars
 ADF_missionInit = false;

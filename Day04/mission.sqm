@@ -128,7 +128,7 @@ class Mission
 	randomSeed=7497187;
 	class Intel
 	{
-		briefingName="Wolfpack Vol-1 / Day 04";
+		briefingName="CO15 - Wolfpack Vol 1 / Day 04";
 		overviewText="Day 04 - Top Screen";
 		timeOfChanges=17100;
 		startWeather=0.049999997;

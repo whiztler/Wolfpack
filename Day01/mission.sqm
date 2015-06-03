@@ -107,7 +107,7 @@ class Mission
 	randomSeed=2851278;
 	class Intel
 	{
-		briefingName="Wolfpack Vol-1 / Day 01";
+		briefingName="CO15 - Wolfpack Vol 1 / Day 01";
 		overviewText="Day 01 - The Package";
 		resistanceEast=1;
 		timeOfChanges=5400;

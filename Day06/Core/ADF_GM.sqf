@@ -25,9 +25,9 @@ Place a 'ZEUS Game Master' module for each unit:
 // Init
 if ((isNil "GM_1") && (isNil "GM_2")) exitWith {// No Zeus playable slots detected
 	if (ADF_debug) then {
-		["ZEUS: No GM units active. Terminating ADF_GM",false] call ADF_fnc_log
+		["ZEUS - No GM units active. Terminating ADF_GM",false] call ADF_fnc_log
 	} else {
-		diag_log "ADF RPT: ZEUS: No GM units active. Terminating ADF_GM";
+		diag_log "ADF RPT: ZEUS - No GM units active. Terminating ADF_GM";
 	};
 }; 
 _ADF_zeusEagle = _this select 0;
@@ -117,9 +117,9 @@ if ((!(isNil "GMmod_1") && (isNil "GMmod_2")) && ((isNil "GM_1") && !(isNil "GM_
 
 if (ADF_mod_Ares) exitWith { // Use ARES instead of ADF Zeus functions V1.39 B7
 	if (ADF_debug) then {
-		["ZEUS: Ares addon detected. Using Ares instead of ADF Zeus functions",false] call ADF_fnc_log
+		["ZEUS - Ares addon detected. Using Ares instead of ADF Zeus functions",false] call ADF_fnc_log
 	} else {
-		diag_log "ADF RPT: ZEUS: Ares addon detected. Using Ares instead of ADF Zeus functions";
+		diag_log "ADF RPT: ZEUS - Ares addon detected. Using Ares instead of ADF Zeus functions";
 	};
 }; 
 
@@ -134,7 +134,7 @@ _addCivilians = true;
 } forEach curArray;
 
 //makes all units continuously available to Zeus (for respawning players and AI that's being spawned by a script.)
-if (ADF_debug) then {["ZEUS: ADV Zeus function Initialized",false] call ADF_fnc_log};
+if (ADF_debug) then {["ZEUS - ADV Zeus function Initialized",false] call ADF_fnc_log};
 while {true} do {
 	_toAdd = if (!_addCivilians && {(side _x) == civilian}) then {false} else {true};
 	{
@@ -148,6 +148,6 @@ while {true} do {
 	if !(isNil "GMmod_2") then {GMmod_2 addCuratorEditableObjects [vehicles, true]};
 	
 	sleep 10;
-	if (ADF_debug) then {["ZEUS: Objects transferred to Curator(s) ",false] call ADF_fnc_log};
+	if (ADF_debug) then {["ZEUS - Objects transferred to Curator(s) ",false] call ADF_fnc_log};
 };
 

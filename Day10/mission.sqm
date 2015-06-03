@@ -102,7 +102,7 @@ class Mission
 	randomSeed=6383847;
 	class Intel
 	{
-		briefingName="Wolfpack Vol-2 / Day 10";
+		briefingName="CO15 - Wolfpack Vol 2 / Day 10";
 		overviewText="Day 10 - Doberman";
 		resistanceEast=1;
 		timeOfChanges=9000;
@@ -5070,7 +5070,7 @@ class Mission
 		};
 		class Item86
 		{
-			position[]={2136.7593,-0.073479563,11294.124};
+			position[]={2298.26,0.12206031,11977.925};
 			name="mNP_2";
 			type="Empty";
 			colorName="ColorBlue";

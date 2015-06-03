@@ -1,6 +1,3 @@
-_l = ["tLayer"] call BIS_fnc_rscLayer; 
-_l cutText ["", "BLACK IN", 30];
-
 vWolf_takeOff = false;
 vWolf_10Secs = false;
 iceTigerLocated = false;
@@ -15,7 +12,8 @@ if (isServer) then {
 		_wp1 setWaypointType "MOVE"; _wp1 setWaypointBehaviour "SAFE"; _wp1 setWaypointSpeed "FULL";	
 		_wp2 = _c addWaypoint [getMarkerPos "mVSOR_1_wp2", 0];
 		_wp2 setWaypointType "MOVE"; _wp2 setWaypointBehaviour "SAFE"; _wp2 setWaypointSpeed "FULL";
-		waitUntil {(currentWaypoint (_wp2 select 0)) > (_wp2 select 1)};		
+		waitUntil {(currentWaypoint (_wp2 select 0)) > (_wp2 select 1)};	
+		vWolf_10Secs = true; publicVariable "vWolf_10Secs";
 		vWolf_1 flyInHeight 20;	
 		_wp3 = _c addWaypoint [getPos mWolfLand_1, 0];
 		_wp3 setWaypointType "TR UNLOAD"; _wp3 setWaypointBehaviour "SAFE"; _wp3 setWaypointSpeed "NORMAL";
@@ -49,7 +47,6 @@ if (isServer) then {
 		_wp2 setWaypointType "MOVE"; _wp2 setWaypointBehaviour "SAFE"; _wp2 setWaypointSpeed "FULL";
 		_wp2 setWaypointStatements ["true", "vWolf_2 flyInHeight 20;"];
 		waitUntil {(currentWaypoint (_wp2 select 0)) > (_wp2 select 1)};
-		vWolf_10Secs = true; publicVariable "vWolf_10Secs";
 		_wp3 = _c addWaypoint [getPos mWolfLand_2, 0];
 		_wp3 setWaypointType "TR UNLOAD"; _wp3 setWaypointBehaviour "SAFE"; _wp3 setWaypointSpeed "NORMAL";
 		_wp3 setWaypointStatements ["true", "vWolf_2 land 'LAND';"];	
@@ -70,11 +67,6 @@ if (isServer) then {
 		waitUntil {(currentWaypoint (_wp4 select 0)) > (_wp4 select 1)};		
 		if !(isNil "vWolf_2") then {{deleteVehicle _x} forEach (crew vWolf_2); deleteVehicle vWolf_2; vWolf_2 = nil};		
 	};
-};
-
-[] spawn {
-	waitUntil {time > 21};
-	["<img size= '10' shadow='false' image='Img\wpintro.paa'/><br/><br/><t size='.7' color='#FFFFFF'>Day 08 | Ice Tiger</t>",0,0,3,12] spawn BIS_fnc_dynamicText;
 };
 
 player createDiarySubject ["Wolfpack Log","Wolfpack Log"];

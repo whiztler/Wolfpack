@@ -1,6 +1,3 @@
-_l = ["tLayer"] call BIS_fnc_rscLayer; 
-_l cutText ["", "BLACK IN", 30];
-
 vWolf_takeOff = false;
 vWolf_10Secs = false;
 
@@ -70,12 +67,6 @@ if (isServer) then {
 		waitUntil {(currentWaypoint (_wp4 select 0)) > (_wp4 select 1)};		
 		if !(isNil "vWolf_2") then {{deleteVehicle _x} forEach (crew vWolf_2); deleteVehicle vWolf_2; vWolf_2 = nil};		
 	};
-};
-
-
-[] spawn {
-	waitUntil {time > 21};
-	["<img size= '10' shadow='false' image='Img\wpintro.paa'/><br/><br/><t size='.7' color='#FFFFFF'>Day 06 | Riga Hill</t>",0,0,3,12] spawn BIS_fnc_dynamicText;
 };
 
 player createDiarySubject ["Wolfpack Log","Wolfpack Log"];

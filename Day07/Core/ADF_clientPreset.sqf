@@ -173,7 +173,7 @@ if (ADF_mod_TFAR && ADF_TFAR_preset) then {
 	
 	// Announce to player
 	if (!_ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio tuned in. SW: %3",ADF_clanTAG,name vehicle player,ADF_TFAR_SW_freq]};
-	if (_ADF_TFAR_SW_radio && _ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio's tuned in. SW: %3 | LR: %4",ADF_clanTAG,name vehicle player,ADF_TFAR_SW_freq,ADF_TFAR_LR_freq]};
+	if (_ADF_TFAR_SW_radio && _ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio's tuned in. SW: %3 | LR: %4",ADF_clanTAG,profileName,ADF_TFAR_SW_freq,ADF_TFAR_LR_freq]};
 	ADF_set_radios = true;
 };
 

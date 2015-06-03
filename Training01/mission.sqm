@@ -5,9 +5,7 @@ class Mission
 	{
 		"a3_map_altis",
 		"cba_main",
-		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_INDEP",
-		"A3_Characters_F_Civil",
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f_beta",
 		"A3_Structures_F_Mil_Flags",
@@ -56,7 +54,7 @@ class Mission
 	randomSeed=13927926;
 	class Intel
 	{
-		briefingName="Wolfpack Basic Training";
+		briefingName="CO12 - Wolfpack Basic Training";
 		overviewText="Covertly get to Thronos Castle within the pre-defined time frame";
 		timeOfChanges=16200;
 		startWeather=0.25;

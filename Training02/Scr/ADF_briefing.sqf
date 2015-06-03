@@ -108,9 +108,9 @@ player createDiaryRecord ["Diary",["Wolf Bootcamp Training","
 
 <font color='#9da698' size='14'>SUMMARY</font><br/>
 <font color='#6C7169'>The Wolf bootcamp training consists of three training missions:<br/><br/>
-1. Basic Training (Part of Wolfpack Vol 1)<br/>
-2. Advanced Training (Part of Wolfpack Vol 1)<br/>
-3. Expert Training (Part of Wolfpack Vol 2)<br/><br/>
+1. Basic Training (Part of CO15 - Wolfpack Vol 1)<br/>
+2. Advanced Training (Part of CO15 - Wolfpack Vol 1)<br/>
+3. Expert Training (Part of CO15 - Wolfpack Vol 2)<br/><br/>
 The training missions have specifically been put together to train for Wolfpack missions. The 'Basic Training' and the 'Advanced Training' missions take place in a 6 x 5 Km area. north east Altis. The terrain is ideal for covert operations.<br/>
 With the 'Basic Training' and 'Advanced Training' missions you can train yourself in long range covert travel/patrol. The objective of both missions is to get to the Thronos Castle without being spotted by the various CSAT EI patrols, vehicles, control posts. Even civilians can detect you and they'll report your position to CSAT!<br/><br/>
 The exercise is over once you have been detected by CSAT or when you successfully reach Thronos Castle undetected. The mission will then end automatically.</font>

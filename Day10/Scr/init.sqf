@@ -38,7 +38,8 @@ while {time < 25} do {
 		waitUntil {time > 10};
 		_bc = createGroup EAST;		
 		_v = [getMarkerPos "mNP_1", 0, "O_Boat_Armed_01_hmg_F", _bc] call BIS_fnc_spawnVehicle;
-	};
+		[_bc, getMarkerPos "mNP_1", 1500] call bis_fnc_taskPatrol;
+};
 
 hint parseText"
 	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>

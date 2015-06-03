@@ -122,7 +122,7 @@ class Mission
 	randomSeed=14985924;
 	class Intel
 	{
-		briefingName="Wolfpack Vol-2 / Day 07";
+		briefingName="CO15 - Wolfpack Vol 2 / Day 07";
 		overviewText="Day 07 - U-12";
 		resistanceEast=1;
 		timeOfChanges=5400;
@@ -2966,7 +2966,7 @@ class Mission
 			lock="UNLOCKED";
 			skill=0.80308741;
 			text="vWolf_1";
-			init="null = [this] execVM ""Core\C\ADF_vCargo_WP_CarRecon.sqf"";";
+			init="null = [this] execVM ""Core\C\ADF_vCargo_B_CarRecon.sqf"";";
 		};
 		class Item199
 		{
@@ -2979,7 +2979,7 @@ class Mission
 			lock="UNLOCKED";
 			skill=0.80308741;
 			text="vWolf_2";
-			init="null = [this] execVM ""Core\C\ADF_vCargo_WP_CarRecon.sqf"";";
+			init="null = [this] execVM ""Core\C\ADF_vCargo_B_CarRecon.sqf"";";
 		};
 		class Item200
 		{

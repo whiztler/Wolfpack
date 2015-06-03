@@ -123,7 +123,7 @@ class Mission
 	randomSeed=2441310;
 	class Intel
 	{
-		briefingName="Wolfpack WarmUp";
+		briefingName="CO15 - Wolfpack WarmUp";
 		overviewText="Warmup, Testing &amp; Training";
 		resistanceWest=0;
 		resistanceEast=1;
