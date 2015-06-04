@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.39 / MAY 2015
+ADF version: 1.40 / JUNE 2015
 
 Script: Mission init / Init reporting
 Author: Whiztler
-Script version: 1.04
+Script version: 1.05
 
 Game type: n/a
 File: ADF_init_rpt.sqf
@@ -41,6 +41,8 @@ if (ADF_debug) then {
 	[_ADF_log_compileMsg,false] call ADF_fnc_log;
 	_ADF_log_compileMsg = format ["Init - Number of clients connected: %1", (count ADF_log_pUnits)];
 	[_ADF_log_compileMsg,false] call ADF_fnc_log;
+	_ADF_log_compileMsg = format ["Init - Number of HC's connected: %1", ADF_log_CntHC];
+	[_ADF_log_compileMsg,false] call ADF_fnc_log;	
 	_ADF_log_compileMsg = format ["Init - Number of AI's active: %1", ADF_log_aiUnits];
 	[_ADF_log_compileMsg,false] call ADF_fnc_log;
 	diag_log "--------------------------------------------------------------------------------------";

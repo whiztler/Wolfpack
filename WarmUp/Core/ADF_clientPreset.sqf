@@ -1,6 +1,6 @@
 ﻿/****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.39 / MAY 2015
+ADF version: 1.40 / JUNE 2015
 
 Script: Call Sings & Radio configuration
 Author: Whiztler
@@ -173,7 +173,7 @@ if (ADF_mod_TFAR && ADF_TFAR_preset) then {
 	
 	// Announce to player
 	if (!_ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio tuned in. SW: %3",ADF_clanTAG,name vehicle player,ADF_TFAR_SW_freq]};
-	if (_ADF_TFAR_SW_radio && _ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio's tuned in. SW: %3 | LR: %4",ADF_clanTAG,name vehicle player,ADF_TFAR_SW_freq,ADF_TFAR_LR_freq]};
+	if (_ADF_TFAR_SW_radio && _ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio's tuned in. SW: %3 | LR: %4",ADF_clanTAG,profileName,ADF_TFAR_SW_freq,ADF_TFAR_LR_freq]};
 	ADF_set_radios = true;
 };
 
@@ -269,6 +269,6 @@ player createDiaryRecord ["ADF",["ARMA Mission Development Framework","
 <br/><img shadow='false' image='Core\I\ADF_logo.paa'/><br/><br/>
 <br/><br/>---------------------------------------------------------------
 <br/><br/>ARMA Mission Development Framework<br/>
-ADF version: 1.39 / MAY 2015
+ADF version: 1.40 / JUNE 2015
 <br/><br/>
 "]];

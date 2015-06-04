@@ -1,6 +1,6 @@
 ﻿/****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.39 / MAY 2015
+ADF version: 1.40 / JUNE 2015
 
 Script: Call Sings & Radio configuration
 Author: Whiztler
@@ -269,6 +269,6 @@ player createDiaryRecord ["ADF",["ARMA Mission Development Framework","
 <br/><img shadow='false' image='Core\I\ADF_logo.paa'/><br/><br/>
 <br/><br/>---------------------------------------------------------------
 <br/><br/>ARMA Mission Development Framework<br/>
-ADF version: 1.39 / MAY 2015
+ADF version: 1.40 / JUNE 2015
 <br/><br/>
 "]];
