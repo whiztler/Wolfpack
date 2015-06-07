@@ -1,7 +1,6 @@
 ![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
 
-
-
+<p align="center">### (Visit the website)[http://whiztler.github.io/Wolfpack]</p>
 
 # Index
 
