@@ -1,4 +1,4 @@
-![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
+<p align="center"><img src="https://github.com/whiztler/Wolfpack/raw/master/wolfpack_header_01.png"></p>
 <h4 align="center">[ <a href="http://whiztler.github.io/Wolfpack">Visit the website</a> ]</h4>
 
 # Index
