@@ -28,6 +28,8 @@ while {time < 25} do {
 	if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_3; SOR_AT_1 moveInCargo vWolf_3;};
 };
 
+rvDone = false;
+
 if (!ADF_debug) then {waitUntil {ADF_missionInit}; sleep 5};
 hint parseText"
 	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>

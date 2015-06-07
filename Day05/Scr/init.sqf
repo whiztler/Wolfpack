@@ -1,11 +1,3 @@
-_l = ["tLayer"] call BIS_fnc_rscLayer; 
-_l cutText ["", "BLACK IN", 30];
-
-[] spawn {
-	waitUntil {time > 21};
-	["<img size= '10' shadow='false' image='Img\wpintro.paa'/><br/><br/><t size='.7' color='#FFFFFF'>Day 05 | Bullseye</t>",0,0,3,12] spawn BIS_fnc_dynamicText;
-};
-
 player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
 player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
 <br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>

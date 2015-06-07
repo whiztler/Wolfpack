@@ -131,6 +131,6 @@ _ADF_CleanUp_abaTimer = 6000; // x seconds a vehicle must be unmanned to be dele
 _ADF_zeusEagle = true; // Enable the Zeus Eagle? False removes the eagle [true/false].
 
 /********** ADF DEV BUILD SETTINGS **********/
-_ADF_tpl_version = 1.39; // ADF version DO NOT EDIT
+_ADF_tpl_version = "1.40"; // ADF version DO NOT EDIT
 _ADF_devBuild = "Production"; // [Alpha/Beta/Production] DO NOT EDIT
-_ADF_devBuildNr = "12"; // Build number. DO NOT EDIT
+_ADF_devBuildNr = "04"; // Build number. DO NOT EDIT

@@ -46,7 +46,6 @@ class Mission
 		"A3_Structures_F_Civ_InfoBoards",
 		"A3_Signs_F_AD",
 		"A3_Structures_F_Ind_Transmitter_Tower",
-		"task_force_radio_items",
 		"A3_Modules_F",
 		"cba_main",
 		"A3_Modules_F_Curator_Curator"
@@ -64,7 +63,6 @@ class Mission
 		"A3_Boat_F_Trawler",
 		"A3_Boat_F_Boat_Transport_01",
 		"A3_Boat_F_Civilian_Boat",
-		"task_force_radio_items",
 		"A3_Boat_F_Boat_Armed_01",
 		"A3_Structures_F_Naval_Buoys",
 		"A3_Boat_F_SDV_01",

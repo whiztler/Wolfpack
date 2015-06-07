@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Loadout Gear West
 Author: Whiztler
-Script version: 5.57
+Script version: 5.58
 
 Game type: n/a
 File: ADF_fnc_loadoutWest.sqf
@@ -589,10 +589,10 @@ ADF_fnc_loadoutSor = {
 	// Containers
 	if (_r == "ssc") then {		
 		_ADF_unit forceAddUniform "U_I_G_resistanceLeader_F";
-		_ADF_unit setObjectTextureGlobal [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+		[[_ADF_unit,"\A3\Characters_F\Common\Data\basicbody_black_co.paa"],"BIS_fnc_setObjectTexture",true,true] call BIS_fnc_MP; // setObjectTextureGlobal does not synch 1.44
 	} else {
 		_ADF_unit forceAddUniform _ADF_uniform_sor;
-		_ADF_unit setObjectTextureGlobal [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+		[[_ADF_unit,"\A3\Characters_F\Common\Data\basicbody_black_co.paa"],"BIS_fnc_setObjectTexture",true,true] call BIS_fnc_MP; // setObjectTextureGlobal does not synch 1.44
 	};		
 	if (_r != "uav") then {	
 		if ((_r == "ssc") || (_r == "rtl") || (_r == "rto")) then {	

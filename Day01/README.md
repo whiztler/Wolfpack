@@ -1,7 +1,7 @@
 <p align="center"><img src="https://github.com/whiztler/ADF/raw/master/Core/I/ADF_logo.png" height="240"></p>
 <p align="center">
    <a href="https://github.com/whiztler/ADF/releases">
-        <img src="http://img.shields.io/badge/Version-1.39-blue.svg?style=flat" alt="ADF version">
+        <img src="http://img.shields.io/badge/Version-1.40-blue.svg?style=flat" alt="ADF version">
     </a>
     <a href="https://github.com/whiztler/ADF/archive/master.zip">
         <img src="http://img.shields.io/badge/Download-2.4_MB-green.svg?style=flat" alt="ADF download">
@@ -37,7 +37,7 @@
 
 ## Current version
 
-version: 1.40 | build: Production (B01)
+version: 1.40 | build: Production (04)
 
 <a name="New-Features"></a>
 ## New Features 1.39

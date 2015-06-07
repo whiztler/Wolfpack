@@ -1553,6 +1553,7 @@ class Mission
 			vehicle="O_Truck_03_medical_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item93
 		{
@@ -4438,22 +4439,24 @@ class Mission
 		class Item358
 		{
 			position[]={1766.5551,5.5,5455.7285};
-			azimut=77.302917;
+			azimut=77.302902;
 			special="NONE";
 			id=377;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item359
 		{
 			position[]={1766.3517,5.5,5453.1924};
-			azimut=77.302917;
+			azimut=77.302902;
 			special="NONE";
 			id=378;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item360
 		{
@@ -4468,42 +4471,46 @@ class Mission
 		class Item361
 		{
 			position[]={1766.9498,5.5,5453.9722};
-			azimut=77.302917;
+			azimut=77.302902;
 			special="NONE";
 			id=380;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item362
 		{
 			position[]={1767.213,5.5,5454.8042};
-			azimut=77.302917;
+			azimut=77.302902;
 			special="NONE";
 			id=381;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item363
 		{
 			position[]={1768.0553,5.5,5456.4297};
-			azimut=77.302917;
+			azimut=77.302902;
 			special="NONE";
 			id=382;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item364
 		{
 			position[]={1765.5944,5.5,5455.8843};
-			azimut=-192.52744;
+			azimut=-192.52699;
 			special="NONE";
 			id=383;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item365
 		{
@@ -4519,12 +4526,13 @@ class Mission
 		class Item366
 		{
 			position[]={1764.0193,5.5,5456.2148};
-			azimut=-192.52744;
+			azimut=-192.52699;
 			special="NONE";
 			id=385;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item367
 		{
@@ -4540,22 +4548,24 @@ class Mission
 		class Item368
 		{
 			position[]={1764.6936,5.5,5455.2275};
-			azimut=-192.52744;
+			azimut=-192.52699;
 			special="NONE";
 			id=387;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item369
 		{
 			position[]={1765.0731,5.5,5453.9814};
-			azimut=-192.52744;
+			azimut=-192.52699;
 			special="NONE";
 			id=388;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item370
 		{
@@ -4575,6 +4585,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item372
 		{
@@ -4585,6 +4596,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item373
 		{
@@ -4595,6 +4607,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item374
 		{
@@ -4605,6 +4618,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item375
 		{
@@ -4615,6 +4629,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item376
 		{
@@ -4625,16 +4640,18 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item377
 		{
 			position[]={1770.1112,5.5,5451.5059};
-			azimut=-369.54831;
+			azimut=-369.548;
 			special="NONE";
 			id=396;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item378
 		{
@@ -4679,12 +4696,13 @@ class Mission
 		class Item382
 		{
 			position[]={1778.3873,5.5,5453.1128};
-			azimut=-369.54831;
+			azimut=-369.548;
 			special="NONE";
 			id=401;
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item383
 		{
@@ -5619,6 +5637,7 @@ class Mission
 		{
 			position[]={2333.3921,-41.488583,6835.6875};
 			azimut=270.13599;
+			offsetY=-50;
 			id=493;
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";

@@ -54,7 +54,6 @@ class Mission
 		"A3_Armor_F_T100K",
 		"A3_Structures_F_Civ_Constructions",
 		"A3_Signs_F_AD",
-		"task_force_radio_items",
 		"cba_main",
 		"A3_Modules_F_Curator_Curator"
 	};
@@ -102,7 +101,6 @@ class Mission
 		"A3_Boat_F_Boat_Armed_01",
 		"A3_Boat_F_Trawler",
 		"A3_Boat_F_Civilian_Boat",
-		"task_force_radio_items",
 		"A3_Boat_F_Boat_Transport_01",
 		"A3_Soft_F_SUV",
 		"A3_Soft_F_Truck",

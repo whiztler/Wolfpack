@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Call Sings & Radio configuration
 Author: Whiztler
-Script version: 2.51
+Script version: 2.52
 
 Game type: n/a
 File: ADF_clientPreset.sqf
@@ -21,11 +21,11 @@ ACRE2 = WIP
 
 diag_log "ADF RPT: Init - executing ADF_clientPreset.sqf"; // Reporting. Do NOT edit/remove
 
-if (!hasInterface) exitWith {}; // HC exits
+if (ADF_isHC) exitWith {}; // HC exits script
 
-_ADF_perfDiagStart = diag_tickTime;
 
-// Init
+////  Init
+
 private [
 	"_ADF_ACRE_init",
 	"_ADF_ACRE_fullDuplex",
@@ -45,6 +45,7 @@ private [
 	"_ADF_preset"
 ];
 
+_ADF_perfDiagStart = diag_tickTime;
 _ADF_uGroup = group player;
 _ADF_uGroupID = (groupID (_ADF_uGroup));
 _ADF_preset = _this select 0;
@@ -61,6 +62,34 @@ ADF_roster_uArray = [];
 ADF_roster_uName = "";
 ADF_roster_Intro = "";
 ADF_roster_line = "";
+
+// Load the preset configured in ADF_init_config.sqf	
+If (_ADF_preset == "NOPRYL") then {ADF_presetData = ADF_preset_NOPRYL;};
+If ((_ADF_preset == "SHAPE") || (_ADF_preset == "DEFAULT")) then {ADF_presetData = ADF_preset_DEFAULT;};
+If (_ADF_preset == "CUSTOM") then {ADF_presetData = ADF_preset_CUSTOM;};
+If (_ADF_preset == "WOLFPACK") then {ADF_presetData = ADF_preset_WP;};
+If ((_ADF_preset != "NOPRYL") && (_ADF_preset != "SHAPE") && (_ADF_preset != "DEFAULT") && (_ADF_preset != "CUSTOM") && (_ADF_preset != "WOLFPACK")) then {ADF_presetData = ADF_preset_DEFAULT; if (ADF_debug) then {["PRESETS - No preset defined. Applying DEFAULT preset",false] call ADF_fnc_log};};
+
+ADF_fnc_PresetSetGroupID = { // 1.40B03
+	private ["_g","_cs"];
+	if (!isNil (_this select 0)) then {
+		_g = call compile format ["%1",_this select 0];
+		_cs = _this select 1;
+		_g setGroupId [format ["%1",_cs]];
+	};
+	ADF_set_callSigns = true;
+	true	
+};
+
+// Load all groups (as strings) into an array 
+_ADF_preset_companyGroups = [
+	"gCC", 																													// XO 		- 0
+	"gCO_1",	"gCO_11",	"gCO_11A",	"gCO_11B",	"gCO_12",	"gCO_12A",	"gCO_12B",	"gCO_13",	"gCO_13A",	"gCO_13B", 	// 1 INF PLT 	- 1-10
+	"gCO_2",	"gCO_21A",	"gCO_21B",	"gCO_21C",	"gCO_22A",	"gCO_22B",	"gCO_23A",	"gCO_23B", 							// 2 CAV BAT 	- 11-18
+	"gCO_3",	"gCO_31A",	"gCO_31B",	"gCO_32A",	"gCO_32B",	"gCO_32C",	"gCO_33A",	"gCO_33B", 							// 3 AIR WING	- 19-26
+	"gCO_4",	"gCO_41M",	"gCO_41R",	"gCO_41Y",	"gCO_41Z",	"gCO_42A",	"gCO_42B",	"gCO_43F", 							// 4 SOR SQDR 	- 27-34
+	"gGM1",		"gGM2"																										// GM's 		- 35-36
+];
 
 
 ///// TFAR pre-init
@@ -91,6 +120,7 @@ if (ADF_mod_TFAR) then { // TFAR detected
 	[(call TFAR_fnc_activeLrRadio), 1, "50.0"] call TFAR_fnc_SetChannelFrequency;
 };
 
+
 ///// ACRE2 pre-init
 
 if (ADF_mod_ACRE) then { // ACRE2 detected
@@ -102,39 +132,21 @@ if (ADF_mod_ACRE) then { // ACRE2 detected
 	if (ADF_debug) then {["MOD - ACRE settings initialized",false] call ADF_fnc_log};
 };
 
-///// Apply the call signs and radio freq for each player
 
-// Load all groups (as strings) into an array 
-_ADF_preset_companyGroups = [
-	"gCC", 																													// XO 		- 0
-	"gCO_1",	"gCO_11",	"gCO_11A",	"gCO_11B",	"gCO_12",	"gCO_12A",	"gCO_12B",	"gCO_13",	"gCO_13A",	"gCO_13B", 	// 1 INF PLT 	- 1-10
-	"gCO_2",	"gCO_21A",	"gCO_21B",	"gCO_21C",	"gCO_22A",	"gCO_22B",	"gCO_23A",	"gCO_23B", 							// 2 CAV BAT 	- 11-18
-	"gCO_3",	"gCO_31A",	"gCO_31B",	"gCO_32A",	"gCO_32B",	"gCO_32C",	"gCO_33A",	"gCO_33B", 							// 3 AIR WING	- 19-26
-	"gCO_4",	"gCO_41M",	"gCO_41R",	"gCO_41Y",	"gCO_41Z",	"gCO_42A",	"gCO_42B",	"gCO_43F", 							// 4 SOR SQDR 	- 27-34
-	"gGM1",		"gGM2"																										// GM's 		- 35-36
-];
+///// Apply Call Sign and get Freq data
 
-// Load the preset configured in ADF_init_config.sqf	
-If (_ADF_preset == "NOPRYL") then {ADF_presetData = ADF_preset_NOPRYL;};
-If ((_ADF_preset == "SHAPE") || (_ADF_preset == "DEFAULT")) then {ADF_presetData = ADF_preset_DEFAULT;};
-If (_ADF_preset == "CUSTOM") then {ADF_presetData = ADF_preset_CUSTOM;};
-If (_ADF_preset == "WOLFPACK") then {ADF_presetData = ADF_preset_WP;};
-// In case of an undefined preset or a typo, load the Default preset
-If ((_ADF_preset != "NOPRYL") && (_ADF_preset != "SHAPE") && (_ADF_preset != "DEFAULT") && (_ADF_preset != "CUSTOM") && (_ADF_preset != "WOLFPACK")) then {
-	ADF_presetData = ADF_preset_DEFAULT;
-	if (ADF_debug) then {["PRESETS - No preset defined. Applying DEFAULT preset",false] call ADF_fnc_log};
-};
-
-// Clan preset has loaded, lets find the units group in the preset and retrieve the Call sign and freq data
+// Find the players group in the '_ADF_preset_companyGroups' array
 _i = _ADF_preset_companyGroups find _ADF_uGroupID;
 if (_i == -1) exitwith {["PRESETS - ERROR! Unknown group or unit. Roster NOT created. Call sign NOT applied. Please use ADF units only!",true] call ADF_fnc_log};
 _ADF_uPreset	= ADF_presetData select _i;
 
-// Apply the call sign and freq data
-_ADF_uGroup setGroupId [_ADF_uPreset select 0];
+// Apply call signs across the board
+{_x call ADF_fnc_PresetSetGroupID} forEach ADF_presetData;
+if (ADF_debug) then {["PRESETS - Preset call signs applied",false] call ADF_fnc_log};
+
 if (ADF_mod_TFAR) then {
-	ADF_TFAR_LR_freq = _ADF_uPreset select 1;
-	ADF_TFAR_SW_freq = _ADF_uPreset select 2;
+	ADF_TFAR_LR_freq = _ADF_uPreset select 2; // 1.40B03
+	ADF_TFAR_SW_freq = _ADF_uPreset select 3; // 1.40B03
 };
 
 // Re-initialize cTAB (if activated) WIP
@@ -153,11 +165,6 @@ if (ADF_mod_ACE3) then {
 	[ace_map_fnc_blueForceTrackingUpdate, 1, []] call CBA_fnc_addPerFrameHandler;	
 	if (ADF_debug) then {["PRESETS - ACE3 BluForce Tracking initialized",false] call ADF_fnc_log};
 };
-
-// Reapply for roster inclusion and announce
-[[_ADF_uGroup,[_ADF_uPreset select 0]],'setGroupID',true,true] call BIS_FNC_MP;
-ADF_set_callSigns = true; publicVariable "ADF_set_callSigns";
-if (ADF_debug) then {["PRESETS - Preset call signs applied",false] call ADF_fnc_log};
 
 ///// Apply the Radio Frequencies
 
@@ -188,9 +195,8 @@ if (ADF_mod_ACRE && ADF_ACRE_preset) then {
 if !(ADF_mod_ACRE && ADF_mod_TFAR) then {ADF_set_radios = true;};
 
 ///// Create the roster
-
 if (isDedicated) exitWith {}; // clients only
-waitUntil {ADF_set_callSigns}; // wait until a call sign has been been applied
+//waitUntil {ADF_set_callSigns}; // wait until a call sign has been been applied
 
 // Create the Roster Subject
 player createDiarySubject ["Deployment Roster",ADF_clanName + " Roster"];
@@ -252,8 +258,8 @@ if (ADF_debug) then {["INIT - Roster generated",false] call ADF_fnc_log};
 waitUntil {ADF_set_callSigns && ADF_set_roster && ADF_set_radios};
 // Everything is set, lets destroy the variables, we don't need them anymore
 ADF_roster_uArray = nil; ADF_roster_uName = nil;
-ADF_roster_Intro = nil; ADF_roster_line = nil; ADF_roster_userGroup = nil;
-ADF_preset_NOPRYL = nil; ADF_preset_DEFAULT = nil; ADF_preset_CUSTOM = nil; ADF_preset_WP = nil; // dump Call sign arrays
+ADF_roster_Intro = nil; ADF_roster_line = nil; ADF_roster_userGroup = nil; ADF_fnc_PresetSetGroupID = nil; // v1.40B03
+ADF_preset_NOPRYL = nil; ADF_preset_DEFAULT = nil; ADF_preset_CUSTOM = nil; ADF_preset_WP = nil; ADF_presetData = nil; // dump Call sign arrays
 
 _ADF_perfDiagStop = diag_tickTime;
 if (ADF_debug) then {

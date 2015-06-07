@@ -1,4 +1,4 @@
-/****************************************************************
+﻿/****************************************************************
 ARMA Mission Development Framework
 ADF version: 1.40 / JUNE 2015
 
@@ -31,8 +31,8 @@ respawnTemplatesWest[] = {"Seagull", "f_spectator"};
 
 /**********  Loading Screen **********/
 author = "Whiztler";
-overviewText = "Wolfpack Vol. 1 / Day 02 - v1.60";
 onLoadName = "Kajman Fire";
+overviewText = "Wolfpack Vol. 1 / Day 02 - v1.60";
 onLoadMission = "Day 02 - Kajman Fire";
 onLoadIntroTime = false;
 onLoadMissionTime = false;

@@ -1,7 +1,20 @@
-![ADF - Arma Mission Development Framework](Core/I/ADF_logo.png)
-================================================================
+<p align="center"><img src="https://github.com/whiztler/ADF/raw/master/Core/I/ADF_logo.png" height="240"></p>
+<p align="center">
+   <a href="https://github.com/whiztler/ADF/releases">
+        <img src="http://img.shields.io/badge/Version-1.40-blue.svg?style=flat" alt="ADF version">
+    </a>
+    <a href="https://github.com/whiztler/ADF/archive/master.zip">
+        <img src="http://img.shields.io/badge/Download-2.4_MB-green.svg?style=flat" alt="ADF download">
+    </a>
+    <a href="https://www.bistudio.com/community/licenses/arma-public-license">
+        <img src="http://img.shields.io/badge/License-APL-red.svg?style=flat"
+             alt="ARMA Public license">
+    </a>
+</p>
 
-### Index
+
+
+## Index
 
 -   [New Features](#New-Features)
 -   [Changelog](#Changelog)
@@ -22,9 +35,10 @@
 -   [Advanced Editing](#AdvancedEditing)
 -   [Legal](#Legal)
 
-### Current version
+## Current version
 
-version: 1.39 | build: Production (B13)
+version: 1.40 | build: Production (04)
+
 <a name="New-Features"></a>
 ## New Features 1.39
 
@@ -37,10 +51,11 @@ ADF 1.39 is a major change release that comprises of script optimization and new
 -   **Extended Loadout options** - Predefined (ADF) loadout, Vanilla + ACE/CTAB/TFAR/ACRE loadout, No Loadout (for third party loadout mods)
 
 Due to the many changes 1.39 is **not compatible** with missions made with previous ADF versions.
-<a name="Changelog"></a>
-### Changelog
 
-#### 1.38 - 1.39
+<a name="Changelog"></a>
+## Changelog
+
+### 1.38 - 1.39
 ```
 -   ADDED: [Preliminary GitHub support](https://github.com/whiztler/ADF/tree/master)
 -   ADDED: Debug function: OpFor Detection
@@ -131,10 +146,12 @@ The ADF template mission is a starting point for rapid mission creating. The tem
 The units have specific names that **cannot** be changed else the framework cannot perform loadout / radio / call sign configuration. You **can** change however the unit 'Description'. All units get their loadout as defined (by the mission maker) in the ADF_init_config.sqf ([see below](#ADF_init_config.sqf)).
 
 Note that the template mission also features vehicles. The vehicles are named so that you know which vehicle belongs to which group/unit. All vehicles are supplied with kit according to the role of the group they belong to. Same goes for the various crates.
+
 <a name="ConfiguringYourMission"></a>
 ## Configuring your mission
 
 Start with opening the ADF template mission in the mission editor. Please note that if you save it with a new name that you should copy the script/template files from the ADF folder to your mission folder.
+
 <a name="descriptionext"></a>
 ### description.ext
 
@@ -150,10 +167,12 @@ With Notepad++ open description.ext which can be found in the mission root folde
 8.  `loadScreen = "img\mission_intro_ADF.paa";` Change This is the mission intro picture that is show while the mission is loading. SHAPE/Nopryl/etc. pictures can be found in the /Img folder. E.g. loadScreen = "**img\mission_intro_Nopryl.paa**"; You can create your own mission intro image to give your mission some extra sauce.
 9.  `onLoadIntro = "Powered by ADF";` Change into some additional information you might want your players to know about. (free text without formatting)
 10. Save and close.
+
 <a name="MissionConfiguration"></a>
 ### ADF_init_config.sqf
 
 With Notepad++ open ADF_init_config.sqf which can be found in the mission root folder. This is your main mission configuration. Basically everything, from loadout to radio/call sign presets can be configured here. **If you are not sure if you need to change a value then best leave it as is**. Make sure to test your mission in between changes, else you might loose track of your mission development process.
+
 <a name="General"></a>
 #### General
 
@@ -171,6 +190,7 @@ With Notepad++ open ADF_init_config.sqf which can be found in the mission root f
 12. `_ADF_MissionIntroImage = "img\mission_cover_ADF.paa";` Change to your own image that is displayed after the mission initialization (in-game). E.g. _ADF_MissionIntroImage = "img\mission_cover_**nopryl**.paa. Preset images can be found in the '\Img' folder.
 13. `ADF_Clan_uniformInsignia = true;` Change to **true** or **false**. The clan insignia can be configured in the missionConfig.hpp (mission root folder) file. Default is Nopryl.
 14. `_ADF_preset = "Default";` Change to either **Default** or **Nopryl** or **SHAPE** or **Wolfpack** or **Custom**. The preset file represents clan call signs and preconfigured radio frequencies. The preset file can be found here: 'Core\F\ADF_fnc_presets.sqf'. If you wish to create your own preset than edit the **custom** preset and select _ADF_preset = "Custom";
+
 <a name="GearAndLoadout"></a>
 #### Gear & Loadout
 
@@ -206,13 +226,15 @@ With Notepad++ open ADF_init_config.sqf which can be found in the mission root f
 30. `_ADF_ACRE_fullDuplex = true;` Change to **true** or **false**. Sets the duplex of radio transmissions. If set to **true**, it means that you will receive transmissions even while talking and multiple people can speak at the same time.
 31. `_ADF_ACRE_interference = true;` Change to **true** or **false**. Sets whether transmissions will interfere with each other. This, by default, causes signal loss when multiple people are transmitting on the same frequency..
 32. `_ADF_ACRE_AIcanHear = true;` Change to **true** or **false**. Sets whether AI can detect players speaking.
-33. `ADF_ACRE_preset = false;` Change to **true** or **false**. When set to true, the mission will use ACRE2 radio frequencies as defined in the **ADF_preset** ('Core\F\ADF_fnc_presets.sqf'). If set to false than all radio's will use a flatnet for SW and one for LR. Please note that ACRE2 is WIP
+33. `ADF_ACRE_preset = false;` Change to **true** or **false**. When set to true, the mission will use ACRE2 radio frequencies as defined in the **ADF_preset** ('Core\F\ADF_fnc_presets.sqf'). If set to false than all radio's will use a flatnet for SW and one for LR. Please note that ACRE2 is WIP.
+
 <a name="MissionBalancing"></a>
 #### Mission Balancing
 
 1.  `_ADF_misBal = false;` Change to **true** or **false**. Load balancing (number of AI's vs number of players). For scripted missions only! See 'Core\F\ADF_fnc_missionBalancer.sqf' for more information.
 2.  `_ADF_misBal_low = 10;` Change to the number of players that represent a **low** number for the mission balancer. For scripted missions only! See 'Core\F\ADF_fnc_missionBalancer.sqf' for more information.
 3.  `_ADF_misBal_high = 30;` Change to the number of players that represent a **high** number for the mission balancer. For scripted missions only! See 'Core\F\ADF_fnc_missionBalancer.sqf' for more information.
+
 <a name="UnitAndVehicleCaching"></a>
 #### Unit & Vehicle Caching
 
@@ -222,6 +244,7 @@ With Notepad++ open ADF_init_config.sqf which can be found in the mission root f
 4.  `_ADF_Caching_vehicleDistance_air = 1500;` Change to the distance from players that AI air vehicles will be cached.
 5.  `_ADF_Caching_vehicleDistance_sea = 2000;` Change to the distance from players that AI sea vehicles will be cached.
 6.  `_ADF_Caching_debugInfo = false;` Change to **true** or **false**. Set to true to log (screen and RPT) caching information.
+
 <a name="ViewDistance"></a>
 #### View Distance
 
@@ -236,6 +259,7 @@ With Notepad++ open ADF_init_config.sqf which can be found in the mission root f
 1.  `ADF_FARP_repairTime = 180;` Change to the **maximum** time in seconds it takes to repair a vehicle at the FARP.
 2.  `ADF_FARP_reloadTime = 10;` Change to the **maximum** time in seconds it takes to re-arm each turret magazine at the FARP.
 3.  `ADF_FARP_refuelTime = 90;` Change to the **maximum** time in seconds it takes to refuel a vehicle at the FARP.
+
 <a name="respawnMHQ"></a>
 #### Respawn / Mobile HQ (Mobile Respawn FOB)
 
@@ -248,6 +272,7 @@ With Notepad++ open ADF_init_config.sqf which can be found in the mission root f
 7.  `_ADF_mhq_respawn_class = "B_APC_Tracked_01_CRV_F";` Change to MHQ vehicle classname (default is the 'Bobcat'). Any vehicle can be used. If you wish to change, classnames can be found [here](https://community.bistudio.com/wiki/Arma_3_CfgVehicles_WEST)
 8.  `_ADF_mhq_deploy_time = 120;` Change to the time in **seconds** it takes to deploy the MHQ (unpack the FOB). Setting this to a few minutes will add some immersion.
 9.  `_ADF_mhq_packup_time = 180;` Change to the time in **seconds** it takes to mobilize the MHQ (pack-up the FOB). Setting this to a few minutes will add some immersion.
+
 <a name="Misc3rdMods"></a>
 #### Misc third party mods and scripts
 
