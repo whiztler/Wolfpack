@@ -1,6 +1,6 @@
 ![Wolfpack Vol 1 & 2](wolfpack_header_01.png)
 
-<p align="center">### (Visit the website)[http://whiztler.github.io/Wolfpack]</p>
+<p align="center"><h4>[ <a href="http://whiztler.github.io/Wolfpack">Visit the website</a> ]</h4></p>
 
 # Index
 
