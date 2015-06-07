@@ -6,7 +6,7 @@
 |-------------:|--------------|
 | Version | 1.60 |
 | Release date | xx June 2015 |
-| ADF | 1.39 |
+| ADF | 1.40 |
 | ARMA III | 1.46 |
 
 ## DESCRIPTION
