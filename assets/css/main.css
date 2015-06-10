@@ -2927,3 +2927,9 @@ ul.actions.small li:first-child {
 	padding: 2.5em 1em 3em 1em;
 }
 }
+
+#banner p.wp_version strong{
+	color: #FF9;
+	font-weight: bold;
+}
+	
