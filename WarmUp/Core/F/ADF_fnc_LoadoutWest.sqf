@@ -588,11 +588,9 @@ ADF_fnc_loadoutSor = {
 	removeUniform _ADF_unit;
 	// Containers
 	if (_r == "ssc") then {		
-		_ADF_unit forceAddUniform "U_I_G_resistanceLeader_F";
-		[[_ADF_unit,"\A3\Characters_F\Common\Data\basicbody_black_co.paa"],"BIS_fnc_setObjectTexture",true,true] call BIS_fnc_MP; // setObjectTextureGlobal does not synch 1.44
+		_ADF_unit forceAddUniform "U_I_G_resistanceLeader_F";		
 	} else {
-		_ADF_unit forceAddUniform _ADF_uniform_sor;
-		[[_ADF_unit,"\A3\Characters_F\Common\Data\basicbody_black_co.paa"],"BIS_fnc_setObjectTexture",true,true] call BIS_fnc_MP; // setObjectTextureGlobal does not synch 1.44
+		_ADF_unit forceAddUniform _ADF_uniform_sor;		
 	};		
 	if (_r != "uav") then {	
 		if ((_r == "ssc") || (_r == "rtl") || (_r == "rto")) then {	
