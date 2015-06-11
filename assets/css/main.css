@@ -2411,6 +2411,12 @@ body.landing #main {
 	transition: opacity 0.2s ease-in-out;
 	opacity: 0.35;
 }
+
+#footer .PWS_banner a {
+	text-decoration:none;
+	border:0;
+}
+
 #footer .icons a:hover {
 	opacity: 0.75;
 }
