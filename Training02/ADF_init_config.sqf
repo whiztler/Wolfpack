@@ -14,7 +14,7 @@ modules and scripts.
 ****************************************************************/
 
 /********** GENERAL **********/
-_ADF_mission_version = 1.60; // Mission version
+_ADF_mission_version = 1.61; // Mission version
 _ADF_mission_init_time = 20; // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.
 _ADF_HC_init = true; // Enable the Headless Client [true/false].
 _ADF_HCLB_enable = false; // Enable load balancing across multiple HC's (max 3)

@@ -19,7 +19,9 @@ diag_log "ADF RPT: Init - executing initServer.sqf"; // Reporting. Do NOT edit/r
 diag_log text ""; diag_log text ""; diag_log text ""; 
 diag_log text format["####################   %1   ####################", missionName]; // stamp mission name in RPT log
 diag_log text "";
-	
+
+waitUntil {time > 0}; // V1.40B04
+enableEnvironment FALSE; // V1.40B04	
 //  Execute Core Third Party SERVER scripts: (comment out if not applicable)
 
 	

@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Loadout Client
 Author: Whiztler
-Script version: 5.42
+Script version: 5.51
 
 Game type: n/a
 File: ADF_clientLoadout.sqf
@@ -16,9 +16,9 @@ diag_log "ADF RPT: Init - executing ADF_clientLoadout.sqf"; // Reporting. Do NOT
 
 _ADF_perfDiagStart = diag_tickTime;
 if (ADF_debug) then {["LOADOUT - Loadout Client started",false] call ADF_fnc_log};
-If (IsDedicated || !(local player) || !hasInterface) exitWith {}; // 5.4
+If (IsDedicated || !(local player) || ADF_isHC) exitWith {}; // 5.43
 private ["_ADF_noLoadout"];
-_ADF_noLoadout = _this select 15;
+_ADF_noLoadout = [_this, 15, false, [true,false]] call BIS_fnc_param;
 if (_ADF_noLoadout) exitWith {if (ADF_debug) then {["Loadout - noLoadout option selected. Exiting loadout client.",false] call ADF_fnc_log;} else {diag_log "ADF RPT: Loadout - noLoadout option selected. Exiting loadout client.";};};
 
 //Init vars
@@ -29,27 +29,26 @@ private [
 	"_ADF_unitFaction","_ADF_inf_headgear","_ADF_unit","_ADF_unitCheck","_ADF_unitString","_u","_p","_r"
 ];
 
-_ADF_customLoadout_MOD = _this select 0;
+_ADF_customLoadout_MOD = [_this, 0, false, [true,false]] call BIS_fnc_param;
 _ADF_uniform_inf = _this select 1;
 _ADF_uniform_sor = _this select 2;
-_ADF_NVGoggles = _this select 3;
-_ADF_GPS = _this select 4;
-_ADF_INF_assault_weapon = _this select 5;
-_ADF_INF_LMG_weapon = _this select 6;
-_ADF_INF_hand_weapon = _this select 7;
-_ADF_INF_scopes = _this select 8;
-_ADF_SOR_assault_weapon = _this select 9;
-_ADF_SOR_hand_weapon = _this select 10;	
-_ADF_CAV_assault_weapon = _this select 11;
-_ADF_TFAR_PersonalRadio = _this select 12;
-_ADF_TFAR_SWRadio = _this select 13;
-_ADF_TFAR_LRRadio = _this select 14;
-_ADF_noLoadout = _this select 15;
-_ADF_TFAR_LRRadioSOR = _this select 16;
-_ADF_ACE3_microDAGR_all = _this select 17;
-_ADF_ACE3_microDAGR_leaders = _this select 18;
-_ADF_cTAB_microDAGR_all = _this select 19;
-_ADF_cTAB_microDAGR_leaders = _this select 20;
+_ADF_NVGoggles = [_this, 3, true, [true,false]] call BIS_fnc_param;
+_ADF_GPS = [_this, 4, false, [true,false]] call BIS_fnc_param;
+_ADF_INF_assault_weapon = [_this, 5, 1, [1,2]] call BIS_fnc_param;
+_ADF_INF_LMG_weapon = [_this, 6, 1, [1,2]] call BIS_fnc_param;
+_ADF_INF_hand_weapon = [_this, 7, 1, [1,2]] call BIS_fnc_param;
+_ADF_INF_scopes = [_this, 8, false, [true,false]] call BIS_fnc_param;
+_ADF_SOR_assault_weapon = [_this, 9, 1, [1,2,3]] call BIS_fnc_param;
+_ADF_SOR_hand_weapon = [_this, 10, 1, [1,2]] call BIS_fnc_param;
+_ADF_CAV_assault_weapon = [_this, 11, 1, [1,2]] call BIS_fnc_param;
+_ADF_TFAR_PersonalRadio = [_this, 12, "tf_rf7800str", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
+_ADF_TFAR_SWRadio = [_this, 13, "tf_anprc152", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
+_ADF_TFAR_LRRadio = [_this, 14, "tf_rt1523g_big", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
+_ADF_TFAR_LRRadioSOR = [_this, 14, "tf_rt1523g_black", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
+_ADF_ACE3_microDAGR_all = [_this, 17, false, [true,false]] call BIS_fnc_param;
+_ADF_ACE3_microDAGR_leaders = [_this, 18, false, [true,false]] call BIS_fnc_param;
+_ADF_cTAB_microDAGR_all = [_this, 19, false, [true,false]] call BIS_fnc_param;
+_ADF_cTAB_microDAGR_leaders = [_this, 20, false, [true,false]] call BIS_fnc_param;
 
 tf_no_auto_long_range_radio = true;
 ADF_SOR_MK20 = false;
@@ -101,7 +100,29 @@ if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFO
 		ADF_microDAGR = "ACE_microDAGR";
 		if (_ADF_ACE3_microDAGR_all) then {ADF_microDAGR_all = 1} else {ADF_microDAGR_all = 2};
 	};
-				
+	
+	// SOR uniform texture update
+	if (_s == "sor") then {
+		[_ADF_unit] spawn {
+			ADF_sorUnits = [];		
+			// Check if the SOR groups are populated/exist and add to ADF_sorUnits array
+			if !(isNil "gCO_4") then {ADF_sorUnits append gCO_4};
+			if !(isNil "gCO_41M") then {ADF_sorUnits append gCO_41M};
+			if !(isNil "gCO_41R") then {ADF_sorUnits append gCO_41R};
+			if !(isNil "gCO_41Y") then {ADF_sorUnits append gCO_41Y};
+			if !(isNil "gCO_41Z") then {ADF_sorUnits append gCO_41Z};			
+		
+			waitUntil {time > 10};
+			
+			player setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+			{
+				{			
+					_x setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+				} forEach units _x;
+			} forEach ADF_sorUnits;
+		};
+	};
+	
 	// Load the appropriate Squad/Role gear											
 	if (_s == "inf") exitWith {[_s,_r] call ADF_fnc_loudoutInf}; // Infantry Platoon
 	if (_s == "cav") exitWith {[_s,_r] call ADF_fnc_loadoutCav}; // Cavalry Battery

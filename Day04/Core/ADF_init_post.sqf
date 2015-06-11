@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Mission initialization countdown timer
 Author: Whiztler
-Script version: 1.44
+Script version: 1.46
 
 Game type: n/a
 File: ADF_init_post.sqf
@@ -52,17 +52,16 @@ if (isServer) then {
 	_m setMarkerType "mil_box";
 	_m setMarkerColor "ColorWhite";
 	_m setMarkerDir 0;
-	_m setMarkerText ADF_mapMrkText;	
+	_m setMarkerText ADF_mapMrkText;
+	
+	if ({side _x == EAST} count allUnits == 0) then {createCenter EAST;};
+	if ({side _x == west} count allUnits == 0) then {createCenter WEST;};
+	if ({side _x == RESISTANCE} count allUnits == 0) then {createCenter RESISTANCE;};
+	if ({side _x == CIVILIAN} count allUnits == 0) then {createCenter CIVILIAN;};
 };
 
 if (time > 300) exitWith {ADF_missionInit = true;};
-
-if ({side _x == EAST} count allUnits == 0) then {createCenter EAST;};
-if ({side _x == west} count allUnits == 0) then {createCenter WEST;};
-if ({side _x == RESISTANCE} count allUnits == 0) then {createCenter RESISTANCE;};
-if ({side _x == CIVILIAN} count allUnits == 0) then {createCenter CIVILIAN;};
-
-If (isDedicated || !hasInterface) exitWith {ADF_missionInit = true;};
+If (isDedicated || ADF_isHC) exitWith {ADF_missionInit = true;};
 if (ADF_debug) exitWith {ADF_missionInit = true; publicVariable "ADF_missionInit";["INIT - debug mode detected, skipping mission init timer",false] call ADF_fnc_log;};
 if (!isServer && (local player)) then {_ADF_unit enableSimulation false;};
 
@@ -77,7 +76,7 @@ while {(_cnt != 100)} do {
 	ADF_initMsg = format ["
 		<br/>
 		<t align='left' size='1.1' color='#A1A4AD'>Mission Initializing: </t>
-		<t size='1.1' align='left' color='#F7D358'>%1&#0037;</t><t size='1.1' align='left' color='#A1A4AD'> done</t><br/><br/>
+		<t size='1.1' align='left' color='#F7D358' font='PuristaBold'>%1&#0037;</t><t size='1.1' align='left' color='#A1A4AD'> done</t><br/><br/>
 		<t align='left' color='#A1A4AD'>- Refrain from moving!</t><br/>
 		<t align='left' color='#A1A4AD'>- Do not use your radio!</t><br/>
 		<t align='left' color='#A1A4AD'>- Follow TL orders</t><br/>
