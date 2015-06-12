@@ -106,11 +106,11 @@ if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFO
 		[_ADF_unit] spawn {
 			ADF_sorUnits = [];		
 			// Check if the SOR groups are populated/exist and add to ADF_sorUnits array
-			if !(isNil "gCO_4") then {ADF_sorUnits append gCO_4};
-			if !(isNil "gCO_41M") then {ADF_sorUnits append gCO_41M};
-			if !(isNil "gCO_41R") then {ADF_sorUnits append gCO_41R};
-			if !(isNil "gCO_41Y") then {ADF_sorUnits append gCO_41Y};
-			if !(isNil "gCO_41Z") then {ADF_sorUnits append gCO_41Z};			
+			if !(isNil "gCO_4") then {ADF_sorUnits pushBack gCO_4};
+			if !(isNil "gCO_41M") then {ADF_sorUnits pushBack gCO_41M};
+			if !(isNil "gCO_41R") then {ADF_sorUnits pushBack gCO_41R};
+			if !(isNil "gCO_41Y") then {ADF_sorUnits pushBack gCO_41Y};
+			if !(isNil "gCO_41Z") then {ADF_sorUnits pushBack gCO_41Z};			
 		
 			waitUntil {time > 10};
 			

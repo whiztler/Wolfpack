@@ -53,7 +53,7 @@ if !(isNil "GM_1") then {
 		GM_1 addItemToUniform "ACE_EarPlugs";
 	};
 	if (ADF_mod_CTAB) then {GM_1 addItemToBackpack "ItemAndroid"};
-	GM_1 linkItem "ItemGPS"
+	GM_1 linkItem "ItemGPS";
 	if (ADF_debug) then {["ZEUS: GM-1 active",false] call ADF_fnc_log};
 };
 
@@ -73,7 +73,7 @@ if !(isNil "GM_2") then {
 		GM_2 addItemToUniform "ACE_EarPlugs";
 	};
 	if (ADF_mod_CTAB) then {GM_2 addItemToBackpack "ItemAndroid"};
-	GM_2 linkItem "ItemGPS"
+	GM_2 linkItem "ItemGPS";
 	if (ADF_debug) then {["ZEUS: GM-2 active",false] call ADF_fnc_log};
 };
 

@@ -26,7 +26,8 @@ class Mission
 		"A3_Modules_F_Effects",
 		"A3_Modules_F_Curator_Curator",
 		"A3_Modules_F",
-		"a3_static_f"
+		"a3_static_f",
+		"A3_Structures_F_Civ_InfoBoards"
 	};
 	addOnsAuto[]=
 	{
@@ -49,6 +50,7 @@ class Mission
 		"A3_Soft_F_Quadbike",
 		"A3_armor_f_beta_APC_Tracked_02",
 		"A3_Structures_F_Ind_Cargo",
+		"A3_Structures_F_Civ_InfoBoards",
 		"a3_map_altis"
 	};
 	randomSeed=13927926;
@@ -105,7 +107,7 @@ class Mission
 					skill=0.5;
 					text="RTL_1";
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-1 RTL";
+					description="WOLF 1-1 [RTL]";
 				};
 				class Item1
 				{
@@ -117,7 +119,7 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-5 RS";
+					description="WOLF 1-5 [Operator]";
 				};
 				class Item2
 				{
@@ -129,7 +131,7 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-4 RS";
+					description="WOLF 1-4 [Operator]";
 				};
 				class Item3
 				{
@@ -142,7 +144,7 @@ class Mission
 					rank="CORPORAL";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-3 RS";
+					description="WOLF 1-3 [Operator]";
 				};
 				class Item4
 				{
@@ -155,7 +157,7 @@ class Mission
 					rank="SERGEANT";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-2 RS";
+					description="WOLF 1-2 [Operator]";
 				};
 			};
 		};
@@ -178,7 +180,7 @@ class Mission
 					skill=0.5;
 					text="RTL_2";
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-1 RTL";
+					description="WOLF 2-1 [RTL]";
 				};
 				class Item1
 				{
@@ -191,7 +193,7 @@ class Mission
 					rank="CORPORAL";
 					skill=0.44999999;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-3 RS";
+					description="WOLF 2-3 [Operator]";
 				};
 				class Item2
 				{
@@ -204,7 +206,7 @@ class Mission
 					rank="SERGEANT";
 					skill=0.40000001;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-2 RS";
+					description="WOLF 2-2 [Operator]";
 				};
 				class Item3
 				{
@@ -216,7 +218,7 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-5 RS";
+					description="WOLF 2-5 [Operator]";
 				};
 				class Item4
 				{
@@ -228,7 +230,7 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-4 RS";
+					description="WOLF 2-4 [Operator]";
 				};
 			};
 		};
@@ -469,7 +471,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=66;
+		items=67;
 		class Item0
 		{
 			position[]={8403.7646,179.79189,18262.596};
@@ -1145,6 +1147,18 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_4";
+		};
+		class Item66
+		{
+			position[]={8408.0244,180.07248,18251.225};
+			azimut=160;
+			offsetY=-0.5;
+			id=85;
+			side="EMPTY";
+			vehicle="Land_Billboard_F";
+			leader=1;
+			skill=0.60000002;
+			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\training_bb_basic.paa""]; this setPos [getPos this select 0, getPos this select 1, -.8]; this setVectorup [0,0,0.1]; ";
 		};
 	};
 	class Markers

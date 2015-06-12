@@ -69,7 +69,7 @@ if (spDetected) exitWith {};
 sleep 2;
 
 if (isServer) then {
-	_del = [timerGate_1,timerGate_2,timerGate_3,timerGate_4,timerGate_5,timerGate_6,timerGate_7,timerGate_8,timerGate_9,timerGate_10,timerGate_11,timerGate_12];
+	_del = [timerGate_1,timerGate_2,timerGate_3,timerGate_4,timerGate_5,timerGate_6,timerGate_7,timerGate_8,timerGate_9,timerGate_10,timerGate_11,timerGate_12,wp_sign];
 	{deleteVehicle _x} forEach _del;
 };
 
