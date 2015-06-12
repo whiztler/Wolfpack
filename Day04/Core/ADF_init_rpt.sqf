@@ -31,6 +31,7 @@ if (ADF_mod_AIA) then {ADF_log_rptMods = ADF_log_rptMods + ", AiATP";};
 if (ADF_mod_Ares) then {ADF_log_rptMods = ADF_log_rptMods + ", Ares";};
 if (ADF_mod_CSAT) then {ADF_log_rptMods = ADF_log_rptMods + ", TEC CSAT";};
 if (ADF_mod_RHS) then {ADF_log_rptMods = ADF_log_rptMods + ", RHS";};
+publicVariable "ADF_log_CntHC";
 
 // Init reporting
 if (ADF_debug) then {

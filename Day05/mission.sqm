@@ -789,7 +789,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AD_2";
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="Wolf 2-2 [Assault Specialist]";
+					description="Wolf 2-2 [Operator]";
 				};
 				class Item2
 				{
@@ -804,7 +804,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AD_3";
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="Wolf 2-3 [Assault Specialist]";
+					description="Wolf 2-3 [Operator]";
 				};
 				class Item3
 				{
@@ -819,7 +819,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AD_4";
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="Wolf 2-4 [Assault Specialist]";
+					description="Wolf 2-4 [Operator]";
 				};
 				class Item4
 				{
@@ -873,7 +873,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AD_5";
 					init="gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
-					description="Wolf 3-2 [Assault Specialist]";
+					description="Wolf 3-2 [Operator]";
 				};
 				class Item2
 				{
@@ -888,7 +888,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AD_6";
 					init="gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
-					description="Wolf 3-3 [Assault Specialist]";
+					description="Wolf 3-3 [Operator]";
 				};
 				class Item3
 				{
@@ -903,7 +903,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AD_7";
 					init="gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
-					description="Wolf 3-4 [Assault Specialist]";
+					description="Wolf 3-4 [Operator]";
 				};
 				class Item4
 				{
@@ -918,7 +918,7 @@ class Mission
 					skill=0.80308741;
 					text="SOD_AT_1";
 					init="gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
-					description="Wolf 3-5 [AT Assault Specialist]";
+					description="Wolf 3-5 [AT Specialist]";
 				};
 			};
 		};

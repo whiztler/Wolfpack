@@ -31,7 +31,7 @@ respawnTemplatesWest[] = {"Seagull", "f_spectator"};
 
 /**********  Loading Screen **********/
 author = "Whiztler";
-overviewText = "Wolfpack Expert Training - v1.60";
+overviewText = "Wolfpack Expert Training - v1.61";
 onLoadName = "Expert Training";
 onLoadMission = "Wolfpack Expert Training. Complete all tasks within the pre-defined time frame.";
 onLoadIntroTime = false;

@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Mission init / Variables init
 Author: Whiztler
-Script version: 1.14
+Script version: 1.15
 
 Game type: n/a
 File: ADF_init_pre.sqf
@@ -40,6 +40,7 @@ ADF_TFAR_SW_freq = 0;
 ADF_set_callSigns = false;
 ADF_set_radios = false;
 tf_no_auto_long_range_radio = true;
+ADF_isHC = false;
 
 if (isNil "ADF_HC_connected") then {ADF_HC_connected = false;}; // HC init
 
@@ -54,7 +55,6 @@ enableEngineArtillery false; // Disables BIS arty (map click).
 enableTeamSwitch false; // Disables team switch.
 
 ADF_fnc_log = { // if (ADF_debug) then {["YourTextMessageHere",true] call ADF_fnc_log}; // where true or false for error message
-	if (!isServer) exitWith {};
 	private ["_ADF_log_pre","_ADF_msg","_ADF_err_write","_ADF_err_pre","_ADF_error"];
 	_ADF_msg = _this select 0;
 	_ADF_error = _this select 1;	

@@ -33,7 +33,8 @@ class Mission
 		"A3_Structures_F_Items_Electronics",
 		"A3_Weapons_F_Ammoboxes",
 		"A3_Structures_F_EPA_Civ_Constructions",
-		"A3_Structures_F_EPA_Mil_Scrapyard"
+		"A3_Structures_F_EPA_Mil_Scrapyard",
+		"A3_Structures_F_Civ_InfoBoards"
 	};
 	addOnsAuto[]=
 	{
@@ -62,6 +63,7 @@ class Mission
 		"A3_Weapons_F_Ammoboxes",
 		"A3_Structures_F_EPA_Mil_Scrapyard",
 		"A3_Structures_F_EPA_Civ_Constructions",
+		"A3_Structures_F_Civ_InfoBoards",
 		"a3_map_altis"
 	};
 	randomSeed=13927926;
@@ -106,7 +108,7 @@ class Mission
 				items=5;
 				class Item0
 				{
-					position[]={8395.3711,180.05464,18253.605};
+					position[]={8401.041,179.97638,18255.676};
 					azimut=-21.281601;
 					id=0;
 					side="WEST";
@@ -117,11 +119,11 @@ class Mission
 					skill=0.5;
 					text="RTL_1";
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-1 RTL";
+					description="WOLF 1-1 [RTL]";
 				};
 				class Item1
 				{
-					position[]={8392.6143,180.05298,18252.738};
+					position[]={8398.2842,180.02763,18254.809};
 					azimut=-21.281601;
 					id=1;
 					side="WEST";
@@ -129,11 +131,11 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-5 RS";
+					description="WOLF 1-5 [Operator]";
 				};
 				class Item2
 				{
-					position[]={8395.0283,180.08112,18251.082};
+					position[]={8400.6982,180.06819,18253.152};
 					azimut=-13.9382;
 					id=2;
 					side="WEST";
@@ -141,11 +143,11 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-4 RS";
+					description="WOLF 1-4 [Operator]";
 				};
 				class Item3
 				{
-					position[]={8397.7129,180.07487,18251.951};
+					position[]={8403.3828,179.99437,18254.021};
 					azimut=-13.9382;
 					id=3;
 					side="WEST";
@@ -154,11 +156,11 @@ class Mission
 					rank="CORPORAL";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-3 RS";
+					description="WOLF 1-3 [Operator]";
 				};
 				class Item4
 				{
-					position[]={8397.9932,180.03307,18254.518};
+					position[]={8403.6631,179.8835,18256.588};
 					azimut=-21.281601;
 					id=4;
 					side="WEST";
@@ -167,7 +169,7 @@ class Mission
 					rank="SERGEANT";
 					skill=0.40000001;
 					init="gCO_41M = group this; gCO_41M setGroupID [""gCO_41M""];";
-					description="1-2 RS";
+					description="WOLF 1-2 [Operator]";
 				};
 			};
 		};
@@ -179,7 +181,7 @@ class Mission
 				items=5;
 				class Item0
 				{
-					position[]={8404.2354,179.86337,18256.781};
+					position[]={8409.9053,179.74197,18258.852};
 					azimut=-21.281601;
 					id=5;
 					side="WEST";
@@ -190,11 +192,11 @@ class Mission
 					skill=0.5;
 					text="RTL_2";
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-1 RTL";
+					description="WOLF 2-1 [RTL]";
 				};
 				class Item1
 				{
-					position[]={8406.6328,179.83017,18255.191};
+					position[]={8412.3027,179.72485,18257.262};
 					azimut=-21.281601;
 					id=6;
 					side="WEST";
@@ -203,11 +205,11 @@ class Mission
 					rank="CORPORAL";
 					skill=0.44999999;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-3 RS";
+					description="WOLF 2-3 [Operator]";
 				};
 				class Item2
 				{
-					position[]={8406.8779,179.79471,18257.703};
+					position[]={8412.5479,179.68886,18259.773};
 					azimut=-21.281601;
 					id=7;
 					side="WEST";
@@ -216,11 +218,11 @@ class Mission
 					rank="SERGEANT";
 					skill=0.40000001;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-2 RS";
+					description="WOLF 2-2 [Operator]";
 				};
 				class Item3
 				{
-					position[]={8401.5225,179.96182,18255.729};
+					position[]={8407.1924,179.7888,18257.799};
 					azimut=-21.281601;
 					id=8;
 					side="WEST";
@@ -228,11 +230,11 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-5 RS";
+					description="WOLF 2-5 [Operator]";
 				};
 				class Item4
 				{
-					position[]={8403.5439,179.97318,18254.258};
+					position[]={8409.2139,179.77475,18256.328};
 					azimut=-21.281601;
 					id=9;
 					side="WEST";
@@ -240,7 +242,7 @@ class Mission
 					player="PLAY CDG";
 					skill=0.40000001;
 					init="gCO_41R = group this; gCO_41R setGroupID [""gCO_41R""];";
-					description="2-4 RS";
+					description="WOLF 2-4 [Operator]";
 				};
 			};
 		};
@@ -252,7 +254,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8402.9688,179.81416,18262.322};
+					position[]={8403.7607,179.77942,18262.75};
 					azimut=70.319;
 					id=10;
 					side="LOGIC";
@@ -292,7 +294,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8398.5488,179.97955,18257.803};
+					position[]={8404.7676,179.80539,18260.178};
 					azimut=149.95399;
 					id=12;
 					side="WEST";
@@ -414,10 +416,10 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=100;
+		items=101;
 		class Item0
 		{
-			position[]={8403.7646,179.79189,18262.596};
+			position[]={8404.5566,179.74449,18263.023};
 			azimut=160.31902;
 			id=17;
 			side="EMPTY";
@@ -427,7 +429,7 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={8402.2256,179.82858,18262.049};
+			position[]={8403.0176,179.81192,18262.477};
 			azimut=160.31903;
 			id=18;
 			side="EMPTY";
@@ -1431,6 +1433,18 @@ class Mission
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";
 			skill=0.60000002;
+		};
+		class Item100
+		{
+			position[]={8407.8193,180.05147,18251.545};
+			azimut=160;
+			offsetY=-0.5;
+			id=117;
+			side="EMPTY";
+			vehicle="Land_Billboard_F";
+			leader=1;
+			skill=0.60000002;
+			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\training_bb_advanced.paa""]; this setPos [getPos this select 0, getPos this select 1, -.8]; this setVectorup [0,0,0.1]; ";
 		};
 	};
 	class Markers

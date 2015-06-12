@@ -2,6 +2,10 @@
 
 # Changelog
 
+**Version 1.61**
+- Updated: Various optimizations
+- Updated: SOR loadout
+
 **Version 1.60**
 - Added: Dedicated support for headless client
 - Added: Dedicated support for ACE3

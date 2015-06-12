@@ -29,6 +29,7 @@ diag_log "ADF RPT: Init - executing ADF_MHQ.sqf"; // Reporting. Do NOT edit/remo
 
 _ADF_perfDiagStart = diag_tickTime;
 if (side player == EAST) exitWith {if (ADF_debug) then {["MHQ - MHQ only works for WEST side",true] call ADF_fnc_log;}}; // Blufor only!
+if (ADF_isHC) exitWith {}; // HC exits script
 
 // Check if we should run the script at all
 if (isNil "MHQ") then {  // Let's see if there is an MHQ vehicle
@@ -90,13 +91,13 @@ if (!isDedicated) then {  // 1.39 B5
 			<t color='#6C7169' size='1.5'>" + ADF_clanName + " Cmd MHQ</t><br/><br/>
 			<t color='#A1A4AD' align='left'>Mobile HQ (MHQ) is enabled. The MHQ vehicle can deploy a F.O.B. when stationary. Once the F.O.B. is deployed players will respawn at the MHQ.</t><br/><br/>
 			<t color='#A1A4AD' align='left'>MHQ respawns available:</t>
-			<t color='#FFFFFF' align='right'>%1</t><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%1</t><br/>
 			<t color='#A1A4AD' align='left'>MHQ respawn time (min):</t>
-			<t color='#FFFFFF' align='right'>%2</t><br/><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%2</t><br/><br/>
 			<t color='#A1A4AD' align='left'>Player respawn delay (%3):</t>
-			<t color='#FFFFFF' align='right'>%4</t><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%4</t><br/>
 			<t color='#1262c4' align='left'>BLUEFOR</t><t color='#A1A4AD' align='left'> tickets available: </t>
-			<t color='#FFFFFF' align='right'>%5</t><br/><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%5</t><br/><br/>
 		",ADF_MHQ_respawnLeft,(ADF_MHQ_respawn_time / 60),ADF_MHQ_PlayerRespawnTimeType,ADF_MHQ_PlayerRespawnTime,_avail_tickets];
 	} else {
 		ADF_MHQ_initMsg = format ["
@@ -104,11 +105,11 @@ if (!isDedicated) then {  // 1.39 B5
 			<t color='#6C7169' size='1.5'>" + ADF_clanName + " Cmd MHQ</t><br/><br/>
 			<t color='#A1A4AD' align='left'>Mobile HQ (MHQ) is enabled. The MHQ vehicle can deploy a F.O.B. when stationary. Once the F.O.B. is deployed players will respawn at the MHQ.</t><br/><br/>
 			<t color='#A1A4AD' align='left'>MHQ respawns available:</t>
-			<t color='#FFFFFF' align='right'>%1</t><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%1</t><br/>
 			<t color='#A1A4AD' align='left'>MHQ respawn time (min):</t>
-			<t color='#FFFFFF' align='right'>%2</t><br/><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%2</t><br/><br/>
 			<t color='#A1A4AD' align='left'>Player respawn delay (%3):</t>
-			<t color='#FFFFFF' align='right'>%4</t><br/>
+			<t color='#FFFFFF' align='right' font='PuristaBold'>%4</t><br/>
 		",ADF_MHQ_respawnLeft,(ADF_MHQ_respawn_time / 60),ADF_MHQ_PlayerRespawnTimeType,ADF_MHQ_PlayerRespawnTime];
 	};
 

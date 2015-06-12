@@ -31,7 +31,7 @@ respawnTemplatesWest[] = {"Seagull", "f_spectator"};
 
 /**********  Loading Screen **********/
 author = "Whiztler";
-overviewText = "Wolfpack Advanced Training - v1.60";
+overviewText = "Wolfpack Advanced Training - v1.61";
 onLoadName = "Advanced Training";
 onLoadMission = "Wolfpack Advanced Training. Covertly get to Thronos Castle within the pre-defined time frame";
 onLoadIntroTime = false;

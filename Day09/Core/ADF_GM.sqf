@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Game Master/Instructor/Zeus configuration
 Author: Whiztler
-Script version: 1.42
+Script version: 1.45
 
 Game type: n/a
 File: ADF_GM.sqf
@@ -22,6 +22,9 @@ Place a 'ZEUS Game Master' module for each unit:
 - Forced interface: disabled
 ****************************************************************/
 
+diag_log "ADF RPT: Init - executing ADF_GM.sqf"; // Reporting. Do NOT edit/remove
+if (ADF_isHC) exitWith {}; // HC exits script
+
 // Init
 if ((isNil "GM_1") && (isNil "GM_2")) exitWith {// No Zeus playable slots detected
 	if (ADF_debug) then {
@@ -33,32 +36,45 @@ if ((isNil "GM_1") && (isNil "GM_2")) exitWith {// No Zeus playable slots detect
 _ADF_zeusEagle = _this select 0;
 showCuratorCompass true;
 
-if (!(isNil "GM_1") || !(isNil "GM_2")) then { // check if GM units exist 
+// GM roles
+if !(isNil "GM_1") then {
+	if !(player == GM_1) exitWith {};
 
-	// GM roles
-	if !(isNil "GM_1") then {
-		if !(player == GM_1) exitWith {};
-
-		GM_1 addAction ["<t align='left' color='#FBF4DF'>GM - Teleport</t>",{openMap true;hintSilent format ["%1, click on a location on the map to teleport...", name vehicle player];onMapSingleClick "vehicle player setPos _pos; onMapSingleClick ' '; true; openMap false; hint format ['%1, you are now at: %2', name vehicle player, getPosATL player];";},[],-85,true,true,"",""];	
-		GM_1 addAction ["<t align='left' color='#FBF4DF'>GM - Splendid Camera</t>",{[] execVM "a3\functions_f\Debug\fn_camera.sqf";},[],-85,true,true,"",""];	
-		
-		removeBackpackGlobal GM_1;
-		GM_1 addBackpack "tf_rt1523g";
-		removeHeadgear GM_1;
-		if (ADF_debug) then {["ZEUS: GM-1 active",false] call ADF_fnc_log};
+	GM_1 addAction ["<t align='left' color='#FBF4DF'>GM - Teleport</t>",{openMap true;hintSilent format ["%1, click on a location on the map to teleport...", name vehicle player];onMapSingleClick "vehicle player setPos _pos; onMapSingleClick ' '; true; openMap false; hint format ['%1, you are now at: %2', name vehicle player, getPosATL player];";},[],-85,true,true,"",""];	
+	GM_1 addAction ["<t align='left' color='#FBF4DF'>GM - Splendid Camera</t>",{[] execVM "a3\functions_f\Debug\fn_camera.sqf";},[],-85,true,true,"",""];	
+	
+	removeBackpackGlobal GM_1;
+	GM_1 addBackpack "tf_rt1523g";
+	removeHeadgear GM_1;
+	if (ADF_mod_ACE3) then {
+		GM_1 setVariable ["ace_medical_allowDamage", false];
+		GM_1 addItemToUniform "ACE_microDAGR";
+		GM_1 addItemToUniform "ace_mapTools";
+		GM_1 addItemToUniform "ACE_EarPlugs";
 	};
+	if (ADF_mod_CTAB) then {GM_1 addItemToBackpack "ItemAndroid"};
+	GM_1 linkItem "ItemGPS";
+	if (ADF_debug) then {["ZEUS: GM-1 active",false] call ADF_fnc_log};
+};
 
-	if !(isNil "GM_2") then {
-		if !(player == GM_2) exitWith {};
+if !(isNil "GM_2") then {
+	if !(player == GM_2) exitWith {};
 
-		GM_2 addAction ["<t align='left' color='#FBF4DF'>GM - Teleport</t>",{openMap true;hintSilent format ["%1, click on a location on the map to teleport...", name vehicle player];onMapSingleClick "vehicle player setPos _pos; onMapSingleClick ' '; true; openMap false; hint format ['%1, you are now at: %2', name vehicle player, getPosATL player];";},[],-85,true,true,"",""];	
-		GM_2 addAction ["<t align='left' color='#FBF4DF'>GM - Splendid Camera</t>",{[] execVM "a3\functions_f\Debug\fn_camera.sqf";},[],-85,true,true,"",""];
-		
-		removeBackpackGlobal GM_2;
-		GM_2 addBackpack "tf_rt1523g";
-		removeHeadgear GM_2;
-		if (ADF_debug) then {["ZEUS: GM-2 active",false] call ADF_fnc_log};
+	GM_2 addAction ["<t align='left' color='#FBF4DF'>GM - Teleport</t>",{openMap true;hintSilent format ["%1, click on a location on the map to teleport...", name vehicle player];onMapSingleClick "vehicle player setPos _pos; onMapSingleClick ' '; true; openMap false; hint format ['%1, you are now at: %2', name vehicle player, getPosATL player];";},[],-85,true,true,"",""];	
+	GM_2 addAction ["<t align='left' color='#FBF4DF'>GM - Splendid Camera</t>",{[] execVM "a3\functions_f\Debug\fn_camera.sqf";},[],-85,true,true,"",""];
+	
+	removeBackpackGlobal GM_2;
+	GM_2 addBackpack "tf_rt1523g";
+	removeHeadgear GM_2;
+	if (ADF_mod_ACE3) then {
+		GM_2 setVariable ["ace_medical_allowDamage", false];
+		GM_2 addItemToUniform "ACE_microDAGR";
+		GM_2 addItemToUniform "ace_mapTools";
+		GM_2 addItemToUniform "ACE_EarPlugs";
 	};
+	if (ADF_mod_CTAB) then {GM_2 addItemToBackpack "ItemAndroid"};
+	GM_2 linkItem "ItemGPS";
+	if (ADF_debug) then {["ZEUS: GM-2 active",false] call ADF_fnc_log};
 };
 
 if (!isServer) exitWith {};
