@@ -62,7 +62,7 @@ class CfgDebriefing
 };
 
 // ACE3 settings
-
+/*
 class ACE_Settings {
 	// Custom ACE3 Setting below
 	class ace_common_forceAllSettings {
@@ -517,3 +517,4 @@ class ACE_Settings {
 	};
 	// Custom ACE3 Setting above
 };
+*/

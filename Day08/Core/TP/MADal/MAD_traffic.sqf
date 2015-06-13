@@ -5,6 +5,8 @@
 //Note: This is a derivative work of TPW´s TPW MODS: enhanced realism/immersion. It contains some code of it but it´s main difference is that this
 //works on dedicated servers. It is still WIP;
 
+if (ADF_isHC) exitWith {}; // HC exits script
+
 MAD_maxCarDensity = _this select 0; //number of cars around 1 player at the same time
 MAD_carSpawnDistance = _this select 1; //how far cars spawn away from player
 MAD_maxCarDistance = _this select 2; //max distance until cars despawn

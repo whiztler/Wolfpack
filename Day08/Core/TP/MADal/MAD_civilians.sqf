@@ -5,6 +5,8 @@
 //Note: This is a derivative work of TPW´s TPW MODS: enhanced realism/immersion. It contains some code of it but it´s main difference is that this
 //works on dedicated servers. It is still WIP;
 
+if (ADF_isHC) exitWith {}; // HC exits script
+
 MAD_maxCivDensity = _this select 0; // number of civs around 1 player at the same time
 MAD_maxCivDistance = _this select 1;	// max distance until civs despawn
 MAD_maxCivWaypoints = _this select 2; // number of civ waypoints

@@ -84,20 +84,19 @@ ADF_fnc_debugMarkers = {
 ADF_debug_LoggingBreakout = false;
 
 // Server Performance RPT logging
-if (isServer) then {
-	sleep 30; // wait until mission init
-	waitUntil {
-		private ["_ADF_debugLog_pre","_ADF_debugLog_msg","_ADF_serverFPS","_ADF_minServerFPS"];
-		_ADF_serverFPS = round (diag_fps);
-		_ADF_minServerFPS = round (diag_fpsmin);
-		_ADF_GameTime_HMS = [(round time)] call BIS_fnc_secondsToString;
-		_ADF_debugLog_pre = "ADF Debug: PERF - ";
-		_ADF_debugLog_msg = format ["Elapsed time [H:M:S]: %1  --  Server FPS: %2  --  Server Min FPS: %3",_ADF_GameTime_HMS,_ADF_serverFPS,_ADF_minServerFPS];
-		ADF_debugLog_write = _ADF_debugLog_pre + _ADF_debugLog_msg;
-		diag_log ADF_debugLog_write;
-		[ADF_debugLog_write,"systemChat"] call BIS_fnc_MP; // v.39 B6
-		uiSleep 10; // 10 second cycles
-		ADF_debug_LoggingBreakout
-	};
+sleep 30; // wait until mission init
+waitUntil {
+	private ["_ADF_debugLog_pre","_ADF_debugLog_msg","_ADF_serverFPS","_ADF_minServerFPS"];
+	_ADF_serverFPS = round (diag_fps);
+	_ADF_minServerFPS = round (diag_fpsmin);
+	_ADF_GameTime_HMS = [(round time)] call BIS_fnc_secondsToString;
+	_ADF_debugLog_pre = "ADF Debug: PERF - ";
+	_ADF_debugLog_msg = format ["Elapsed time: %1  --  Server FPS: %2  --  Server Min FPS: %3",_ADF_GameTime_HMS,_ADF_serverFPS,_ADF_minServerFPS];
+	ADF_debugLog_write = _ADF_debugLog_pre + _ADF_debugLog_msg;
+	if (isServer) then {diag_log ADF_debugLog_write;}; // v1.40 B01
+	[ADF_debugLog_write,"systemChat"] call BIS_fnc_MP; // v1.39 B6
+	uiSleep 10; // 10 second cycles
+	ADF_debug_LoggingBreakout
 };
+
 

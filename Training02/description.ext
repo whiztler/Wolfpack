@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Mission config
 Author: Whiztler
-Script version: 2.61
+Script version: 2.62
 
 Game type: n/a
 File: description.ext
@@ -12,16 +12,17 @@ File: description.ext
 
 /**********  Mission type settings **********/
 class Header {
-	gameType = Coop; // A3: Coop, DM, TDM, CTF, SC, CTI, RPG, Sandbox, Seize, Defend
+	gameType = Coop; // A3: Coop, ZCoop (Zeus Coop) - See https://community.bistudio.com/wiki/Multiplayer_Game_Types for other game types
 	minPlayers = 1;
 	maxPlayers = 12; // Change to the exact amount of available player slots including all HC's
 	playerCountMultipleOf = 1; // Coop setting. Set to 0 for other game types
 };
 
 /**********  Respawn & JIP Settings **********/
-respawn = "BIRD"; //  "NONE" = No respawn, "BIRD" = Respawn as a seagull, "INSTANT" - Respawn just where you died, "BASE" - Respawn in base. 
+respawn = 1; //  0 = No respawn, 1 = Spectator, 2 = Instant, respawn just where you died, 3 = Respawn at base (respawn_west marker), 4 = Respawn in your group, 5 = Respawn into an AI unit on your side.
 respawnDelay = 0; // Respawn delay time in seconds (set to 3 for testing, set to 300 (= 5 min) for final)
-RespawnDialog = 0; // Respawn dialog in case of multiple locations
+RespawnDialog = 0; // Respawn dialog in case of multiple locations. 0 = false (no dialog), 1 = true (show dialog).
+respawnOnStart = -1; // 1 = Respawn on start. Run respawn script on start, 0 = Dont respawn on start. Run respawn script on start, -1 = Dont respawn on start. Don't run respawn script on start.
 joinUnassigned = 1; // Where 0 forces joining players into the first empty slot, 1 leaves them to select their own slot. Use 0 if the HC is anabled
 
 // Respawn Ticket system init. Vars defined in init
@@ -56,7 +57,8 @@ disableChannels[]={1,2,3,4}; // Restrict chat channels where (0=Global),(1=Side)
 #include "Core\TP\spect\config.hpp"
 #include "functions.hpp" // 1.39 B9 moved TAWvd + F3 spect into functions
 
-disabledAI = 1; // Enable AI's to fill empty playable slots (0=disable), (1=enable)
+disabledAI = 1; // Enable AI's to fill empty playable slots (0=disable), (1=enable).
 enableDebugConsole = 1;	// Enable the debug console where (0=disabled),(1=Admins Only),(2=Everyone) DO NOT SET AS 2!
-aiKills = 0;
-enableItemsDropping = 0;
+aiKills = 0; // 0 = Disable, 1 = Enable
+enableItemsDropping = 0; // 0 = Disable, 1 = Enable
+allowFunctionsLog = 0; // 0 = Disable, 1 = Enable

@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Loadout Client
 Author: Whiztler
-Script version: 5.51
+Script version: 5.52
 
 Game type: n/a
 File: ADF_clientLoadout.sqf
@@ -29,33 +29,33 @@ private [
 	"_ADF_unitFaction","_ADF_inf_headgear","_ADF_unit","_ADF_unitCheck","_ADF_unitString","_u","_p","_r"
 ];
 
-_ADF_customLoadout_MOD = [_this, 0, false, [true,false]] call BIS_fnc_param;
-_ADF_uniform_inf = _this select 1;
-_ADF_uniform_sor = _this select 2;
-_ADF_NVGoggles = [_this, 3, true, [true,false]] call BIS_fnc_param;
-_ADF_GPS = [_this, 4, false, [true,false]] call BIS_fnc_param;
-_ADF_INF_assault_weapon = [_this, 5, 1, [1,2]] call BIS_fnc_param;
-_ADF_INF_LMG_weapon = [_this, 6, 1, [1,2]] call BIS_fnc_param;
-_ADF_INF_hand_weapon = [_this, 7, 1, [1,2]] call BIS_fnc_param;
-_ADF_INF_scopes = [_this, 8, false, [true,false]] call BIS_fnc_param;
-_ADF_SOR_assault_weapon = [_this, 9, 1, [1,2,3]] call BIS_fnc_param;
-_ADF_SOR_hand_weapon = [_this, 10, 1, [1,2]] call BIS_fnc_param;
-_ADF_CAV_assault_weapon = [_this, 11, 1, [1,2]] call BIS_fnc_param;
-_ADF_TFAR_PersonalRadio = [_this, 12, "tf_rf7800str", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
-_ADF_TFAR_SWRadio = [_this, 13, "tf_anprc152", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
-_ADF_TFAR_LRRadio = [_this, 14, "tf_rt1523g_big", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
-_ADF_TFAR_LRRadioSOR = [_this, 14, "tf_rt1523g_black", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
-_ADF_ACE3_microDAGR_all = [_this, 17, false, [true,false]] call BIS_fnc_param;
-_ADF_ACE3_microDAGR_leaders = [_this, 18, false, [true,false]] call BIS_fnc_param;
-_ADF_cTAB_microDAGR_all = [_this, 19, false, [true,false]] call BIS_fnc_param;
-_ADF_cTAB_microDAGR_leaders = [_this, 20, false, [true,false]] call BIS_fnc_param;
+_ADF_customLoadout_MOD 		= [_this, 0, false, [true,false]] call BIS_fnc_param;
+_ADF_uniform_inf 				= _this select 1;
+_ADF_uniform_sor 				= _this select 2;
+_ADF_NVGoggles 				= [_this, 3, true, [true,false]] call BIS_fnc_param;
+_ADF_GPS 					= [_this, 4, false, [true,false]] call BIS_fnc_param;
+_ADF_INF_assault_weapon		= [_this, 5, 1, [1,2]] call BIS_fnc_param;
+_ADF_INF_LMG_weapon 			= [_this, 6, 1, [1,2]] call BIS_fnc_param;
+_ADF_INF_hand_weapon 			= [_this, 7, 1, [1,2]] call BIS_fnc_param;
+_ADF_INF_scopes 				= [_this, 8, false, [true,false]] call BIS_fnc_param;
+_ADF_SOR_assault_weapon		= [_this, 9, 1, [1,2,3]] call BIS_fnc_param;
+_ADF_SOR_hand_weapon 			= [_this, 10, 1, [1,2]] call BIS_fnc_param;
+_ADF_CAV_assault_weapon 		= [_this, 11, 1, [1,2]] call BIS_fnc_param;
+_ADF_TFAR_PersonalRadio 		= [_this, 12, "tf_rf7800str", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
+_ADF_TFAR_SWRadio 			= [_this, 13, "tf_anprc152", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
+_ADF_TFAR_LRRadio 			= [_this, 14, "tf_rt1523g_big", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
+_ADF_TFAR_LRRadioSOR 			= [_this, 16, "tf_rt1523g_black", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
+_ADF_ACE3_microDAGR_all 		= [_this, 17, false, [true,false]] call BIS_fnc_param;
+_ADF_ACE3_microDAGR_leaders 	= [_this, 18, false, [true,false]] call BIS_fnc_param;
+_ADF_cTAB_microDAGR_all 		= [_this, 19, false, [true,false]] call BIS_fnc_param;
+_ADF_cTAB_microDAGR_leaders 	= [_this, 20, false, [true,false]] call BIS_fnc_param;
 
-tf_no_auto_long_range_radio = true;
-ADF_SOR_MK20 = false;
-ADF_SOR_MXC = false;
-ADF_SOR_MX = false;
-_ADF_unitFaction = faction player;
-_ADF_unit = player;
+tf_no_auto_long_range_radio 	= true;
+ADF_SOR_MK20 				= false;
+ADF_SOR_MXC 					= false;
+ADF_SOR_MX 					= false;
+_ADF_unitFaction 				= faction player;
+_ADF_unit 					= player;
 
 // BluFor Faction
 if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFOR: Custom loadout = true

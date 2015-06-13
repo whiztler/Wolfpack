@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Headless Client init
 Author: Whiztler
-Script version: 2.44
+Script version: 2.45
 
 Game type: N/A
 File: ADF_HC.sqf
@@ -50,6 +50,10 @@ if (!isServer && !hasInterface) then {
 	};
 };
 
+// Set a generic HC variable
+if (!hasInterface && !isDedicated) then {ADF_isHC = true};
+
+// Run the HC load balancer (if enabled in ADF_init_config.sqf)
 if (!_ADF_HCLB_enable) exitWith {};	
 if (!isServer) exitWith {};
 call compile preprocessFileLineNumbers "Core\F\ADF_fnc_HC_loadBalacing.sqf";

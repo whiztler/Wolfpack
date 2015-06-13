@@ -34,36 +34,30 @@ ADF_fnc_fobDeploy = { // deploy the fob
 	",ADF_MHQ_BuildTime];
 	hintSilent parseText _msg;
 	sleep 5;
-	hintSilent "";
-	sleep (ADF_MHQ_BuildTime - 5);
-	
-	if (ADF_debug) then {["MHQ - FOB deploy Timer finished.",false] call ADF_fnc_log};
-	
-	// Add the FOB packUp action menu item
-	ADF_MHQ_FOB_PackupAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Pack up the F.O.B.</t>",{[[],"ADF_fnc_fobPackUp"] call BIS_fnc_MP;},[],-98,false,true,"",""];
-	if (ADF_debug) then {["MHQ - Pack-up EH added.",false] call ADF_fnc_log};
+	hintSilent "";	
 		
 	if (isServer) then {
 		if (ADF_debug) then {["MHQ - Server: FOB objects",false] call ADF_fnc_log};
 		private ["_ADF_MHQ_FOB_dir","_ADF_MHQ_FOB_objects"];
 		_ADF_MHQ_FOB_dir = getDir MHQ;
+		_buildTime = ADF_MHQ_BuildTime / 10;
 		
 		_ADF_MHQ_FOB_objects = [
-			["Flag_NATO_F",[-5.23633,0.240234,0],70,1,0,[],"","_this setFlagTexture '" + ADF_clanFlag + "';",true,false], 
-			["Land_Pallet_MilBoxes_F",[5.23633,2.33203,0],90,1,0,[],"","",true,false], 
-			["CamoNet_BLUFOR_F",[6.56055,-0.185547,1],90,1,0,[],"","",true,false], 
-			["B_supplyCrate_F",[6.91406,-0.630859,0],0,1,0,[],"","",true,false], 
-			["Land_Pallet_MilBoxes_F",[7.19336,2.43555,0],70,1,0,[],"","",true,false], 
-			["Land_PaperBox_open_full_F",[6.25,4.49609,0],10,1,0,[],"","",true,false], 
-			["Land_Cargo20_military_green_F",[-7.71875,-0.671875,0],90,1,0,[],"","",true,false], 
-			["Land_HBarrierBig_F",[-0.175781,-8.28125,0],0,1,0,[],"","",true,false], 
-			["Land_HBarrier_3_F",[-7.64063,5.05859,0],90,1,0,[],"","",true,false], 
-			["Land_HBarrierBig_F",[-0.0683594,9.27734,0],0,1,0,[],"","",true,false], 
-			["Land_HBarrier_3_F",[-7.67578,-4.50586,0],90,1,0,[],"","",true,false], 
-			["Land_HBarrierBig_F",[11.9688,3.82813,0],70,1,0,[],"","",true,false], 
-			["Land_HBarrierBig_F",[12.0762,-4.19727,0],110,1,0,[],"","",true,false]
+			[["Flag_NATO_F",[-5.23633,0.240234,0],70,1,0,[],"","_this setFlagTexture '" + ADF_clanFlag + "';",true,false]], 
+			[["Land_Pallet_MilBoxes_F",[5.23633,2.33203,0],90,1,0,[],"","",true,false]], 
+			[["CamoNet_BLUFOR_F",[6.56055,-0.185547,1],90,1,0,[],"","",true,false]], 
+			[["B_supplyCrate_F",[6.91406,-0.630859,0],0,1,0,[],"","",true,false]], 
+			[["Land_Pallet_MilBoxes_F",[7.19336,2.43555,0],70,1,0,[],"","",true,false]], 
+			[["Land_PaperBox_open_full_F",[6.25,4.49609,0],10,1,0,[],"","",true,false]], 
+			[["Land_Cargo20_military_green_F",[-7.71875,-0.671875,0],90,1,0,[],"","_this allowDamage false;",true,false]], 
+			[["Land_HBarrierBig_F",[-0.175781,-8.28125,0],0,1,0,[],"","_this allowDamage false;",true,false]], 
+			[["Land_HBarrier_3_F",[-7.64063,5.05859,0],90,1,0,[],"","_this allowDamage false;",true,false]], 
+			[["Land_HBarrierBig_F",[-0.0683594,9.27734,0],0,1,0,[],"","_this allowDamage false;",true,false]], 
+			[["Land_HBarrier_3_F",[-7.67578,-4.50586,0],90,1,0,[],"","_this allowDamage false;",true,false]], 
+			[["Land_HBarrierBig_F",[11.9688,3.82813,0],70,1,0,[],"","_this allowDamage false;",true,false]], 
+			[["Land_HBarrierBig_F",[12.0762,-4.19727,0],110,1,0,[],"","_this allowDamage false;",true,false]]
 		];
-		[position MHQ,_ADF_MHQ_FOB_dir,_ADF_MHQ_FOB_objects] call BIS_fnc_ObjectsMapper;	
+		{[position MHQ,_ADF_MHQ_FOB_dir,_x] call BIS_fnc_ObjectsMapper; sleep _buildTime;} forEach _ADF_MHQ_FOB_objects;
 		
 		ADF_MHQ_FOB_deployed = true; publicVariable "ADF_MHQ_FOB_deployed"; // Announce that the FOB has been deployed
 		if (ADF_debug) then {["MHQ - FOB objects placed.",false] call ADF_fnc_log};
@@ -71,6 +65,10 @@ ADF_fnc_fobDeploy = { // deploy the fob
 		[] spawn ADF_fnc_MHQ_lastPos; // update LastPos
 		[] spawn ADF_fnc_MHQ_PlayerRespawnPos; // update respawn_west
 	};
+	
+	// Add the FOB packUp action menu item
+	ADF_MHQ_FOB_PackupAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Pack up the F.O.B.</t>",{[[],"ADF_fnc_fobPackUp"] call BIS_fnc_MP;},[],-98,false,true,"",""];
+	if (ADF_debug) then {["MHQ - Pack-up EH added.",false] call ADF_fnc_log};
 	
 	waitUntil {ADF_MHQ_FOB_deployed};
 	
@@ -113,7 +111,7 @@ ADF_fnc_fobDeleteObj = {
 		// FOB has been packed completely. Let's update the marker functions:
 		[] spawn ADF_fnc_MHQ_lastPos; // update LastPos
 		[] spawn ADF_fnc_MHQ_PlayerRespawnPos; // update respawn_west
-		fobDeleted = true; publicVariable "fobDeleted";				
+		fobDeleted = true; publicVariable "fobDeleted"; // announce the FOB has been packed up			
 	};
 		
 	ADF_MHQ_FOB_deployed = false; publicVariable "ADF_MHQ_FOB_deployed"; // Announce that the FOB has been packed up		

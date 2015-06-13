@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Simple Server/Mission Stats (Headless Client enabled)
 Author: Whiztler
-Script version: 2.50
+Script version: 2.51
 
 Game type: n/a
 File: ADF_simpleStats.sqf

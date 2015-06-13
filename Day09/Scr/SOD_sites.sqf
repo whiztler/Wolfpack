@@ -102,32 +102,44 @@ if ((isNil "gS7a") && (_this select 0 == "7A")) exitWith {
 	
 	// init arti
 	[] spawn {
-		for "_i" from 1 to 6 do {
+		private ["_pause"];
+		for "_i" from 1 to 10 do {
 			oArti1 doArtilleryFire [getMarkerPos "mArtiTarget", "32Rnd_155mm_Mo_shells", 3];
 			_pause = [10,20,30,45,60,120] call BIS_fnc_selectRandom;
 			(effectiveCommander oArti1) doTarget artiTarget;
 			if (T100_crew_breakout) exitWith {};
+			(effectiveCommander oArti1) doWatch artiTarget;
+			(gunner oArti1) doWatch artiTarget;
 			sleep _pause;
+			oArti1 setVehicleAmmo 1;	
 		};
 	};
 	sleep 2;
 	[] spawn {
-		for "_i" from 1 to 6 do {
+		private ["_pause"];
+		for "_i" from 1 to 10 do {
 			oArti2 doArtilleryFire [getMarkerPos "mArtiTarget", "32Rnd_155mm_Mo_shells", 3];
 			_pause = [10,20,30,45,60,120] call BIS_fnc_selectRandom;
 			(effectiveCommander oArti2) doTarget artiTarget;
 			if (T100_crew_breakout) exitWith {};
+			(effectiveCommander oArti2) doWatch artiTarget;
+			(gunner oArti2) doWatch artiTarget;
 			sleep _pause;
+			oArti2 setVehicleAmmo 1;	
 		};
 	};
 	sleep 2;
 	[] spawn {
-		for "_i" from 1 to 6 do {
+		private ["_pause"];
+		for "_i" from 1 to 10 do {
 			oArti3 doArtilleryFire [getMarkerPos "mArtiTarget", "32Rnd_155mm_Mo_shells", 3];
 			_pause = [10,20,30,45,60,120] call BIS_fnc_selectRandom;
 			(effectiveCommander oArti3) doTarget artiTarget;
 			if (T100_crew_breakout) exitWith {};
+			(effectiveCommander oArti3) doWatch artiTarget;
+			(gunner oArti3) doWatch artiTarget;
 			sleep _pause;
+			oArti3 setVehicleAmmo 1;	
 		};
 	};
 	

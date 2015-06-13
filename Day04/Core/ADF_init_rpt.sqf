@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Mission init / Init reporting
 Author: Whiztler
-Script version: 1.05
+Script version: 1.06
 
 Game type: n/a
 File: ADF_init_rpt.sqf
@@ -68,7 +68,7 @@ if (ADF_debug) then {
 	diag_log "by setting 'ADF_debug = true' in the 'ADF_init_config.sqf'";
 	diag_log "--------------------------------------------------------------------------------------";
 	diag_log ""; diag_log "";
-	ADF_log_pUnits = nil; ADF_log_aiUnits = nil; ADF_log_rptMods = nil; ADF_log_CntHC = nil;
+	ADF_log_aiUnits = nil; ADF_log_rptMods = nil; ADF_log_CntHC = nil;
 };
 
 if (!ADF_mod_CBA) exitWith { // Terminate init as CBA is NOT present	
@@ -83,17 +83,16 @@ if (!ADF_mod_CBA) exitWith { // Terminate init as CBA is NOT present
 // Server FPS reporting in RPT when ADF_debug is disabled. The frequency of the reporting is based on server performance.
 if (!ADF_debug && ADF_Log_ServerPerfEnable) then { // ADF_debug already reports on server FPS
 	[] spawn {
-		if (isMultiplayer) then {ADF_log_players = playableUnits;} else {ADF_log_players = switchableUnits};
 		waitUntil {
 			_ADF_rptSnooz = 60;
 			_ADF_serverFPS = round (diag_fps);			
-			if (((count allUnits)-(count ADF_log_players)) < 0) then {ADF_log_ai = 0} else {ADF_log_ai = ((count allUnits)-(count ADF_log_players))};
+			if (((count allUnits)-(count ADF_log_pUnits)) < 0) then {ADF_log_ai = 0} else {ADF_log_ai = ((count allUnits)-(count ADF_log_pUnits))};
 			if (_ADF_serverFPS < 40) then {_ADF_rptSnooz = 15};
 			if (_ADF_serverFPS < 30) then {_ADF_rptSnooz = 10};
 			if (_ADF_serverFPS < 20) then {_ADF_rptSnooz = 5};
 			if (_ADF_serverFPS < 15) then {_ADF_rptSnooz = 1};
 			_ADF_GameTime_HMS = [(round time)] call BIS_fnc_secondsToString;
-			diag_log format ["ADF RPT: PERF - Total players: %1  --  Total AI's: %2",count ADF_log_players,ADF_log_ai];
+			diag_log format ["ADF RPT: PERF - Total players: %1  --  Total AI's: %2",count ADF_log_pUnits,ADF_log_ai];
 			diag_log format ["ADF RPT: PERF - Elapsed time: %1  --  Server FPS: %2  --  Server Min FPS: %3",_ADF_GameTime_HMS,_ADF_serverFPS,round (diag_fpsmin)];
 			uiSleep _ADF_rptSnooz;
 			false

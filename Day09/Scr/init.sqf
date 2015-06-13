@@ -100,6 +100,8 @@ _p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"PRIVATE"]; _p moveInGunner
 _p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"PRIVATE"]; _p moveInGunner oStat_5; sleep 0.035;
 _p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"PRIVATE"]; _p moveInGunner oStat_6; sleep 0.035;
 _p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"PRIVATE"]; _p moveInGunner oStat_7; sleep 0.035;
+(effectiveCommander oArti1) doWatch artiTarget; (effectiveCommander oArti2) doWatch artiTarget; (effectiveCommander oArti3) doWatch artiTarget;
+(gunner oArti1) doWatch artiTarget; (gunner oArti2) doWatch artiTarget; (gunner oArti3) doWatch artiTarget;
 sleep 1;
 
 // Fortify defence

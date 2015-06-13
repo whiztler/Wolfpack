@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Call Sings & Radio configuration
 Author: Whiztler
-Script version: 2.52
+Script version: 2.53
 
 Game type: n/a
 File: ADF_clientPreset.sqf
@@ -22,7 +22,6 @@ ACRE2 = WIP
 diag_log "ADF RPT: Init - executing ADF_clientPreset.sqf"; // Reporting. Do NOT edit/remove
 
 if (ADF_isHC) exitWith {}; // HC exits script
-
 
 ////  Init
 
@@ -45,23 +44,23 @@ private [
 	"_ADF_preset"
 ];
 
-_ADF_perfDiagStart = diag_tickTime;
-_ADF_uGroup = group player;
-_ADF_uGroupID = (groupID (_ADF_uGroup));
-_ADF_preset = _this select 0;
-_ADF_ACRE_fullDuplex = _this select 1;
-_ADF_ACRE_interference = _this select 2;
-_ADF_ACRE_AIcanHear = _this select 3;
-_ADF_TFAR_microDAGR = _this select 4;
-_ADF_roster_uRole = "";
-_ADF_roster_groupOld = grpNull;
-_ADF_roster_groupNew = grpNull;
-_ADF_roster_pub = "";
-ADF_presetData = [];	
-ADF_roster_uArray = [];
-ADF_roster_uName = "";
-ADF_roster_Intro = "";
-ADF_roster_line = "";
+_ADF_perfDiagStart 		= diag_tickTime;
+_ADF_uGroup 				= group player;
+_ADF_uGroupID 			= (groupID (_ADF_uGroup));
+_ADF_preset 				= _this select 0;
+_ADF_ACRE_fullDuplex 		= _this select 1;
+_ADF_ACRE_interference 	= _this select 2;
+_ADF_ACRE_AIcanHear 		= _this select 3;
+_ADF_TFAR_microDAGR 		= _this select 4;
+_ADF_roster_uRole 		= "";
+_ADF_roster_groupOld 		= grpNull;
+_ADF_roster_groupNew		= grpNull;
+_ADF_roster_pub 			= "";
+ADF_presetData 			= [];	
+ADF_roster_uArray 		= [];
+ADF_roster_uName 			= "";
+ADF_roster_Intro			= "";
+ADF_roster_line 			= "";
 
 // Load the preset configured in ADF_init_config.sqf	
 If (_ADF_preset == "NOPRYL") then {ADF_presetData = ADF_preset_NOPRYL;};
@@ -195,8 +194,9 @@ if (ADF_mod_ACRE && ADF_ACRE_preset) then {
 if !(ADF_mod_ACRE && ADF_mod_TFAR) then {ADF_set_radios = true;};
 
 ///// Create the roster
+
 if (isDedicated) exitWith {}; // clients only
-//waitUntil {ADF_set_callSigns}; // wait until a call sign has been been applied
+waitUntil {ADF_set_callSigns}; // wait until a call sign has been been applied > 140B05
 
 // Create the Roster Subject
 player createDiarySubject ["Deployment Roster",ADF_clanName + " Roster"];
@@ -255,7 +255,7 @@ if (player == leader (group (vehicle player))) then {player groupChat format ["O
 
 if (ADF_debug) then {["INIT - Roster generated",false] call ADF_fnc_log};
 
-waitUntil {ADF_set_callSigns && ADF_set_roster && ADF_set_radios};
+waitUntil {ADF_set_roster && ADF_set_radios};
 // Everything is set, lets destroy the variables, we don't need them anymore
 ADF_roster_uArray = nil; ADF_roster_uName = nil;
 ADF_roster_Intro = nil; ADF_roster_line = nil; ADF_roster_userGroup = nil; ADF_fnc_PresetSetGroupID = nil; // v1.40B03

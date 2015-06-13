@@ -3,8 +3,8 @@ ARMA Mission Development Framework
 ADF version: 1.40 / JUNE 2015
 
 Script: Reload/Rearm/Repair Script
-Author: Xeno (Adapted for A3 by Whiztler)
-Script version: 2.61
+Author: Xeno (Adapted for ADF by Whiztler)
+Script version: 2.62
 
 Game type: N/A
 File: ADF_RRR.sqf

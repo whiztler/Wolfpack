@@ -44,8 +44,7 @@ ADF_isHC = false;
 
 if (isNil "ADF_HC_connected") then {ADF_HC_connected = false;}; // HC init
 
-ADF_init_vars = true;
-publicVariableServer "ADF_init_vars";
+ADF_init_vars = true; publicVariableServer "ADF_init_vars";
  
 player setVariable ["BIS_noCoreConversations",true]; // Disable AI chatter.
 allowFunctionsLog = 0;	// Log functions to .rpt. disabled with 0

@@ -1,6 +1,6 @@
 diag_log "ADF RPT: Init - executing ADF_fnc_MHQ.sqf"; // Reporting. Do NOT edit/remove
 
-// MHQ ADF_fnc_MHQ
+// MHQ functions
 
 ADF_fnc_MHQ_respawnClient = { // Function fired up by the 'KILLED' eventhandler when the MHQ is destroyed
 	ADF_MHQ_respawnLeft = ADF_MHQ_respawnLeft - 1;	
