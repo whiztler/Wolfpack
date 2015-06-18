@@ -56,8 +56,7 @@ class Mission
 		"cba_main",
 		"A3_Modules_F_Curator_Curator",
 		"A3_Structures_F_EPC_Items_Electronics",
-		"A3_Structures_F_Mil_BagBunker",
-		"task_force_radio_items"
+		"A3_Structures_F_Mil_BagBunker"
 	};
 	addOnsAuto[]=
 	{
@@ -91,7 +90,6 @@ class Mission
 		"A3_Boat_F_Trawler",
 		"A3_Boat_F_Boat_Transport_01",
 		"A3_Boat_F_Civilian_Boat",
-		"task_force_radio_items",
 		"A3_Boat_F_Boat_Armed_01",
 		"A3_Structures_F_Naval_Buoys",
 		"A3_Boat_F_SDV_01",

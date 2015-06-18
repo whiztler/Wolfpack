@@ -56,8 +56,7 @@ class Mission
 		"A3_Signs_F_AD",
 		"cba_main",
 		"A3_Modules_F_Curator_Curator",
-		"A3_Air_F_Heli_Heli_Transport_04",
-		"task_force_radio_items"
+		"A3_Air_F_Heli_Heli_Transport_04"
 	};
 	addOnsAuto[]=
 	{
@@ -103,7 +102,6 @@ class Mission
 		"A3_Boat_F_Boat_Armed_01",
 		"A3_Boat_F_Trawler",
 		"A3_Boat_F_Civilian_Boat",
-		"task_force_radio_items",
 		"A3_Boat_F_Boat_Transport_01",
 		"A3_Soft_F_SUV",
 		"A3_Soft_F_Truck",
