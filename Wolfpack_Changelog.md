@@ -3,8 +3,12 @@
 # Changelog
 
 **Version 1.61**
-- Updated: Various optimizations
-- Updated: SOR loadout
+- Fixed: SOR units uniform was not synched on multiplayer.
+- Fixed: Day 02 mission not displayed correctly in mission selection screen.
+- Added: Various new items/functionality from the ACE3 3.1.1 update.
+- Updated: Marksman/Sniper loadout & Crates/Supplies for ACE3 Advanced Ballistics.
+- Updated: Various script optimizations.
+- Note: CO15, 14 players slots + 1 (optional) headless client slot.
 
 **Version 1.60**
 - Added: Dedicated support for headless client
