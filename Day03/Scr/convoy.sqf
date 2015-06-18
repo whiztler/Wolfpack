@@ -1,3 +1,11 @@
+if (WP_convoyStarted) exitWith {}; // double check
+WP_convoyStarted = true;
+
+if (!ADF_HC_execute) exitWith {}; // HC Autodetect. If no HC present execute on the Server.
+
+private ["_c","_v","_WP","_startPause"];
+_startPause = _this select 0;
+
 ADF_fnc_DeleteVehicles = {
 	private ["_vehToDelete"];
 	_vehToDelete = _this select 0;	
@@ -7,7 +15,7 @@ ADF_fnc_DeleteVehicles = {
 	true
 };
 
-sleep 240;
+sleep _startPause;
 _c = createGroup EAST;
 _v = [getMarkerPos "mConvoy_Spawn", markerDir "mConvoy_Spawn", "O_APC_Wheeled_02_rcws_F", _c] call BIS_fnc_spawnVehicle; trptConvoy_1 = _v select 0; 
 _v = [(trptConvoy_1 modelToWorld [0,-15,0]), getDir trptConvoy_1, "O_Truck_03_covered_F", _c] call BIS_fnc_spawnVehicle; trptConvoy_2 = _v select 0;

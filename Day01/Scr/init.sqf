@@ -31,6 +31,7 @@ while {time < 25} do {
 rvDone = false;
 
 if (!ADF_debug) then {waitUntil {ADF_missionInit}; sleep 5};
+
 hint parseText"
 	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
 	<t color='#6C7169' align='left'>DEVGRU: Commander, call signs are as follows:<br/><br/>DEVGRU TOC: </t><t color='#9DA698' align='left'>Big Foot.</t><br /><t color='#6C7169' align='left'>Your call sign: </t><t color='#9DA698' align='left'>Phoenix.<br /></t>

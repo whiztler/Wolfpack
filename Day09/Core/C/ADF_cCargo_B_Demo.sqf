@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Demolition
 Author: Whiztler
-Script version: 1.2
+Script version: 1.3
 
 Game type: n/a
 File: ADF_cCargo_B_Demo.sqf
@@ -18,11 +18,13 @@ You can comment out (//) lines of ammo you do not want to include
 in the vehicle cargo. 
 ****************************************************************/
 
+if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
+// Init
 _crate = _this select 0;
 _crate allowDamage false;
-
-if (!isServer) exitWith {};
-// Init
 _dem = 25;
 _itm = 5;
 
@@ -31,8 +33,7 @@ clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
+
 
 // Demo/Explosives
 _crate addMagazineCargoGlobal ["DemoCharge_Remote_Mag", _dem];

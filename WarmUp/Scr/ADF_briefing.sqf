@@ -60,7 +60,7 @@ Objective: Neutralize the ZSU-39</font>
 <br/><br/><font color='#9da698' size='14'>ALPHA PATROL</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mBP_A1'>205193</marker><font color='#6C7169'><br/>
 Difficulty: Easy<br/>
-Objective: Go on a recon patrol. WP Alpha 1-7</font>
+Objective: Go on a recon patrol. Waypoints Alpha 1 through 7</font>
 "]];
 
 player createDiaryRecord ["Diary",["MEDIUM Objectives","
@@ -68,22 +68,22 @@ player createDiaryRecord ["Diary",["MEDIUM Objectives","
 <font color='#9da698' size='14'>PEFKAS BASE</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mPefkas'>209192</marker><font color='#6C7169'><br/>
 Difficulty: Medium<br/>
-Objective: Control the base and its surrounding CP's</font>
+Objective: Control the base and its surrounding CP's.</font>
 
 <br/><br/><font color='#9da698' size='14'>ARTILLERY BASE</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mCP_11'>195191</marker><font color='#6C7169'><br/>
 Difficulty: Medium/Hard<br/>
-Objective: Destroy all three 2S9 Sochor's</font>
+Objective: Destroy all three 2S9 Sochor's.</font>
 
 <br/><br/><font color='#9da698' size='14'>IRAKLIA RESORT</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mHotel'>219210</marker><font color='#6C7169'><br/>
 Difficulty: Medium<br/>
-Objective: Eliminate CSAT Colonel at the old Iraklia Resort</font>
+Objective: Eliminate a CSAT Colonel at the old Iraklia Resort.</font>
 
 <br/><br/><font color='#9da698' size='14'>BRAVO PATROL</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mBP_B1'>209196</marker><font color='#6C7169'><br/>
 Difficulty: Medium<br/>
-Objective: Go on a recon patrol. WP Bravo 1-11</font>
+Objective: Go on a recon patrol. Waypoints Bravo 1 through 11.</font>
 "]];
 
 player createDiaryRecord ["Diary",["HARD Objectives","
@@ -91,27 +91,27 @@ player createDiaryRecord ["Diary",["HARD Objectives","
 <font color='#9da698' size='14'>ARTILLERY BASE</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mCP_11'>195191</marker><font color='#6C7169'><br/>
 Difficulty: Medium/Hard<br/>
-Objective: Destroy all three 2S9 Sochor's</font>
+Objective: Destroy all three 2S9 Sochor's.</font>
 
 <br/><br/><font color='#9da698' size='14'>HELIPORT</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mOpforRotor'>230185</marker><font color='#6C7169'><br/>
 Difficulty: Hard<br/>
-Objective: Destroy all CSAT air assets</font>
+Objective: Destroy all CSAT air assets.</font>
 
 <br/><br/><font color='#9da698' size='14'>FUEL DEPOT</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mCP_60'>233197</marker><font color='#6C7169'><br/>
 Difficulty: Hard<br/>
-Objective: Secure the fuel depot. Destroy all CSAT assets</font>
+Objective: Secure the fuel depot. Destroy all CSAT assets.</font>
 
 <br/><br/><font color='#9da698' size='14'>RODOPOLI</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mObjComm'>188165</marker><font color='#6C7169'><br/>
 Difficulty: Hard<br/>
-Objective: Destroy the communication station</font>
+Objective: Destroy the communication station.</font>
 
 <br/><br/><font color='#9da698' size='14'>PAROS</font><br/>
 <font color='#6C7169'>Location: </font><marker name = 'mOpforUrban'>209169</marker><font color='#6C7169'><br/>
 Difficulty: Hard<br/>
-Objective: Neutralize a Supply Convoy (stationary)</font>
+Objective: Neutralize a Supply Convoy (stationary).</font>
 "]];
 
 player createDiaryRecord ["Diary",["About Wolfpack WTT","

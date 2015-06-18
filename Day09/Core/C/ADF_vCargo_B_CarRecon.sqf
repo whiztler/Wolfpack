@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) - Car Recon/Specop Teams
 Author: Whiztler
-Script version: 1.4
+Script version: 1.5
 
 Game type: n/a
 File: ADF_vCargo_B_CarRecon.sqf
@@ -18,19 +18,18 @@ You can comment out (//) lines of ammo you do not want to include
 in the vehicle cargo. 
 ****************************************************************/
 
+if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
 // Init
 _vAmmo = _this select 0;
 _mag = 25;
-
-if (!isServer) exitWith {};
 
 // Settings 
 clearWeaponCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
-
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
 
 // Primary weapon
 _vAmmo addWeaponCargoGlobal ["srifle_EBR_DMS_pointer_snds_F", 1]; // Marksman
@@ -127,6 +126,10 @@ if (ADF_mod_ACE3) then {
 // GL Ammo
 _vAmmo addMagazineCargoGlobal ["3Rnd_Smoke_Grenade_shell", 5];
 _vAmmo addMagazineCargoGlobal ["3Rnd_UGL_FlareCIR_F", 5]; 
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_HuntIR_M203",5];
+	_vAmmo addItemCargoGlobal ["ACE_HuntIR_monitor",1];
+};
 
 // Grenades
 _vAmmo addMagazineCargoGlobal ["MiniGrenade", 10]; 	 
@@ -135,8 +138,10 @@ _vAmmo addMagazineCargoGlobal ["SmokeShellGreen", 5];
 _vAmmo addMagazineCargoGlobal ["SmokeShellRed", 5]; 
 
 // ACE3 Specific	
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ace_mapTools",5]};
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
+	_vAmmo addItemCargoGlobal ["ace_mapTools",5];
+};
 
 // Medical Items
 if (ADF_mod_ACE3) then {
@@ -159,7 +164,10 @@ _vAmmo addItemCargoGlobal ["NVGoggles", 2];
 
 if (ADF_mod_ACE3) then {
 	_vAmmo addItemCargoGlobal ["ACE_Vector",2];		
-	_vAmmo addItemCargoGlobal ["ACE_Kestrel",1];		
+	_vAmmo addItemCargoGlobal ["ACE_Kestrel4500",1];		
+	_vAmmo addItemCargoGlobal ["ACE_RangeCard",1];		
+	_vAmmo addItemCargoGlobal ["ACE_ATragMX",1];		
+	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack",1];		
 };	
 
 // ACRE / TFAR and cTAB
@@ -170,7 +178,7 @@ if (ADF_mod_ACRE) then {
 if (ADF_mod_TFAR) then {
 	_vAmmo addItemCargoGlobal ["tf_anprc152", 1];
 	//_vAmmo addItemCargoGlobal ["tf_rt1523g", 3];
-	_vAmmo addBackpackCargoGlobal ["tf_rt1523g", 1];
+	_vAmmo addBackpackCargoGlobal ["tf_rt1523g_black", 1];
 };
 if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {_vAmmo addItemCargoGlobal ["ItemRadio", 5]};
 if (ADF_mod_CTAB) then {

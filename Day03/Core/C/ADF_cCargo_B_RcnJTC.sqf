@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Recon/JTAC teams
 Author: Whiztler
-Script version: 1.9
+Script version: 2.0
 
 Game type: n/a
 File: ADF_cCargo_B_RcnJTC.sqf
@@ -18,11 +18,13 @@ You can comment out (//) lines of ammo you do not want to include
 in the vehicle cargo. 
 ****************************************************************/
 
+if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
+// Init
 _crate = _this select 0;
 _crate allowDamage false;
-
-if (!isServer) exitWith {};
-// Init	
 _wpn = 3; 	// Regular Weapons
 _spw = 2; 	// Special Purpose Weapons
 _lau = 1;	// Launchers
@@ -37,8 +39,7 @@ clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
+
 
 // Primary weapon
 _crate addWeaponCargoGlobal ["arifle_MX_GL_F", _wpn]; // GL
@@ -145,6 +146,10 @@ _crate addMagazineCargoGlobal ["UGL_FlareWhite_F", _mag];
 _crate addMagazineCargoGlobal ["UGL_FlareGreen_F", _mag];
 _crate addMagazineCargoGlobal ["UGL_FlareRed_F", _mag];
 _crate addMagazineCargoGlobal ["UGL_FlareYellow_F", _mag];
+if (ADF_mod_ACE3) then {
+	_crate addItemCargoGlobal ["ACE_HuntIR_M203",10];
+	_crate addItemCargoGlobal ["ACE_HuntIR_monitor",2];
+};
  
 // Grenades/Chemlights
 _crate addMagazineCargoGlobal ["MiniGrenade", _mag]; 	 
@@ -191,7 +196,13 @@ _crate addItemCargoGlobal ["G_Tatical_Clear", _itm];
 _crate addItemCargoGlobal ["NVGoggles", _itm];
 if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_Vector",_itm];
-	_crate addItemCargoGlobal ["ACE_Kestrel",_itm];			
+	_crate addItemCargoGlobal ["ACE_Kestrel4500",_itm];
+	_crate addItemCargoGlobal ["ACE_RangeCard",_itm];		
+	_crate addItemCargoGlobal ["ACE_ATragMX",_itm];		
+	_crate addItemCargoGlobal ["ace_spottingscope",2];		
+	_crate addItemCargoGlobal ["ace_mx2a",1];		
+	_crate addItemCargoGlobal ["ace_yardage450",1];		
+	_crate addItemCargoGlobal ["ace_dagr",_itm];		
 };	
 
 // ACRE / TFAR and cTAB

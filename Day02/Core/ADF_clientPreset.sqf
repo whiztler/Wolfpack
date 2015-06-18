@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Call Sings & Radio configuration
 Author: Whiztler
-Script version: 2.53
+Script version: 2.55
 
 Game type: n/a
 File: ADF_clientPreset.sqf
@@ -90,10 +90,14 @@ _ADF_preset_companyGroups = [
 	"gGM1",		"gGM2"																										// GM's 		- 35-36
 ];
 
+///// Finish player loadout init
+waitUntil {scriptDone ADF_getLoadOut}; 
+
 
 ///// TFAR pre-init
 
-if (ADF_mod_TFAR) then { // TFAR detected	
+if (ADF_mod_TFAR) then { // TFAR detected
+	waitUntil {time > 5}; // Let TFAR init initially
 	TF_give_microdagr_to_soldier = _ADF_TFAR_microDAGR;
 	tf_give_personal_radio_to_regular_soldier = false; // Commander radio for all players
 	tf_no_auto_long_range_radio = true; // LR radio for leaders
@@ -134,30 +138,42 @@ if (ADF_mod_ACRE) then { // ACRE2 detected
 
 ///// Apply Call Sign and get Freq data
 
-// Find the players group in the '_ADF_preset_companyGroups' array
-_i = _ADF_preset_companyGroups find _ADF_uGroupID;
-if (_i == -1) exitwith {["PRESETS - ERROR! Unknown group or unit. Roster NOT created. Call sign NOT applied. Please use ADF units only!",true] call ADF_fnc_log};
-_ADF_uPreset	= ADF_presetData select _i;
+if (!isDedicated) then {
+	waitUntil {time > 10}; // Let TFAR init properly
+	// Find the players group in the '_ADF_preset_companyGroups' array
+	_i = _ADF_preset_companyGroups find _ADF_uGroupID;
+	if (_i == -1) exitWith {["PRESETS - ERROR! Unknown group or unit. Roster NOT created. Call sign NOT applied. Please use ADF units only!",true] call ADF_fnc_log};
+	ADF_uPreset = [ADF_presetData select _i, []] select (_i < 0);
+	/*
+	// Debug
+	systemChat format ["ADF_uPreset = %1 - %2",_i,ADF_uPreset];
+	systemChat format ["Channels = %1 , %2",ADF_uPreset select 2,ADF_uPreset select 3];
+	_ADF_TFAR_SW_radio2 = call TFAR_fnc_haveSWRadio;
+	_ADF_TFAR_LR_radio2 = call TFAR_fnc_haveLRRadio;
+	systemChat format ["LR: %1  --  SW: %2",_ADF_TFAR_LR_radio2,_ADF_TFAR_SW_radio2];
+	*/
 
-// Apply call signs across the board
-{_x call ADF_fnc_PresetSetGroupID} forEach ADF_presetData;
-if (ADF_debug) then {["PRESETS - Preset call signs applied",false] call ADF_fnc_log};
+	//  Apply call signs across the board
+	{_x call ADF_fnc_PresetSetGroupID} forEach ADF_presetData;
+	waitUntil {ADF_set_callSigns}; // wait until a call sign has been been applied > 140B05
+	if (ADF_debug) then {["PRESETS - Preset call signs applied",false] call ADF_fnc_log};
 
-if (ADF_mod_TFAR) then {
-	ADF_TFAR_LR_freq = _ADF_uPreset select 2; // 1.40B03
-	ADF_TFAR_SW_freq = _ADF_uPreset select 3; // 1.40B03
+	if (ADF_mod_TFAR) then {
+		ADF_TFAR_LR_freq = ADF_uPreset select 2; // 1.40B03
+		ADF_TFAR_SW_freq = ADF_uPreset select 3; // 1.40B03
+	};
 };
 
 // Re-initialize cTAB (if activated) WIP
 if (ADF_mod_CTAB) then {
-	//player setVariable ["cTab_groupId",_ADF_uPreset select 0,true]; // 1.39 B9 > not updating
+	//player setVariable ["cTab_groupId",ADF_uPreset select 0,true]; // 1.39 B9 > not updating
 	//call cTab_fnc_updateLists; // 1.39 B5 > not updating
 	//["cTab_updatePulse",cTab_fnc_updateLists] call CBA_fnc_addEventHandler; // 1.39 B9 > not updating
 	if (ADF_debug) then {["PRESETS - cTAB re-initialized",false] call ADF_fnc_log};
 };
 
-// Initialize ACE3 BluForce Tracking (if activated) WIP
-if (ADF_mod_ACE3) then {
+// Initialize ACE3 BluForce Tracking (if activated)
+if (ADF_mod_ACE3 && (ADF_microDAGR == "ACE_microDAGR")) then { //  140B06
 	// insert Blueforce tracking init
 	ace_map_BFT_Enabled = true;
 	ace_map_BFT_markers = [];
@@ -168,8 +184,8 @@ if (ADF_mod_ACE3) then {
 ///// Apply the Radio Frequencies
 
 // Set the frequencies for TFAR
-if (ADF_mod_TFAR && ADF_TFAR_preset) then {
-	waitUntil {time > 15}; // Let TFAR init properly	
+if (ADF_mod_TFAR && ADF_TFAR_preset && !isDedicated) then {
+	waitUntil {time > 15 && ADF_missionInit}; // finish init, 15 secs in case of debug
 	_ADF_TFAR_SW_radio = call TFAR_fnc_haveSWRadio;
 	_ADF_TFAR_LR_radio = call TFAR_fnc_haveLRRadio;
 	// Apply SW & LR frequencies
@@ -178,8 +194,10 @@ if (ADF_mod_TFAR && ADF_TFAR_preset) then {
 	if (ADF_debug) then {["RADIO - TFAR radios configured",false] call ADF_fnc_log};
 	
 	// Announce to player
-	if (!_ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio tuned in. SW: %3",ADF_clanTAG,name vehicle player,ADF_TFAR_SW_freq]};
-	if (_ADF_TFAR_SW_radio && _ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio's tuned in. SW: %3 | LR: %4",ADF_clanTAG,profileName,ADF_TFAR_SW_freq,ADF_TFAR_LR_freq]};
+	if (!_ADF_TFAR_LR_radio && _ADF_TFAR_SW_radio) then {systemChat format ["%1: %2, TFAR radio tuned in. SW: %3",ADF_clanTAG,name vehicle player,ADF_TFAR_SW_freq]};
+	if (_ADF_TFAR_LR_radio && !_ADF_TFAR_SW_radio) then {systemChat format ["%1: %2, TFAR radio tuned in. LR: %3",ADF_clanTAG,name vehicle player,ADF_TFAR_LR_freq]};
+	if (_ADF_TFAR_LR_radio && _ADF_TFAR_LR_radio) then {systemChat format ["%1: %2, TFAR radio's tuned in. SW: %3 | LR: %4",ADF_clanTAG,profileName,ADF_TFAR_SW_freq,ADF_TFAR_LR_freq]};
+	if (!_ADF_TFAR_LR_radio && !_ADF_TFAR_SW_radio) then {systemChat format ["%1: %2, You do not carry a TFAR radio. No frequencies configured.",ADF_clanTAG,name vehicle player,ADF_TFAR_LR_freq]};
 	ADF_set_radios = true;
 };
 
@@ -196,7 +214,6 @@ if !(ADF_mod_ACRE && ADF_mod_TFAR) then {ADF_set_radios = true;};
 ///// Create the roster
 
 if (isDedicated) exitWith {}; // clients only
-waitUntil {ADF_set_callSigns}; // wait until a call sign has been been applied > 140B05
 
 // Create the Roster Subject
 player createDiarySubject ["Deployment Roster",ADF_clanName + " Roster"];
@@ -251,7 +268,7 @@ player createDiaryRecord ["Deployment Roster",["Deployment Roster",_ADF_rosterPu
 ADF_set_roster = true;
 
 // Announce call sign
-if (player == leader (group (vehicle player))) then {player groupChat format ["Our call sign is: %1",groupID (_ADF_uGroup)];};
+if (player == leader (group player)) then {player groupChat format ["Our call sign is: %1",groupID (_ADF_uGroup)];};
 
 if (ADF_debug) then {["INIT - Roster generated",false] call ADF_fnc_log};
 

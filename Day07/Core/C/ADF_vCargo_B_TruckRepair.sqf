@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Repair Truck
 Author: Whiztler
-Script version: 1.9
+Script version: 2.0
 
 Game type: n/a
 File: ADF_vCargo_B_TruckRepair.sqf
@@ -19,17 +19,17 @@ in the vehicle cargo.
 ****************************************************************/
 
 // Init
-_vAmmo = _this select 0;
-
 if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
+// Init
+_vAmmo = _this select 0;
 
 // Settings 
 clearWeaponCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
-
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
 
 // Magazines primary weapon
 if (ADF_mod_ACE3) then {

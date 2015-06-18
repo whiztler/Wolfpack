@@ -5,8 +5,8 @@ WPtraining = "Basic";
 sleep 2;
 
 // init
-_timer = (paramsArray select 0)*60;
-_prepTimer = (paramsArray select 1)*60;
+_timer = (paramsArray select 0) * 60;
+_prepTimer = (paramsArray select 1) * 60;
 _preTimerMin = paramsArray select 1;
 _prepMinLeft = _preTimerMin;
 _pause = 20; // sleep time

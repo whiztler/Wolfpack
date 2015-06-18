@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Game Master/Instructor/Zeus configuration
 Author: Whiztler
-Script version: 1.45
+Script version: 1.46
 
 Game type: n/a
 File: ADF_GM.sqf
@@ -97,8 +97,13 @@ if !(_ADF_zeusEagle) then { // Kill the Zeus Eagle?
 	};
 };
 
-// ADV_zeus by Belbo. Edited by Whiz
-waitUntil {ADF_set_callSigns};
+if (ADF_mod_Ares) exitWith { // Use ARES instead of ADF Zeus functions > V1.39 B7
+	if (ADF_debug) then {
+		["ZEUS - Ares addon detected. Using Ares instead of ADF Zeus functions",false] call ADF_fnc_log
+	} else {
+		diag_log "ADF RPT: ZEUS - Ares addon detected. Using Ares instead of ADF Zeus functions";
+	};
+}; 
 
 if ((isNil "GMmod_1") && (isNil "GMmod_2")) exitWith {
 	if (ADF_debug) then {["ZEUS - No Zeus Modules exist (GMmod_1/2). Terminating",false] call ADF_fnc_log};
@@ -131,13 +136,9 @@ if ((!(isNil "GMmod_1") && (isNil "GMmod_2")) && ((isNil "GM_1") && !(isNil "GM_
 	if (ADF_debug) then {["ZEUS - Cannot assign GM_2 to GMmod_1. Terminating",true] call ADF_fnc_log};
 };
 
-if (ADF_mod_Ares) exitWith { // Use ARES instead of ADF Zeus functions V1.39 B7
-	if (ADF_debug) then {
-		["ZEUS - Ares addon detected. Using Ares instead of ADF Zeus functions",false] call ADF_fnc_log
-	} else {
-		diag_log "ADF RPT: ZEUS - Ares addon detected. Using Ares instead of ADF Zeus functions";
-	};
-}; 
+// ADV_zeus by Belbo. Edited by Whiz
+
+waitUntil {ADF_set_callSigns};
 
 _addCivilians = true;
 

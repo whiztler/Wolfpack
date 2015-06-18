@@ -6,7 +6,7 @@ for "_i" from 1 to 15 do {
 	_spawnPos = format ["mEIP_%1",_i];
 	_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 	[_g, getMarkerPos _spawnPos, 1200, 6, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
-	sleep 5;
+	sleep 0.05;
 };
 
 _g = [getMarkerPos "mAbdera", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
@@ -40,50 +40,44 @@ for "_i" from 1 to 5 do {
 	_spawnPos = format ["mCP_%1",_i];
 	_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 	[_g, getMarkerPos _spawnPos, 50, 2, true] call CBA_fnc_taskDefend;
-	sleep 3;
+	sleep 0.05;
 };
 
 if (ADF_debug) then {hint "CP's spawned";};
 
 // Static
 _g = CreateGroup EAST; 
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"SERGEANT"]; _p moveInGunner oStat_1; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"CORPORAL"]; _p moveInGunner oStat_2; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_3; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_4; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_5; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInCommander oStat_6; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_7; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_8; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_9; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_10; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_11; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_12; sleep 2;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_13; sleep 2;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"SERGEANT"]; _p moveInGunner oStat_1;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"CORPORAL"]; _p moveInGunner oStat_2;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_3;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_4;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_5;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInCommander oStat_6;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_7;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_8;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_9;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_10;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_11;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_12;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mEIP_12",[],0,"PRIVATE"]; _p moveInGunner oStat_13;
 
 if (ADF_debug) then {hint "Static crews spawned";};
 
-// ICE Tiger patrols
 for "_i" from 1 to 3 do {
 	_g = [getPos OFOB_spawn, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 	[_g, getPos OFOB_spawn, 250, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
-	sleep 3;
+	sleep 0.05;
 };
 
-if (ADF_debug) then {hint "ICE Tiger patrols spawned";};
-
-// ICE Tiger crews
 _g = CreateGroup EAST; 
 _p = _g createUnit ["O_crew_F",getPos obj_1,[],0,"SERGEANT"]; sleep 0.035;
-_p = _g createUnit ["O_crew_F",getPos obj_1,[],0,"CORPORAL"]; sleep 2;
+_p = _g createUnit ["O_crew_F",getPos obj_1,[],0,"CORPORAL"];
 _g = CreateGroup EAST; 
 _p = _g createUnit ["O_crew_F",getPos obj_3,[],0,"SERGEANT"]; sleep 0.035;
-_p = _g createUnit ["O_crew_F",getPos obj_3,[],0,"CORPORAL"]; sleep 2;
+_p = _g createUnit ["O_crew_F",getPos obj_3,[],0,"CORPORAL"];
 _g = CreateGroup EAST; 
 _p = _g createUnit ["O_crew_F",getPos obj_5,[],0,"SERGEANT"]; sleep 0.035;
-_p = _g createUnit ["O_crew_F",getPos obj_5,[],0,"CORPORAL"]; sleep 2;
-
-if (ADF_debug) then {hint "ICE Tiger crews spawned";};
+_p = _g createUnit ["O_crew_F",getPos obj_5,[],0,"CORPORAL"];
 
 // Air patrols
 

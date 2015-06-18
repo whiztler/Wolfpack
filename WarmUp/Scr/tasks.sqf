@@ -24,39 +24,56 @@ if (!isServer) exitWith {};
 
 
 [] spawn { // Rodopoli
-	waitUntil {sleep 2; !(alive obj_rodo_1) && !(alive obj_rodo_2) && !(alive obj_rodo_3) && !(alive obj_rodo_4)};
+	waitUntil {sleep 3; !(alive obj_rodo_1) && !(alive obj_rodo_2) && !(alive obj_rodo_3) && !(alive obj_rodo_4)};
 	["Rodopoli Communications Station"] call fnc_WTT_ObjSuccess;
-	deleteMarker "mOpforUrban_1";
-	deleteMarker "mObjComm";
+	mOpforUrban_1 setMarkerColor "ColorBlue";
+	mObjComm setMarkerColor "ColorBlue";
+	deleteVehicle tRodopoli;
+	if !(isNil "tRodoInner") then {deleteVehicle tRodoInner;};
 };
 
 [] spawn { // Paros
-	waitUntil {sleep 2.1; !(alive obj_paros_1) && !(alive obj_paros_2) && !(alive obj_paros_3) && !(alive obj_paros_4)};
+	waitUntil {sleep 3; !(alive obj_paros_1) && !(alive obj_paros_2) && !(alive obj_paros_3) && !(alive obj_paros_4)};
 	["Paros Supply Convoy"] call fnc_WTT_ObjSuccess;
-	deleteMarker "mOpforUrban";
+	mOpforUrban setMarkerColor "ColorBlue";
+	deleteVehicle tParos;
+	if !(isNil "tParosInner") then {deleteVehicle tParosInner;};
 };
 
 [] spawn { // AA-Site
-	waitUntil {sleep 2.2; !(alive oStat_7)};
+	waitUntil {sleep 3; !(alive oStat_7)};
+	if !(isNil "tAA") then {deleteVehicle tAA;};
+	mCP_30 setMarkerColor "ColorBlue";
 	["CSAT Anti-Air Site"] call fnc_WTT_ObjSuccess;
 };
 
 [] spawn { // Arti Site
-	waitUntil {sleep 2.3; !(alive oArti1) && !(alive oArti2) && !(alive oArti3)};
+	waitUntil {sleep 3; !(alive oArti1) && !(alive oArti2) && !(alive oArti3)};
+	if !(isNil "tArti") then {deleteVehicle tArti;};	
+	if !(isNil "tArtiInner") then {deleteVehicle tArtiInner;};
+	mCP_11 setMarkerColor "ColorBlue";
 	["2S9 Artillery Base"] call fnc_WTT_ObjSuccess;
 };
 
 [] spawn { // Heliport
-	waitUntil {sleep 2.4; !(alive obj_airpt_1) && !(alive obj_airpt_2)};
+	waitUntil {sleep 3; !(alive obj_airpt_1) && !(alive obj_airpt_2)};
+	if !(isNil "tAirpt") then {deleteVehicle tAirpt;};
+	if !(isNil "tAirptHeli") then {deleteVehicle tAirptHeli;};
+	mOpforRotor setMarkerColor "ColorBlue";
 	["CSAT Airforce Heliport"] call fnc_WTT_ObjSuccess;
 };
 
 [] spawn { // Fuel Depot
-	waitUntil {sleep 2.5; !(alive obj_depot_1) && !(alive obj_depot_2) && !(alive obj_depot_3) && !(alive obj_depot_4)};
+	waitUntil {sleep 3; !(alive obj_depot_1) && !(alive obj_depot_2) && !(alive obj_depot_3) && !(alive obj_depot_4)};
+	if !(isNil "tFuelDepot") then {deleteVehicle tFuelDepot;};
+	if !(isNil "tDepot") then {deleteVehicle tDepot;};
+	mDepot setMarkerColor "ColorBlue";	
 	["CSAT Fuel Depot"] call fnc_WTT_ObjSuccess;
 };
 
 // Hotel task incl in init
+
+
 
 
 

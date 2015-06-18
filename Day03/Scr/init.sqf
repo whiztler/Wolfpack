@@ -43,6 +43,7 @@ tthint = false;
 tt1 = 0; tt2 = 0; tt3 = 0;
 commtwr = 0;
 wpExfil = false;
+WP_convoyStarted = false;
 
 hint parseText"
 	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>

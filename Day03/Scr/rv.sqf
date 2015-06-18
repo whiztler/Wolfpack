@@ -10,4 +10,4 @@ player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
 <font color='#6c7169'>Niko: Eightball, I am in the destroyed building opposite the church just south east of your position.</font>
 <br/><br/>"]];
 
-0 = execVM "Scr\convoy.sqf";
+0 = [450] execVM "Scr\convoy.sqf";

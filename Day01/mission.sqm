@@ -2012,7 +2012,7 @@ class Mission
 			side="EMPTY";
 			vehicle="IG_supplyCrate_F";
 			skill=0.60000002;
-			init="null = [this] execVM ""Core\C\ADF_cCargo_B_SpecOps.sqf"";";
+			init="0 = [this] execVM ""Core\C\ADF_cCargo_B_SpecOps.sqf"";";
 		};
 		class Item99
 		{

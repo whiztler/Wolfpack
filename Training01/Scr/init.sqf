@@ -69,16 +69,18 @@ _p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p a
 _p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_36; _p moveInGunner oStat_36; sleep 0.035;
 _p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_37; _p moveInGunner oStat_37; sleep 0.035;
 
-waitUntil {time > 600};
+waitUntil {time > 120};
 
 // Air Patrols	
 _c = createGroup EAST; 
 _v = [getMarkerPos "mAOborder", 0, "O_Heli_Light_02_unarmed_F", _c] call BIS_fnc_spawnVehicle;
 _ap1 = _v select 0;
 _ap1 flyInHeight 25;
+_co = effectiveCommander _ap1;
 _c setCombatMode "GREEN";
 _c setBehaviour "SAFE";
 _ap1 setPilotLight true;
+_co action ["lightOn",  _ap1];
 [_c, getmarkerpos "mAOborder", 5000, 4, "MOVE", "SAFE", "RED", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
 
 if (ADF_debug) then {[EAST,"OFF"] call ADF_fnc_debugMarkers}; // Side, Labels "ON"/"OFF"

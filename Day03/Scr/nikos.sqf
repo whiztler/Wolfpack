@@ -1,5 +1,7 @@
 #include "ADF_JIP.sqf"
 
+if (isServer && !WP_convoyStarted) then {0 = [180] execVM "Scr\convoy.sqf";}; // in case the RV has not been triggered.
+
 if !(isNil "SOD_1_SCC") then {
 	hint parseText format ["
 	<t color='#6C7169' align='left'>Good morning Commander %1, good to see you again.</t>

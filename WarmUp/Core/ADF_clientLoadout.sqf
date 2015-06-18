@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Loadout Client
 Author: Whiztler
-Script version: 5.52
+Script version: 5.54
 
 Game type: n/a
 File: ADF_clientLoadout.sqf
@@ -100,6 +100,12 @@ if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFO
 		ADF_microDAGR = "ACE_microDAGR";
 		if (_ADF_ACE3_microDAGR_all) then {ADF_microDAGR_all = 1} else {ADF_microDAGR_all = 2};
 	};
+	if (!_ADF_cTAB_microDAGR_all && !_ADF_cTAB_microDAGR_leaders && !_ADF_ACE3_microDAGR_all && !_ADF_ACE3_microDAGR_leaders) then { // 140B06
+		ADF_microDAGR = "Chemlight_green"; // No microDAGR wanted, replaced with green chemlight
+	};
+	
+	// set identity
+	if (isMultiplayer && ADF_mod_ACE3) then {_ADF_unit setSpeaker "ACE_NoVoice";};
 	
 	// SOR uniform texture update
 	if (_s == "sor") then {
@@ -158,13 +164,14 @@ if ((faction player == "BLU_F") && !(_ADF_customLoadout_MOD)) exitWith { // BLUF
 	_r = toLower (_u select 1);
 	// Default equip (additional to Vanilla)
 	if (ADF_mod_CTAB && (side player == ADF_playerSide)) then {_ADF_unit addItemToVest "ItemcTabHCam"};
-	if (ADF_mod_ACE3) then {
+	/* 
+	if (ADF_mod_ACE3) then { // ACE3 items added by default
 		_ADF_unit addItemToVest "ACE_EarPlugs";
 		_ADF_unit addItemToVest "ACE_CableTie";
 		_ADF_unit addItemToVest "ace_mapTools";
 		_ADF_unit addItemToVest "ACE_IR_Strobe_Item";
 	};
-
+	*/
 	// Add additional radios for leaders & RTO's
 	if (ADF_mod_TFAR && (_r == "rto")) then {
 		_ADF_unit addItemToVest _ADF_TFAR_SWRadio;

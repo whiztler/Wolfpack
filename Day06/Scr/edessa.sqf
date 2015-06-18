@@ -2,6 +2,7 @@
 
 _g = []; _p = [];
 
+if (isServer) then {deleteMarker "mManila";};
 if (!ADF_HC_execute) exitWith {}; // Autodetect: execute on the HC else execute on the server
 
 // Sentries
@@ -23,7 +24,7 @@ _g = [getPos RigaCP, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "I
 _g = [getPos DrimeaCP, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup; 
 [_g, getPos DrimeaCP, 50, 2, true] call CBA_fnc_taskDefend;	
 
-deleteMarker "mManila";
+
 	
 
 

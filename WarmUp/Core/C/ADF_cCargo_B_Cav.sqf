@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Cavalry Squadron (Knight)
 Author: Whiztler
-Script version: 1.6
+Script version: 1.7
 
 Game type: n/a
 File: ADF_cCargo_B_Cav.sqf
@@ -18,11 +18,13 @@ You can comment out (//) lines of ammo you do not want to include
 in the vehicle Cargo. 
 ****************************************************************/
 
+if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
+// Init
 _crate = _this select 0;
 _crate allowDamage false;
-
-if (!isServer) exitWith {};
-// Init
 _wpn = 3; 	// Regular Weapons
 _spw = 1; 	// Special Purpose Weapons
 _lau = 1;	// Launchers
@@ -32,8 +34,7 @@ _mis = 1;	// Missiles/Rockets
 _itm = 3;	// Items
 _uni = 1;	// Uniform/Vest/Backpack/etc
 
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
+
 
 // Settings 
 clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init

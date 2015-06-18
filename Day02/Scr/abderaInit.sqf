@@ -147,28 +147,28 @@ _grp = [getMarkerPos "ap3", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F
 
 // Sentries
 _grp = CreateGroup EAST; 
-_p = _grp createUnit ["O_Soldier_F",getPosASL hmg1,[],0,"SERGEANT"]; _p setDir 60; _p moveInGunner hmg1; sleep .05;
-_p = _grp createUnit ["O_Soldier_F",getPosASL gmg1,[],0,"CORPORAL"]; _p setDir 330; _p moveInGunner gmg1; sleep .05;
-_p = _grp createUnit ["O_Soldier_LAT_F",getPosASL twr1,[],0,"private"]; sleep .05;
-_p = _grp createUnit ["O_Soldier_AR_F",getPosASL twr1,[],0,"private"]; sleep .05;
+_p = _grp createUnit ["O_Soldier_F",getPosASL hmg1,[],0,"SERGEANT"]; _p setDir 60; _p moveInGunner hmg1; sleep 0.035;
+_p = _grp createUnit ["O_Soldier_F",getPosASL gmg1,[],0,"CORPORAL"]; _p setDir 330; _p moveInGunner gmg1; sleep 0.035;
+_p = _grp createUnit ["O_Soldier_LAT_F",getPosASL twr1,[],0,"private"]; sleep 0.035;
+_p = _grp createUnit ["O_Soldier_AR_F",getPosASL twr1,[],0,"private"]; sleep 0.035;
 _grp = CreateGroup EAST; _p = _grp createUnit ["O_soldier_M_F",[9144.85,21627.8,14.7702],[],0,"private"]; _p setDir 120; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 8.6]; sleep .05;
 
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",getPos fl01,[],0,"private"]; _p setDir 270; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",getPos cp1_2,[],0,"private"]; _p setDir 330; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[8960.03,21268.2,19.4355],[],0,"private"]; _p setDir 270; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",[8963.83,21265,19.4298],[],0,"private"]; _p setDir 347; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9369.06,21623.09,16.7777],[],0,"private"]; _p setDir 115; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",[9365.05,21626.7,16.7748],[],0,"private"]; _p setDir 40; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9191.38,21715.8,14.5178],[],0,"private"]; _p setDir 0; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",[9188.07,21711.8,14.4971],[],0,"private"]; _p setDir 45; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",getPos fl01,[],0,"private"]; _p setDir 270; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",getPos cp1_2,[],0,"private"]; _p setDir 330; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[8960.03,21268.2,20],[],0,"private"]; _p setDir 270; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",[8963.83,21265,20],[],0,"private"]; _p setDir 347; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9369.06,21623.09,17],[],0,"private"]; _p setDir 115; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",[9365.05,21626.7,17],[],0,"private"]; _p setDir 40; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9191.38,21715.8,15],[],0,"private"]; _p setDir 0; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_GL_F",[9188.07,21711.8,15],[],0,"private"]; _p setDir 45; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
 
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9256,21511.5,16.8956],[],0,"private"]; _p setDir 150; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_AR_F",[9133.77,21420.3,17.8738],[],0,"private"]; _p setDir 150; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[8972.09,21438.4,16.3509],[],0,"private"]; _p setDir 290; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_AR_F",[9067.48,21565.9,15.3968],[],0,"private"]; _p setDir 320; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9183.53,21669,14.3805],[],0,"private"]; _p setDir 150; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 3.15]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_AR_F",[9187.89,21672.3,14.371],[],0,"private"]; _p setDir 60; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 3.15]; sleep .05;
-_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9258.17,21612.7,16.3197],[],0,"private"]; _p setDir 20; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5];  sleep .05;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9256,21511.5,17],[],0,"private"]; _p setDir 150; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_AR_F",[9133.77,21420.3,18],[],0,"private"]; _p setDir 150; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[8972.09,21438.4,17],[],0,"private"]; _p setDir 290; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_AR_F",[9067.48,21565.9,15.4],[],0,"private"]; _p setDir 320; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9183.53,21669,14.4],[],0,"private"]; _p setDir 150; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 3.15]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_AR_F",[9187.89,21672.3,14.4],[],0,"private"]; _p setDir 60; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 3.15]; sleep 0.035;
+_grp = CreateGroup EAST; _p = _grp createUnit ["O_Soldier_F",[9258.17,21612.7,16.3],[],0,"private"]; _p setDir 20; _p setPosATL [getPosATL _p select 0, getPosATL _p select 1, 4.5];  sleep 0.035;
 
 // Device sentry
 _grp = [getMarkerPos "mDeviceSentry", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "UInfantry" >> "OIA_GuardSentry")] call BIS_fnc_spawnGroup;

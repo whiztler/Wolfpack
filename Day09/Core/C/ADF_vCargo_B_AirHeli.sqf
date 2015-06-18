@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Helicopter
 Author: Whiztler
-Script version: 1.4
+Script version: 1.5
 
 Game type: n/a
 File: ADF_vCargo_B_AirHeli.sqf
@@ -19,17 +19,19 @@ in the vehicle cargo.
 ****************************************************************/
 
 // Init
-_vAmmo = _this select 0;
-
 if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
+// Init
+_vAmmo = _this select 0;
 
 // Settings 
 clearWeaponCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
+
 
 // Magazines primary weapon
 _vAmmo addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag", 5];

@@ -308,7 +308,7 @@ class Mission
 					rank="CAPTAIN";
 					skill=0.60000002;
 					text="mdev";
-					init="this allowDamage false; this setCaptive true; gMdev = group this; gMdev setGroupID [""Trainer""];";
+					init="this allowDamage false; this setCaptive true;  gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
 					description="Trainer";
 				};
 			};

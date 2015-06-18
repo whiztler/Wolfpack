@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Ammunition Supply Truck
 Author: Whiztler
-Script version: 1.9
+Script version: 2.0
 
 Game type: n/a
 File: ADF_vCargo_B_TruckAmmo.sqf
@@ -19,18 +19,17 @@ in the vehicle Cargo.
 ****************************************************************/
 
 // Init
-_vAmmo = _this select 0;
-
 if (!isServer) exitWith {};
 
+waitUntil {time > 0};
+
+// Init
+_vAmmo = _this select 0;
 
 // Settings 
 clearWeaponCargoGlobal _vAmmo; // Empty vehicle Cargo contents on init
 clearMagazineCargoGlobal _vAmmo; // Empty vehicle Cargo contents on init
 clearItemCargoGlobal _vAmmo; // Empty vehicle Cargo contents on init
-
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
 
 // Primary weapon
 _vAmmo addWeaponCargoGlobal ["arifle_MX_GL_F", 2]; // GL
@@ -112,7 +111,11 @@ if (ADF_mod_ACE3) then {
 // GL Ammo
 _vAmmo addMagazineCargoGlobal ["3Rnd_HE_Grenade_shell", 25];
 _vAmmo addMagazineCargoGlobal ["3Rnd_Smoke_Grenade_shell", 25];
-_vAmmo addMagazineCargoGlobal ["3Rnd_UGL_FlareCIR_F", 25]; 
+_vAmmo addMagazineCargoGlobal ["3Rnd_UGL_FlareCIR_F", 25];
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_HuntIR_M203",10];
+	_vAmmo addItemCargoGlobal ["ACE_HuntIR_monitor",2];
+};
 
 // Grenades
 _vAmmo addMagazineCargoGlobal ["HandGrenade", 50]; 	 
@@ -181,4 +184,5 @@ _vAmmo addBackpackCargoGlobal ["B_Kitbag_mcamo", 5];
 _vAmmo addItemCargoGlobal ["ItemGPS", 10];
 if (ADF_mod_ACE3) then {
 	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 5];
+	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 2];
 };

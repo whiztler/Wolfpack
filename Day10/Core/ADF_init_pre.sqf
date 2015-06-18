@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Mission init / Variables init
 Author: Whiztler
-Script version: 1.15
+Script version: 1.17
 
 Game type: n/a
 File: ADF_init_pre.sqf
@@ -30,21 +30,19 @@ ADF_mod_CSAT 		= isClass (configFile >> "CfgPatches" >> "TEC_CSAT"); // TEC CSAT
 ADF_mod_RHS	 		= isClass (configFile >> "CfgPatches" >> "rhs_main"); // Red Hammer Studios V1.39 B7
 
 // Init global mission vars
-ADF_missionInit = false;
-ADF_MB_lite = true; // Mission Balancer vars 
-ADF_MB_normal = true; // Mission Balancer vars 
-ADF_MB_heavy = true; // Mission Balancer vars
-ADF_microDAGR_all = 0; 
-ADF_TFAR_LR_freq = 0;
-ADF_TFAR_SW_freq = 0;
-ADF_set_callSigns = false;
-ADF_set_radios = false;
-tf_no_auto_long_range_radio = true;
-ADF_isHC = false;
-
+ADF_missionInit 				= false;
+ADF_MB_lite 					= true; // Mission Balancer vars 
+ADF_MB_normal 				= true; // Mission Balancer vars 
+ADF_MB_heavy 				= true; // Mission Balancer vars
+ADF_microDAGR_all 			= 0; 
+ADF_TFAR_LR_freq 				= 0;
+ADF_TFAR_SW_freq 				= 0;
+ADF_set_callSigns 			= false;
+ADF_set_radios 				= false;
+tf_no_auto_long_range_radio 	= true;
+ADF_isHC 					= false;
+ADF_microDAGR 				= ""; // 140B06
 if (isNil "ADF_HC_connected") then {ADF_HC_connected = false;}; // HC init
-
-ADF_init_vars = true; publicVariableServer "ADF_init_vars";
  
 player setVariable ["BIS_noCoreConversations",true]; // Disable AI chatter.
 allowFunctionsLog = 0;	// Log functions to .rpt. disabled with 0

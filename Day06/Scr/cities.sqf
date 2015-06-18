@@ -66,9 +66,9 @@ if (_this select 0 == "4B") exitWith {
 // tCities5 (Factory)
 if ((isNil "g5a") && (isNil "g5b") && (isNil "g5c") && (_this select 0 == "5A")) exitWith {
 	g5a = [getPos tCities5, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[g5a, getPos tCities5, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g5a, getPos tCities5, 300, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
 	g5b = [getPos tCities5, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[g5b, getPos tCities5, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g5b, getPos tCities5, 300, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
 	g5c = [getPos tCities5, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup; 
 	[g5c, getPos tCities5, 300, 3, true] call CBA_fnc_taskDefend;
 };
@@ -76,5 +76,13 @@ if (_this select 0 == "5B") exitWith {
 	if !(isNil "g5a") then {{deleteVehicle _x} forEach units g5a; deleteGroup g5a; g5a = nil}; sleep 0.05;
 	if !(isNil "g5b") then {{deleteVehicle _x} forEach units g5b; deleteGroup g5b; g5b = nil}; sleep 0.05;
 	if !(isNil "g5c") then {{deleteVehicle _x} forEach units g5c; deleteGroup g5c; g5c = nil};
+};
+
+// tApt (Airfield)
+if ((isNil "g6a") && (isNil "g6b") && (isNil "g6c") && (_this select 0 == "AptA")) exitWith {
+	g6a = [getMarkerPos "mHangarApt", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
+	[g6a, getMarkerPos "mHangarApt", 150, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	g6b = [getMarkerPos "mHangarApt", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
+	[g6b, getMarkerPos "mHangarApt", 150, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
 };
 

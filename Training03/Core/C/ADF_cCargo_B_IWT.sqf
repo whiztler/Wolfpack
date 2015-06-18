@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Infantry Weapons Team (Fox)
 Author: Whiztler
-Script version: 1.5
+Script version: 1.7
 
 Game type: n/a
 File: ADF_cCargo_B_IWT.sqf
@@ -18,11 +18,13 @@ You can comment out (//) lines of ammo you do not want to include
 in the vehicle cargo. 
 ****************************************************************/
 
+if (!isServer) exitWith {};
+
+waitUntil {time > 0};
+
+// Init
 _crate = _this select 0;
 _crate allowDamage false;
-	
-if (!isServer) exitWith {};
-// Init	
 _wpn = 1; 	// Regular Weapons
 _spw = 2; 	// Special Purpose Weapons
 _lau = 2;	// Launchers
@@ -37,8 +39,7 @@ clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 
-ADF_init_vars = false;
-waitUntil {ADF_init_vars};
+
 
 // Primary weapon
 _crate addWeaponCargoGlobal ["arifle_MX_F", _wpn];
@@ -155,6 +156,10 @@ _crate addMagazineCargoGlobal ["UGL_FlareCIR_F", _mag];
 _crate addMagazineCargoGlobal ["UGL_FlareWhite_F", _mag];
 _crate addMagazineCargoGlobal ["UGL_FlareGreen_F", _mag];
 _crate addMagazineCargoGlobal ["UGL_FlareRed_F", _mag];
+if (ADF_mod_ACE3) then {
+	_crate addItemCargoGlobal ["ACE_HuntIR_M203",10];
+	_crate addItemCargoGlobal ["ACE_HuntIR_monitor",2];
+};
  
 // Grenades/Chemlights
 _crate addMagazineCargoGlobal ["HandGrenade", _mag]; 	 
@@ -234,7 +239,9 @@ _crate addItemCargoGlobal ["ToolKit", _itm];
 _crate addWeaponCargoGlobal ["B_UavTerminal", 1];
 if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_UAVBattery", 2];
-	_crate addItemCargoGlobal ["ACE_Kestrel",_itm];
+	_crate addItemCargoGlobal ["ACE_Kestrel4500",1];
+	_crate addItemCargoGlobal ["ace_yardage450", 1];
+	_crate addItemCargoGlobal ["ace_mx2a", 1];
 };		
 
 

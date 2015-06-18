@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Loadout Gear West
 Author: Whiztler
-Script version: 5.58
+Script version: 5.61
 
 Game type: n/a
 File: ADF_fnc_loadoutWest.sqf
@@ -172,10 +172,12 @@ ADF_fnc_loudoutInf = {
 		if (ADF_mod_ACE3) then {
 			_ADF_unit addItemToVest "ACE_HandFlare_White";
 			_ADF_unit addItemToVest "ACE_HandFlare_White";
+			_ADF_unit addItem "ACE_HuntIR_M203";
+			_ADF_unit addItem "ACE_HuntIR_monitor";			
 		};
 		if (ADF_mod_CTAB) then {
 			if (_r == "xo") then {
-				_ADF_unit addItem "ItemcTab"; 
+				_ADF_unit addItemToBackpack "ItemcTab";
 			} else {
 				_ADF_unit addItemToUniform "ItemAndroid";
 			};
@@ -650,7 +652,7 @@ ADF_fnc_loadoutSor = {
 	// Primary weapon
 	if (_r != "rmm") then {
 		if ((_r == "rtl") || (_r == "ssc")) then {
-			[_ADF_unit, ADF_SOR_wpn_G, 8, ADF_SOR_mag_R] call BIS_fnc_addWeapon;
+			[_ADF_unit, ADF_SOR_wpn_G, 6, ADF_SOR_mag_R] call BIS_fnc_addWeapon;
 		} else {
 			[_ADF_unit, ADF_SOR_wpn_R, 8, ADF_SOR_mag_R] call BIS_fnc_addWeapon;
 		};
@@ -690,7 +692,7 @@ ADF_fnc_loadoutSor = {
 	if ((_r == "ssc") || (_r == "rtl")) then {
 		if (ADF_mod_CTAB) then {
 			if (_r == "ssc") then {
-				_ADF_unit addItemToBackpack "ItemcTab";
+				_ADF_unit addItem "ItemcTab";
 			} else {
 				_ADF_unit addItemToBackpack "ItemAndroid";
 			};
@@ -703,10 +705,15 @@ ADF_fnc_loadoutSor = {
 		};
 		// Store in Vest
 		if (!ADF_SOR_MXC) then { // Dont add GL ammo if the MX Compact is selected
-			_ADF_unit addItemToVest "3Rnd_HE_Grenade_shell";
-			_ADF_unit addItemToVest "3Rnd_UGL_FlareCIR_F";	
-			_ADF_unit addItemToVest "3Rnd_UGL_FlareGreen_F";
+			_ADF_unit addItem "3Rnd_HE_Grenade_shell";
+			_ADF_unit addItem "3Rnd_UGL_FlareCIR_F";	
+			//_ADF_unit addItem "3Rnd_UGL_FlareGreen_F";
+			if (ADF_mod_ACE3) then {
+				_ADF_unit addItem "ACE_HuntIR_M203";
+				_ADF_unit addItem "ACE_HuntIR_monitor";		
+			};			
 		};
+
 	}; // close SSC & RTL
 	
 	/*****************************************************************************************************/
@@ -719,7 +726,9 @@ ADF_fnc_loadoutSor = {
 		if (ADF_microDAGR_all == 2) then {_ADF_unit addItemToUniform ADF_microDAGR};
 		if (ADF_mod_ACE3) then {
 			_ADF_unit addWeapon "ACE_Vector";
-			_ADF_unit addItemToVest "ACE_Kestrel";
+			_ADF_unit addItemToVest "ACE_Kestrel4500";
+			_ADF_unit addItemToVest "ACE_ATragMX";
+			_ADF_unit addItemToVest "ACE_RangeCard";
 		} else {
 			_ADF_unit addWeapon "Rangefinder";
 		};
@@ -801,9 +810,12 @@ ADF_fnc_loadoutSor = {
 	
 	if (_r == "uav") then { 
 		_ADF_unit addBackpack "B_UAV_01_backpack_F";
-		_ADF_unit addItemToVest "B_UavTerminal";
+		_ADF_unit addItem "B_UavTerminal";
 		_ADF_unit assignItem "B_UavTerminal";
-		if (ADF_mod_ACE3) then {_ADF_unit addItemToVest "ACE_UAVBattery"};
+		if (ADF_mod_ACE3) then {
+			_ADF_unit addItem "ACE_UAVBattery";
+			_ADF_unit addItem "ace_dagr";
+		};
 	};// close UAV specialist
 	
 	//_ADF_unit unassignItem "NVGoggles";	
@@ -914,7 +926,7 @@ ADF_fnc_loadoutSod = {
 		
 		// Personal Radios all units
 		if (ADF_mod_ACRE) then {(backpackContainer _ADF_unit) addItemCargoGlobal ["ACRE_PRC343",1]};
-		if (ADF_mod_TFAR) then {(backpackContainer _ADF_unit) addItemCargoGlobal ["tf_anprc152",1]};
+		if (ADF_mod_TFAR) then {_ADF_unit linkItem _ADF_TFAR_SWRadio};
 		if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {(backpackContainer _ADF_unit) addItemCargoGlobal ["ItemRadio",1]};		
 	} else { // Add Medkit to UAV specialist uniform
 		if (ADF_mod_ACE3) then {
@@ -972,14 +984,16 @@ ADF_fnc_loadoutSod = {
 	}; // close SSC & RTL
 	
 	/*****************************************************************************************************/
-	
+
 	///// Recon Marksman
 	
 	if (_r == "rmm") then {
 		_ADF_unit addItemToUniform "optic_Nightstalker";
 		if (ADF_mod_ACE3) then {
 			_ADF_unit addWeapon "ACE_Vector";
-			_ADF_unit addItemToVest "ACE_Kestrel";
+			_ADF_unit addItemToBackpack "ACE_Kestrel4500";
+			_ADF_unit addItemToBackpack "ACE_ATragMX";
+			_ADF_unit addItemToBackpack "ACE_RangeCard";
 		} else {
 			_ADF_unit addWeapon "Rangefinder";
 		};
@@ -1072,7 +1086,11 @@ ADF_fnc_loadoutSod = {
 		_ADF_unit addBackpack "B_UAV_01_backpack_F";
 		_ADF_unit addItemToUniform "B_UavTerminal";
 		_ADF_unit assignItem "B_UAVTerminal";		
-		if (ADF_mod_ACE3) then {_ADF_unit addItemToVest "ACE_UAVBattery"};
+		if (ADF_mod_ACE3) then {
+			_ADF_unit addItem "ACE_UAVBattery";
+			_ADF_unit addItem "ace_dagr";
+		
+		};
 	};// close UAV specialist
 	
 	//_ADF_unit unassignItem "NVGoggles";	
@@ -1138,6 +1156,7 @@ ADF_fnc_loadoutSop = {
 		};
 		if (ADF_mod_TFAR) then {_ADF_unit addBackpack _ADF_TFAR_LRRadio};
 		if (!ADF_mod_TFAR && !ADF_mod_ACRE) then {_ADF_unit addBackpack "B_Bergen_mcamo"};
+		if (ADF_mod_ACE3) then {_ADF_unit addItemToBackpack "ACE_ATragMX";};
 	} else {
 		_ADF_unit addBackpack "B_AssaultPack_blk";
 	};
@@ -1148,8 +1167,12 @@ ADF_fnc_loadoutSop = {
 	_ADF_unit addWeapon "G_Tactical_Black";
 	// Add to uniform
 	if (ADF_mod_ACE3) then {
-		_ADF_unit addItemToUniform "ACE_fieldDressing";
-		_ADF_unit addItemToUniform "ACE_fieldDressing";			
+		for "_i" from 1 to 3 do {			
+			_ADF_unit addItemToUniform "ACE_fieldDressing";
+			_ADF_unit addItemToUniform "ACE_elasticBandage";
+			_ADF_unit addItemToUniform "ACE_quikclot";						
+		};	
+		_ADF_unit addItemToUniform "ACE_morphine";			
 	} else {
 		_ADF_unit addItemToUniform "FirstAidKit";
 		_ADF_unit addItemToUniform "FirstAidKit";			
@@ -1163,10 +1186,14 @@ ADF_fnc_loadoutSop = {
 	// microDAGR
 	if (ADF_microDAGR_all == 1) then {_ADF_unit addItemToUniform ADF_microDAGR};	
 	// ACE3
-	if (ADF_mod_ACE3) then {_ADF_unit addItemToVest "ACE_EarPlugs"};
-	if (ADF_mod_ACE3) then {_ADF_unit addItemToVest "ace_mapTools"};
-	if (ADF_mod_ACE3) then {_ADF_unit addItemToVest "ACE_CableTie"};
-	if (ADF_mod_ACE3) then {_ADF_unit addItemToVest "ACE_IR_Strobe_Item"};
+	if (ADF_mod_ACE3) then {
+		_ADF_unit addItemToVest "ACE_EarPlugs";
+		_ADF_unit addItemToVest "ace_mapTools";
+		_ADF_unit addItemToVest "ACE_CableTie";
+		_ADF_unit addItemToVest "ACE_IR_Strobe_Item";
+		if (_r != "sn") then {_ADF_unit addItem "ace_dagr";};
+	};
+	
 	// cTab
 	if (ADF_mod_CTAB) then {_ADF_unit addItemToUniform "ItemcTabHCam"};	
 	// GPS
@@ -1184,7 +1211,7 @@ ADF_fnc_loadoutSop = {
 		if (ADF_mod_ACE3) then {
 			_ADF_unit addItemToBackpack "ACE_Clacker";
 			_ADF_unit addItemToBackpack "ACE_DeadManSwitch";
-			_ADF_unit addItemToBackpack "ACE_RangeTable_82mm";		
+			if (_r == "sp") then {_ADF_unit addItem "ace_spottingscope";};
 		};
 	} else { // Sniper
 		[_ADF_unit, "srifle_LRR_camo_LRPS_F", 12, "7Rnd_408_Mag"] call BIS_fnc_addWeapon;
@@ -1194,14 +1221,22 @@ ADF_fnc_loadoutSop = {
 		if (ADF_mod_ACE3) then {
 			_ADF_unit addItemToBackpack "ACE_Clacker";
 			_ADF_unit addItemToBackpack "ACE_DeadManSwitch";
+			_ADF_unit addItemToBackpack "ACE_ATragMX";
+			_ADF_unit addItemToBackpack "ACE_RangeCard";			
 		};			
 	};
 	If (_r != "jtc") then {
-		_ADF_unit addWeapon "Rangefinder";
+		if (ADF_mod_ACE3) then {
+			_ADF_unit addItem "ACE_Kestrel4500";
+			_ADF_unit addWeapon "ACE_Vector";
+		} else {
+			_ADF_unit addWeapon "Rangefinder";
+		};
 	} else {
 		_ADF_unit addHeadgear "H_HelmetB_camo";
 		_ADF_unit addWeapon "LaserDesignator";
 		_ADF_unit addItemToBackpack "LaserBatteries";
+		_ADF_unit addItemToBackpack "ACE_Vector";		
 	};
 	
 	// Face paint

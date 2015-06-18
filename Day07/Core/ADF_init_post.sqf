@@ -4,7 +4,7 @@ ADF version: 1.40 / JUNE 2015
 
 Script: Mission initialization countdown timer
 Author: Whiztler
-Script version: 1.46
+Script version: 1.47
 
 Game type: n/a
 File: ADF_init_post.sqf
@@ -25,15 +25,15 @@ if (ADF_debug) then {
 
 // Init
 private ["_ADF_unit","_cnt","_TimerInput","_mVersion","_timer"];
-_ADF_unit = player;
-_cnt = 0;
-_TimerInput = _this select 0;
-ADF_tVersion = str (_this select 1);
-_mVersion = str (_this select 2);
-ADF_devBuild = _this select 3;
-ADF_devBuildNr = _this select 4;
+_ADF_unit 		= player;
+_cnt 			= 0;
+_TimerInput 		= _this select 0;
+ADF_tVersion 	= str (_this select 1);
+_mVersion 		= str (_this select 2);
+ADF_devBuild 	= _this select 3;
+ADF_devBuildNr 	= _this select 4;
+ADF_devBuildRun 	= false;
 _timer = _TimerInput / 100;
-ADF_devBuildRun = false;
 ADF_mapMrkText = "[ADF] ARMA Mission Development Framework v";
 
 
@@ -63,7 +63,7 @@ if (isServer) then {
 if (time > 300) exitWith {ADF_missionInit = true;};
 If (isDedicated || ADF_isHC) exitWith {ADF_missionInit = true;};
 if (ADF_debug) exitWith {ADF_missionInit = true; publicVariable "ADF_missionInit";["INIT - debug mode detected, skipping mission init timer",false] call ADF_fnc_log;};
-if (!isServer && (local player)) then {_ADF_unit enableSimulation false;};
+if (isMultiplayer) then {_ADF_unit enableSimulation false;};
 
 If ((ADF_devBuild == "Alpha") || (ADF_devBuild == "Beta")) then {
 	_ADF_debugLog_msg = format ["This is a development build of ADF (%1 - %2 %3). Do not use for live missions!",ADF_tVersion,ADF_devBuild,ADF_devBuildNr];
@@ -93,7 +93,7 @@ while {(_cnt != 100)} do {
 	hintSilent parseText ADF_initMsg; 
 };
 
-if (!isServer && (local player)) then {_ADF_unit enableSimulation true;};
+if (isMultiplayer) then {_ADF_unit enableSimulation true;};
 
 ADF_postInitMsg = format ["
 	<br/>
@@ -115,6 +115,6 @@ If ((ADF_devBuild == "Alpha") || (ADF_devBuild == "Beta")) then {
 hintSilent parseText ADF_postInitMsg;
 finishMissionInit;
 sleep 3; hintSilent "";
-ADF_missionInit = true; publicVariable "ADF_missionInit";
+ADF_missionInit = true; //publicVariable "ADF_missionInit"; // > 140B06
 if (ADF_debug) then {["INIT - MissionInit Timer done",false] call ADF_fnc_log};
 ADF_postInitMsg = nil; ADF_initMsg = nil; ADF_mapMrkText = nil;

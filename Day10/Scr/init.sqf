@@ -144,7 +144,7 @@ if (isServer) then {
 		_spawnPos = format ["mEIP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 		[_g, getMarkerPos _spawnPos, 1200, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
-		sleep 5;
+		sleep 0.05;
 	};
 
 	// EI patrols Cities
@@ -153,7 +153,7 @@ if (isServer) then {
 		_spawnPos = format ["mEIP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 		[_g, getMarkerPos _spawnPos, 300, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
-		sleep 5;
+		sleep 0.05;
 	};
 
 	if (ADF_debug) then {[{systemChat "EI patrols spawned"},"BIS_fnc_call",true,false] spawn BIS_fnc_MP;};
@@ -200,34 +200,34 @@ if (isServer) then {
 		_spawnPos = format ["mCP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 		[_g, getMarkerPos _spawnPos, 50, 2, true] call CBA_fnc_taskDefend;
-		sleep 3;
+		sleep 0.05;
 	};
 
 	if (ADF_debug) then {[{systemChat "CP's spawned"},"BIS_fnc_call",true,false] spawn BIS_fnc_MP;};
 
 	// Static
 	_g = CreateGroup EAST; 
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"SERGEANT"]; _p moveInGunner oStat_1; sleep 2;
-	if (ADF_HC_connected) then {
-		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"CORPORAL"]; _p moveInGunner oStat_2; sleep 2;
-		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_3; sleep 2;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"SERGEANT"]; _p moveInGunner oStat_1;
+	if (ADF_isHC) then {
+		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"CORPORAL"]; _p moveInGunner oStat_2;
+		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_3;
 	};
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_4; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_5; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_6; sleep 2;
-	if (ADF_HC_connected) then {
-		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_7; sleep 2;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_4;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_5;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_6;
+	if (ADF_isHC) then {
+		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_7;
 	};
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_8; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_9; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_10; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_11; sleep 2;
-	if (ADF_HC_connected) then {
-		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_12; sleep 2;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_8;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_9;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_10;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_11;
+	if (ADF_isHC) then {
+		_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oStat_12;
 	};
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oAA_1; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oAA_2; sleep 2;
-	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oAA_3; sleep 2;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oAA_1;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oAA_2;
+	_p = _g createUnit ["O_Soldier_F",getMarkerPos "csatHQ_5",[],0,"PRIVATE"]; _p moveInGunner oAA_3;
 
 	if (ADF_debug) then {[{systemChat "Static crews spawned"},"BIS_fnc_call",true,false] spawn BIS_fnc_MP;};
 
@@ -238,7 +238,7 @@ if (isServer) then {
 		_spawnPos = format ["csatHQ_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 		[_g, getMarkerPos _spawnPos, 20, 2, true] call CBA_fnc_taskDefend;
-		sleep 3;
+		sleep 0.05;
 	};
 
 	if (ADF_debug) then {[{systemChat "HQ's spawned"},"BIS_fnc_call",true,false] spawn BIS_fnc_MP;};
@@ -329,6 +329,7 @@ wpEnd = true; publicVariable "wpEnd";
 waitUntil {wpEnd};
 
 {_x setCaptive true; _x allowDamage false} forEach playableUnits;
+hEvac allowDamage false;
 
 sleep 10;
 
