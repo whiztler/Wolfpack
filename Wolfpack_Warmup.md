@@ -5,14 +5,15 @@
 The Wolfpack WarmUp Testing & Training (WTT) mission was requested by several communities and was added to volume 1 & 2 since version 1.55. The WTT mission differs slightly from the rest of the Wolfpack missions as it offers respawn of players ((30 seconds) and equipment (5 minutes). This mission can be joined whilst in progress (JIP enabled).
 
 ## Wolfpack WTT features
-- Warmup for a game event;
-- Train your recon and covert operations skills;
-- Test the mods required for the Wolfpack mission(s);
-- 11 challenges/objectives - easy / medium / hard;
-- JIP compatible;
+- Warmup for a game event.
+- Train your recon and covert operations skills.
+- Test the mods required for the Wolfpack mission(s).
+- 11 objectives/side-missions - easy / medium / hard.
+- JIP compatible.
 - 30 secs respawn.
+- Teleport to group leader (flag pole).
 
-## Challenges / Side-Missions
+## Objectives / Side-Missions
 
 Wolfpack WTT offers 11 side-missions ranging from easy to hard. The objectives can be viewed in-game by opening the map screen and select one of the briefing options.
 
