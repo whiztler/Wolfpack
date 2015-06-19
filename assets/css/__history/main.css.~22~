@@ -2302,7 +2302,7 @@ body.landing #page-wrapper {
 	border-top: 0;
 }
 .dropotron li.active > a, .dropotron li.active > span, .dropotron li:hover > a, .dropotron li:hover > span {
-	background: #61604e;
+	background: #e89980;
 	color: #ffffff;
 }
 .dropotron.level-0 {
