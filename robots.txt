@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://whiztler.github.io/sitemap.xml
