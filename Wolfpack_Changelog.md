@@ -2,6 +2,11 @@
 
 # Changelog
 
+**Version 1.62**
+- Updated: ACE3 mission config in line with ACE 3.2.1 update 
+- Updated: ADF Framework to 1.41 
+- Note: CO15, 14 players slots + 1 (optional) headless client slot.
+
 **Version 1.61**
 - Fixed: SOR units uniform was not synched on multiplayer.
 - Fixed: Day 02 mission not displayed correctly in mission selection screen.
