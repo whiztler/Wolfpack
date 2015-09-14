@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Teleport to group leader script
 Author: Whiztler
-Script version: 1.00
+Script version: 1.02
 
 Game type: N/A
 File: ADF_teleportToLeader.sqf
@@ -18,17 +18,17 @@ this addAction ["<t align='left' color='#E4F2AA'>Teleport to Troop Leader</t>", 
 ****************************************************************/
 
 // Init
-_ADF_unit 			= _this select 1;
-_ADF_unitName		= name vehicle _ADF_unit;
+params ["_pole","_ADF_unit"];
+_ADF_unitName		= name _ADF_unit;
 _ADF_unitLeader		= leader (group _ADF_unit);
 _ADF_unitLeaderPos	= getPosATL _ADF_unitLeader;
 _ADF_unitLeaderDir	= getDirVisual _ADF_unitLeader;
-_ADF_unitLeaderName	= name vehicle _ADF_unitLeader;
+_ADF_unitLeaderName	= name _ADF_unitLeader;
 
 // Check if the unit is the leader of the group (cannot teleport to itself).
-if (_ADF_unit == leader (group _ADF_unit)) exitWith {hintSilent parseText format ["<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#6C7169' align='left'>%1, it appears that you are the leader of your Troop.</t><br/><br/><t color='#6C7169' align='left'>You cannot teleport to yourself.</t><br/><br/>",_ADF_unitName];};
+if (_ADF_unit == leader (group _ADF_unit)) exitWith {hintSilent parseText format ["<img size= '6' shadow='false' image='" + ADF_clanLogo + "'/><br/><br/><t color='#6C7169' align='left'>%1, it appears that you are the leader of your unit.</t><br/><br/><t color='#6C7169' align='left'>You cannot teleport to yourself.</t><br/><br/>",_ADF_unitName];};
 // Check if the leader of the unit is alive. If not alive, display a message.
-if (!alive _ADF_unitLeader) exitWith {hintSilent parseText format ["<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#6C7169' align='left'>%1, your Troop Leader, %2, is currently K.I.A.</t><br/><br/><t color='#6C7169' align='left'>You can teleport to %2's position once he has respawned.</t><br/><br/>",_ADF_unitName,_ADF_unitLeaderName];};
+if (!alive _ADF_unitLeader) exitWith {hintSilent parseText format ["<img size= '6' shadow='false' image='" + ADF_clanLogo + "'/><br/><br/><t color='#6C7169' align='left'>%1, your unit Leader, %2, is currently K.I.A.</t><br/><br/><t color='#6C7169' align='left'>You can teleport to %2's position once he has respawned.</t><br/><br/>",_ADF_unitName,_ADF_unitLeaderName];};
 
 // Leader is alive, let's check if he/she is on foot or in a vehicle
 if (vehicle _ADF_unitLeader == _ADF_unitLeader) then { // TL is not in a vehicle
@@ -63,6 +63,6 @@ if (vehicle _ADF_unitLeader == _ADF_unitLeader) then { // TL is not in a vehicle
 		breakOut "ADF_TeleportVeh";
 	};
 	// No space in vehicle
-	hintSilent parseText format ["<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#6C7169' align='left'>%1, your Troop Leader, %2, is in a vehicle.</t><br/><br/><t color='#6C7169' align='left'>The vehicle does not have an empty seat at the moment. Please try again later.</t><br/><br/>",_ADF_unitName,_ADF_unitLeaderName];
+	hintSilent parseText format ["<img size= '6' shadow='false' image='" + ADF_clanLogo + "'/><br/><br/><t color='#6C7169' align='left'>%1, your unit Leader, %2, is in a vehicle.</t><br/><br/><t color='#6C7169' align='left'>The vehicle does not have an empty seat at the moment. Please try again later.</t><br/><br/>",_ADF_unitName,_ADF_unitLeaderName];
 };
 

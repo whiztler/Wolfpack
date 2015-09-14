@@ -5,12 +5,14 @@
 //Note: This is a derivative work of TPW´s TPW MODS: enhanced realism/immersion. It contains some code of it but it´s main difference is that this
 //works on dedicated servers. It is still WIP;
 
+if (isServer) then {diag_log "ADF RPT: Init - executing MAD_civilians.sqf"}; // Reporting. Do NOT edit/remove
 if (ADF_isHC) exitWith {}; // HC exits script
 
 MAD_maxCivDensity = _this select 0; // number of civs around 1 player at the same time
 MAD_maxCivDistance = _this select 1;	// max distance until civs despawn
 MAD_maxCivWaypoints = _this select 2; // number of civ waypoints
 _ADF_civKia_enable = _this select 3; // CivKia EH
+ADF_terminateCivScr = false;
 
 MAD_CivsArray = [];
 
@@ -141,6 +143,7 @@ MAD_spawnciv = {
 };
 
 if (!isDedicated and isMultiplayer) then {
+if (ADF_terminateCivScr) exitWith {};
 	[] spawn {
 		while {true} do {
 			_houses = (position player) call MAD_getHouses;
@@ -152,11 +155,13 @@ if (!isDedicated and isMultiplayer) then {
 				if (_var) then {player setVariable ["MAD_housesNear", false, true];};
 			};
 			sleep 10;
+			if (ADF_terminateCivScr) exitWith {};
 		};
 	};
 };
 
 MAD_deleteCivs = {
+if (ADF_terminateCivScr) exitWith {};
 	private ["_civ", "_players"];
 
 	{
@@ -191,8 +196,8 @@ MAD_deleteCivs = {
 	} forEach MAD_CivsArray;
 };
 
-if (isServer) then
-{
+if (isServer) then {
+	if (ADF_terminateCivScr) exitWith {};
 	if (isMultiplayer) then {
 		while {true} do {
 			call MAD_deleteCivs;
@@ -211,6 +216,7 @@ if (isServer) then
 				};
 			} forEach playableUnits;
 			sleep 10;
+			if (ADF_terminateCivScr) exitWith {};
 		};
 	} else {
 		while {true} do {
@@ -222,6 +228,7 @@ if (isServer) then
 
 			if (_count < MAD_maxCivDensity) then {[(position player), _count] call MAD_spawnciv;};
 			sleep 10;
+			if (ADF_terminateCivScr) exitWith {};
 		};
 	};
 };

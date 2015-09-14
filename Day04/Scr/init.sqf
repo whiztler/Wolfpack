@@ -28,6 +28,8 @@ while {time < 25} do {
 };
 
 rvDone = false;
+[vWolf_1] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
+[vWolf_2] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
 
 hint parseText"
 	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
@@ -121,25 +123,25 @@ sleep 0.5;
 
 // Road patrols
 [] spawn {
-	_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_Truck_02_transport_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_transport_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_Truck_02_transport_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_transport_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
 	sleep 120;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_Truck_02_medical_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_Ammo_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_fuel_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-	_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_MRAP_02_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;	
+	_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_Truck_02_medical_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_Ammo_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_fuel_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 7, "MOVE", "SAFE", "YELLOW", "NORMAL", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+	_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_MRAP_02_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol;	
 };
 
 deleteMarker "mBrief0";
 
 // Crew the static positions
 _g = CreateGroup EAST; 
-_p = _g createUnit ["O_Soldier_F",getPos mLand_1,[],0,"SERGEANT"]; _p setDir 180; _p moveInGunner oStat_1; sleep 0.05;
+_p = _g createUnit ["O_Soldier_F",getPos mLand_1,[],0,"SERGEANT"]; _p setDir 180; _p moveInGunner oStat_1;
 _g = CreateGroup EAST; 
-_p = _g createUnit ["O_Soldier_F",getPos oCP_1,[],0,"Corporal"]; _p setDir 180; sleep 0.05;
-_p = _g createUnit ["O_Soldier_F",getPos oCP_1,[],0,"Soldier"]; _p setDir 90; sleep 0.05;
+_p = _g createUnit ["O_Soldier_F",getPos oCP_1,[],0,"Corporal"]; _p setDir 180;
+_p = _g createUnit ["O_Soldier_F",getPos oCP_1,[],0,"Soldier"]; _p setDir 90;
 
 // Air Patrols
 _c = createGroup EAST; 

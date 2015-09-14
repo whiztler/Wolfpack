@@ -52,7 +52,8 @@ class Mission
 		"A3_Structures_F_Civ_InfoBoards",
 		"A3_Signs_F_AD",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator"
+		"A3_Modules_F_Curator_Curator",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -64,7 +65,8 @@ class Mission
 		"A3_Characters_F_BLUFOR",
 		"A3_Armor_F_Marid",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Soft_F_EPC_Truck_03",
 		"A3_Structures_F_Walls",
 		"A3_Structures_F_Mil_Flags",
@@ -1003,7 +1005,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="null = [this] execVM ""Core\C\ADF_cCargo_B_Demo.sqf"";";
+			text="wolfCrateDemo";
 		};
 		class Item8
 		{
@@ -1082,7 +1084,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="null = [this] execVM ""Core\C\ADF_cCargo_B_SpecOps.sqf"";";
+			text="wolfCrate";
 		};
 		class Item14
 		{

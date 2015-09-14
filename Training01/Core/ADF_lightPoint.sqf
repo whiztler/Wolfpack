@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Ambient lights
 Author: Whiztler
-Script version: 1.1
+Script version: 1.2
 
 Game type: n/a
 File: ADF_lightPoint.sqf
@@ -23,10 +23,11 @@ this 	= defines the object that needs the light source. Do not change
 ****************************************************************/
 
 // Init
-_ADF_h		= _this select 0; // grab the object's name
-_ADF_b		= _this select 1; // grab brightness
-_ADF_zPos	= _this select 2; // grab altitude
-
+params [
+	"_ADF_h",	// grab the object's name
+	"_ADF_b",	// grab brightness
+	"_ADF_zPos"	// grab altitude
+];
 _ADF_hLoc 	= getPosASL _ADF_h; // get the location and alt.
 _ADF_lLoc	= [0,0,_ADF_zPos]; // set the light loc offset
 

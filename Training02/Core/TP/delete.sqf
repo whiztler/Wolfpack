@@ -15,17 +15,18 @@ X~     `?888888hx~ '88h. `8888   8888   '88h. `8888   8888
     | TheButcherBay | ARMA 3 ALPHA | ANJAN DELETE ALL |
 */
 
+if (isServer) then {diag_log "ADF RPT: Init - executing delete.sqf"}; // Reporting. Do NOT edit/remove
 
 if (!isServer) exitWith {};
 
 TBB_Included = [];
 
-TBB_Excluded = ["B_soldier_AR_F","B_soldier_exp_F","B_Soldier_GL_F",
+TBB_Excluded = ["B_soldier_AR_F","B_soldier_exp_F","B_Soldier_GL_F","B_helicrew_F","B_Pilot_F","B_crew_F",
                 "B_Helipilot_F","B_soldier_M_F","B_medic_F","B_Soldier_F",
                 "B_soldier_repair_F","B_soldier_LAT_F","B_Soldier_SL_F",
                 "B_Soldier_lite_F","B_Soldier_TL_F","B_Lifeboat",
                 "B_Assaultboat","B_SpeedBoat","B_Quadbike_F",
-                "B_Hunter_F","B_Hunter_HMG_F","B_Hunter_RCWS_F",
+                "B_Hunter_F","B_Hunter_HMG_F","B_Hunter_RCWS_F","B_Heli_Transport_01_camo_F",
                 "B_MH9_F","B_AH9_F","O_Ka60_Unarmed_F","O_Ka60_F","B_Mk6"];
 
 // true/false = on/off.

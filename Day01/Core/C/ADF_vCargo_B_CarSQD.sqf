@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Car Infantry Fire Team
 Author: Whiztler
@@ -46,7 +46,7 @@ if (ADF_mod_ACE3) then {
 _vAmmo addweaponCargoGlobal ["launch_NLAW_F", 1];
 
 // Rockets/Missiles
-_vAmmo addMagazineCargoGlobal ["NLAW_F", 2];
+if (!ADF_mod_ACE3) then {_vAmmo addMagazineCargoGlobal ["NLAW_F", 2]};
 
 // Demo/Explosives
 _vAmmo addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 3];
@@ -100,6 +100,7 @@ if (ADF_mod_ACRE) then {
 };
 if (ADF_mod_TFAR) then {
 	_vAmmo addItemCargoGlobal ["tf_anprc152", 1];
+	_vAmmo addItemCargoGlobal ["tf_microdagr", 1];
 	//_vAmmo addItemCargoGlobal ["tf_rt1523g", 3];
 	_vAmmo addBackpackCargoGlobal ["tf_rt1523g", 1];
 };

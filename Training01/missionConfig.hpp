@@ -25,13 +25,25 @@ class CfgRespawnTemplates { // F3 Spectator Script
 	class f_Spectator {
 		onPlayerRespawn = "f_fnc_CamInit";
 	};
-
     class Seagull { //Overwrite Vanilla Seagull
         onPlayerRespawn = "";
     };
 };
 
-//  End Screen / Debriefing
+class cfgNotifications { // Preconfigured messages
+	class ADF_noticeMsg
+	{
+		title = "NOTICE";
+		description = "%1";
+		iconPicture = "\A3\ui_f\data\map\markers\military\warning_ca.paa";
+		iconText = "";
+		color[] = {1,1,0,1};		
+		duration = 4;
+		priority = 7;
+	};
+};
+
+// End Screen / Debriefing
 class CfgDebriefing
 {  
 	class End1
@@ -71,11 +83,10 @@ class Params
 	};	
 };
 
-// ACE3 settings v. 3.1.1 
+// ACE3 settings v. 3.2.1
 
-	class ACE_Settings {
-		// Custom ACE3 Setting below		
-
+class ACE_Settings {
+	// Custom ACE3 Setting below
 		
 	class ace_common_forceAllSettings {
 		value = 0;
@@ -95,6 +106,16 @@ class Params
 	class ace_common_checkPBOsWhitelist {
 		value = "[]";
 		typeName = "STRING";
+		force = 1;
+	};
+	class ace_finger_enabled {
+		value = 1;
+		typeName = "BOOL";
+		force = 1;
+	};
+	class ace_finger_maxRange {
+		value = 4;
+		typeName = "SCALAR";
 		force = 1;
 	};
 	class ace_frag_Enabled {
@@ -332,6 +353,16 @@ class Params
 		typeName = "SCALAR";
 		force = 1;
 	};
+	class ace_medical_useCondition_PAK {
+		value = 0;
+		typeName = "SCALAR";
+		force = 1;
+	};
+	class ace_medical_useCondition_SurgicalKit {
+		value = 0;
+		typeName = "SCALAR";
+		force = 1;
+	};
 	class ace_medical_keepLocalSettingsSynced {
 		value = 1;
 		typeName = "BOOL";
@@ -412,6 +443,11 @@ class Params
 		typeName = "SCALAR";
 		force = 1;
 	};
+	class ace_sitting_enable {
+		value = 1;
+		typeName = "BOOL";
+		force = 1;
+	};
 	class ace_switchunits_EnableSwitchUnits {
 		value = 0;
 		typeName = "BOOL";
@@ -453,7 +489,7 @@ class Params
 		force = 1;
 	};
 	class ace_vehiclelock_LockVehicleInventory {
-		value = 0;
+		value = 1;
 		typeName = "BOOL";
 		force = 1;
 	};
@@ -563,6 +599,11 @@ class Params
 		force = 1;
 	};
 	class ace_explosives_PunishNonSpecialists {
+		value = 1;
+		typeName = "BOOL";
+		force = 1;
+	};
+	class ace_explosives_ExplodeOnDefuse {
 		value = 1;
 		typeName = "BOOL";
 		force = 1;

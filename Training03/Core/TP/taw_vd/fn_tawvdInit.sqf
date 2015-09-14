@@ -1,3 +1,5 @@
+if (isServer) then {diag_log "ADF RPT: Init - executing taw_vf\fn_tawvdInit.sqf"}; // Reporting. Do NOT edit/remove
+
 /*
 	File: fn_tawvdInit.sqf
 	Author: Bryan "Tonic" Boardwine

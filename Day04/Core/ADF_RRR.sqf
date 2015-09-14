@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Reload/Rearm/Repair Script
 Author: Xeno (Adapted for ADF by Whiztler)
-Script version: 2.62
+Script version: 2.71
 
 Game type: N/A
 File: ADF_RRR.sqf
@@ -16,175 +16,177 @@ Activation Anybody Present
 Repeat
 
 For Helicopters:
-Condition: ("Helicopter" countType thislist  > 0) && ((getpos (thislist select 0)) select 2 < 1)
-On activation: _xhandle = [(thislist select 0)] execVM "Core\ADF_RRR.sqf";
+Condition: ("Helicopter" countType thisList  > 0) && ((getPos (thisList select 0)) select 2 < .5)
+On activation: 0 = [(thisList select 0)] execVM "Core\ADF_RRR.sqf";
 
 For Airplanes:
-Condition: (("Plane" countType thislist  > 0) || ("airplane" countType thislist  > 0) || ("airplanex" countType thislist  > 0)) && ((getpos (thislist select 0)) select 2 < 1) && (speed (thislist select 0) < 10)
-On activation: _xhandle = [(thislist select 0)] execVM "Core\ADF_RRR.sqf";
+Condition: (("Plane" countType thisList  > 0) || ("airplane" countType thisList  > 0) || ("airplanex" countType thisList  > 0)) && ((getPos (thisList select 0)) select 2 < 1) && (speed (thisList select 0) < 10)
+On activation: 0 = [(thisList select 0)] execVM "Core\ADF_RRR.sqf";
 
 For Vehicles:
-Condition: ("LandVehicle" countType thislist  > 0) && ((getpos (thislist select 0)) select 2 < 1)
-On activation: _xhandle = [(thislist select 0)] execVM "Core\ADF_RRR.sqf";
+Condition: (("CAR" countType thisList  > 0) || ("TRUCK" countType thisList  > 0) || ("TANK" countType thisList  > 0) || ("APC" countType thisList  > 0)) &&  ((getPos (thisList select 0)) select 2 < 2);
+On activation: 0 = [(thisList select 0)] execVM "Core\ADF_RRR.sqf";
 ****************************************************************/
+
+// Reporting
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_RRR.sqf"}; // Reporting. Do NOT edit/remove
 
 // Init
 private [
-			"_turretConfig","_turretCount","_i","_vehMag","_object","_vehType",
-			"_vehType","_vehCat","_vehDriver","_objectDamage","_objectFuel",
-			"_repairSleep","_reloadSleep","_refuelSleep","_maxTime","_serviceStartTime",
-			"_serviceTime","_serviceTimeType"
-		];
+	"_ADF_turretConfig","_ADF_turretCount","_ADF_vehMag","_ADF_object","_ADF_vehName",
+	"_ADF_vehType","_ADF_vehCat","_ADF_vehDriver","_ADF_objectDamage","_ADF_objectFuel",
+	"_ADF_repairSleep","_ADF_reloadSleep","_ADF_reloadSleep","_ADF_maxTime","_ADF_serviceStartTime",
+	"_ADF_serviceTime","_ADF_serviceTimeType","_ADF_dayType","_ADF_dayTime"
+];
 
-_object = _this select 0;
-_vehType = typeof _object;
-_vehName = getText(configFile >> "CfgVehicles" >> _vehType >> "displayName");
+params ["_ADF_object"];
+_ADF_vehType = typeOf _ADF_object;
+_ADF_vehName = getText(configFile >> "CfgVehicles" >> _ADF_vehType >> "displayName");
 
+if (_ADF_object isKindOf "ParachuteBase") exitWith {};
+if (!alive _ADF_object) exitWith {};
 
-if (_object isKindOf "ParachuteBase") exitWith {};
-if (!alive _object) exitWith {};
-
-if ((_object isKindOf "Plane") || (_object isKindOf "Helicopter")) then {
-	_vehDriver = "Pilot";
-	_vehCat = "aircraft";
+if ((_ADF_object isKindOf "Plane") || (_ADF_object isKindOf "Helicopter")) then {
+	_ADF_vehDriver = "Pilot";
+	_ADF_vehCat = "aircraft";
 } else {
-	_vehDriver = "Driver";
-	_vehCat = "vehicle";
+	_ADF_vehDriver = "Driver";
+	_ADF_vehCat = "vehicle";
 };
 
-_repairSleep = ADF_FARP_repairTime / 25; // Configure in ADF_init_Config.sqf
-_reloadSleep = ADF_FARP_reloadTime / 3; // Configure in ADF_init_Config.sqf
-_refuelSleep = ADF_FARP_refuelTime / 60; // Configure in ADF_init_Config.sqf
+_ADF_repairSleep = ADF_FARP_repairTime / 25; // Configure in ADF_init_Config.sqf
+_ADF_reloadSleep = ADF_FARP_reloadTime / 3; // Configure in ADF_init_Config.sqf
+_ADF_reloadSleep = ADF_FARP_refuelTime / 60; // Configure in ADF_init_Config.sqf
 
-_objectFuel = fuel _object;
-_objectDamage = damage _object;
-_object setFuel 0;
-_maxTime = round ((ADF_FARP_repairTime + ADF_FARP_reloadTime + ADF_FARP_refuelTime + 30) / 60); // maximum time in MIN
-_serviceStartTime = time;
+_ADF_objectFuel = fuel _ADF_object;
+_ADF_objectDamage = damage _ADF_object;
+_ADF_object setFuel 0;
+_ADF_maxTime = round ((ADF_FARP_repairTime + ADF_FARP_reloadTime + ADF_FARP_refuelTime + 30) / 60); // maximum time in MIN
+_ADF_serviceStartTime = time;
 
-_object vehicleChat format ["%1 F.A.R.P.", ADF_clanName];
-_object vehicleChat format ["Servicing %1", _vehName];
-_object vehicleChat format ["%1, please switch off your engine and remain in the %2", _vehDriver, _vehCat];
-_object vehicleChat format ["F.A.R.P. Service can take up to %1 minutes.",_maxTime];
+_ADF_object vehicleChat format ["%1 F.A.R.P.", ADF_clanName];
+_ADF_object vehicleChat format ["Servicing %1", _ADF_vehName];
+_ADF_object vehicleChat format ["%1, please switch off your engine and remain in the %2", _ADF_vehDriver, _ADF_vehCat];
+_ADF_object vehicleChat format ["F.A.R.P. Service can take up to %1 minutes.",_ADF_maxTime];
 
 sleep 5;
 
 // REARM
-_vehMag = getArray (configFile >> "CfgVehicles" >> _vehType >> "magazines");
+_ADF_vehMag = getArray (configFile >> "CfgVehicles" >> _ADF_vehType >> "magazines");
 
-if (count _vehMag > 0) then {
-	_vehMagDel = [];
+if (count _ADF_vehMag > 0) then {
+	_ADF_vehMagDel = [];
 	{
-		if (!(_x in _vehMagDel)) then {
-			_object removeMagazines _x;
-			_vehMagDel = _vehMagDel + [_x];
+		if (!(_x in _ADF_vehMagDel)) then {
+			_ADF_object removeMagazines _x;
+			_ADF_vehMagDel = _ADF_vehMagDel + [_x];
 		};
-	} forEach _vehMag;
+	} forEach _ADF_vehMag;
 	{
-		_object vehicleChat format ["Reloading %1", _x];
-		sleep _reloadSleep;
-		if (!alive _object) exitWith {};
-		_object addMagazine _x;
-	} forEach _vehMag;
+		_ADF_object vehicleChat format ["Reloading %1", _x];
+		sleep _ADF_reloadSleep;
+		if (!alive _ADF_object) exitWith {};
+		_ADF_object addMagazine _x;
+	} forEach _ADF_vehMag;
 };
 
-_turretCount = count (configFile >> "CfgVehicles" >> _vehType >> "Turrets");
+_ADF_turretCount = count (configFile >> "CfgVehicles" >> _ADF_vehType >> "Turrets");
 
-if (_turretCount > 0) then {
-	for "_i" from 0 to (_turretCount - 1) do {
+if (_ADF_turretCount > 0) then {
+	for "_i" from 0 to (_ADF_turretCount - 1) do {
 		scopeName "ADF_Reload";
-		_turretConfig = (configFile >> "CfgVehicles" >> _vehType >> "Turrets") select _i;
-		_vehMag = getArray(_turretConfig >> "magazines");
-		_vehMagDel = [];
+		_ADF_turretConfig = (configFile >> "CfgVehicles" >> _ADF_vehType >> "Turrets") select _i;
+		_ADF_vehMag = getArray(_ADF_turretConfig >> "magazines");
+		_ADF_vehMagDel = [];
 		{
-			if (!(_x in _vehMagDel)) then {
-				_object removeMagazines _x;
-				_vehMagDel = _vehMagDel + [_x];
+			if (!(_x in _ADF_vehMagDel)) then {
+				_ADF_object removeMagazines _x;
+				_ADF_vehMagDel = _ADF_vehMagDel + [_x];
 			};
-		} forEach _vehMag;
+		} forEach _ADF_vehMag;
 		{
-			_object vehicleChat format ["Reloading %1", _x];
-			sleep _reloadSleep;
-			if (!alive _object) then {breakOut "ADF_Reload"};
-			_object addMagazine _x;
-			sleep _reloadSleep;
-			if (!alive _object) then {breakOut "ADF_Reload"};
-		} forEach _vehMag;
+			_ADF_object vehicleChat format ["Reloading %1", _x];
+			sleep _ADF_reloadSleep;
+			if (!alive _ADF_object) then {breakOut "ADF_Reload"};
+			_ADF_object addMagazine _x;
+			sleep _ADF_reloadSleep;
+			if (!alive _ADF_object) then {breakOut "ADF_Reload"};
+		} forEach _ADF_vehMag;
 		// check if the main turret has other turrets
-		_turretCount_other = count (_turretConfig >> "Turrets");
+		_ADF_turretCount_other = count (_ADF_turretConfig >> "Turrets");
 
-		if (_turretCount_other > 0) then {
-			for "_i" from 0 to (_turretCount_other - 1) do {
-				_turretConfig2 = (_turretConfig >> "Turrets") select _i;
-				_vehMag = getArray(_turretConfig2 >> "magazines");
-				_vehMagDel = [];
+		if (_ADF_turretCount_other > 0) then {
+			for "_i" from 0 to (_ADF_turretCount_other - 1) do {
+				_ADF_turretConfig2 = (_ADF_turretConfig >> "Turrets") select _i;
+				_ADF_vehMag = getArray(_ADF_turretConfig2 >> "magazines");
+				_ADF_vehMagDel = [];
 				{
-					if (!(_x in _vehMagDel)) then {
-						_object removeMagazines _x;
-						_vehMagDel = _vehMagDel + [_x];
+					if (!(_x in _ADF_vehMagDel)) then {
+						_ADF_object removeMagazines _x;
+						_ADF_vehMagDel = _ADF_vehMagDel + [_x];
 					};
-				} forEach _vehMag;
+				} forEach _ADF_vehMag;
 				{
-					_object vehicleChat format ["Reloading %1", _x]; 
-					sleep _reloadSleep;
-					if (!alive _object) then {breakOut "ADF_Reload"};
-					_object addMagazine _x;
-					sleep _reloadSleep;
-					if (!alive _object) then {breakOut "ADF_Reload"};
-				} forEach _vehMag;
+					_ADF_object vehicleChat format ["Reloading %1", _x]; 
+					sleep _ADF_reloadSleep;
+					if (!alive _ADF_object) then {breakOut "ADF_Reload"};
+					_ADF_object addMagazine _x;
+					sleep _ADF_reloadSleep;
+					if (!alive _ADF_object) then {breakOut "ADF_Reload"};
+				} forEach _ADF_vehMag;
 			};
 		};
 	};
 };
-_object setVehicleAmmo 1; // Reload all turrets
+_ADF_object setVehicleAmmo 1; // Reload all turrets
 sleep 2;
-_object vehicleChat format ["%1 is fully rearmed",_vehName];
+_ADF_object vehicleChat format ["%1 is fully rearmed",_ADF_vehName];
 sleep 2;
 
 // REPAIR
-if (!alive _object) exitWith {};
-if (_objectDamage > 0) then {
-	while {_objectDamage > 0 && alive _object} do {
-		_object vehicleChat format ["Repairing %1",_vehName];
-		sleep _repairSleep;
-		_object setDamage (_objectDamage - 0.05);
-		_objectDamage = damage _object;		
+if (!alive _ADF_object) exitWith {};
+if (_ADF_objectDamage > 0) then {
+	while {_ADF_objectDamage > 0 && alive _ADF_object} do {
+		_ADF_object vehicleChat format ["Repairing %1",_ADF_vehName];
+		sleep _ADF_repairSleep;
+		_ADF_object setDamage (_ADF_objectDamage - 0.05);
+		_ADF_objectDamage = damage _ADF_object;		
 	};
 	sleep 2;
-	_object vehicleChat "Repairs completed";
+	_ADF_object vehicleChat "Repairs completed";
 	sleep 2;	
 } else {
-	_object vehicleChat "No repair services required.";
-	if (!alive _object) exitWith {};
+	_ADF_object vehicleChat "No repair services required.";
+	if (!alive _ADF_object) exitWith {};
 	sleep 2;
 };
 
 // REFUEL
-if (!alive _object) exitWith {};
-if (_objectFuel < 1) then {
-	_object vehicleChat format ["Refuelling %1",_vehName];
-	while {_objectFuel < 1 && alive _object} do {		
-		_object setFuel (_objectFuel + 0.01);
-		_objectFuel = fuel _object;
-		sleep _refuelSleep;
+if (!alive _ADF_object) exitWith {};
+if (_ADF_objectFuel < 1) then {
+	_ADF_object vehicleChat format ["Refuelling %1",_ADF_vehName];
+	while {_ADF_objectFuel < 1 && alive _ADF_object} do {		
+		_ADF_object setFuel (_ADF_objectFuel + 0.01);
+		_ADF_objectFuel = fuel _ADF_object;
+		sleep _ADF_reloadSleep;
 	};
 	sleep 2;
-	_object vehicleChat format ["%1 is fully refuelled",_vehName];
+	_ADF_object vehicleChat format ["%1 is fully refuelled",_ADF_vehName];
 	sleep 2;
 } else {
-	_object vehicleChat "No refuel services needed.";
-	if (!alive _object) exitWith {};
+	_ADF_object vehicleChat "No refuel services needed.";
+	if (!alive _ADF_object) exitWith {};
 	sleep 2;
 };
-if (!alive _object) exitWith {};
+if (!alive _ADF_object) exitWith {};
 
 // SERVICE FINISHED
-_serviceTime = round ((time - _serviceStartTime) / 60);
-_serviceTimeType = "minutes";
-_dayType = "day";
-_dayTime = date select 3;
-if (_dayTime < 12) then {_dayType = "day"};
-if (_dayTime > 12) then {_dayType = "day"};
-if (_dayTime > 18) then {_dayType = "evening"};
-if ((time - _serviceStartTime) < 90) then {_serviceTime = 1;_serviceTimeType = "minute"};
-_object vehicleChat format ["%1 was serviced in %2 %3. Enjoy your %4", _vehName,_serviceTime,_serviceTimeType,_dayType];
+_ADF_serviceTime = round ((time - _ADF_serviceStartTime) / 60);
+_ADF_serviceTimeType = "minutes";
+_ADF_dayType = "day";
+_ADF_dayTime = date select 3;
+if (_ADF_dayTime < 12) then {_ADF_dayType = "day"};
+if (_ADF_dayTime > 12) then {_ADF_dayType = "day"};
+if (_ADF_dayTime > 18) then {_ADF_dayType = "evening"};
+if ((time - _ADF_serviceStartTime) < 90) then {_ADF_serviceTime = 1;_ADF_serviceTimeType = "minute"};
+_ADF_object vehicleChat format ["%1 was serviced in %2 %3. Enjoy your %4", _ADF_vehName,_ADF_serviceTime,_ADF_serviceTimeType,_ADF_dayType];

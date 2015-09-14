@@ -34,8 +34,6 @@ clearWeaponCargo _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 
-
-
 // Primary weapon
 _crate addWeaponCargoGlobal ["arifle_SDAR_F", _wpn]; // Divers
 

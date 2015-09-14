@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Helicopter
 Author: Whiztler
-Script version: 1.5
+Script version: 1.6
 
 Game type: n/a
 File: ADF_vCargo_B_AirHeli.sqf
@@ -71,9 +71,10 @@ if (ADF_mod_CTAB) then {
 };
 
 // ACE3 Specific	
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ace_mapTools",1]};	
-
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
+	_vAmmo addItemCargoGlobal ["ace_mapTools",1];
+};
 
 // Medical Items
 if (ADF_mod_ACE3) then {

@@ -27,6 +27,10 @@ while {time < 25} do {
 	if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_2; SOR_AT_1 moveInCargo vWolf_2;};
 };
 
+[wolfCrate] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
+[wolfCrateDemo] execVM "Core\C\ADF_cCargo_B_Demo.sqf";
+
+
 WP_fnc_NikkosKIA = {
 	hint parseText"
 		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>

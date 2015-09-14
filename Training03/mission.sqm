@@ -45,7 +45,8 @@ class Mission
 		"a3_static_f",
 		"cba_main",
 		"A3_Modules_F_Curator_Curator",
-		"A3_Structures_F_Civ_InfoBoards"
+		"A3_Structures_F_Civ_InfoBoards",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -54,7 +55,8 @@ class Mission
 		"A3_Modules_F",
 		"A3_Modules_F_Sites",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Structures_F_Mil_Flags",
 		"A3_Soft_F_Quadbike",
 		"A3_Structures_F_Ind_Cargo",
@@ -292,29 +294,6 @@ class Mission
 		};
 		class Item3
 		{
-			side="WEST";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={12167.664,11.676447,13963.182};
-					azimut=338.60199;
-					id=11;
-					side="WEST";
-					vehicle="B_RangeMaster_F";
-					player="PLAYER COMMANDER";
-					leader=1;
-					rank="CAPTAIN";
-					skill=0.60000002;
-					text="mdev";
-					init="this allowDamage false; this setCaptive true;  gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
-					description="Trainer";
-				};
-			};
-		};
-		class Item4
-		{
 			side="LOGIC";
 			class Vehicles
 			{
@@ -386,7 +365,7 @@ class Mission
 							typeName="conditionOfPresence";
 						};
 					};
-					id=12;
+					id=11;
 					side="LOGIC";
 					vehicle="Site_OPFOR";
 					leader=1;
@@ -395,7 +374,7 @@ class Mission
 				};
 			};
 		};
-		class Item5
+		class Item4
 		{
 			side="LOGIC";
 			class Vehicles
@@ -468,7 +447,7 @@ class Mission
 							typeName="conditionOfPresence";
 						};
 					};
-					id=13;
+					id=12;
 					side="LOGIC";
 					vehicle="Site_OPFOR";
 					leader=1;
@@ -477,7 +456,7 @@ class Mission
 				};
 			};
 		};
-		class Item6
+		class Item5
 		{
 			side="LOGIC";
 			class Vehicles
@@ -550,12 +529,30 @@ class Mission
 							typeName="conditionOfPresence";
 						};
 					};
-					id=14;
+					id=13;
 					side="LOGIC";
 					vehicle="Site_OPFOR";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={11568.227,15.148211,14005.697};
+					id=14;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.2;
+					text="server";
 				};
 			};
 		};
@@ -567,13 +564,13 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={11568.227,15.148211,14005.697};
+					position[]={11668.617,13.000749,14005.568};
 					id=15;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="CBA_main_require";
 					leader=1;
-					skill=0.2;
-					text="server";
+					lock="UNLOCKED";
+					skill=0;
 				};
 			};
 		};
@@ -585,26 +582,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={11668.617,13.000749,14005.568};
-					id=16;
-					side="LOGIC";
-					vehicle="CBA_main_require";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0;
-				};
-			};
-		};
-		class Item9
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
 					position[]={11620.701,13.60938,13904.268};
-					id=17;
+					id=16;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
 					player="PLAY CDG";
@@ -615,7 +594,7 @@ class Mission
 				};
 			};
 		};
-		class Item10
+		class Item9
 		{
 			side="LOGIC";
 			class Vehicles
@@ -629,7 +608,7 @@ class Mission
 						items=4;
 						class Item0
 						{
-							value="#adminLogged";
+							value="";
 							parentCls="ModuleCurator_F";
 							typeName="Owner";
 						};
@@ -652,7 +631,7 @@ class Mission
 							typeName="Forced";
 						};
 					};
-					id=18;
+					id=17;
 					side="LOGIC";
 					vehicle="ModuleCurator_F";
 					leader=1;
@@ -662,7 +641,7 @@ class Mission
 				};
 			};
 		};
-		class Item11
+		class Item10
 		{
 			side="LOGIC";
 			class Vehicles
@@ -736,12 +715,35 @@ class Mission
 							typeName="conditionOfPresence";
 						};
 					};
-					id=19;
+					id=18;
 					side="LOGIC";
 					vehicle="Site_OPFOR";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item11
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={12167.879,11.676161,13963.881};
+					azimut=157.258;
+					id=19;
+					side="WEST";
+					vehicle="B_RangeMaster_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.2;
+					text="GM_1";
+					init="player setCaptive true; player allowDamage false; gGM1 = group this; gGM1 setGroupID [""gGM1""]; ";
+					description="TRAINER";
 				};
 			};
 		};
@@ -789,6 +791,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_5";
+			init="this allowDamage false;";
 		};
 		class Item4
 		{
@@ -800,6 +803,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_6";
+			init="this allowDamage false;";
 		};
 		class Item5
 		{
@@ -810,6 +814,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_3";
+			init="this allowDamage false;";
 		};
 		class Item6
 		{
@@ -821,6 +826,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_4";
+			init="this allowDamage false;";
 		};
 		class Item7
 		{
@@ -832,6 +838,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_7";
+			init="this allowDamage false;";
 		};
 		class Item8
 		{
@@ -3046,6 +3053,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_8";
+			init="this allowDamage false;";
 		};
 		class Item223
 		{
@@ -3056,6 +3064,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_11";
+			init="this allowDamage false;";
 		};
 		class Item224
 		{
@@ -3067,6 +3076,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_12";
+			init="this allowDamage false;";
 		};
 		class Item225
 		{
@@ -3077,6 +3087,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_9";
+			init="this allowDamage false;";
 		};
 		class Item226
 		{
@@ -3088,6 +3099,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_10";
+			init="this allowDamage false;";
 		};
 		class Item227
 		{
@@ -3099,6 +3111,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_1";
+			init="this allowDamage false;";
 		};
 		class Item228
 		{
@@ -3110,6 +3123,7 @@ class Mission
 			vehicle="Land_Cargo40_military_green_F";
 			skill=0.60000002;
 			text="timerGate_2";
+			init="this allowDamage false;";
 		};
 		class Item229
 		{

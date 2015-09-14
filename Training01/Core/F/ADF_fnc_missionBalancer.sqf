@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Mission Balancer
 Author: Whiztler
@@ -46,7 +46,7 @@ Then use the If (ADF_MB_normal) then {//yourCode }; for balanced
 enemy spawn on demand.
 ****************************************************************/
 
-diag_log "ADF RPT: Init - executing ADF_fnc_missionBalancer.sqf"; // Reporting. Do NOT edit/remove
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_fnc_missionBalancer.sqf"}; // Reporting. Do NOT edit/remove
 
 // init	the vars
 ADF_MB_lite = false;
@@ -73,7 +73,6 @@ if (isServer) then {
 		if ((count playableUnits) >= _highNr) then {ADF_MB_heavy = true; ADF_missionBalanceStat = "high";};
 		
 		ADF_missionBalanceStat;	
-		if (true) exitWith {}; // All done here. Exit
 	};
 
 	waitUntil {time > 130};
@@ -93,5 +92,3 @@ HintSilent parseText format ["
 	<t color='#A1A4AD' align='left'>Current mission Balance: </t>
 	<t color='#FFFFFF' align='right'>%2</t><br/><br/>
 ",count PlayableUnits,ADF_missionBalanceStat];
-
-if (true) exitWith {}; // All done here. Exit

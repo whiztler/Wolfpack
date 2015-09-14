@@ -56,7 +56,8 @@ class Mission
 		"cba_main",
 		"A3_Modules_F_Curator_Curator",
 		"A3_Structures_F_EPC_Items_Electronics",
-		"A3_Structures_F_Mil_BagBunker"
+		"A3_Structures_F_Mil_BagBunker",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -68,7 +69,8 @@ class Mission
 		"A3_Modules_F_Effects",
 		"A3_Characters_F_BLUFOR",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Structures_F_Mil_Flags",
 		"A3_Signs_F",
 		"A3_Structures_F_Civ_Lamps",
@@ -987,7 +989,6 @@ class Mission
 				class Item0
 				{
 					position[]={18650.924,25.773724,13454.481};
-					azimut=-75;
 					class args
 					{
 						items=4;
@@ -1433,7 +1434,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item35
 		{
@@ -1446,7 +1447,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item36
 		{
@@ -1459,7 +1460,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item37
 		{
@@ -1472,7 +1473,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item38
 		{
@@ -1485,7 +1486,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item39
 		{
@@ -1498,7 +1499,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item40
 		{
@@ -1511,7 +1512,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item41
 		{
@@ -1524,7 +1525,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item42
 		{
@@ -1537,7 +1538,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item43
 		{
@@ -1550,7 +1551,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item44
 		{
@@ -1563,7 +1564,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item45
 		{
@@ -1650,7 +1651,7 @@ class Mission
 			vehicle="Land_CncBarrier_stripes_F";
 			leader=1;
 			skill=0.46666664;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item53
 		{
@@ -1661,7 +1662,7 @@ class Mission
 			vehicle="Land_CncBarrier_stripes_F";
 			leader=1;
 			skill=0.46666664;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item54
 		{
@@ -1708,7 +1709,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item58
 		{
@@ -1721,7 +1722,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item59
 		{
@@ -1832,7 +1833,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item69
 		{
@@ -1845,7 +1846,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item70
 		{
@@ -1870,7 +1871,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item72
 		{
@@ -1895,7 +1896,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item74
 		{
@@ -1920,7 +1921,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item76
 		{
@@ -2029,7 +2030,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item85
 		{
@@ -2042,7 +2043,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item86
 		{
@@ -2055,7 +2056,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item87
 		{
@@ -2068,7 +2069,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item88
 		{
@@ -2081,7 +2082,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item89
 		{
@@ -2094,7 +2095,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item90
 		{
@@ -2159,7 +2160,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item96
 		{
@@ -2172,7 +2173,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item97
 		{
@@ -2185,7 +2186,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item98
 		{
@@ -2234,7 +2235,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item102
 		{
@@ -2247,7 +2248,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item103
 		{
@@ -2260,7 +2261,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item104
 		{
@@ -2273,7 +2274,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item105
 		{
@@ -2286,7 +2287,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item106
 		{
@@ -2299,7 +2300,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this setVectorup [0,0,0.1]; this enablesimulation false;";
+			init="this setVectorup [0,0,0.1]; this enableSimulationGlobal false;";
 		};
 		class Item107
 		{
@@ -2312,7 +2313,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this setVectorup [0,0,0.1]; this enablesimulation false;";
+			init="this setVectorup [0,0,0.1]; this enableSimulationGlobal false;";
 		};
 		class Item108
 		{
@@ -2338,7 +2339,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this setVectorup [0,0,0.1]; this enablesimulation false;";
+			init="this setVectorup [0,0,0.1]; this enableSimulationGlobal false;";
 		};
 		class Item110
 		{
@@ -2351,7 +2352,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this setVectorup [0,0,0.1]; this enablesimulation false;";
+			init="this setVectorup [0,0,0.1]; this enableSimulationGlobal false;";
 		};
 		class Item111
 		{
@@ -2364,7 +2365,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this setVectorup [0,0,0.1]; this enablesimulation false;";
+			init="this setVectorup [0,0,0.1]; this enableSimulationGlobal false;";
 		};
 		class Item112
 		{
@@ -2443,7 +2444,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item118
 		{
@@ -2466,7 +2467,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item120
 		{
@@ -2478,7 +2479,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item121
 		{
@@ -2490,7 +2491,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item122
 		{
@@ -2502,7 +2503,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item123
 		{
@@ -2514,7 +2515,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item124
 		{
@@ -2527,7 +2528,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item125
 		{
@@ -2540,7 +2541,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item126
 		{
@@ -2565,7 +2566,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item128
 		{
@@ -2578,7 +2579,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item129
 		{
@@ -2591,7 +2592,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item130
 		{
@@ -2604,7 +2605,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item131
 		{
@@ -2617,7 +2618,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item132
 		{
@@ -2642,7 +2643,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item134
 		{
@@ -2655,7 +2656,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item135
 		{
@@ -2668,7 +2669,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item136
 		{
@@ -2700,7 +2701,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item139
 		{
@@ -2724,7 +2725,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item141
 		{
@@ -2736,7 +2737,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item142
 		{
@@ -2748,7 +2749,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item143
 		{
@@ -2759,7 +2760,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item144
 		{
@@ -2772,7 +2773,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item145
 		{
@@ -2785,7 +2786,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item146
 		{
@@ -2798,7 +2799,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item147
 		{
@@ -2811,7 +2812,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item148
 		{
@@ -2824,7 +2825,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item149
 		{
@@ -2837,7 +2838,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item150
 		{
@@ -2850,7 +2851,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item151
 		{
@@ -3042,7 +3043,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item168
 		{
@@ -3055,7 +3056,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item169
 		{
@@ -3067,7 +3068,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item170
 		{
@@ -3079,7 +3080,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item171
 		{
@@ -3386,12 +3387,12 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="null = [this] execVM ""Core\C\ADF_cCargo_B_Demo.sqf"";";
+			text="wolfCrateDemo";
 		};
 		class Item199
 		{
 			position[]={16712.566,10.6893,13548.587};
-			azimut=115.91099;
+			azimut=115.911;
 			offsetY=0.5;
 			id=241;
 			side="EMPTY";
@@ -3399,7 +3400,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="null = [this] execVM ""Core\C\ADF_cCargo_B_SpecOps.sqf"";";
+			text="wolfCrate";
 		};
 		class Item200
 		{
@@ -3481,7 +3482,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item207
 		{
@@ -3504,7 +3505,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item209
 		{
@@ -3527,7 +3528,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item211
 		{
@@ -3539,7 +3540,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item212
 		{
@@ -3562,7 +3563,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item214
 		{
@@ -3574,7 +3575,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item215
 		{
@@ -3586,7 +3587,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item216
 		{
@@ -3598,7 +3599,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item217
 		{
@@ -3610,7 +3611,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item218
 		{
@@ -3622,7 +3623,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item219
 		{
@@ -3634,7 +3635,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item220
 		{
@@ -3646,7 +3647,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item221
 		{
@@ -3670,7 +3671,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item223
 		{
@@ -3682,7 +3683,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item224
 		{
@@ -3694,7 +3695,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item225
 		{
@@ -3953,7 +3954,7 @@ class Mission
 			vehicle="Flag_CSAT_F";
 			leader=1;
 			skill=0.33333331;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item246
 		{
@@ -3973,7 +3974,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagBunker_Large_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf""; this enablesimulation false;";
+			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf""; this enableSimulationGlobal false;";
 		};
 		class Item248
 		{
@@ -3995,7 +3996,7 @@ class Mission
 			vehicle="Land_HBarrier_5_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item250
 		{
@@ -4006,7 +4007,7 @@ class Mission
 			vehicle="Land_HBarrier_5_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item251
 		{
@@ -4017,7 +4018,7 @@ class Mission
 			vehicle="Land_HBarrier_5_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enablesimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item252
 		{
@@ -4518,7 +4519,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p2.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p2.paa""];";
 		};
 		class Item298
 		{
@@ -4528,7 +4529,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item299
 		{
@@ -4538,7 +4539,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\ABC_sign.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\ABC_sign.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item300
 		{
@@ -4548,7 +4549,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\ABC_sign.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\ABC_sign.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item301
 		{
@@ -4558,7 +4559,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item302
 		{
@@ -4568,7 +4569,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item303
 		{
@@ -4578,7 +4579,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item304
 		{
@@ -4588,7 +4589,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item305
 		{
@@ -4598,7 +4599,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item306
 		{
@@ -4608,7 +4609,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item307
 		{
@@ -4618,7 +4619,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item308
 		{
@@ -4628,7 +4629,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item309
 		{
@@ -4638,7 +4639,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item310
 		{
@@ -4648,7 +4649,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""];";
 		};
 		class Item311
 		{
@@ -4659,7 +4660,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p3.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p3.paa""];";
 		};
 		class Item312
 		{
@@ -4670,7 +4671,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p1.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p1.paa""];";
 		};
 		class Item313
 		{
@@ -4681,7 +4682,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p3.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p3.paa""];";
 		};
 		class Item314
 		{
@@ -4692,7 +4693,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p2.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p2.paa""];";
 		};
 		class Item315
 		{
@@ -4703,7 +4704,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p3.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p3.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item316
 		{
@@ -4714,7 +4715,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p4.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p4.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item317
 		{
@@ -4725,7 +4726,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p1.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p1.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item318
 		{
@@ -4736,7 +4737,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p2.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p2.paa""];";
 		};
 		class Item319
 		{
@@ -4747,7 +4748,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p3.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p3.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item320
 		{
@@ -4758,7 +4759,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p4.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p4.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item321
 		{
@@ -4769,7 +4770,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p1.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p1.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item322
 		{
@@ -4780,7 +4781,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p1.paa""];";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p1.paa""];";
 		};
 		class Item323
 		{
@@ -4792,7 +4793,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p2.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p2.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item324
 		{
@@ -4803,7 +4804,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p1.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p1.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item325
 		{
@@ -4814,7 +4815,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p2.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p2.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item326
 		{
@@ -4825,7 +4826,7 @@ class Mission
 			vehicle="Land_Billboard_F";
 			leader=1;
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\p3.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\p3.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item327
 		{
@@ -4835,7 +4836,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_House_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 	};
 	class Markers

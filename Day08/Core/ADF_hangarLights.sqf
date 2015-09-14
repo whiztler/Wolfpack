@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Hangar lights
 Author: Whiztler
@@ -17,9 +17,9 @@ Place a Hangar on the map and put the following in the init:
 null = [this] execVM "Core\ADF_hangarLights.sqf";
 ****************************************************************/
 
-Private ["_h","_hLoc","_lLoc","_hLight"];
+Private ["_hLoc","_lLoc","_hLight"];
+params ["_h"]; // grab the hangar's name
 
-_h		= _this select 0; // grab the hangar's name
 _hLoc 	= getPosASL _h; // get the hangar's location and alt.
 _lLoc	= [0, 0, 0]; // set the light loc offset
 _hLight = "#lightpoint" createVehicleLocal _hLoc; // Create the light

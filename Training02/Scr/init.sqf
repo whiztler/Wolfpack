@@ -55,7 +55,6 @@ for "_i" from 1 to 7 do {
 	_spawnPos = format ["mVP_%1",_i];	
 	_v = [getMarkerPos _spawnPos, 0, _vPool, _c] call BIS_fnc_spawnVehicle;
 	[_c, getmarkerpos _spawnPos, 2500, 7, "MOVE", "SAFE", "RED", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
-	sleep 0.035;
 };	
 
 // CP's
@@ -64,27 +63,27 @@ for "_i" from 1 to 7 do {
 	_spawnPos = format ["mCP_%1",_i];	
 	_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 	[_g, getMarkerPos _spawnPos, 50, 2, true] call CBA_fnc_taskDefend;
-	sleep 0.035;
-};		
+};
+	
 // CP Static Positions
 _g = CreateGroup EAST;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"SERGEANT"]; _p assignAsGunner oStat_30; _p moveInGunner oStat_30; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"CORPORAL"]; _p assignAsGunner oStat_31; _p moveInGunner oStat_31; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_32; _p moveInGunner oStat_32; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_33; _p moveInGunner oStat_33; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_34; _p moveInGunner oStat_34; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_35; _p moveInGunner oStat_35; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_36; _p moveInGunner oStat_36; sleep 0.035;
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_36; _p moveInGunner oStat_36; sleep 0.035;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"SERGEANT"]; _p assignAsGunner oStat_30; _p moveInGunner oStat_30;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"CORPORAL"]; _p assignAsGunner oStat_31; _p moveInGunner oStat_31;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_32; _p moveInGunner oStat_32;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_33; _p moveInGunner oStat_33;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_34; _p moveInGunner oStat_34;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_35; _p moveInGunner oStat_35;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_36; _p moveInGunner oStat_36;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_36; _p moveInGunner oStat_36;
 _vPos = ["mOStat_37-1","mOStat_37-2","mOStat_37-3","mOStat_37-4"] call BIS_fnc_selectRandom;
 oStat_37 setPos (getMarkerPos _vPos);
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_37; _p moveInGunner oStat_37; sleep 0.035;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_37; _p moveInGunner oStat_37;
 _vPos = ["mOStat_38-1","mOStat_38-2","mOStat_38-3"] call BIS_fnc_selectRandom;
 oStat_38 setPos (getMarkerPos _vPos);
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_38; _p moveInGunner oStat_38; sleep 0.035;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_38; _p moveInGunner oStat_38;
 _vPos = ["mOStat_39-1","mOStat_39-2","mOStat_39-3"] call BIS_fnc_selectRandom;
 oStat_39 setPos (getMarkerPos _vPos);
-_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_39; _p moveInGunner oStat_39; sleep 0.035;
+_p = _g createUnit ["O_Soldier_F",getMarkerPos "mAOborder",[],0,"PRIVATE"]; _p assignAsGunner oStat_39; _p moveInGunner oStat_39;
 
 // Sniper Teams
 for "_i" from 1 to 3 do {

@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Loadout Client
 Author: Whiztler
-Script version: 5.54
+Script version: 5.61
 
 Game type: n/a
 File: ADF_clientLoadout.sqf
@@ -12,14 +12,36 @@ File: ADF_clientLoadout.sqf
 NOTE: Gear loads on actual players only. Does not load on AI's!!
 ****************************************************************/
 
-diag_log "ADF RPT: Init - executing ADF_clientLoadout.sqf"; // Reporting. Do NOT edit/remove
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_clientLoadout.sqf"}; // Reporting. Do NOT edit/remove
+
+// Let the server apply Two Sierra uniform textures globally after the client loadout has been applied fully > 1.41 - 5.60
+if (isServer) then {
+	if (ADF_clanName == "Two Sierra") then {
+		[] spawn {
+			if (isMultiplayer) then {ADF_uArray = playableUnits;} else {ADF_uArray = switchableUnits};
+			sleep 20; // wait till units have geared up
+			{_x setObjectTextureGlobal [0, "\a3\characters_f\BLUFOR\Data\clothing_sage_co.paa"]} forEach ADF_uArray; 
+			ADF_uArray = nil;
+		};
+	};
+	if (ADF_clanName == "Wolfpack") then {
+		[] spawn {
+			if (isMultiplayer) then {ADF_uArray = playableUnits;} else {ADF_uArray = switchableUnits};
+			sleep 20; // wait till units have geared up
+			{_x setObjectTextureGlobal [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"]} forEach ADF_uArray; 
+			ADF_uArray = nil;
+		};
+	};	
+};
 
 _ADF_perfDiagStart = diag_tickTime;
 if (ADF_debug) then {["LOADOUT - Loadout Client started",false] call ADF_fnc_log};
+
 If (IsDedicated || !(local player) || ADF_isHC) exitWith {}; // 5.43
-private ["_ADF_noLoadout"];
-_ADF_noLoadout = [_this, 15, false, [true,false]] call BIS_fnc_param;
-if (_ADF_noLoadout) exitWith {if (ADF_debug) then {["Loadout - noLoadout option selected. Exiting loadout client.",false] call ADF_fnc_log;} else {diag_log "ADF RPT: Loadout - noLoadout option selected. Exiting loadout client.";};};
+_ADF_noLoadout = param [15, false, [true,false]];
+if (_ADF_noLoadout) exitWith {if (ADF_debug) then {["Loadout - noLoadout option selected. Exiting loadout client.",false] call ADF_fnc_log; ADF_gearLoaded = true; publicVariableServer "ADF_gearLoaded";} else {diag_log "ADF RPT: Loadout - noLoadout option selected. Exiting loadout client."; ADF_gearLoaded = true; publicVariableServer "ADF_gearLoaded";}};
+// Two Sierra exit
+if (ADF_clanName == "TWO SIERRA") exitWith {player execVM "Core\F\ADF_fnc_Loadout2S.sqf";};
 
 //Init vars
 private [
@@ -29,26 +51,26 @@ private [
 	"_ADF_unitFaction","_ADF_inf_headgear","_ADF_unit","_ADF_unitCheck","_ADF_unitString","_u","_p","_r"
 ];
 
-_ADF_customLoadout_MOD 		= [_this, 0, false, [true,false]] call BIS_fnc_param;
+_ADF_customLoadout_MOD 		= param [0, false, [true,false]];
 _ADF_uniform_inf 				= _this select 1;
 _ADF_uniform_sor 				= _this select 2;
-_ADF_NVGoggles 				= [_this, 3, true, [true,false]] call BIS_fnc_param;
-_ADF_GPS 					= [_this, 4, false, [true,false]] call BIS_fnc_param;
-_ADF_INF_assault_weapon		= [_this, 5, 1, [1,2]] call BIS_fnc_param;
-_ADF_INF_LMG_weapon 			= [_this, 6, 1, [1,2]] call BIS_fnc_param;
-_ADF_INF_hand_weapon 			= [_this, 7, 1, [1,2]] call BIS_fnc_param;
-_ADF_INF_scopes 				= [_this, 8, false, [true,false]] call BIS_fnc_param;
-_ADF_SOR_assault_weapon		= [_this, 9, 1, [1,2,3]] call BIS_fnc_param;
-_ADF_SOR_hand_weapon 			= [_this, 10, 1, [1,2]] call BIS_fnc_param;
-_ADF_CAV_assault_weapon 		= [_this, 11, 1, [1,2]] call BIS_fnc_param;
-_ADF_TFAR_PersonalRadio 		= [_this, 12, "tf_rf7800str", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
-_ADF_TFAR_SWRadio 			= [_this, 13, "tf_anprc152", ["tf_rf7800str","tf_anprc152"]] call BIS_fnc_param;
-_ADF_TFAR_LRRadio 			= [_this, 14, "tf_rt1523g_big", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
-_ADF_TFAR_LRRadioSOR 			= [_this, 16, "tf_rt1523g_black", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]] call BIS_fnc_param;
-_ADF_ACE3_microDAGR_all 		= [_this, 17, false, [true,false]] call BIS_fnc_param;
-_ADF_ACE3_microDAGR_leaders 	= [_this, 18, false, [true,false]] call BIS_fnc_param;
-_ADF_cTAB_microDAGR_all 		= [_this, 19, false, [true,false]] call BIS_fnc_param;
-_ADF_cTAB_microDAGR_leaders 	= [_this, 20, false, [true,false]] call BIS_fnc_param;
+_ADF_NVGoggles 				= param [3, true, [true,false]];
+_ADF_GPS 					= param [4, false, [true,false]];
+_ADF_INF_assault_weapon		= param [5, 1, [1,2]];
+_ADF_INF_LMG_weapon 			= param [6, 1, [1,2]];
+_ADF_INF_hand_weapon 			= param [7, 1, [1,2]];
+_ADF_INF_scopes 				= param [8, false, [true,false]];
+_ADF_SOR_assault_weapon		= param [9, 1, [1,2,3]];
+_ADF_SOR_hand_weapon 			= param [10, 1, [1,2]];
+_ADF_CAV_assault_weapon 		= param [11, 1, [1,2]];
+_ADF_TFAR_PersonalRadio 		= param [12, "tf_rf7800str", ["tf_rf7800str","tf_anprc152"]];
+_ADF_TFAR_SWRadio 			= param [13, "tf_anprc152", ["tf_rf7800str","tf_anprc152"]];
+_ADF_TFAR_LRRadio 			= param [14, "tf_rt1523g_big", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]];
+_ADF_TFAR_LRRadioSOR 			= param [16, "tf_rt1523g_black", ["tf_rt1523g","tf_rt1523g_big","tf_rt1523g_black","tf_rt1523g_fabric","tf_rt1523g_green","tf_rt1523g_rhs","tf_rt1523g_sage"]];
+_ADF_ACE3_microDAGR_all 		= param [17, false, [true,false]];
+_ADF_ACE3_microDAGR_leaders 	= param [18, false, [true,false]];
+_ADF_cTAB_microDAGR_all 		= param [19, false, [true,false]];
+_ADF_cTAB_microDAGR_leaders 	= param [20, false, [true,false]];
 
 tf_no_auto_long_range_radio 	= true;
 ADF_SOR_MK20 				= false;
@@ -80,7 +102,7 @@ if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFO
 	
 	// Split the player variable into Squad, Role
 	_ADF_unitString = str _ADF_unit;
-	_u = [_ADF_unitString, "_"] call CBA_fnc_split;
+	_u = _ADF_unitString splitString "_";
 	_s = toLower (_u select 0);
 	_r = toLower (_u select 1);
 	
@@ -110,22 +132,22 @@ if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFO
 	// SOR uniform texture update
 	if (_s == "sor") then {
 		[_ADF_unit] spawn {
-			ADF_sorUnits = [];		
-			// Check if the SOR groups are populated/exist and add to ADF_sorUnits array
-			if !(isNil "gCO_4") then {ADF_sorUnits pushBack gCO_4};
-			if !(isNil "gCO_41M") then {ADF_sorUnits pushBack gCO_41M};
-			if !(isNil "gCO_41R") then {ADF_sorUnits pushBack gCO_41R};
-			if !(isNil "gCO_41Y") then {ADF_sorUnits pushBack gCO_41Y};
-			if !(isNil "gCO_41Z") then {ADF_sorUnits pushBack gCO_41Z};			
-		
 			waitUntil {time > 10};
 			
-			player setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
-			{
-				{			
-					_x setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
-				} forEach units _x;
-			} forEach ADF_sorUnits;
+			// Add Uniform EH
+			player addEventHandler ["Take", {
+				(getObjectTextures player + [uniformContainer player getVariable "texture"])
+				params ["_texUniform", "_texInsignia", "_texCustom"];
+				if (isNil "_texCustom") exitWith {};
+				if (_texUniform == _texCustom) exitWith {};
+				player setObjectTextureGlobal [0, _texCustom];
+				if (ADF_Clan_uniformInsignia) then {[player,"CLANPATCH"] call BIS_fnc_setUnitInsignia};
+				false
+			}];
+
+			// Set local Texture
+			_ADF_texture =  "\A3\Characters_F\Common\Data\basicbody_black_co.paa";
+			uniformContainer player setVariable ["texture", _ADF_texture, true];
 		};
 	};
 	
@@ -136,7 +158,7 @@ if ((_ADF_unitFaction == "BLU_F") && _ADF_customLoadout_MOD) exitWith { // BLUFO
 	if (_s == "sor") exitWith {[_s,_r] call ADF_fnc_loadoutSor}; // SpecOp/Recon Squadron
 	if (_s == "sod") exitWith {[_s,_r] call ADF_fnc_loadoutSod}; // Divers
 	if (_s == "sop") exitWith {[_s,_r] call ADF_fnc_loadoutSop}; // Snipers/JTAC
-	if (_s == "dev") exitWith {									 // Mission Developer
+	if (_s == "dev") exitWith {								 // Mission Developer
 		_ADF_unit addVest "V_Rangemaster_belt";
 		_ADF_unit unassignItem "NVGoggles";
 		_ADF_unit addWeapon "LaserDesignator";

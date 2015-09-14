@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Demolition
 Author: Whiztler
@@ -32,8 +32,6 @@ _itm = 5;
 clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
-
-
 
 // Demo/Explosives
 _crate addMagazineCargoGlobal ["DemoCharge_Remote_Mag", _dem];

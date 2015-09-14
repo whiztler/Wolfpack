@@ -1,4 +1,4 @@
-diag_log "ADF RPT: Init - executing ADF_fnc_FOB.sqf"; // Reporting. Do NOT edit/remove
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_fnc_FOB.sqf"}; // Reporting. Do NOT edit/remove
 
 // FOB functions
 

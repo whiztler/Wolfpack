@@ -1,3 +1,5 @@
+if (isServer) then {diag_log "ADF RPT: Init - executing void_map_marker.sqf"}; // Reporting. Do NOT edit/remove
+
 /*
 	script made by void.
 	

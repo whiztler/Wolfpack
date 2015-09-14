@@ -5,7 +5,6 @@ class Mission
 	{
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
-		"A3_Characters_F_INDEP",
 		"A3_Characters_F_Civil",
 		"A3_Structures_F_Mil_Helipads",
 		"A3_Weapons_F_Ammoboxes",
@@ -53,7 +52,8 @@ class Mission
 		"A3_Soft_F_Bootcamp_Offroad_01",
 		"A3_Modules_F",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator"
+		"A3_Modules_F_Curator_Curator",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -62,7 +62,8 @@ class Mission
 		"a3_characters_f",
 		"A3_Modules_F",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Air_F_Heli_Heli_Transport_04",
 		"A3_Air_F_Beta_Heli_Attack_02",
 		"A3_Structures_F_Mil_Helipads",
@@ -575,7 +576,7 @@ class Mission
 			vehicle="O_Heli_Transport_04_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item1
 		{
@@ -586,7 +587,7 @@ class Mission
 			vehicle="O_Heli_Attack_02_black_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item2
 		{
@@ -597,7 +598,7 @@ class Mission
 			vehicle="O_Heli_Attack_02_black_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item3
 		{
@@ -626,7 +627,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_MRAP_02_gmg_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item6
 		{
@@ -637,7 +638,7 @@ class Mission
 			vehicle="O_Truck_02_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item7
 		{
@@ -648,7 +649,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item8
 		{
@@ -659,7 +660,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item9
 		{
@@ -670,7 +671,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item10
 		{
@@ -681,7 +682,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item11
 		{
@@ -692,7 +693,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item12
 		{
@@ -703,7 +704,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item13
 		{
@@ -722,7 +723,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_Truck_02_medical_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item15
 		{
@@ -733,7 +734,7 @@ class Mission
 			vehicle="O_Truck_03_repair_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item16
 		{
@@ -784,7 +785,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item21
 		{
@@ -795,7 +796,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item22
 		{
@@ -806,7 +807,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item23
 		{
@@ -817,7 +818,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item24
 		{
@@ -828,7 +829,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item25
 		{
@@ -839,7 +840,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item26
 		{
@@ -850,7 +851,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item27
 		{
@@ -861,7 +862,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item28
 		{
@@ -872,7 +873,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item29
 		{
@@ -883,7 +884,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item30
 		{
@@ -894,7 +895,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item31
 		{
@@ -905,7 +906,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item32
 		{
@@ -916,7 +917,7 @@ class Mission
 			vehicle="O_MRAP_02_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item33
 		{
@@ -927,7 +928,7 @@ class Mission
 			vehicle="O_MRAP_02_gmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item34
 		{
@@ -938,7 +939,7 @@ class Mission
 			vehicle="O_MRAP_02_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item35
 		{
@@ -1108,7 +1109,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item51
 		{
@@ -1119,7 +1120,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item52
 		{
@@ -1130,7 +1131,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item53
 		{
@@ -1141,7 +1142,7 @@ class Mission
 			vehicle="O_MRAP_02_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item54
 		{
@@ -1162,7 +1163,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item56
 		{
@@ -1183,7 +1184,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item58
 		{
@@ -1204,7 +1205,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item60
 		{
@@ -1324,7 +1325,7 @@ class Mission
 			vehicle="C_Van_01_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item71
 		{
@@ -1335,7 +1336,7 @@ class Mission
 			vehicle="C_Van_01_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item72
 		{
@@ -1346,7 +1347,7 @@ class Mission
 			vehicle="C_Van_01_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item73
 		{
@@ -1357,7 +1358,7 @@ class Mission
 			vehicle="C_Van_01_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item74
 		{
@@ -1368,7 +1369,7 @@ class Mission
 			vehicle="C_Van_01_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item75
 		{
@@ -1389,7 +1390,7 @@ class Mission
 			vehicle="O_Truck_02_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item77
 		{
@@ -1472,7 +1473,7 @@ class Mission
 			vehicle="O_APC_Tracked_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item85
 		{
@@ -1483,7 +1484,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item86
 		{
@@ -1494,7 +1495,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item87
 		{
@@ -1532,7 +1533,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_Truck_03_medical_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item91
 		{
@@ -1542,7 +1543,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_Truck_02_medical_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item92
 		{
@@ -1553,7 +1554,7 @@ class Mission
 			vehicle="O_Truck_03_medical_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item93
 		{
@@ -1563,7 +1564,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_Truck_03_covered_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item94
 		{
@@ -1657,7 +1658,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item103
 		{
@@ -1668,7 +1669,7 @@ class Mission
 			vehicle="O_MRAP_02_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item104
 		{
@@ -1679,7 +1680,7 @@ class Mission
 			vehicle="O_MRAP_02_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item105
 		{
@@ -1700,7 +1701,7 @@ class Mission
 			vehicle="C_Van_01_box_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item107
 		{
@@ -1711,7 +1712,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item108
 		{
@@ -1722,7 +1723,7 @@ class Mission
 			vehicle="O_Truck_02_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item109
 		{
@@ -1733,7 +1734,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item110
 		{
@@ -1744,7 +1745,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item111
 		{
@@ -1755,7 +1756,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item112
 		{
@@ -1766,7 +1767,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item113
 		{
@@ -1847,7 +1848,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item121
 		{
@@ -1858,7 +1859,7 @@ class Mission
 			vehicle="C_Van_01_box_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item122
 		{
@@ -1869,7 +1870,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item123
 		{
@@ -1891,7 +1892,7 @@ class Mission
 			vehicle="Land_CargoBox_V1_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item125
 		{
@@ -1902,7 +1903,7 @@ class Mission
 			vehicle="Land_CargoBox_V1_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item126
 		{
@@ -1913,7 +1914,7 @@ class Mission
 			vehicle="Land_CargoBox_V1_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item127
 		{
@@ -2294,7 +2295,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item162
 		{
@@ -2305,7 +2306,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item163
 		{
@@ -2316,7 +2317,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item164
 		{
@@ -2327,7 +2328,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item165
 		{
@@ -2349,7 +2350,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item167
 		{
@@ -2360,7 +2361,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item168
 		{
@@ -2371,7 +2372,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item169
 		{
@@ -2382,7 +2383,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item170
 		{
@@ -2393,7 +2394,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item171
 		{
@@ -2404,7 +2405,7 @@ class Mission
 			vehicle="O_MRAP_02_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item172
 		{
@@ -2426,7 +2427,7 @@ class Mission
 			vehicle="O_MRAP_02_hmg_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item174
 		{
@@ -2439,7 +2440,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item175
 		{
@@ -2452,7 +2453,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item176
 		{
@@ -2465,7 +2466,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item177
 		{
@@ -2478,7 +2479,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item178
 		{
@@ -2491,7 +2492,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item179
 		{
@@ -2504,7 +2505,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item180
 		{
@@ -2517,7 +2518,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item181
 		{
@@ -2530,7 +2531,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item182
 		{
@@ -2543,7 +2544,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item183
 		{
@@ -2556,7 +2557,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item184
 		{
@@ -2569,7 +2570,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item185
 		{
@@ -2582,7 +2583,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.80308741;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item186
 		{
@@ -2615,7 +2616,7 @@ class Mission
 			vehicle="O_APC_Tracked_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item189
 		{
@@ -2626,7 +2627,7 @@ class Mission
 			vehicle="O_MBT_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item190
 		{
@@ -2637,7 +2638,7 @@ class Mission
 			vehicle="O_MBT_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item191
 		{
@@ -2648,7 +2649,7 @@ class Mission
 			vehicle="O_MBT_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item192
 		{
@@ -2659,7 +2660,7 @@ class Mission
 			vehicle="O_APC_Tracked_02_AA_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item193
 		{
@@ -2670,7 +2671,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item194
 		{
@@ -2681,7 +2682,7 @@ class Mission
 			vehicle="O_Truck_02_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item195
 		{
@@ -2692,7 +2693,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item196
 		{
@@ -2704,7 +2705,7 @@ class Mission
 			vehicle="O_Truck_03_covered_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item197
 		{
@@ -2715,7 +2716,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item198
 		{
@@ -2726,7 +2727,7 @@ class Mission
 			vehicle="O_APC_Tracked_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item199
 		{
@@ -2737,7 +2738,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item200
 		{
@@ -2748,7 +2749,7 @@ class Mission
 			vehicle="O_APC_Tracked_02_cannon_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item201
 		{
@@ -2759,7 +2760,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item202
 		{
@@ -3041,7 +3042,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item229
 		{
@@ -3063,7 +3064,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item231
 		{
@@ -3085,7 +3086,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item233
 		{
@@ -3107,7 +3108,7 @@ class Mission
 			vehicle="O_APC_Wheeled_02_rcws_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item235
 		{
@@ -3216,7 +3217,7 @@ class Mission
 			vehicle="C_Hatchback_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item245
 		{
@@ -3227,7 +3228,7 @@ class Mission
 			vehicle="C_Hatchback_01_sport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item246
 		{
@@ -3238,7 +3239,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item247
 		{
@@ -3249,7 +3250,7 @@ class Mission
 			vehicle="C_SUV_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item248
 		{
@@ -3260,7 +3261,7 @@ class Mission
 			vehicle="C_Van_01_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item249
 		{
@@ -3271,7 +3272,7 @@ class Mission
 			vehicle="C_Van_01_box_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item250
 		{
@@ -3282,7 +3283,7 @@ class Mission
 			vehicle="C_Van_01_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item251
 		{
@@ -3293,7 +3294,7 @@ class Mission
 			vehicle="C_Van_01_box_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item252
 		{
@@ -3304,7 +3305,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item253
 		{
@@ -3315,7 +3316,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item254
 		{
@@ -3326,7 +3327,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item255
 		{
@@ -3337,7 +3338,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item256
 		{
@@ -3348,7 +3349,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item257
 		{
@@ -3359,7 +3360,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item258
 		{
@@ -3370,7 +3371,7 @@ class Mission
 			vehicle="C_SUV_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item259
 		{
@@ -3381,7 +3382,7 @@ class Mission
 			vehicle="C_SUV_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item260
 		{
@@ -3392,7 +3393,7 @@ class Mission
 			vehicle="C_SUV_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item261
 		{
@@ -3403,7 +3404,7 @@ class Mission
 			vehicle="C_Hatchback_01_sport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item262
 		{
@@ -3414,7 +3415,7 @@ class Mission
 			vehicle="C_Hatchback_01_sport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item263
 		{
@@ -3425,7 +3426,7 @@ class Mission
 			vehicle="C_Hatchback_01_sport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item264
 		{
@@ -3446,7 +3447,7 @@ class Mission
 			vehicle="C_Hatchback_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item266
 		{
@@ -3457,7 +3458,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item267
 		{
@@ -3488,7 +3489,7 @@ class Mission
 			vehicle="C_Hatchback_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item270
 		{
@@ -3499,7 +3500,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item271
 		{
@@ -3510,7 +3511,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item272
 		{
@@ -3521,7 +3522,7 @@ class Mission
 			vehicle="C_SUV_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item273
 		{
@@ -3532,7 +3533,7 @@ class Mission
 			vehicle="C_Offroad_01_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item274
 		{
@@ -3544,7 +3545,7 @@ class Mission
 			vehicle="C_Van_01_box_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item275
 		{
@@ -3597,7 +3598,7 @@ class Mission
 			vehicle="O_Truck_02_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item280
 		{
@@ -3608,7 +3609,7 @@ class Mission
 			vehicle="O_Truck_02_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item281
 		{
@@ -3638,7 +3639,7 @@ class Mission
 			vehicle="O_Truck_03_ammo_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item284
 		{
@@ -3668,7 +3669,7 @@ class Mission
 			vehicle="O_Truck_03_ammo_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item287
 		{
@@ -3679,7 +3680,7 @@ class Mission
 			vehicle="O_Truck_03_fuel_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item288
 		{
@@ -3690,7 +3691,7 @@ class Mission
 			vehicle="O_Truck_03_repair_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item289
 		{
@@ -3701,7 +3702,7 @@ class Mission
 			vehicle="O_Truck_03_repair_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item290
 		{
@@ -4105,7 +4106,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.60000002;
-			init="0 = [this] execvm ""Core\C\ADF_cCargo_B_SpecOps.sqf"";";
+			text="wolfCrate";
 		};
 		class Item329
 		{
@@ -4119,7 +4120,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.60000002;
-			init="0 = [this] execvm ""Core\C\ADF_cCargo_B_WetGear.sqf"";";
+			text="wolfCrateWet_1";
 		};
 		class Item330
 		{
@@ -4133,7 +4134,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.60000002;
-			init="0 = [this] execvm ""Core\C\ADF_cCargo_B_Demo.sqf"";";
+			text="wolfCrateDemo";
 		};
 		class Item331
 		{
@@ -4147,7 +4148,7 @@ class Mission
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.60000002;
-			init="0 = [this] execvm ""Core\C\ADF_cCargo_B_WetGear.sqf"";";
+			text="wolfCrateWet_2";
 		};
 		class Item332
 		{
@@ -4179,7 +4180,7 @@ class Mission
 			vehicle="O_Heli_Transport_04_repair_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item335
 		{
@@ -4190,7 +4191,7 @@ class Mission
 			vehicle="O_Heli_Transport_04_medevac_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item336
 		{
@@ -4263,7 +4264,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item343
 		{
@@ -4275,7 +4276,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item344
 		{
@@ -4287,7 +4288,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item345
 		{
@@ -4299,7 +4300,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item346
 		{
@@ -4311,7 +4312,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item347
 		{
@@ -4400,7 +4401,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item355
 		{
@@ -4412,7 +4413,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item356
 		{
@@ -4424,7 +4425,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item357
 		{
@@ -4434,7 +4435,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item358
 		{
@@ -4445,7 +4446,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item359
 		{
@@ -4456,7 +4457,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item360
 		{
@@ -4477,7 +4478,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item362
 		{
@@ -4488,7 +4489,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item363
 		{
@@ -4499,7 +4500,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item364
 		{
@@ -4510,7 +4511,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item365
 		{
@@ -4521,7 +4522,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item366
 		{
@@ -4532,7 +4533,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item367
 		{
@@ -4543,7 +4544,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item368
 		{
@@ -4554,7 +4555,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item369
 		{
@@ -4565,7 +4566,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item370
 		{
@@ -4585,7 +4586,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item372
 		{
@@ -4596,7 +4597,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item373
 		{
@@ -4607,7 +4608,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item374
 		{
@@ -4618,7 +4619,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item375
 		{
@@ -4629,7 +4630,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item376
 		{
@@ -4640,7 +4641,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item377
 		{
@@ -4651,7 +4652,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item378
 		{
@@ -4702,7 +4703,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item383
 		{
@@ -4736,7 +4737,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item386
 		{
@@ -4747,7 +4748,7 @@ class Mission
 			vehicle="O_Truck_02_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item387
 		{
@@ -4758,7 +4759,7 @@ class Mission
 			vehicle="O_Truck_03_transport_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item388
 		{
@@ -4770,7 +4771,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item389
 		{
@@ -4782,7 +4783,7 @@ class Mission
 			leader=1;
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item390
 		{
@@ -4959,7 +4960,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item407
 		{
@@ -4969,7 +4970,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SignAd_Sponsor_F";
 			skill=0.60000002;
-			init="this allowDamage false; this enablesimulation false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""]; this setVectorup [0,0,0.1]";
+			init="this allowDamage false; this enableSimulationGlobal false; this setObjectTexture [0, ""Img\CSAT_base_sign.paa""]; this setVectorup [0,0,0.1]";
 		};
 		class Item408
 		{
@@ -5014,7 +5015,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_Truck_03_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item412
 		{
@@ -5024,7 +5025,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item413
 		{
@@ -5034,7 +5035,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item414
 		{
@@ -5044,7 +5045,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item415
 		{
@@ -5054,7 +5055,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item416
 		{
@@ -5073,7 +5074,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_CargoNet_01_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item418
 		{
@@ -5083,7 +5084,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_CargoNet_01_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item419
 		{
@@ -5093,7 +5094,7 @@ class Mission
 			side="EMPTY";
 			vehicle="O_CargoNet_01_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item420
 		{
@@ -5211,7 +5212,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item433
 		{
@@ -5230,7 +5231,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item435
 		{
@@ -5240,7 +5241,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_PaperBox_closed_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item436
 		{
@@ -5250,7 +5251,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_PaperBox_open_full_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item437
 		{
@@ -5577,7 +5578,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item469
 		{
@@ -5588,7 +5589,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item470
 		{
@@ -5599,7 +5600,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item471
 		{
@@ -5610,7 +5611,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item472
 		{
@@ -5621,7 +5622,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_MetalBarrel_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item473
 		{
@@ -5631,7 +5632,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Box_East_AmmoVeh_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item474
 		{
@@ -5684,7 +5685,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_CargoNet_01_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item479
 		{
@@ -5696,7 +5697,7 @@ class Mission
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
 			text="luggg";
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item480
 		{
@@ -5707,7 +5708,7 @@ class Mission
 			vehicle="Land_LuggageHeap_03_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item481
 		{
@@ -5718,7 +5719,7 @@ class Mission
 			vehicle="Land_LuggageHeap_03_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item482
 		{
@@ -5729,7 +5730,7 @@ class Mission
 			vehicle="C_Offroad_01_repair_F";
 			lock="LOCKEDPLAYER";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item483
 		{
@@ -5749,7 +5750,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_CargoNet_01_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 		class Item485
 		{
@@ -5759,7 +5760,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_CargoNet_01_ammo_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this enableSimulationGlobal false;";
 		};
 	};
 	class Markers

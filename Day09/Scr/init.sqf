@@ -30,6 +30,11 @@ while {time < 25} do {
 	if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_3; SOR_AT_1 moveInCargo vWolf_3;};
 };
 
+[wolfCrate] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
+[wolfCrateDemo] execVM "Core\C\ADF_cCargo_B_Demo.sqf";
+[wolfCrateWet_1] execVM "Core\C\ADF_cCargo_B_WetGear.sqf";
+[wolfCrateWet_2] execVM "Core\C\ADF_cCargo_B_WetGear.sqf";
+
 if (isServer) then {
 	[getMarkerPos "mJet1", getMarkerPos "mJetEnd", 50, "FULL", "O_Plane_CAS_02_F", EAST] call BIS_fnc_ambientFlyby;
 	[getMarkerPos "mJet2", getMarkerPos "mJetEnd", 70, "FULL", "O_Plane_CAS_02_F", EAST] call BIS_fnc_ambientFlyby;

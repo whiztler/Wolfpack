@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Ammunition Supply Truck
 Author: Whiztler
@@ -62,7 +62,7 @@ _vAmmo addWeaponCargoGlobal ["launch_B_Titan_F", 2];
 _vAmmo addWeaponCargoGlobal ["launch_B_Titan_short_F", 5];
 
 // Rockets/Missiles
-_vAmmo addMagazineCargoGlobal ["NLAW_F", 10];
+if (!ADF_mod_ACE3) then {_vAmmo addMagazineCargoGlobal ["NLAW_F", 10]};
 _vAmmo addMagazineCargoGlobal ["Titan_AT", 10];
 _vAmmo addMagazineCargoGlobal ["Titan_AP", 5];
 _vAmmo addMagazineCargoGlobal ["Titan_AA", 5];
@@ -148,10 +148,13 @@ if (ADF_mod_CTAB) then {
 };
 
 // ACE3 Specific	
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_EarPlugs",50]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ace_mapTools",10]};	
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_CableTie",50]};
-
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",50];
+	_vAmmo addItemCargoGlobal ["ace_mapTools",10];
+	_vAmmo addItemCargoGlobal ["ACE_CableTie",50];
+	_vAmmo addItemCargoGlobal ["ACE_UAVBattery",5];
+	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack",3];
+};
 
 // Medical Items
 if (ADF_mod_ACE3) then {
@@ -182,7 +185,3 @@ _vAmmo addBackpackCargoGlobal ["B_Kitbag_mcamo", 5];
 
 // Misc items
 _vAmmo addItemCargoGlobal ["ItemGPS", 10];
-if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 5];
-	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 2];
-};

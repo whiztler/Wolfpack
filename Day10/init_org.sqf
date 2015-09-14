@@ -63,7 +63,7 @@ execVM "Scr\ADF_briefing.sqf"; // Mission Briefing
 execVM "Core\ADF_roster.sqf"; // Roster
 
 /********** Post processing **********/
-[_ADF_mission_init_time,_ADF_tpl_version,_ADF_mission_version] execVM "Core\ADF_missionInit.sqf"; // Nr of secs for mission Init countdown. Should be the last line of the init.sqf
+[_ADF_mission_init_time,ADF_tpl_version,ADF_mission_version] execVM "Core\ADF_missionInit.sqf"; // Nr of secs for mission Init countdown. Should be the last line of the init.sqf
 if !(_ADF_Thermal) then {{_x disableTIEquipment true;} forEach vehicles};
 if (!_ADF_customLoadout) exitWith {};
 #include "Core\ADF_TFAR.sqf"

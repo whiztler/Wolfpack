@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Recon/JTAC teams
 Author: Whiztler
-Script version: 2.0
+Script version: 2.1
 
 Game type: n/a
 File: ADF_cCargo_B_RcnJTC.sqf
@@ -38,8 +38,6 @@ _uni = 5;	// Uniform/Vest/Backpack/etc
 clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
-
-
 
 // Primary weapon
 _crate addWeaponCargoGlobal ["arifle_MX_GL_F", _wpn]; // GL
@@ -175,7 +173,7 @@ if (ADF_mod_ACE3) then {
 // ACE3 Specific	
 if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_EarPlugs",15];
-	_crate addItemCargoGlobal ["ace_mapTools",_itm]
+	_crate addItemCargoGlobal ["ace_mapTools",_itm];
 };
 
 // Medical Items

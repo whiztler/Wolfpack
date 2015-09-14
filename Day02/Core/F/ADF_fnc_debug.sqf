@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Debug functions
 Author: whiztler
@@ -25,7 +25,7 @@ that is used to spawn units/vehicles:
 Make sure that you call the function AFTER all units have spawned. It does NOT refresh!
 ****************************************************************/
 
-diag_log "ADF RPT: Init - executing ADF_debug.sqf"; // Reporting. Do NOT edit/remove
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_debug.sqf"}; // Reporting. Do NOT edit/remove
 
 // Add menu actions to mission maker for editor preview
 if (isServer && !isDedicated) then {
@@ -52,8 +52,7 @@ if (isServer && !isDedicated) then {
 ADF_fnc_debugMarkers = {
 	if (!isServer) exitWith {}; // server only
 	if (count _this < 2) exitwith {["DEBUG - OpFor Tracking marker parameters are incorrect",false] call ADF_fnc_log;}; // incorrect config
-	_ADF_debug_side = _this select 0;	
-	_ADF_debug_labels = _this select 1;
+	params ["_ADF_debug_side","_ADF_debug_labels"];
 	{
 		if (side _x == _ADF_debug_side) then { // Check side
 			[_x,_ADF_debug_labels] spawn { // Spawn a script instance per unit per defined side

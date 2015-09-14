@@ -33,6 +33,8 @@ while {time < 25} do {
 
 // init
 wpFace = false;
+[wolfCrate] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
+[wolfCrateDemo] execVM "Core\C\ADF_cCargo_B_Demo.sqf";
 
 // Init & randomize the intel location
 _deskRandom = [desk2,desk3,desk4,desk5,desk6]  call BIS_fnc_selectRandom;

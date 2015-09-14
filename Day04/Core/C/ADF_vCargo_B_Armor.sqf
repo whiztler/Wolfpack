@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Armoured vehicles
 Author: Whiztler
@@ -30,8 +30,6 @@ _vAmmo = _this select 0;
 clearWeaponCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
-
-
 
 // Magazines primary weapon
 if (ADF_mod_ACE3) then {
@@ -77,9 +75,11 @@ if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {_vAmmo addItemCargoGlobal ["ItemRadio"
 };*/
 
 // ACE3 Specific	
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ace_mapTools",1]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_CableTie",5]}; // ACE3 094
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
+	_vAmmo addItemCargoGlobal ["ace_mapTools",1];
+	_vAmmo addItemCargoGlobal ["ACE_CableTie",5];
+}; // ACE3 094
 
 // Medical Items
 if (ADF_mod_ACE3) then {

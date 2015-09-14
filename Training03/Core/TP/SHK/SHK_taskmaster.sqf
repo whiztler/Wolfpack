@@ -1,6 +1,6 @@
 /* == TASKMASTER ===============================================================================
   
-  Version 0.42
+  Version 0.44
   Author: Shuko (shuko@quakenet, miika@miikajarvinen.fi)
   Contributors: Alwarren, cuel, Fat_Lurch, galzohar, Levrex, zuff
   Forum: http://forums.bistudio.com/showthread.php?160974-SHK_Taskmaster
@@ -29,7 +29,7 @@
       Description   string     Task description, the actual text body
     
     Optional parameters:
-      Condition     boolean/side/faction/unit/group/string   Units the task is added to. Default is everyone
+      Condition     boolean/side/faction/unit/group/string/array   Units the task is added to. Default is everyone
       Marker        array     Marker related to the task. It will be created only for the units who have the
                               task. Marker will be hidden after task is completed. Can be an array of marker
                               arrays, if you want to create multiple markers.
@@ -40,7 +40,7 @@
         Text        string    Marker text.
         Shape       string    Marker shape: Icon, Ellipse, Rectangle
         Size        number or array     Marker size. If number given, it's used for both X and Y dimension.
-      State         string    Task state of the newly created task. Default is "created".
+      State         string    Task state of the newly created task. Default is "created". Using "assigned" creates the task as assigned and sets it current.
       Destination   object/position/marker   Place to create task destination (game's built-in waypoint/marker). If an object is given, setSimpleTaskTarget command is used, attaching the destination to it.
       
     - Condition -
@@ -150,6 +150,8 @@
     calls, for example "sleep 1;".
   
   == Version history ======================================================================
+    0.44  Added: An array can now be used as a condition.
+    0.43  Added: Using "assigned" task state will automatically set that task as current task. Use "created" to avoid that.
     0.42  Changed: Support for all non-BIS factions.
     0.41  Fixed: More robust inCompleted function.
     0.40  Fixed: Marker text
@@ -238,9 +240,9 @@ DEBUG = false;
         _handle setsimpletaskdescription [(_this select 2),(_this select 1),""];
         _handle settaskstate _state;
         
-        //if (_state in ["created","assigned"]) then {
-          //_x setcurrenttask _handle;
-        //};
+        if (_state == "assigned") then {
+          _x setcurrenttask _handle;
+        };
         switch (toupper(typename _dest)) do {
           case "OBJECT": { _handle setsimpletasktarget [_dest,true] };
           case "STRING": { _handle setsimpletaskdestination (getmarkerpos _dest) };
@@ -370,6 +372,7 @@ DEBUG = false;
         case (typename objNull): { _unit == _cond };
         case (typename WEST):    { (side _unit == _cond) };
         case (typename true):    { _cond };
+        case (typename []):      { (_unit in _cond) };
         case (typename ""): {
           if (_cond call SHK_Taskmaster_isFaction) then {
             (faction _unit == _cond)

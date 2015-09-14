@@ -13,7 +13,7 @@ This is a load balancer that spreads AI's over multiple HC's
 The script assumes HC's are named ADF_HC1, ADF_HC2, ADF_HC3
 ****************************************************************/
 
-diag_log "ADF RPT: Init - executing ADF_HC_loadBalancing.sqf"; // Reporting. Do NOT edit/remove
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_HC_loadBalancing.sqf"}; // Reporting. Do NOT edit/remove
 
 if (!ADF_HC_connected) exitWith {if (ADF_debug && isServer) then {["HC - loadBalancing - NO HC detected",false] call ADF_fnc_log} else {diag_log "ADF RPT: HC Load Balancing - No HC detected. Terminating ADF_fnc_HC_loadbalancing.sqf"};};
 waitUntil {time > 20};

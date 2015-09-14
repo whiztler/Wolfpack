@@ -34,7 +34,8 @@ class Mission
 		"A3_Weapons_F_Ammoboxes",
 		"A3_Structures_F_EPA_Civ_Constructions",
 		"A3_Structures_F_EPA_Mil_Scrapyard",
-		"A3_Structures_F_Civ_InfoBoards"
+		"A3_Structures_F_Civ_InfoBoards",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -42,7 +43,8 @@ class Mission
 		"a3_characters_f",
 		"A3_Modules_F",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Structures_F_Mil_Flags",
 		"A3_Structures_F_Mil_BagFence",
 		"A3_Static_F_Gamma",
@@ -288,24 +290,19 @@ class Mission
 		};
 		class Item4
 		{
-			side="WEST";
+			side="LOGIC";
 			class Vehicles
 			{
 				items=1;
 				class Item0
 				{
-					position[]={8404.7676,179.80539,18260.178};
-					azimut=149.95399;
+					position[]={10511.263,75.330688,18554.748};
 					id=12;
-					side="WEST";
-					vehicle="B_RangeMaster_F";
-					player="PLAYER COMMANDER";
+					side="LOGIC";
+					vehicle="Logic";
 					leader=1;
-					rank="CAPTAIN";
-					skill=0.60000002;
-					text="mdev";
-					init="this allowDamage false; this setCaptive true;  gCO_41Y = group this; gCO_41Y setGroupID [""gCO_41Y""];";
-					description="Trainer";
+					skill=0.2;
+					text="server";
 				};
 			};
 		};
@@ -317,13 +314,13 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={10511.263,75.330688,18554.748};
+					position[]={10611.653,73.234871,18554.619};
 					id=13;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="CBA_main_require";
 					leader=1;
-					skill=0.2;
-					text="server";
+					lock="UNLOCKED";
+					skill=0;
 				};
 			};
 		};
@@ -335,13 +332,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={10611.653,73.234871,18554.619};
+					position[]={10563.737,78.387772,18453.318};
 					id=14;
 					side="LOGIC";
-					vehicle="CBA_main_require";
+					vehicle="HeadlessClient_F";
+					player="PLAY CDG";
 					leader=1;
-					lock="UNLOCKED";
-					skill=0;
+					skill=0.2;
+					text="ADF_HC1";
+					description="ADF_HC1";
 				};
 			};
 		};
@@ -353,34 +352,13 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={10563.737,78.387772,18453.318};
-					id=15;
-					side="LOGIC";
-					vehicle="HeadlessClient_F";
-					player="PLAY CDG";
-					leader=1;
-					skill=0.2;
-					text="ADF_HC1";
-					description="ADF_HC1";
-				};
-			};
-		};
-		class Item8
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
 					position[]={10612.173,66.063866,18454.732};
-					azimut=-75;
 					class args
 					{
 						items=4;
 						class Item0
 						{
-							value="#adminLogged";
+							value="";
 							parentCls="ModuleCurator_F";
 							typeName="Owner";
 						};
@@ -403,13 +381,36 @@ class Mission
 							typeName="Forced";
 						};
 					};
-					id=16;
+					id=15;
 					side="LOGIC";
 					vehicle="ModuleCurator_F";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0;
 					text="GMmod_1";
+				};
+			};
+		};
+		class Item8
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8404.4111,179.8138,18259.887};
+					azimut=157.258;
+					id=16;
+					side="WEST";
+					vehicle="B_RangeMaster_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.2;
+					text="GM_1";
+					init="player setCaptive true; player allowDamage false; gGM1 = group this; gGM1 setGroupID [""gGM1""]; ";
+					description="TRAINER";
 				};
 			};
 		};
@@ -518,7 +519,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item10
 		{
@@ -590,7 +591,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item17
 		{
@@ -651,7 +652,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item23
 		{
@@ -702,7 +703,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item28
 		{
@@ -752,7 +753,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item33
 		{
@@ -815,7 +816,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item39
 		{
@@ -885,7 +886,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item46
 		{
@@ -1143,7 +1144,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Cargo_Patrol_V1_F";
 			skill=0.60000002;
-			init="null = [this,0.2,3] execVM ""Core\ADF_lightPoint.sqf"";";
+			init="null = [this,0.2,2] execVM ""Core\ADF_lightPoint.sqf"";";
 		};
 		class Item71
 		{

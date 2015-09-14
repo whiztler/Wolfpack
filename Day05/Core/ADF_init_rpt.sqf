@@ -1,22 +1,20 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Mission init / Init reporting
 Author: Whiztler
-Script version: 1.06
+Script version: 1.07
 
 Game type: n/a
 File: ADF_init_rpt.sqf
 
-Executed on server only
+Executed on dedicated server only
 ****************************************************************/
 
 diag_log "ADF RPT: Init - executing ADF_init_rpt.sqf"; // Reporting. Do NOT edit/remove
 
 // Init
-ADF_log_CntHC = 0;
-ADF_log_rptMods = "";
 if !(isNil "ADF_HC1") then {ADF_log_CntHC = ADF_log_CntHC + 1};
 if !(isNil "ADF_HC2") then {ADF_log_CntHC = ADF_log_CntHC + 1};
 if !(isNil "ADF_HC3") then {ADF_log_CntHC = ADF_log_CntHC + 1};
@@ -36,9 +34,9 @@ publicVariable "ADF_log_CntHC";
 // Init reporting
 if (ADF_debug) then {
 	diag_log "--------------------------------------------------------------------------------------";
-	_ADF_log_compileMsg = format ["Init - ADF version: %1",_ADF_tpl_version];
+	_ADF_log_compileMsg = format ["Init - ADF version: %1",ADF_tpl_version];
 	[_ADF_log_compileMsg,false] call ADF_fnc_log;
-	_ADF_log_compileMsg = format ["Init - Mission version: %1",_ADF_mission_version];
+	_ADF_log_compileMsg = format ["Init - Mission version: %1",ADF_mission_version];
 	[_ADF_log_compileMsg,false] call ADF_fnc_log;
 	_ADF_log_compileMsg = format ["Init - Number of clients connected: %1", (count ADF_log_pUnits)];
 	[_ADF_log_compileMsg,false] call ADF_fnc_log;
@@ -51,9 +49,9 @@ if (ADF_debug) then {
 } else { // Live mission logging
 	diag_log ""; diag_log "";
 	diag_log "--------------------------------------------------------------------------------------";
-	diag_log format ["ADF RPT: Init - ADF version: %1",_ADF_tpl_version];
+	diag_log format ["ADF RPT: Init - ADF version: %1",ADF_tpl_version];
 	diag_log "--------------------------------------------------------------------------------------";
-	diag_log format ["ADF RPT: Init - Mission version: %1",_ADF_mission_version];
+	diag_log format ["ADF RPT: Init - Mission version: %1",ADF_mission_version];
 	diag_log format ["ADF RPT: Init - Mission name: %1",(getText (missionConfigFile >> "overviewText"))];
 	diag_log format ["ADF RPT: Init - Mission developer: %1",(getText (missionConfigFile >> "author"))];
 	diag_log "--------------------------------------------------------------------------------------";

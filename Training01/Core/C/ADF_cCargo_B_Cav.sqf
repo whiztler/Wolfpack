@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Cavalry Squadron (Knight)
 Author: Whiztler
-Script version: 1.7
+Script version: 1.8
 
 Game type: n/a
 File: ADF_cCargo_B_Cav.sqf
@@ -34,8 +34,6 @@ _mis = 1;	// Missiles/Rockets
 _itm = 3;	// Items
 _uni = 1;	// Uniform/Vest/Backpack/etc
 
-
-
 // Settings 
 clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
@@ -54,7 +52,7 @@ _crate addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag", _mag];
 _crate addMagazineCargoGlobal ["16Rnd_9x21_Mag", _mag];
 
 // Launchers
-_crate addweaponCargoGlobal ["launch_NLAW_F", _lau];
+if (!ADF_mod_ACE3) then {_crate addweaponCargoGlobal ["launch_NLAW_F", _lau]};
 
 // Rockets/Missiles
 _crate addMagazineCargoGlobal ["NLAW_F", _mis];
@@ -115,8 +113,6 @@ if (ADF_mod_CTAB) then {
 	_crate addItemCargoGlobal ["ItemAndroid", 1];
 	_crate addItemCargoGlobal ["ItemcTabHCam",_itm];		
 };
-
-// Gear kit (not working from crates/veh)
 
 // Misc items
 _crate addItemCargoGlobal ["ItemGPS", _itm];

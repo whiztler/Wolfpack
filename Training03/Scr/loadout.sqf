@@ -2,41 +2,14 @@
 
 If (IsDedicated) exitWith {};
 if !(local player) exitWith {};
+
+waitUntil {time > 1};
 _ADF_unit = player;
 
-if !(isNil "mdev") then {
-	removeHeadgear mdev;
-	mdev addVest "V_Rangemaster_belt";
-	mdev addBackpack "B_BergenC_blu";
-	mdev unassignItem "NVGoggles";
-	mdev addWeapon "ItemGPS";
-	mdev addWeapon "NVGoggles";
-	mdev addWeapon "Laserdesignator";
-	mdev addMagazine "Laserbatteries";
-	mdev unassignItem "NVGoggles";
-	if (ADF_mod_ACRE) then {mdev addWeapon "ACRE_PRC343"};
-	if (ADF_mod_TFAR) then {mdev addWeapon "tf_anprc152"};	
-	if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {mdev addWeapon "ItemRadio"};
-	if (ADF_mod_CTAB) then {(vestContainer mdev) addItemCargoGlobal ["ItemcTab",1]};
-	if (ADF_mod_ACE3) then {
-		_ADF_unit addItemToUniform "ACE_fieldDressing";
-		_ADF_unit addItemToUniform "ACE_fieldDressing";
-		_ADF_unit addItemToUniform "ACE_morphine";
-		_ADF_unit addItemToVest "ACE_EarPlugs";
-		_ADF_unit addItemToVest "ace_mapTools";
-		_ADF_unit addItemToVest "ACE_CableTie";
-		_ADF_unit addItemToVest "ACE_IR_Strobe_Item";		
-	} else {
-		_ADF_unit addItemToUniform "FirstAidKit";
-		_ADF_unit addItemToUniform "FirstAidKit";			
-	};
-	
-};
-
-if (isNil "mdev") then {missionNamespace setVariable ["mdev", objNull]};
+if (isNil "GM_1") then {missionNamespace setVariable ["GM_1", objNull]};
 if (isNil "RTL_1") then {missionNamespace setVariable ["RTL_1", objNull]};
 if (isNil "RTL_2") then {missionNamespace setVariable ["RTL_2", objNull]};
-if (!(isNil "mdev") && (player == mdev)) exitWith {};
+if (!(isNil "GM_1") && (_ADF_unit == GM_1)) exitWith {};
 
 // Strip
 clearItemCargoGlobal (uniformContainer _ADF_unit); clearMagazineCargoGlobal (uniformContainer _ADF_unit); clearWeaponCargoGlobal (uniformContainer _ADF_unit);

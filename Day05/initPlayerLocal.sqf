@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Local Player init
 Author: Whiztler
@@ -24,6 +24,6 @@ ADF_fnc_respawn = player addEventHandler ["killed", {_this execVM "ADF_onPlayerR
 _ADF_unit = _this select 0;
 ADF_didJIP = _this select 1;
 
-enableEnvironment false; // Perf saver - remove rabiits, snakes, etc
+enableEnvironment false; // Perf saver - remove rabbits, snakes, etc
 
 

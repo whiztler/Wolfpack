@@ -5,6 +5,12 @@ The messages are logged once displayed on screen. All messages are time-stamped 
 <br/><br/>
 "]];
 
+tthint = false;
+tt1 = 0; tt2 = 0; tt3 = 0;
+commtwr = 0;
+wpExfil = false;
+WP_convoyStarted = false;
+
 waitUntil {scriptDone ADF_getLoadOut}; // Wait till all units have their gear before continuing
 
 sleep 3; // Loadout finished > pri weapon loaded
@@ -39,11 +45,8 @@ while {time < 25} do {
 	if !(isNil "SOD_AT_1") then {SOD_AT_1 assignAsGunner vWolf_4; SOD_AT_1 moveInGunner vWolf_4;};	
 };
 
-tthint = false;
-tt1 = 0; tt2 = 0; tt3 = 0;
-commtwr = 0;
-wpExfil = false;
-WP_convoyStarted = false;
+[wolfCrate] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
+[wolfCrateDemo] execVM "Core\C\ADF_cCargo_B_Demo.sqf";
 
 hint parseText"
 	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>

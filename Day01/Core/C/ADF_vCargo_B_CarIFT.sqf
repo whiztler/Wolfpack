@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Car Infantry Fire Team
 Author: Whiztler
-Script version: 2.0
+Script version: 2.1
 
 Game type: n/a
 File: ADF_vCargo_B_CarIFT.sqf
@@ -49,7 +49,7 @@ _vAmmo addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag", 3]; // LMG
 _vAmmo addweaponCargoGlobal ["launch_NLAW_F", 1];
 
 // Rockets/Missiles
-_vAmmo addMagazineCargoGlobal ["NLAW_F", 2];
+if (!ADF_mod_ACE3) then {_vAmmo addMagazineCargoGlobal ["NLAW_F", 2]};
 
 // Demo/Explosives
 _vAmmo addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 3];
@@ -117,8 +117,10 @@ if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {_vAmmo addItemCargoGlobal ["ItemRadio"
 // ACE3 Specific	
 if (ADF_mod_ACE3) then {
 	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
-	_vAmmo addItemCargoGlobal ["ace_mapTools",2];
-	_vAmmo addItemCargoGlobal ["ACE_CableTie",5]
+	_vAmmo addItemCargoGlobal ["ace_mapTools",1];
+	_vAmmo addItemCargoGlobal ["ACE_CableTie",5];
+	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 1];
+	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 1];
 };
 
 // Medical Items
@@ -143,8 +145,3 @@ if (ADF_mod_ACE3) then {
 // Gear kit 
 _vAmmo addBackpackCargoGlobal ["B_Carryall_Base", 2];
 _vAmmo addBackpackCargoGlobal ["B_AssaultPack_blk", 3];
-
-if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 1];
-	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 1];
-};

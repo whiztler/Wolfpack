@@ -1,4 +1,4 @@
-diag_log "ADF RPT: Init - executing ADF_fnc_MHQ.sqf"; // Reporting. Do NOT edit/remove
+if (isServer) then {diag_log "ADF RPT: Init - executing ADF_fnc_LoadoutWest.sqf"}; // Reporting. Do NOT edit/removediag_log "ADF RPT: Init - executing ADF_fnc_MHQ.sqf"; // Reporting. Do NOT edit/remove
 
 // MHQ functions
 

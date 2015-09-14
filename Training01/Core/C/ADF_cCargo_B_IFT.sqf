@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Infantry Fire Team (Fox)
 Author: Whiztler
-Script version: 1.7
+Script version: 1.8
 
 Game type: n/a
 File: ADF_cCargo_B_IFT.sqf
@@ -39,8 +39,6 @@ clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 
-
-
 // Primary weapon
 _crate addWeaponCargoGlobal ["arifle_MX_F", 2];
 _crate addWeaponCargoGlobal ["arifle_MX_GL_F", _wpn]; // GL
@@ -61,12 +59,11 @@ if (ADF_mod_ACE3) then {
 	_crate addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag", _mag]; // LMG	
 };
 
-
 // Magazines secondary weapon
 _crate addMagazineCargoGlobal ["16Rnd_9x21_Mag", _mag];
 
 // Launchers
-_crate addweaponCargoGlobal ["launch_NLAW_F", _lau];
+if (!ADF_mod_ACE3) then {_crate addweaponCargoGlobal ["launch_NLAW_F", _lau]};
 
 // Rockets/Missiles
 _crate addMagazineCargoGlobal ["NLAW_F", _mis];
@@ -137,10 +134,6 @@ if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_HandFlare_Yellow",3];
 };
 
-// ACE3 Specific	
-if (ADF_mod_ACE3) then {_crate addItemCargoGlobal ["ACE_EarPlugs",15]};
-if (ADF_mod_ACE3) then {_crate addItemCargoGlobal ["ace_mapTools",_itm]};	
-
 // Medical Items
 if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_fieldDressing",_mag];
@@ -169,6 +162,7 @@ if (ADF_mod_ACRE) then {
 };
 if (ADF_mod_TFAR) then {
 	_crate addItemCargoGlobal ["tf_anprc152", 5];
+	_crate addItemCargoGlobal ["tf_microdagr", 5];
 	//_crate addItemCargoGlobal ["tf_rt1523g", 3];
 	_crate addBackpackCargoGlobal ["tf_rt1523g", 1];
 };
@@ -189,5 +183,7 @@ _crate addItemCargoGlobal ["ItemWatch", 3];
 _crate addItemCargoGlobal ["ItemCompass", 3];	
 if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_UAVBattery", 2];
+	_crate addItemCargoGlobal ["ACE_EarPlugs",15];
+	_crate addItemCargoGlobal ["ace_mapTools",_itm];
 };
 

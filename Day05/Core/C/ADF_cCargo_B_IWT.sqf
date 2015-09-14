@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Crate Cargo Script (BLUEFOR) - Infantry Weapons Team (Fox)
 Author: Whiztler
-Script version: 1.7
+Script version: 1.8
 
 Game type: n/a
 File: ADF_cCargo_B_IWT.sqf
@@ -38,8 +38,6 @@ _uni = 5;	// Uniform/Vest/Backpack/etc
 clearWeaponCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearMagazineCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
 clearItemCargoGlobal _crate; // Empty vehicle CargoGlobal contents on init
-
-
 
 // Primary weapon
 _crate addWeaponCargoGlobal ["arifle_MX_F", _wpn];
@@ -183,12 +181,6 @@ if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_HandFlare_Yellow",3];
 };	
 
-// ACE3 Specific	
-if (ADF_mod_ACE3) then {
-	_crate addItemCargoGlobal ["ACE_EarPlugs",15];
-	_crate addItemCargoGlobal ["ace_mapTools",_itm];
-};	
-
 // Medical Items
 if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_fieldDressing",_mag];
@@ -217,6 +209,7 @@ if (ADF_mod_ACRE) then {
 };
 if (ADF_mod_TFAR) then {
 	_crate addItemCargoGlobal ["tf_anprc152", 5];
+	_crate addItemCargoGlobal ["tf_microdagr", 5];
 	//_crate addItemCargoGlobal ["tf_rt1523g", 3];
 	_crate addBackpackCargoGlobal ["tf_rt1523g", 1];
 };
@@ -242,6 +235,8 @@ if (ADF_mod_ACE3) then {
 	_crate addItemCargoGlobal ["ACE_Kestrel4500",1];
 	_crate addItemCargoGlobal ["ace_yardage450", 1];
 	_crate addItemCargoGlobal ["ace_mx2a", 1];
+	_crate addItemCargoGlobal ["ACE_EarPlugs",15];
+	_crate addItemCargoGlobal ["ace_mapTools",_itm];
 };		
 
 

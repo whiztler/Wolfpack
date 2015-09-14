@@ -52,7 +52,8 @@ class Mission
 		"A3_Structures_F_Heli_Items_Tools",
 		"A3_armor_f_beta_APC_Tracked_02",
 		"A3_Structures_F_Heli_Ind_Cargo",
-		"A3_Signs_F_AD"
+		"A3_Signs_F_AD",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -64,7 +65,8 @@ class Mission
 		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_BLUFOR",
 		"cba_main",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Soft_F_Offroad_01",
 		"A3_Soft_F_TruckHeavy",
 		"A3_Soft_F_EPC_Truck_03",
@@ -2012,7 +2014,7 @@ class Mission
 			side="EMPTY";
 			vehicle="IG_supplyCrate_F";
 			skill=0.60000002;
-			init="0 = [this] execVM ""Core\C\ADF_cCargo_B_SpecOps.sqf"";";
+			text="wolfCrate";
 		};
 		class Item99
 		{

@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Storm vehicle loadout (arti)
 Author: Whiztler
-Script version: 1.5
+Script version: 1.6
 
 Game type: n/a
 File: ADF_vCargo_B_CarART.sqf
@@ -90,9 +90,9 @@ if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {_vAmmo addItemCargoGlobal ["ItemRadio"
 // ACE3 Specific	
 if (ADF_mod_ACE3) then {
 	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
-	_vAmmo addItemCargoGlobal ["ace_mapTools",3];
-	_vAmmo addItemCargoGlobal ["ACE_CableTie",5]
-};
+	_vAmmo addItemCargoGlobal ["ace_mapTools",1];
+	_vAmmo addItemCargoGlobal ["ACE_CableTie",5];
+}; // ACE3 094
 
 // Medical Items
 if (ADF_mod_ACE3) then {

@@ -4,6 +4,13 @@ waitUntil {ADF_joined};
 
 execVM "Scr\tasks.sqf";
 
+if (isServer) then {
+	_wolfCrates = [wolfCrate_1,wolfCrate_2,wolfCrate_3,wolfCrate_4];
+	{[_x] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf"} forEach _wolfCrates;
+	[wolfCrateDemo] execVM "Core\C\ADF_cCargo_B_Demo.sqf";
+	[wolfCrateWet] execVM "Core\C\ADF_cCargo_B_WetGear.sqf";
+};
+
 player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
 player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
 <br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
@@ -346,7 +353,6 @@ wp_fnc_airVehicle = {_airVehicle = ["O_Heli_Transport_04_F","O_Heli_Transport_04
 		};
 		heliActive = true;
 		private ["_c","_v","_wp","_pause","_heli","_startPos"];
-		_heli = call wp_fnc_airVehicle;
 		_pause = [300,600,900,1200,1800] call BIS_fnc_selectRandom;
 		_heli = call wp_fnc_airVehicle;
 		sleep _pause;

@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) - Car Recon/Specop Teams
 Author: Whiztler
@@ -141,6 +141,9 @@ _vAmmo addMagazineCargoGlobal ["SmokeShellRed", 5];
 if (ADF_mod_ACE3) then {
 	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
 	_vAmmo addItemCargoGlobal ["ace_mapTools",5];
+	_vAmmo addItemCargoGlobal ["ACE_CableTie",5];
+	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 1];
+	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 1];
 };
 
 // Medical Items

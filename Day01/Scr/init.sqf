@@ -29,6 +29,7 @@ while {time < 25} do {
 };
 
 rvDone = false;
+[wolfCrate] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf";
 
 if (!ADF_debug) then {waitUntil {ADF_missionInit}; sleep 5};
 

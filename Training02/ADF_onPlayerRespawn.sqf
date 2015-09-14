@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Respawn init 
 Author: Whiztler
@@ -79,6 +79,7 @@ _ADF_unit addHeadgear ADF_StoreLoadout_headgear;
 if (ADF_Clan_uniformInsignia) then {[_ADF_unit,"CLANPATCH"] call BIS_fnc_setUnitInsignia};
 
 // (re-apply) SOR uniform texture
+
 if ((typeOf player) IN ["B_recon_F","B_recon_LAT_F","B_recon_exp_F","B_recon_medic_F","B_recon_TL_F","B_recon_M_F","B_recon_JTAC_F"]) then {
 	[_ADF_unit] spawn {
 		ADF_sorUnits = [];		
@@ -91,10 +92,10 @@ if ((typeOf player) IN ["B_recon_F","B_recon_LAT_F","B_recon_exp_F","B_recon_med
 	
 		waitUntil {time > 10};
 		
-		player setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+		player setObjectTextureGlobal [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
 		{
 			{			
-				_x setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+				_x setObjectTextureGlobal [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
 			} forEach units _x;
 		} forEach ADF_sorUnits;
 	};

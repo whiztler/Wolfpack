@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.41 / JULY 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Car General Loadout
 Author: Whiztler
-Script version: 1.2
+Script version: 1.3
 
 Game type: n/a
 File: ADF_vCargo_B_MHQ.sqf
@@ -65,7 +65,7 @@ _vAmmo addMagazineCargoGlobal ["200Rnd_65x39_cased_Box", 5]; // MG
 _vAmmo addweaponCargoGlobal ["launch_NLAW_F", 2];
 
 // Rockets/Missiles
-_vAmmo addMagazineCargoGlobal ["NLAW_F", 10];
+if (!ADF_mod_ACE3) then {_vAmmo addMagazineCargoGlobal ["NLAW_F", 10]};
 
 
 // GL Ammo
@@ -157,9 +157,13 @@ if (ADF_mod_CTAB) then {
 };
 
 // ACE3 Specific	
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ace_mapTools",3]};
-if (ADF_mod_ACE3) then {_vAmmo addItemCargoGlobal ["ACE_CableTie",5]}; 
+if (ADF_mod_ACE3) then {
+	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",15];
+	_vAmmo addItemCargoGlobal ["ace_mapTools",10];
+	_vAmmo addItemCargoGlobal ["ACE_CableTie",15];
+	_vAmmo addItemCargoGlobal ["ACE_UAVBattery",3];
+	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack",1];
+}; 
 
 // Medical Items
 if (ADF_mod_ACE3) then {
@@ -186,11 +190,6 @@ if (ADF_mod_ACE3) then {
 } else {
 	_vAmmo addItemCargoGlobal ["FirstAidKit",50];
 	_vAmmo addItemCargoGlobal ["Medikit",2];
-};
-
-if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 2];
-	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 1];
 };
 
 // Gear kit 
