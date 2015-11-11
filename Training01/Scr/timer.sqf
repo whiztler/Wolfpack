@@ -5,6 +5,7 @@ WPtraining = "Basic";
 sleep 2;
 
 // init
+private ["_timer","_prepTimer","_preTimerMin","_prepMinLeft","_pause","_msg"];
 _timer = (paramsArray select 0) * 60;
 _prepTimer = (paramsArray select 1) * 60;
 _preTimerMin = paramsArray select 1;
@@ -37,14 +38,7 @@ Please refer to the briefing for more information on Special Operations / Reconn
 "]];
 sleep _pause;
 
-_msg = format ["
-		<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/>
-		<t color='#A1A4AD' size='1.7'>Wolfpack</t><br/>
-		<t color='#A1A4AD' size='1.4'>%1 Training</t><br/><br/>
-		<t color='#6C7169' align='left'>If you are detected by OpFor then the training mission has failed.</t><br/><br/>		
-		<t color='#6C7169' align='left'>Avoid any and all contact with both OpFor and the civilian populous.</t><br/><br/>
-		<t color='#6C7169' align='left'>Please refer to the briefing for more information on Special Operations / Reconnaissance training.</t><br/><br/>
-",WPtraining];
+_msg = format ["<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#A1A4AD' size='1.7'>Wolfpack</t><br/><t color='#A1A4AD' size='1.4'>%1 Training</t><br/><br/><t color='#6C7169' align='left'>If you are detected by OpFor then the training mission has failed.</t><br/><br/><t color='#6C7169' align='left'>Avoid any and all contact with both OpFor and the civilian populous.</t><br/><br/><t color='#6C7169' align='left'>Please refer to the briefing for more information on Special Operations / Reconnaissance training.</t><br/><br/>",WPtraining];
 hintSilent parseText _msg;
 if (spDetected) exitWith {};
 sleep _pause;
@@ -52,15 +46,7 @@ sleep _pause;
 while {_prepTimer > 0} do {
 	_prepTimer = _prepTimer - 1;  	
 	_prepMinLeft = [((_prepTimer)/60)+.01,"HH:MM"] call BIS_fnc_timetostring;
-	_msg = format ["
-			<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/>
-			<t color='#A1A4AD' size='1.7'>Wolfpack</t><br/>
-			<t color='#A1A4AD' size='1.4'>%1 Training</t><br/><br/>
-			<t color='#6C7169' align='left'>Commander, you have %2 minutes to prepare your team for this training exercise.</t><br/><br/>		
-			<t color='#6C7169' align='left'>The containers blocking the exit will be removed once your preparation time has finished.</t><br/><br/>			
-			<t color='#6C7169' align='left'>Preparation time left:</t>
-			<t color='#9DA698' align='left'> %3 </t><br/><br/>
-	",WPtraining,_preTimerMin,_prepMinLeft];
+	_msg = format ["<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#A1A4AD' size='1.7'>Wolfpack</t><br/><t color='#A1A4AD' size='1.4'>%1 Training</t><br/><br/><t color='#6C7169' align='left'>Commander, you have %2 minutes to prepare your team for this training exercise.</t><br/><br/><t color='#6C7169' align='left'>The containers blocking the exit will be removed once your preparation time has finished.</t><br/><br/>	<t color='#6C7169' align='left'>Preparation time left:</t><t color='#9DA698' align='left'> %3 </t><br/><br/>",WPtraining,_preTimerMin,_prepMinLeft];
 	hintSilent parseText _msg;
 	if (spDetected) exitWith {};
 	uiSleep 1;
@@ -73,12 +59,7 @@ if (isServer) then {
 	{deleteVehicle _x} forEach _del;
 };
 
-_msg = format ["
-		<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/>
-		<t color='#A1A4AD' size='1.7'>Wolfpack</t><br/>
-		<t color='#A1A4AD' size='1.4'>%1 Training</t><br/><br/>
-		<t color='#6C7169' align='left'>You're free to go. Your %2 minutes start now!</t><br/><br/>				
-",WPtraining,_timer/60];
+_msg = format ["<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#A1A4AD' size='1.7'>Wolfpack</t><br/><t color='#A1A4AD' size='1.4'>%1 Training</t><br/><br/><t color='#6C7169' align='left'>You're free to go. Your %2 minutes start now!</t><br/><br/>",WPtraining,_timer/60];
 hintSilent parseText _msg;
 if (spDetected) exitWith {};
 sleep 5;

@@ -4,6 +4,7 @@ If (IsDedicated) exitWith {};
 if !(local player) exitWith {};
 
 waitUntil {time > 1};
+private "_ADF_unit";
 _ADF_unit = player;
 
 if (isNil "GM_1") then {missionNamespace setVariable ["GM_1", objNull]};

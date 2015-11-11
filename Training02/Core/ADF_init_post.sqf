@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Mission initialization countdown timer
 Author: Whiztler
@@ -67,7 +67,8 @@ if (isMultiplayer) then {_ADF_unit enableSimulation false;};
 
 If ((_ADF_devBuild == "Alpha") || (_ADF_devBuild == "Beta")) then {
 	_ADF_debugLog_msg = format ["This is a development build of ADF (%1 - %2 %3). Do not use for live missions!",_ADF_tVersion,_ADF_devBuild,_ADF_devBuildNr];
-	[_ADF_debugLog_msg,"systemChat"] call BIS_fnc_MP; // v.39 B6
+	_ADF_debugLog_msg remoteExec ["systemChat", -2, false];  // v.1.42 B01
+	
 };
 		
 while {(_cnt != 100)} do {

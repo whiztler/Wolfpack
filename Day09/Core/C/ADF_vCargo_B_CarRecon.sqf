@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) - Car Recon/Specop Teams
 Author: Whiztler
@@ -23,179 +23,180 @@ if (!isServer) exitWith {};
 waitUntil {time > 0};
 
 // Init
-_vAmmo = _this select 0;
+_vSupply = _this select 0;
 _mag = 25;
 
 // Settings 
-clearWeaponCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
-clearMagazineCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
-clearItemCargoGlobal _vAmmo; // Empty vehicle CargoGlobal contents on init
+clearWeaponCargoGlobal _vSupply; // Empty vehicle CargoGlobal contents on init
+clearMagazineCargoGlobal _vSupply; // Empty vehicle CargoGlobal contents on init
+clearItemCargoGlobal _vSupply; // Empty vehicle CargoGlobal contents on init
 
 // Primary weapon
-_vAmmo addWeaponCargoGlobal ["srifle_EBR_DMS_pointer_snds_F", 1]; // Marksman
-_vAmmo addWeaponCargoGlobal ["arifle_MX_ACO_pointer_snds_F", 1];
-_vAmmo addWeaponCargoGlobal ["srifle_EBR_SOS_F", 1]; // Marksman
-_vAmmo addWeaponCargoGlobal ["srifle_LRR_LRPS_F", 1]; // Sniper
-_vAmmo addWeaponCargoGlobal ["srifle_DMR_06_camo_khs_F", 1]; // Sharpshooter
+_vSupply addWeaponCargoGlobal ["srifle_EBR_DMS_pointer_snds_F", 1]; // Marksman
+_vSupply addWeaponCargoGlobal ["arifle_MX_ACO_pointer_snds_F", 1];
+_vSupply addWeaponCargoGlobal ["srifle_EBR_SOS_F", 1]; // Marksman
+_vSupply addWeaponCargoGlobal ["srifle_LRR_LRPS_F", 1]; // Sniper
+_vSupply addWeaponCargoGlobal ["srifle_DMR_06_camo_khs_F", 1]; // Sharpshooter
 
 // Secondary weapon
-_vAmmo addWeaponCargoGlobal ["hgun_P07_snds_F", 1];
+_vSupply addWeaponCargoGlobal ["hgun_P07_snds_F", 1];
 
 // Magazines primary weapon
 if (ADF_mod_ACE3) then {
-	_vAmmo addMagazineCargoGlobal ["ACE_30Rnd_65x39_caseless_mag_Tracer_Dim", _mag];
+	_vSupply addMagazineCargoGlobal ["ACE_30Rnd_65x39_caseless_mag_Tracer_Dim", _mag];
 	
-	_vAmmo addMagazineCargoGlobal ["ACE_10Rnd_338_API526_Mag", _mag];
-	_vAmmo addMagazineCargoGlobal ["ACE_10Rnd_338_300gr_HPBT_Mag", _mag];
-	_vAmmo addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mag_SD", _mag];
-	_vAmmo addMagazineCargoGlobal ["ACE_20Rnd_762x51_M993_AP_Mag", _mag];
-	_vAmmo addMagazineCargoGlobal ["ACE_10Rnd_762x54_Tracer_mag", 10];
-	_vAmmo addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mag_Tracer_Dim", 10];
-	_vAmmo addMagazineCargoGlobal ["ACE_20Rnd_762x67_Berger_Hybrid_OTM_Mag", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_10Rnd_338_API526_Mag", _mag];
+	_vSupply addMagazineCargoGlobal ["ACE_10Rnd_338_300gr_HPBT_Mag", _mag];
+	_vSupply addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mag_SD", _mag];
+	_vSupply addMagazineCargoGlobal ["ACE_20Rnd_762x51_M993_AP_Mag", _mag];
+	_vSupply addMagazineCargoGlobal ["ACE_10Rnd_762x54_Tracer_mag", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mag_Tracer_Dim", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_20Rnd_762x67_Berger_Hybrid_OTM_Mag", 10];
 	
-	_vAmmo addMagazineCargoGlobal ["ACE_10Rnd_762x51_Mk316_Mod_0_Mag", 10];
-	_vAmmo addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mk316_Mod_0_Mag", 10];
-	_vAmmo addMagazineCargoGlobal ["ACE_10Rnd_762x51_Mk319_Mod_0_Mag", 10];
-	_vAmmo addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mk319_Mod_0_Mag", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_10Rnd_762x51_Mk316_Mod_0_Mag", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mk316_Mod_0_Mag", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_10Rnd_762x51_Mk319_Mod_0_Mag", 10];
+	_vSupply addMagazineCargoGlobal ["ACE_20Rnd_762x51_Mk319_Mod_0_Mag", 10];
 } else {
-	_vAmmo addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag", _mag];
-	_vAmmo addMagazineCargoGlobal ["20Rnd_762x51_Mag", _mag]; // Marksman
-	_vAmmo addMagazineCargoGlobal ["10Rnd_338_Mag", _mag]; // Marksman
-	_vAmmo addMagazineCargoGlobal ["30Rnd_556x45_Stanag", _mag]; // SDAR
+	_vSupply addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag", _mag];
+	_vSupply addMagazineCargoGlobal ["20Rnd_762x51_Mag", _mag]; // Marksman
+	_vSupply addMagazineCargoGlobal ["10Rnd_338_Mag", _mag]; // Marksman
+	_vSupply addMagazineCargoGlobal ["30Rnd_556x45_Stanag", _mag]; // SDAR
 };
 
 // Magazines secondary weapon
-_vAmmo addMagazineCargoGlobal ["16Rnd_9x21_Mag", 5];
+_vSupply addMagazineCargoGlobal ["16Rnd_9x21_Mag", 5];
 
 // Launchers
-_vAmmo addWeaponCargoGlobal ["launch_B_Titan_short_F", 1];
+_vSupply addWeaponCargoGlobal ["launch_B_Titan_short_F", 1];
 
 // Rockets/Missiles
-_vAmmo addMagazineCargoGlobal ["Titan_AT", 1];
-_vAmmo addMagazineCargoGlobal ["Titan_AP", 1];
+_vSupply addMagazineCargoGlobal ["Titan_AT", 1];
+_vSupply addMagazineCargoGlobal ["Titan_AP", 1];
 
 // Demo/Explosives
-_vAmmo addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 5];
-_vAmmo addMagazineCargoGlobal ["SatchelCharge_Remote_Mag", 2];
-_vAmmo addMagazineCargoGlobal ["APERSBoundingMine_Range_Mag", 2];
-_vAmmo addMagazineCargoGlobal ["ClaymoreDirectionalMine_Remote_Mag", 2];
+_vSupply addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 5];
+_vSupply addMagazineCargoGlobal ["SatchelCharge_Remote_Mag", 2];
+_vSupply addMagazineCargoGlobal ["APERSBoundingMine_Range_Mag", 2];
+_vSupply addMagazineCargoGlobal ["ClaymoreDirectionalMine_Remote_Mag", 2];
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_Clacker",2];
-	_vAmmo addItemCargoGlobal ["ACE_Cellphone",1];
-	_vAmmo addItemCargoGlobal ["ACE_M26_Clacker",1];
-	_vAmmo addItemCargoGlobal ["ACE_DefusalKit",1];
-	_vAmmo addItemCargoGlobal ["ACE_wirecutter",1];
+	_vSupply addItemCargoGlobal ["ACE_Clacker",2];
+	_vSupply addItemCargoGlobal ["ACE_Cellphone",1];
+	_vSupply addItemCargoGlobal ["ACE_M26_Clacker",1];
+	_vSupply addItemCargoGlobal ["ACE_DefusalKit",1];
+	_vSupply addItemCargoGlobal ["ACE_wirecutter",1];
 };
 
 // Weapon mountings
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["acc_pointer_IR", 1];
-	_vAmmo addItemCargoGlobal ["acc_flashlight", 1];	
-	_vAmmo addItemCargoGlobal ["ACE_optic_Hamr_2D", 1];
-	_vAmmo addItemCargoGlobal ["ACE_optic_Hamr_PIP", 1];
-	_vAmmo addItemCargoGlobal ["ACE_optic_Arco_2D", 1];
-	_vAmmo addItemCargoGlobal ["ACE_optic_Arco_PIP", 1];
-	_vAmmo addItemCargoGlobal ["ACE_optic_MRCO_2D", 1];
+	_vSupply addItemCargoGlobal ["acc_pointer_IR", 1];
+	_vSupply addItemCargoGlobal ["acc_flashlight", 1];	
+	_vSupply addItemCargoGlobal ["ACE_optic_Hamr_2D", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_Hamr_PIP", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_Arco_2D", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_Arco_PIP", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_MRCO_2D", 1];
 	// Sniper/Marksman
-	_vAmmo addItemCargoGlobal ["ACE_optic_SOS_2D", 1];
-	_vAmmo addItemCargoGlobal ["ACE_optic_SOS_PIP", 1];
-	_vAmmo addItemCargoGlobal ["ACE_optic_LRPS_2D", 1];	
-	_vAmmo addItemCargoGlobal ["ACE_optic_LRPS_PIP", 1];
-	_vAmmo addItemCargoGlobal ["muzzle_snds_H", 1];
-	_vAmmo addItemCargoGlobal ["muzzle_snds_B", 1];
-	_vAmmo addItemCargoGlobal ["muzzle_snds_L", 1];	
-	_vAmmo addItemCargoGlobal ["optic_Nightstalker", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_SOS_2D", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_SOS_PIP", 1];
+	_vSupply addItemCargoGlobal ["ACE_optic_LRPS_2D", 1];	
+	_vSupply addItemCargoGlobal ["ACE_optic_LRPS_PIP", 1];
+	_vSupply addItemCargoGlobal ["muzzle_snds_H", 1];
+	_vSupply addItemCargoGlobal ["muzzle_snds_B", 1];
+	_vSupply addItemCargoGlobal ["muzzle_snds_L", 1];	
+	_vSupply addItemCargoGlobal ["optic_Nightstalker", 1];
 } else {
-	_vAmmo addItemCargoGlobal ["acc_pointer_IR", 1];
-	_vAmmo addItemCargoGlobal ["optic_ACO", 1];
-	_vAmmo addItemCargoGlobal ["optic_NVS", 1];
-	_vAmmo addItemCargoGlobal ["optic_MRCO", 1];
-	_vAmmo addItemCargoGlobal ["optic_SOS", 1];
-	_vAmmo addItemCargoGlobal ["optic_Nightstalker", 1];
-	_vAmmo addItemCargoGlobal ["acc_flashlight", 1];
-	_vAmmo addItemCargoGlobal ["muzzle_snds_H", 1];
-	_vAmmo addItemCargoGlobal ["muzzle_snds_B", 1];
-	_vAmmo addItemCargoGlobal ["muzzle_snds_L", 1];
+	_vSupply addItemCargoGlobal ["acc_pointer_IR", 1];
+	_vSupply addItemCargoGlobal ["optic_ACO", 1];
+	_vSupply addItemCargoGlobal ["optic_NVS", 1];
+	_vSupply addItemCargoGlobal ["optic_MRCO", 1];
+	_vSupply addItemCargoGlobal ["optic_SOS", 1];
+	_vSupply addItemCargoGlobal ["optic_Nightstalker", 1];
+	_vSupply addItemCargoGlobal ["acc_flashlight", 1];
+	_vSupply addItemCargoGlobal ["muzzle_snds_H", 1];
+	_vSupply addItemCargoGlobal ["muzzle_snds_B", 1];
+	_vSupply addItemCargoGlobal ["muzzle_snds_L", 1];
 };
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_muzzle_mzls_H", 5];  
-	_vAmmo addItemCargoGlobal ["ACE_muzzle_mzls_B", 5];  	
-	_vAmmo addItemCargoGlobal ["ACE_muzzle_mzls_L", 5];	 	
+	_vSupply addItemCargoGlobal ["ACE_muzzle_mzls_H", 5];  
+	_vSupply addItemCargoGlobal ["ACE_muzzle_mzls_B", 5];  	
+	_vSupply addItemCargoGlobal ["ACE_muzzle_mzls_L", 5];	 	
 };
 
 // GL Ammo
-_vAmmo addMagazineCargoGlobal ["3Rnd_Smoke_Grenade_shell", 5];
-_vAmmo addMagazineCargoGlobal ["3Rnd_UGL_FlareCIR_F", 5]; 
+_vSupply addMagazineCargoGlobal ["3Rnd_Smoke_Grenade_shell", 5];
+_vSupply addMagazineCargoGlobal ["3Rnd_UGL_FlareCIR_F", 5]; 
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_HuntIR_M203",5];
-	_vAmmo addItemCargoGlobal ["ACE_HuntIR_monitor",1];
+	_vSupply addItemCargoGlobal ["ACE_HuntIR_M203",5];
+	_vSupply addItemCargoGlobal ["ACE_HuntIR_monitor",1];
 };
 
 // Grenades
-_vAmmo addMagazineCargoGlobal ["MiniGrenade", 10]; 	 
-_vAmmo addMagazineCargoGlobal ["SmokeShell", 10]; 	 
-_vAmmo addMagazineCargoGlobal ["SmokeShellGreen", 5]; 	 
-_vAmmo addMagazineCargoGlobal ["SmokeShellRed", 5]; 
+_vSupply addMagazineCargoGlobal ["MiniGrenade", 10]; 	 
+_vSupply addMagazineCargoGlobal ["SmokeShell", 10]; 	 
+_vSupply addMagazineCargoGlobal ["SmokeShellGreen", 5]; 	 
+_vSupply addMagazineCargoGlobal ["SmokeShellRed", 5]; 
 
 // ACE3 Specific	
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_EarPlugs",5];
-	_vAmmo addItemCargoGlobal ["ace_mapTools",5];
-	_vAmmo addItemCargoGlobal ["ACE_CableTie",5];
-	_vAmmo addItemCargoGlobal ["ACE_UAVBattery", 1];
-	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack", 1];
+	_vSupply addItemCargoGlobal ["ACE_EarPlugs",5];
+	_vSupply addItemCargoGlobal ["ace_mapTools",5];
+	_vSupply addItemCargoGlobal ["ACE_CableTie",5];
+	_vSupply addItemCargoGlobal ["ACE_UAVBattery", 1];
+	_vSupply addItemCargoGlobal ["ACE_TacticalLadder_Pack", 1];
 };
 
 // Medical Items
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_fieldDressing",25];
-	_vAmmo addItemCargoGlobal ["ACE_personalAidKit",1];
-	_vAmmo addItemCargoGlobal ["ACE_morphine",10];
-	_vAmmo addItemCargoGlobal ["ACE_epinephrine",5];
+	_vSupply addItemCargoGlobal ["ACE_fieldDressing",25];
+	_vSupply addItemCargoGlobal ["ACE_personalAidKit",1];
+	_vSupply addItemCargoGlobal ["ACE_morphine",10];
+	_vSupply addItemCargoGlobal ["ACE_epinephrine",5];
 } else {
-	_vAmmo addItemCargoGlobal ["FirstAidKit",25];
-	_vAmmo addItemCargoGlobal ["Medikit",1];
+	_vSupply addItemCargoGlobal ["FirstAidKit",25];
+	_vSupply addItemCargoGlobal ["Medikit",1];
 };
 
 // Optical/Bino's/Goggles
-_vAmmo addWeaponCargoGlobal ["Rangefinder", 1];
-_vAmmo addWeaponCargoGlobal ["Laserdesignator", 1];
-_vAmmo addWeaponCargoGlobal ["Binocular", 1];
-_vAmmo addItemCargoGlobal ["G_Tatical_Clear", 1];
-_vAmmo addItemCargoGlobal ["G_Shades_Black" ,1];
-_vAmmo addItemCargoGlobal ["NVGoggles", 2];
+_vSupply addWeaponCargoGlobal ["Rangefinder", 1];
+_vSupply addWeaponCargoGlobal ["Laserdesignator", 1];
+_vSupply addWeaponCargoGlobal ["Binocular", 1];
+_vSupply addItemCargoGlobal ["G_Tatical_Clear", 1];
+_vSupply addItemCargoGlobal ["G_Shades_Black" ,1];
+_vSupply addItemCargoGlobal ["NVGoggles", 2];
 
 if (ADF_mod_ACE3) then {
-	_vAmmo addItemCargoGlobal ["ACE_Vector",2];		
-	_vAmmo addItemCargoGlobal ["ACE_Kestrel4500",1];		
-	_vAmmo addItemCargoGlobal ["ACE_RangeCard",1];		
-	_vAmmo addItemCargoGlobal ["ACE_ATragMX",1];		
-	_vAmmo addItemCargoGlobal ["ACE_TacticalLadder_Pack",1];		
+	_vSupply addItemCargoGlobal ["ACE_Vector",2];		
+	_vSupply addItemCargoGlobal ["ACE_Kestrel4500",1];		
+	_vSupply addItemCargoGlobal ["ACE_RangeCard",1];		
+	_vSupply addItemCargoGlobal ["ACE_ATragMX",1];		
+	_vSupply addItemCargoGlobal ["ACE_TacticalLadder_Pack",1];		
 };	
 
 // ACRE / TFAR and cTAB
 if (ADF_mod_ACRE) then {
-	_vAmmo addItemCargoGlobal ["ACRE_PRC343", 5];
-	_vAmmo addItemCargoGlobal ["ACRE_PRC148", 1];
+	_vSupply addItemCargoGlobal ["ACRE_PRC343", 5];
+	_vSupply addItemCargoGlobal ["ACRE_PRC148", 1];
 };
 if (ADF_mod_TFAR) then {
-	_vAmmo addItemCargoGlobal ["tf_anprc152", 1];
-	//_vAmmo addItemCargoGlobal ["tf_rt1523g", 3];
-	_vAmmo addBackpackCargoGlobal ["tf_rt1523g_black", 1];
+	_vSupply addItemCargoGlobal ["tf_anprc152", 1];
+	//_vSupply addItemCargoGlobal ["tf_rt1523g", 3];
+	_vSupply addBackpackCargoGlobal ["tf_rt1523g_black", 1];
 };
-if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {_vAmmo addItemCargoGlobal ["ItemRadio", 5]};
+if (!ADF_mod_ACRE && !ADF_mod_TFAR) then {_vSupply addItemCargoGlobal ["ItemRadio", 5]};
 if (ADF_mod_CTAB) then {
-	_vAmmo addItemCargoGlobal ["ItemcTab", 1];
-	_vAmmo addItemCargoGlobal ["ItemAndroid", 1];
-	_vAmmo addItemCargoGlobal ["ItemcTabHCam",5];
+	_vSupply addItemCargoGlobal ["ItemcTab", 1];
+	_vSupply addItemCargoGlobal ["ItemAndroid", 1];
+	_vSupply addItemCargoGlobal ["ItemcTabHCam",5];
 };
 
 // Gear kit (not working from crates/veh)
-_vAmmo addBackpackCargoGlobal ["B_AssaultPack_blk", 1];
+_vSupply addBackpackCargoGlobal ["B_AssaultPack_blk", 1];
 
 // Misc items
-_vAmmo addItemCargoGlobal ["ItemGPS", 1];
-_vAmmo addItemCargoGlobal ["Laserbatteries", 3];
-_vAmmo addItemCargoGlobal ["B_Static_Designator_01_weapon_F", 1];
+_vSupply addItemCargoGlobal ["ItemGPS", 1];
+_vSupply addItemCargoGlobal ["Laserbatteries", 3];
+_vSupply addItemCargoGlobal ["B_Static_Designator_01_weapon_F", 1];
 
-//hintSilent "vAmmo loaded."; // For debug only.
+// Misc items
+_vSupply addItemCargoGlobal ["ToolKit", 2];

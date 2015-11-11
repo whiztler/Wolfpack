@@ -1,8 +1,5 @@
-if (alive Kallaziz_1) then {
-	hintSilent parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Big Foot: Satnav reports reports increased activity at and around the objective. You may have been detected. Do not let the package get away! Out.</t>
-	";
+if (alive Kallaziz_1 && hasInterface) then {
+	hintSilent parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Big Foot: Satnav reports reports increased activity at and around the objective. You may have been detected. Do not let the package get away! Out.</t>";
 	
 	_logTime = [dayTime] call BIS_fnc_timeToString;
 	_logTimeText = "Log: " + _logTime;
@@ -23,8 +20,6 @@ if (!isServer) exitWith {};
 		_x setskill 0.65;		
 	};
 } forEach allUnits;
-
-// {if (side _x == EAST) then {_x setBehaviour "AWARE"}} forEach ((getPosATL ObjectName) nearEntities ["All", 200]);
 
 
 

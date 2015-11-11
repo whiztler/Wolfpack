@@ -1,11 +1,7 @@
-_c 		= [];
-_v 		= [];
-_lzP 	= [];
-_lzA 	= [];
-_lzK 	= [];
-
 ADF_fnc_kallaziz = {
-	if !(isServer) exitWith {};
+	if (!isServer) exitWith {};
+	private ["_lzP","_lzA","_lzK","_k","_c","_v","_wp","_wp1"];
+	
 	_lzP = [14156.8,21254.6,0];
 	_lzA = [14248,16229.9,0];
 	_lzK = [14222.8,21211.9,0];
@@ -34,20 +30,20 @@ ADF_fnc_kallaziz = {
 	_wp setWaypointFormation "LINE";
 };
 
+private "_snooze";
 _snooze = [700,750,800,850,900,950,1000] call BIS_fnc_selectRandom;
 sleep _snooze;
 call ADF_fnc_kallaziz;
 
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Big Foot: Phoenix, Satnav just pick up a helicopter heading towards the Frini base. This must be the package. Get into position to take him out.<br /></t>
-";
+if (hasInterface) then {
+	hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>	<t color='#6C7169' align='left'>Big Foot: Phoenix, Satnav just pick up a helicopter heading towards the Frini base. This must be the package. Get into position to take him out.<br /></t>	";
 
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6c7169'>Big Foot: Phoenix, Satnav just pick up a helicopter heading towards the Frini base. This must be the package. Get into position to take him out.</font>
-"]];
+	_logTime = [dayTime] call BIS_fnc_timeToString;
+	_logTimeText = "Log: " + _logTime;
+	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+	<font color='#6c7169'>Big Foot: Phoenix, Satnav just pick up a helicopter heading towards the Frini base. This must be the package. Get into position to take him out.</font>
+	"]];
+};

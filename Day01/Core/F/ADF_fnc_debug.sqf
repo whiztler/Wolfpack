@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Debug functions
 Author: whiztler
@@ -93,7 +93,7 @@ waitUntil {
 	_ADF_debugLog_msg = format ["Elapsed time: %1  --  Server FPS: %2  --  Server Min FPS: %3",_ADF_GameTime_HMS,_ADF_serverFPS,_ADF_minServerFPS];
 	ADF_debugLog_write = _ADF_debugLog_pre + _ADF_debugLog_msg;
 	if (isServer) then {diag_log ADF_debugLog_write;}; // v1.40 B01
-	[ADF_debugLog_write,"systemChat"] call BIS_fnc_MP; // v1.39 B6
+	ADF_debugLog_write remoteExec ["systemChat"]; // 142b01
 	uiSleep 10; // 10 second cycles
 	ADF_debug_LoggingBreakout
 };

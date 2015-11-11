@@ -1,59 +1,75 @@
+if (ADF_HC_execute || isServer) then {
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_position.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_distance.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_defendArea.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_vehiclePatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_footPatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_airPatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_seaPatrol.sqf";
+};
+
 ADF_joined = false;
-#include "ADF_JIP.sqf"
-waitUntil {ADF_joined};
+if (hasInterface) then {
+	#include "ADF_JIP.sqf"
+	waitUntil {ADF_joined};
+};
 
 execVM "Scr\tasks.sqf";
 
 if (isServer) then {
-	_wolfCrates = [wolfCrate_1,wolfCrate_2,wolfCrate_3,wolfCrate_4];
-	{[_x] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf"} forEach _wolfCrates;
+	{[_x] execVM "Core\C\ADF_cCargo_B_SpecOps.sqf"} forEach [wolfCrate_1,wolfCrate_2,wolfCrate_3,wolfCrate_4];
 	[wolfCrateDemo] execVM "Core\C\ADF_cCargo_B_Demo.sqf";
 	[wolfCrateWet] execVM "Core\C\ADF_cCargo_B_WetGear.sqf";
-};
-
-player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
-player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
-<br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
-The messages are logged once displayed on screen. All messages are time-stamped and saved in order of appearance.</font>
-<br/><br/>
-"]];
-
-{	
-	if (_x isKindOf "man" && side _x == WEST) then {
-		[_x,"CLANPATCH"] call BIS_fnc_setUnitInsignia;
-	};
-} forEach allUnits;
-
-removeHeadgear player;
-_WPheadGear = ["H_Watchcap_camo","H_Watchcap_blk","H_Cap_usblack","H_Bandanna_gry","H_Beret_blk"] call BIS_fnc_selectRandom;
-player addHeadgear _WPheadGear;
-
-// (re-apply) SOR uniform texture
-if ((typeOf player) IN ["B_recon_F","B_recon_LAT_F","B_recon_exp_F","B_recon_medic_F","B_recon_TL_F","B_recon_M_F","B_recon_JTAC_F"]) then {
-	[player] spawn {
-		ADF_sorUnits = [];		
-		// Check if the SOR groups are populated/exist and add to ADF_sorUnits array
-		if !(isNil "gCO_4") then {ADF_sorUnits pushBack gCO_4};
-		if !(isNil "gCO_41M") then {ADF_sorUnits pushBack gCO_41M};
-		if !(isNil "gCO_41R") then {ADF_sorUnits pushBack gCO_41R};
-		if !(isNil "gCO_41Y") then {ADF_sorUnits pushBack gCO_41Y};
-		if !(isNil "gCO_41Z") then {ADF_sorUnits pushBack gCO_41Z};			
 	
-		waitUntil {time > 10};
-		
-		player setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
-		{
-			{			
-				_x setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
-			} forEach units _x;
-		} forEach ADF_sorUnits;
-	};
+	{if (_x isKindOf "man" && side _x == WEST) then {[_x,"CLANPATCH"] call BIS_fnc_setUnitInsignia}} forEach allUnits;
 };
 
+if (hasInterface) then {
+	player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
+	player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
+	<br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
+	The messages are logged once displayed on screen. All messages are time-stamped and saved in order of appearance.</font>
+	<br/><br/>
+	"]];
+	
+	ADF_fnc_WTT_tArti			= {};
+	ADF_fnc_WTT_tAirpt		= {};
+	ADF_fnc_WTT_tAA			= {};
+	ADF_fnc_WTT_tHotel		= {};
+	ADF_fnc_WTT_tRodoCP		= {};
+	ADF_fnc_WTT_tPetros		= {};
+	ADF_fnc_WTT_tFuelDepot	= {};
+
+	removeHeadgear player;
+	_WPheadGear = ["H_Watchcap_camo","H_Watchcap_blk","H_Cap_usblack","H_Bandanna_gry","H_Beret_blk"] call BIS_fnc_selectRandom;
+	player addHeadgear _WPheadGear;
+
+	// (re-apply) SOR uniform texture
+	if ((typeOf player) IN ["B_recon_F","B_recon_LAT_F","B_recon_exp_F","B_recon_medic_F","B_recon_TL_F","B_recon_M_F","B_recon_JTAC_F"]) then {
+		[player] spawn {
+			ADF_sorUnits = [];		
+			// Check if the SOR groups are populated/exist and add to ADF_sorUnits array
+			if !(isNil "gCO_4") then {ADF_sorUnits pushBack gCO_4};
+			if !(isNil "gCO_41M") then {ADF_sorUnits pushBack gCO_41M};
+			if !(isNil "gCO_41R") then {ADF_sorUnits pushBack gCO_41R};
+			if !(isNil "gCO_41Y") then {ADF_sorUnits pushBack gCO_41Y};
+			if !(isNil "gCO_41Z") then {ADF_sorUnits pushBack gCO_41Z};			
+		
+			waitUntil {time > 10};
+			
+			player setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+			{
+				{			
+					_x setObjectTexture [0, "\A3\Characters_F\Common\Data\basicbody_black_co.paa"];
+				} forEach units _x;
+			} forEach ADF_sorUnits;
+		};
+	};
+};
 
 [] spawn {
-	if (isServer || ADF_isHC) exitWith {};
-	waitUntil {ADF_missionInit};
+	if (!hasInterface) exitWith {};
+	waitUntil {sleep 1; ADF_missionInit};
 	sleep 5;
 
 	_logTime = [dayTime] call BIS_fnc_timeToString;
@@ -72,16 +88,7 @@ if ((typeOf player) IN ["B_recon_F","B_recon_LAT_F","B_recon_exp_F","B_recon_med
 	Vanilla loadout. Extra kit in crates</font>
 	"]];
 	
-	hint parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-<t color='#A1A4AD' size='1.7'>Wolfpack W.T.T.</t><br/><br/>
-<t color='#6C7169'>Warmup for a<br/>Wolfpack mission</t><br/><br/>	
-<t color='#6C7169'>Train your recon skills</t><br/><br/>
-<t color='#6C7169'>Test Wolfpack<br/>mission mods</t><br/><br/>
-<t color='#6C7169'>11 Tasks/Objective<br/>to choose from</t><br/><br/>
-<t color='#6C7169'>JIP / Respawn enabled</t><br/><br/>
-<t color='#6C7169'>Teleport to Troop<br/>Leader at Flagpole</t><br/><br/>
-<t color='#6C7169'>Vanilla loadout. Extra<br/>kit in crates</t><br/><br/>	
-";
+	hint parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#A1A4AD' size='1.7'>Wolfpack W.T.T.</t><br/><br/><t color='#6C7169'>Warmup for a<br/>Wolfpack mission</t><br/><br/>	<t color='#6C7169'>Train your recon skills</t><br/><br/><t color='#6C7169'>Test Wolfpack<br/>mission mods</t><br/><br/><t color='#6C7169'>11 Tasks/Objective<br/>to choose from</t><br/><br/><t color='#6C7169'>JIP / Respawn enabled</t><br/><br/><t color='#6C7169'>Teleport to Troop<br/>Leader at Flagpole</t><br/><br/><t color='#6C7169'>Vanilla loadout. Extra<br/>kit in crates</t><br/><br/>";
 };
 
 if (!ADF_HC_execute) exitWith {}; // HC Autodetect. If no HC present execute on the Server.
@@ -102,65 +109,62 @@ _wp = _c addWaypoint [(getMarkerPos "mNP_7"), 0]; _wp setWaypointType "CYCLE"; _
 
 // CP's
 for "_i" from 1 to 4 do {
+	private ["_g","_spawnPos"];
 	_g = createGroup EAST;	
-	private ["_spawnPos"];
 	_spawnPos = format ["mCP_%1",_i];
 	_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos _spawnPos, 50, 2, true] call CBA_fnc_taskDefend;
-	 sleep 0.035;
+	[_g, getMarkerPos _spawnPos, 50, 2, true] call ADF_fnc_defendArea;	
 };
 
 // EI 2 pax patrols
 for "_i" from 1 to 4 do {
-	private ["_spawnPos"];
+	private ["_g","_spawnPos"];
 	_spawnPos = format ["mEIP_%1",_i];
 	_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos _spawnPos, 600, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
-	 sleep 0.035;
+	[_g, getMarkerPos _spawnPos, 600, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 };
 
 // Vehicle patrols light
 selectVehPoolLight = {
+	private "_vPoolArray";
 	_vPoolArray = ["O_Truck_02_fuel_F","O_Truck_03_fuel_F","O_Truck_02_ammo_F","O_Truck_03_ammo_F","O_Truck_02_box_F","O_Truck_03_device_F"] call BIS_fnc_selectRandom;
 	_vPoolArray;
 };
 
 // Vehicle patrols Armed
 selectVehPoolArm = {
+	private "_vPoolArray";
 	_vPoolArray = ["O_MRAP_02_F","O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","O_APC_Wheeled_02_rcws_F"] call BIS_fnc_selectRandom;
 	_vPoolArray;
 };
 
 // CSAT Recon UGV team
 _g = [getMarkerPos "mEIP_4", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "SpecOps" >> "OI_AttackTeam_UGV")] call BIS_fnc_spawnGroup;
-[_g, getMarkerPos "mEIP_4", 2000, 8, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [20,60,120]] call CBA_fnc_taskPatrol;
+[_g, getMarkerPos "mEIP_4", 2000, 6, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 
 
 for "_i" from 1 to 4 do {
+	private ["_c","_spawnPos","_vpool","_c"];
 	_c = createGroup EAST;
 	_vPool = call selectVehPoolLight;
-	private ["_spawnPos"];
 	_spawnPos = format ["mEVP_%1",_i];
 	_v = [getMarkerPos _spawnPos, 0, _vPool, _c] call BIS_fnc_spawnVehicle;
-	_v select 0 allowDamage false;
-	[_c, getMarkerPos _spawnPos, 3500, 8, "MOVE", "SAFE", "BLUE", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
-	 sleep 0.035;
+	[_c, getMarkerPos _spawnPos, 3500, 6, "MOVE", "SAFE", "RED", "LIMITED",25] call ADF_fnc_vehiclePatrol;	
 };
 
 for "_i" from 10 to 12 do {
+	private ["_c","_spawnPos","_vpool","_c"];
 	_c = createGroup EAST;
 	_vPool = call selectVehPoolArm;
-	private ["_spawnPos"];
 	_spawnPos = format ["mEVP_%1",_i];
 	_v = [getMarkerPos _spawnPos, 0, _vPool, _c] call BIS_fnc_spawnVehicle;	
-	[_c, getMarkerPos _spawnPos, 3500, 8, "MOVE", "SAFE", "WHITE", "LIMITED", "", "", [10,40,120]] call CBA_fnc_taskPatrol;
-	 sleep 0.035;
+	[_c, getMarkerPos _spawnPos, 3500, 6, "MOVE", "SAFE", "RED", "LIMITED",25] call ADF_fnc_vehiclePatrol;	
 };
-
 
 // Arti
 ADF_fnc_WTT_tArti = {
 	if (!ADF_HC_execute) exitWith {}; // HC Autodetect. If no HC present execute on the Server.
+	private ["_g","_p"];
 	_g = CreateGroup EAST; 
 	_p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"CAPTAIN"]; _p moveInCommander oArti1;
 	_p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"CORPORAL"]; _p moveInGunner oArti1;
@@ -173,37 +177,39 @@ ADF_fnc_WTT_tArti = {
 	_p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"PRIVATE"]; _p moveInGunner oStat_10;
 	// Patrols
 	_g = [getMarkerPos "mCP_11", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos "mCP_11", 250, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+	[_g, getMarkerPos "mCP_11", 250, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	_g = [getMarkerPos "mCP_11", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos "mCP_11", 250, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+	[_g, getMarkerPos "mCP_11", 200, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	// CP
 	_g = [getMarkerPos "mCP_11", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos "mCP_11", 50, 2, true] call CBA_fnc_taskDefend;	
+	[_g, getMarkerPos "mCP_11", 50, 2, true] call ADF_fnc_defendArea;	
 };
 
 // Airport
 ADF_fnc_WTT_tAirpt = {
+	private ["_g","_p"];
 	_g = CreateGroup EAST; 
 	_p = _g createUnit ["O_Soldier_F",getPos mSpawn,[],0,"CORPORAL"]; _p moveInGunner oStat_1;
 	//EIP
 	for "_i" from 20 to 23 do {
-		private ["_spawnPos"];
+		private ["_g","_spawnPos"];
 		_spawnPos = format ["mEIP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 600, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+		[_g, getMarkerPos _spawnPos, 600, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	};	
 	// CP's
 	for "_i" from 20 to 21 do {
+		private ["_g","_spawnPos"];
 		_g = createGroup EAST;	
-		private ["_spawnPos"];
 		_spawnPos = format ["mCP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 50, 2, true] call CBA_fnc_taskDefend;		
+		[_g, getMarkerPos _spawnPos, 50, 2, true] call ADF_fnc_defendArea;		
 	};
 };
 
 // AA-Site
 ADF_fnc_WTT_tAA = {
+	private ["_g","_p"];
 	_g = CreateGroup EAST; 
 	_p = _g createUnit ["O_Soldier_F",getPos tAA,[],0,"PRIVATE"]; _p moveInGunner oStat_5;
 	_p = _g createUnit ["O_Soldier_F",getPos tAA,[],0,"PRIVATE"]; _p moveInGunner oStat_6;
@@ -211,58 +217,60 @@ ADF_fnc_WTT_tAA = {
 	_p = _g createUnit ["O_Soldier_F",getPos tAA,[],0,"CORPORAL"]; _p moveInGunner oStat_7;
 	//EIP
 	_g = [getPos tAA, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getPos tAA, 50, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+	[_g, getPos tAA, 50, 3, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	_g = [getPos tAA, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getPos tAA, 125, 4, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;	
+	[_g, getPos tAA, 125, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	// CP's
 	_g = [getMarkerPos "mCP_30", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 };
 
 // Hotel
 ADF_fnc_WTT_tHotel = {
+	private ["_g","_p"];
 	_g = CreateGroup EAST; 
 	_p = _g createUnit ["O_Soldier_F",getPos tHotel,[],0,"PRIVATE"]; _p moveInGunner oStat_70;
 	_p = _g createUnit ["O_Soldier_F",getPos tHotel,[],0,"PRIVATE"]; _p moveInGunner oStat_71;	
 	_p = _g createUnit ["O_Soldier_F",getPos tHotel,[],0,"CORPORAL"]; _p moveInGunner oStat_72;
 	//EIP
 	for "_i" from 70 to 73 do {
-		private ["_spawnPos"];
+		private ["_g","_spawnPos"];
 		_spawnPos = format ["mEIP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 600, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+		[_g, getMarkerPos _spawnPos, 600, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	};
 	// CP's
 	_g = [getMarkerPos "mCP_70", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;	
-	[_g, getMarkerPos "mCP_70", 50, 2, true] call CBA_fnc_taskDefend;
+	[_g, getMarkerPos "mCP_70", 50, 2, true] call ADF_fnc_defendArea;
 	_g = [getMarkerPos "mCP_71", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;	
-	[_g, getMarkerPos "mCP_71", 50, 2, true] call CBA_fnc_taskDefend;
+	[_g, getMarkerPos "mCP_71", 50, 2, true] call ADF_fnc_defendArea;
 	_g = [getMarkerPos "mCP_72", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad_weapons")] call BIS_fnc_spawnGroup;	
-	[_g, getMarkerPos "mCP_72", 50, 2, true] call CBA_fnc_taskDefend;
+	[_g, getMarkerPos "mCP_72", 50, 2, true] call ADF_fnc_defendArea;
 	for "_i" from 74 to 79 do {
-		private ["_spawnPos"];
+		private ["_g","_spawnPos"];
 		_spawnPos = format ["mCP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 70, 2, true] call CBA_fnc_taskDefend;		
+		[_g, getMarkerPos _spawnPos, 70, 2, true] call ADF_fnc_defendArea;		
 	};	
 	// HVT
 	_g = CreateGroup EAST;
 	obj_resort = _g createUnit ["O_officer_F",getMarkerPos "mCP_73",[],0,"COLONEL"];
-	[_g, getMarkerPos "mCP_73", 50, 2, true] call CBA_fnc_taskDefend;
+	[_g, getMarkerPos "mCP_73", 50, 2, true] call ADF_fnc_defendArea;
 };
 
 // Rodo CP
 RodoActive = false;
 ADF_fnc_WTT_tRodoCP = {
 	if (RodoActive) exitWith {};
+	private ["_g","_p"];
 	RodoActive = true;
 	_g = CreateGroup EAST; 
 	_p = _g createUnit ["O_Soldier_F",getPos tRodoCP,[],0,"PRIVATE"]; _p moveInGunner oStat_2;
 	_p = _g createUnit ["O_Soldier_F",getPos tRodoCP,[],0,"PRIVATE"]; _p moveInGunner oStat_3;		
 	//EIP
 	_g = [getMarkerPos "mEIP_40", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos "mEIP_40", 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+	[_g, getMarkerPos "mEIP_40", 400, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	_g = [getMarkerPos "mEIP_41", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos "mEIP_41", 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+	[_g, getMarkerPos "mEIP_41", 400, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	// CP's
 	_g = [getMarkerPos "mCP_40", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 };
@@ -271,18 +279,20 @@ ADF_fnc_WTT_tRodoCP = {
 PetrosActive = false;
 ADF_fnc_WTT_tPetros = {
 	if (PetrosActive) exitWith {};
+	private ["_g","_p"];
 	PetrosActive = true;
 	_g = CreateGroup EAST; 	
 	_p = _g createUnit ["O_Soldier_F",getPos tRodoCP,[],0,"PRIVATE"]; _p moveInGunner oStat_4;		
 	//EIP
 	_g = [getMarkerPos "mEIP_50", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos "mEIP_50", 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;	
+	[_g, getMarkerPos "mEIP_50", 400, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	// CP's
 	_g = [getMarkerPos "mCP_50", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
 };
 
 // Fuel Depot
 ADF_fnc_WTT_tFuelDepot = {
+	private ["_g","_p"];
 	_g = CreateGroup EAST; 	
 	_p = _g createUnit ["O_Soldier_F",getPos tFuelDepot,[],0,"PRIVATE"]; _p moveInGunner oStat_60;
 	_p = _g createUnit ["O_Soldier_F",getPos tFuelDepot,[],0,"PRIVATE"]; _p moveInGunner oStat_61;
@@ -291,22 +301,22 @@ ADF_fnc_WTT_tFuelDepot = {
 	_p = _g createUnit ["O_Soldier_F",getPos tFuelDepot,[],0,"CAPTAIN"]; _p moveInCommander oStat_63;
 	//EIP
 	for "_i" from 60 to 62 do {
-		private ["_spawnPos"];
+		private ["_g","_spawnPos"];
 		_spawnPos = format ["mEIP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 600, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "", [1,4,7]] call CBA_fnc_taskPatrol;
+		[_g, getMarkerPos _spawnPos, 600, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	};	
 	// CP's
 	for "_i" from 60 to 63 do {
+		private ["_g","_spawnPos"];
 		_g = createGroup EAST;	
-		private ["_spawnPos"];
 		_spawnPos = format ["mCP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 50, 2, true] call CBA_fnc_taskDefend;
+		[_g, getMarkerPos _spawnPos, 50, 2, true] call ADF_fnc_defendArea;
 	};
 };
 
-wp_fnc_airVehicle = {_airVehicle = ["O_Heli_Transport_04_F","O_Heli_Transport_04_ammo_F","O_Heli_Transport_04_bench_F","O_Heli_Transport_04_box_F","O_Heli_Transport_04_covered_F","O_Heli_Transport_04_fuel_F","O_Heli_Transport_04_medevac_F","O_Heli_Transport_04_repair_F","O_Heli_Light_02_unarmed_F","O_Heli_Light_02_F"] call BIS_fnc_selectRandom;_airVehicle;};
+wp_fnc_airVehicle = {private "_airVehicle"; _airVehicle = ["O_Heli_Transport_04_F","O_Heli_Transport_04_ammo_F","O_Heli_Transport_04_bench_F","O_Heli_Transport_04_box_F","O_Heli_Transport_04_covered_F","O_Heli_Transport_04_fuel_F","O_Heli_Transport_04_medevac_F","O_Heli_Transport_04_repair_F","O_Heli_Light_02_unarmed_F","O_Heli_Light_02_F"] call BIS_fnc_selectRandom;_airVehicle;};
 
 // Outbound HeliSpawn
 [] spawn {
@@ -458,5 +468,3 @@ wp_fnc_airVehicle = {_airVehicle = ["O_Heli_Transport_04_F","O_Heli_Transport_04
 		heliActive = false;
 	};
 };		
-
-if (ADF_debug) then {waitUntil {time > 60}; [EAST,"OFF"] call ADF_fnc_debugMarkers;}; // Side, Labels "ON"/"OFF";

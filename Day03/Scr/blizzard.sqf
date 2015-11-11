@@ -2,6 +2,7 @@ wpBlizzard = false;
 if (!isServer) exitWith {};
 
 waitUntil {sleep 2; wpBlizzard};
+private ["_th1","_th2","_th3","_th4","_th5","_th6","_th7","_th8"];
 _th1 = "Bo_GBU12_LGB" createVehicle (getPos tTower1); sleep .25;
 _th2 = "Bo_GBU12_LGB" createVehicle (getPos tTower1); sleep .25;
 _th3 = "Bo_GBU12_LGB" createVehicle (getPos tTower1); sleep .25;

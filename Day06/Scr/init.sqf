@@ -1,5 +1,17 @@
-vWolf_takeOff = false;
-vWolf_10Secs = false;
+vWolf_takeOff	= false;
+vWolf_10Secs	= false;
+objBarcelona	= 0;
+objInstanbul	= 0;
+
+if (ADF_HC_execute || isServer) then {
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_position.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_distance.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_defendArea.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_vehiclePatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_footPatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_airPatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_seaPatrol.sqf";
+};
 
 if (isServer) then {
 	// vWolf_1
@@ -69,91 +81,83 @@ if (isServer) then {
 	};
 };
 
-player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
-player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
-<br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
-The messages are logged once displayed on screen. All messages are time-stamped and saved in order of appearance.</font>
-<br/><br/>
-"]];
+if (hasInterface) then {
+	player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
+	player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
+	<br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
+	The messages are logged once displayed on screen. All messages are time-stamped and saved in order of appearance.</font>
+	<br/><br/>
+	"]];
 
-waitUntil {scriptDone ADF_getLoadOut}; // Wait till all units have their gear before continuing
+	waitUntil {scriptDone ADF_getLoadOut}; // Wait till all units have their gear before continuing
 
-sleep 3; // Loadout finished > pri weapon loaded
+	sleep 3; // Loadout finished > pri weapon loaded
 
-while {time < 25} do {
-	if !(isNil "SOR_SSC_1") then {SOR_SSC_1 assignAsCargo vWolf_1; SOR_SSC_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RM_1") then {SOR_RM_1 assignAsCargo vWolf_1; SOR_RM_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_UAV_1") then {SOR_UAV_1 assignAsCargo vWolf_1; SOR_UAV_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RMM_1") then {SOR_RMM_1 assignAsCargo vWolf_1; SOR_RMM_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RTL_1") then {SOR_RTL_1 assignAsCargo vWolf_1; SOR_RTL_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RS_2") then {SOR_RS_2 assignAsCargo vWolf_1; SOR_RS_2 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RS_3") then {SOR_RS_3 assignAsCargo vWolf_1; SOR_RS_3 moveInCargo vWolf_1;}; sleep 0.035;
+	while {time < 25} do {
+		if !(isNil "SOR_SSC_1") then {SOR_SSC_1 assignAsCargo vWolf_1; SOR_SSC_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RM_1") then {SOR_RM_1 assignAsCargo vWolf_1; SOR_RM_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_UAV_1") then {SOR_UAV_1 assignAsCargo vWolf_1; SOR_UAV_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RMM_1") then {SOR_RMM_1 assignAsCargo vWolf_1; SOR_RMM_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RTL_1") then {SOR_RTL_1 assignAsCargo vWolf_1; SOR_RTL_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RS_2") then {SOR_RS_2 assignAsCargo vWolf_1; SOR_RS_2 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RS_3") then {SOR_RS_3 assignAsCargo vWolf_1; SOR_RS_3 moveInCargo vWolf_1;}; sleep 0.035;
+		
+		if !(isNil "SOR_RS_4") then {SOR_RS_4 assignAsCargo vWolf_2; SOR_RS_4 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_DEM_1") then {SOR_DEM_1 assignAsCargo vWolf_2; SOR_DEM_1 moveInCargo vWolf_2;}; sleep 0.035;	
+		if !(isNil "SOR_RTL_2") then {SOR_RTL_2 assignAsCargo vWolf_2; SOR_RTL_2 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_RS_5") then {SOR_RS_5 assignAsCargo vWolf_2; SOR_RS_5 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_RS_6") then {SOR_RS_6 assignAsCargo vWolf_2; SOR_RS_6 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_RS_7") then {SOR_RS_7 assignAsCargo vWolf_2; SOR_RS_7 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_2; SOR_AT_1 moveInCargo vWolf_2;};
+	};
 	
-	if !(isNil "SOR_RS_4") then {SOR_RS_4 assignAsCargo vWolf_2; SOR_RS_4 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_DEM_1") then {SOR_DEM_1 assignAsCargo vWolf_2; SOR_DEM_1 moveInCargo vWolf_2;}; sleep 0.035;	
-	if !(isNil "SOR_RTL_2") then {SOR_RTL_2 assignAsCargo vWolf_2; SOR_RTL_2 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_RS_5") then {SOR_RS_5 assignAsCargo vWolf_2; SOR_RS_5 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_RS_6") then {SOR_RS_6 assignAsCargo vWolf_2; SOR_RS_6 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_RS_7") then {SOR_RS_7 assignAsCargo vWolf_2; SOR_RS_7 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_2; SOR_AT_1 moveInCargo vWolf_2;};
-};
+	[] spawn {
+		waitUntil {sleep 1; vWolf_10Secs};
+		hint parseText"<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/><t color='#6C7169' align='left'>160th SOAR Lt. Campbell: Commander, 20 seconds! Get ready!<br /></t>";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: Lt. Campbell</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6c7169'>160th SOAR Lt. Campbell: Commander, 20 seconds! Get ready!</font>
+		<br/><br/>"]];
+	};
 
-objBarcelona = 0;
-objInstanbul = 0;
+	[] spawn {
+		waitUntil {sleep 1; vWolf_takeOff};
+		hint parseText"<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/><t color='#6C7169' align='left'>160th SOAR Lt. Campbell: Dusting off in 5 seconds<br /></t>";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: Lt. Campbell</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6c7169'>160th SOAR Lt. Campbell: Dusting off in 5 seconds</font>
+		<br/><br/>"]];	
+	};	
 
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>DEVGRU: Commander, call signs are as follows:<br/><br/>DEVGRU TOC: </t><t color='#9DA698' align='left'>Uncle</t><br /><t color='#6C7169' align='left'>Your call sign: </t><t color='#9DA698' align='left'>Viper</t><br />
-";
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6c7169'>DEVGRU: Commander, call signs are as follows:<br/><br/>
-DEVGRU TOC: </font><font color='#9DA698'>Uncle</font><br/>
-<font color='#6C7169'>Your call sign: </font><font color='#9DA698'>Viper</font>
-<br/><br/>"]];
+	waitUntil {sleep 2; ADF_missionInit}; sleep 5;
 
-
-[] spawn {
-	waitUntil {vWolf_10Secs};
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>160th SOAR Lt. Campbell: Commander, 20 seconds! Get ready!<br /></t>
-	";
+	hint parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>DEVGRU: Commander, call signs are as follows:<br/><br/>DEVGRU TOC: </t><t color='#9DA698' align='left'>Uncle</t><br /><t color='#6C7169' align='left'>Your call sign: </t><t color='#9DA698' align='left'>Viper</t><br />";
 	_logTime = [dayTime] call BIS_fnc_timeToString;
 	_logTimeText = "Log: " + _logTime;
 	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: Lt. Campbell</font><br/>
+	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
 	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
 	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6c7169'>160th SOAR Lt. Campbell: Commander, 20 seconds! Get ready!</font>
+	<font color='#6c7169'>DEVGRU: Commander, call signs are as follows:<br/><br/>
+	DEVGRU TOC: </font><font color='#9DA698'>Uncle</font><br/>
+	<font color='#6C7169'>Your call sign: </font><font color='#9DA698'>Viper</font>
 	<br/><br/>"]];
-};
-
-[] spawn {
-	waitUntil {vWolf_takeOff};
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>160th SOAR Lt. Campbell: Dusting off in 5 seconds<br /></t>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: Lt. Campbell</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6c7169'>160th SOAR Lt. Campbell: Dusting off in 5 seconds</font>
-	<br/><br/>"]];	
 };
 
 execVM "Scr\edessa.sqf";
 
 if (!ADF_HC_execute) exitWith {}; // Autodetect: execute on the HC else execute on the server
 
-waitUntil {triggerActivated tIremi};
+waitUntil {sleep 1; triggerActivated tIremi};
+private ["_c","_v","_wp","_g","_p"];
 // Naval Patrols
 _c = createGroup EAST;
 _v = [getMarkerPos "mNP1", 0, "O_Boat_Armed_01_hmg_F", _c] call BIS_fnc_spawnVehicle;
@@ -167,27 +171,27 @@ _wp = _c addWaypoint [getMarkerPos "mNP5", 0]; _wp setWaypointType "MOVE"; _wp s
 _wp = _c addWaypoint [getMarkerPos "mNP4", 0]; _wp setWaypointType "MOVE"; _wp setWaypointBehaviour "SAFE"; _wp setWaypointSpeed "FULL";
 _wp = _c addWaypoint [getMarkerPos "mNP3", 0]; _wp setWaypointType "MOVE"; _wp setWaypointBehaviour "SAFE"; _wp setWaypointSpeed "FULL";
 _wp = _c addWaypoint [getMarkerPos "mNP2", 0]; _wp setWaypointType "CYCLE"; _wp setWaypointBehaviour "SAFE"; _wp setWaypointSpeed "FULL";
-sleep 0.5;
+
 _c = createGroup EAST;
 _v = [getMarkerPos "mNS1", 270, "O_Boat_Armed_01_hmg_F", _c] call BIS_fnc_spawnVehicle;	
-sleep 0.5;	
 
 // Road patrols
-_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_MRAP_02_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_transport_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
+_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_MRAP_02_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
+_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
+_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_transport_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
+_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_Truck_02_covered_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
 sleep 20;
-_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_Truck_02_medical_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_Ammo_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_fuel_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;
-_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_MRAP_02_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol; sleep 0.5;	
+_c = createGroup EAST; _v = [getMarkerPos "mVP1", 90, "O_Truck_02_medical_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP1", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
+_c = createGroup EAST; _v = [getMarkerPos "mVP2", 90, "O_Truck_02_Ammo_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP2", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
+_c = createGroup EAST; _v = [getMarkerPos "mVP3", 90, "O_Truck_02_fuel_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP3", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
+_c = createGroup EAST; _v = [getMarkerPos "mVP4", 90, "O_MRAP_02_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "mVP4", 5000, 6, "MOVE", "SAFE", "RED", "LIMITED", 25] call ADF_fnc_vehiclePatrol;
 
 deleteMarker "mBrief0";
 
 // Air Patrols
 _c = createGroup EAST; 
-_v = [getMarkerPos "ap1", 0, "O_Heli_Attack_02_black_F", _c] call BIS_fnc_spawnVehicle; [_c, getmarkerpos "ap1", 5000, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "", "", [3,6,9]] call CBA_fnc_taskPatrol;
+_v = [getMarkerPos "ap1", 0, "O_Heli_Attack_02_black_F", _c] call BIS_fnc_spawnVehicle;
+[_c, getmarkerpos "ap1", 5000, 100, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 250] call ADF_fnc_airPatrol;
 vAP1 = _v select 0;
 _delAmmoArray = ["38Rnd_80mm_rockets","250Rnd_30mm_HE_shells","250Rnd_30mm_APDS_shells","8Rnd_LG_scalpel"];
 {vAP1 removeMagazineTurret [_x,[0]]} forEach _delAmmoArray;
@@ -204,7 +208,8 @@ ADF_fnc_DeleteVehicles = {
 };
 
 /// Convoy
-[] spawn {	
+[] spawn {
+	private ["_c","_v","_wp"];
 	_c = createGroup EAST;
 	_v = [getMarkerPos "mConvoy_Spawn", markerDir "mConvoy_Spawn", "O_MRAP_02_hmg_F", _c] call BIS_fnc_spawnVehicle; trptConvoy_1 = _v select 0; 
 	_v = [(trptConvoy_1 modelToWorld [0,-15,0]), getDir trptConvoy_1, "O_Truck_03_covered_F", _c] call BIS_fnc_spawnVehicle; trptConvoy_2 = _v select 0;
@@ -231,32 +236,26 @@ ADF_fnc_DeleteVehicles = {
 };
 
 execVM "Scr\barcelona.sqf";
-sleep 3;
+sleep 5;
 execVM "Scr\istanbul.sqf";
 
-waitUntil {time > 300};
+waitUntil {sleep 5; time > 300};
 
 // Sentries
 _g = CreateGroup EAST; 
-_p = _g createUnit ["O_Soldier_F",getPosASL sHmg_1,[],0,"SERGEANT"]; _p setDir 40; _p moveInGunner sHmg_1; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sHmg_2,[],0,"CORPORAL"]; _p setDir 180; _p moveInGunner sHmg_2; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sHmg_3,[],0,"Private"]; _p setDir 350; _p moveInGunner sHmg_3; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sAA_1,[],0,"Private"]; _p moveInGunner sAA_1; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sAA_2,[],0,"Private"]; _p moveInGunner sAA_2; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sAA_3,[],0,"Private"]; _p moveInGunner sAA_3; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sAA_4,[],0,"Private"]; _p moveInGunner sAA_4; sleep .05;
-_p = _g createUnit ["O_Soldier_F",getPosASL sAA_5,[],0,"Private"]; _p moveInGunner sAA_5; sleep .05;
+_p = _g createUnit ["O_Soldier_F",getPosASL sHmg_1,[],0,"SERGEANT"]; _p setDir 40; _p moveInGunner sHmg_1;
+_p = _g createUnit ["O_Soldier_F",getPosASL sHmg_2,[],0,"CORPORAL"]; _p setDir 180; _p moveInGunner sHmg_2;
+_p = _g createUnit ["O_Soldier_F",getPosASL sHmg_3,[],0,"Private"]; _p setDir 350; _p moveInGunner sHmg_3;
+_p = _g createUnit ["O_Soldier_F",getPosASL sAA_1,[],0,"Private"]; _p moveInGunner sAA_1;
+_p = _g createUnit ["O_Soldier_F",getPosASL sAA_2,[],0,"Private"]; _p moveInGunner sAA_2;
+_p = _g createUnit ["O_Soldier_F",getPosASL sAA_3,[],0,"Private"]; _p moveInGunner sAA_3;
+_p = _g createUnit ["O_Soldier_F",getPosASL sAA_4,[],0,"Private"]; _p moveInGunner sAA_4;
+_p = _g createUnit ["O_Soldier_F",getPosASL sAA_5,[],0,"Private"]; _p moveInGunner sAA_5;
 
 // Riga CP
 _g = [getPos RigaCP, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup; 
-[_g, getPos RigaCP, 50, 2, true] call CBA_fnc_taskDefend;  sleep .05;
-
 // Drimea CP
 _g = [getPos DrimeaCP, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup; 
-[_g, getPos DrimeaCP, 50, 2, true] call CBA_fnc_taskDefend;	
 
 deleteMarker "mManila";
 
-if (ADF_debug) then {
-	[EAST,"OFF"] call ADF_fnc_debugMarkers; // Side, Labels "ON"/"OFF"
-};

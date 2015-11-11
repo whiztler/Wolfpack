@@ -47,8 +47,8 @@
   <article>
     <h1><img src="Core/I/ADF_logo.png" width="500" height="240" alt="ADF - Arma Mission Development Framework" /></h1>
     <h3 id="curver">Current version</h3>
-    <p>version: 1.41<br />
-      build: Beta 02</p>
+    <p>version: 1.42<br />
+      build: Final 03</p>
     <h2 id="features">New Features 1.39+</h2>
     <ul>
       <li><strong>Support for multiple Headless Clients with automatic Load Balancing</strong> - ADF 1.39 offers up to three HC's that should be named ADF_HC1, ADF_HC2, ADF_HC3. The mission maker can enable/disable load balancing. When enabled ADF transfers AI groups across available HC's (Round Robin method). See 'Core\ADF_HC.sqf' for more information.</li>
@@ -59,13 +59,34 @@
     </ul>
     <h3 id="chglog">Changelog</h3>
     <div id="logBox">
+	  <h4>1.42</h4>
+      <ul>
+		<li>ADDED: ADF_fnc_airPatrol.sqf - function to create random air patrols.</li>
+		<li>ADDED: ADF_fnc_defendArea.sqf - function to garrison a group, man turrets.</li>
+		<li>ADDED: ADF_fnc_seaPatrol.sqf - function to create boat patrols (water waypoints).</li>
+		<li>ADDED: Additional dubug/feedback RPT reporting.</li>
+		<li>UPDATED: ADF_fnc_HC_loadBalancing.sqf - Added a delayed start of 120 seconds so that AO's can init properly.</li>
+		<li>UPDATED: zbe_cache - Added a delayed start of 120 seconds so that AO's can init properly.</li>
+		<li>UPDATED: ADF_SimpleStats.sqf - Now displays stats for up to 3 HC's.</li>
+		<li>UPDATED: code base updated in line with new scripting commands 1.52. Most scripts updated.</li>
+		<li>UPDATED: Notepad++ ARMA plugin (Core\I\SQF_whiz.xml).</li>
+      </ul>	
       <h4>1.41</h4>
       <ul>
         <li>ADDED: Altitude Based Fatigue. Can be switched on/off in ADF_init_config.</li>
-        <li>ADDED: Altitude Based Fatigue. Can be switched on/off in ADF_init_config.</li>
-        <li>ADDED: Crew Check (ADF_crewCheck.sqf). Checks if player is authorized to operate specific vehicles.</li>
+        <li>ADDED: ADF_fnc_position.sqf - functions re position</li>
+        <li>ADDED: ADF_fnc_distance.sqf - functions re distance</li>
+        <li>ADDED: ADF_fnc_createIED.sqf - function to create random IED's</li>
+        <li>ADDED: ADF_fnc_objectMarker.sqf - function to create object map markers (bounding box marers).</li>
+        <li>ADDED: ADF_fnc_sensor.sqf - function to create detection sensors (like triggers) with custom check times (W.I.P.).</li>
+        <li>ADDED: ADF_fnc_typeWriter.sqf - function to create typewriter effect for mission intro's</li>
+        <li>ADDED: ADF_fnc_vehiclePatrol.sqf - function to create random vehicle patrols (waypoints on roads only).</li>
+        <li>ADDED: ADF_CAS.sqf - script to add AI CAS functionality to missions.</li>
+        <li>ADDED: ADF_crewCheck.sqf. Crew check script. Checks if player is authorized to operate specific vehicles.</li>
+        <li>ADDED: Various functions to support the TWO SIERRA campaign.</li>
+        <li>FIXED: ADF_HC.sqf. Fixed server init and optimized script for performance</li>
         <li>UPDATED: vehicle/crate supplies. Can be initialized from script (ADF_supplyInit) or item init.</li>
-        <li>UPDATED: code base updated in line with new scripting commands 1.48.</li>
+        <li>UPDATED: code base updated in line with new scripting commands 1.48 and 1.50.</li>
         <li>UPDATED: Notepad++ ARMA plugin (Core\I\SQF_whiz.xml).</li>
         <li>UPDATED: ADF_init_config.sqf for Supplies function, Altitude Based Fatique (ABF) and Crew Check.</li>
       </ul>
@@ -398,7 +419,6 @@
     <p>By default ADF has implemented ACE3 Advanced settings such as Advanced Medical, Advanced Ballistics, etc.</p>
     <h2 id="sod">Advanced editing</h2>
     <p>This section covers spawning of units/groups by scripts. Spawning using scripts we'll call Spawn on Demand (SOD). This enables mission makers to spawn units/groups/vehicles only when it is required/triggered and thus save server/HC performance. SOD can make your missions less linear and more dynamic. </p>
-    <p>ADF offers a few well documented sample scripts for you to learn about SOD. You'll find them in the Core\ folder (<strong>ADF_DSG-Airborne.sqf</strong>, <strong>ADF_DSG-FootPatrols.sqf</strong>, <strong>ADF_DSG-Armored.sqf</strong>)</p>
     <h3>The basics</h3>
     <p>To spawn a unit/group/vehicle ARMA3 requires some information that the script should provide:</p>
     <ol>
@@ -483,7 +503,7 @@ _g = [getMarkerPos "marker1",	EAST, (configFile >> "CfgGroups" >> "East" >> "OPF
     </ul>
     <p>If you haven't already, create/place a marker on the map and name it &quot;marker1&quot;. You may place the marker anywhere you want, inside or outside the trigger area. This is the position your enemy patrol group will spawn and start their patrol from.<br />
       Save your mission and test by entering the trigger area as a Blufor unit. The enemy patrol should spawn immediately.</p>
-    <p>You can spawn single units, groups, crewed vehicles, empty vehicles, etc. Have a look at the sample spawn scripts. You find then in the Core\ folder (<strong>ADF_DSG-Airborne.sqf</strong>, <strong>ADF_DSG-FootPatrols.sqf</strong>, <strong>ADF_DSG-Armored.sqf</strong>). For further reading on spawning units and such, have a look at:</p>
+    <p>You can spawn single units, groups, crewed vehicles, empty vehicles, etc. For further reading on spawning units and such, have a look at:</p>
     <ul>
       <li><a href="https://community.bistudio.com/wiki/BIS_fnc_spawnVehicle" title="BIS spawn vehicle function" target="_blank">https://community.bistudio.com/wiki/BIS_fnc_spawnVehicle</a></li>
       <li><a href="https://community.bistudio.com/wiki/createGroup" title="BIS function createGroup" target="_blank">https://community.bistudio.com/wiki/createGroup</a></li>

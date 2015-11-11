@@ -67,7 +67,8 @@ ADF_fnc_fobDeploy = { // deploy the fob
 	};
 	
 	// Add the FOB packUp action menu item
-	ADF_MHQ_FOB_PackupAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Pack up the F.O.B.</t>",{[[],"ADF_fnc_fobPackUp"] call BIS_fnc_MP;},[],-98,false,true,"",""];
+	ADF_MHQ_FOB_PackupAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Pack up the F.O.B.</t>",{remoteExec ["ADF_fnc_fobPackUp",0,true]},[],-98,false,true,"",""];
+	
 	if (ADF_debug) then {["MHQ - Pack-up EH added.",false] call ADF_fnc_log};
 	
 	waitUntil {ADF_MHQ_FOB_deployed};
@@ -91,11 +92,11 @@ ADF_fnc_fobPackUp = { // pack up the fob
 		<t color='#A1A4AD'>MHQ ready in:</t><t color='#FFFFFF'> %1 </t><t color='#A1A4AD'>seconds</t><br/><br/>
 	",ADF_MHQ_PackUpTime];
 	hintSilent parseText _msg;
-	[[],"ADF_fnc_fobDeleteObj"] spawn BIS_fnc_MP; // Romove all the FOB items (Camo netting, H-Barriers, etc)
+	remoteExec ["ADF_fnc_fobDeleteObj"]; // Romove all the FOB items (Camo netting, H-Barriers, etc)
 	sleep 5;
 	hintSilent "";
 	sleep (ADF_MHQ_PackUpTime - 5);
-	ADF_MHQ_FOB_deployAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Deploy the FOB</t>",{[[],"ADF_fnc_fobDeploy"] call BIS_fnc_MP;},[],-98,false,true,"",""];
+	ADF_MHQ_FOB_deployAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Deploy the FOB</t>",{remoteExec ["ADF_fnc_fobDeploy",0,true]},[],-98,false,true,"",""];	
 };
 
 ADF_fnc_fobDeleteObj = {

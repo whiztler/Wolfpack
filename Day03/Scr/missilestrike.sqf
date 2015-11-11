@@ -1,4 +1,5 @@
 roundscomplete = false;
+if !(hasInterface) exitWith {};
 hintSilent parseText "<t color='#6C7169' align='left'>Blizzard: Fire mission received. Fire for Effect, R, F, High Explosive.</t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
@@ -55,7 +56,7 @@ player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
 sleep 5;
 
 wpBlizzard = true; publicVariableServer "wpBlizzard";
-waitUntil {sleep 2;roundscomplete};
+waitUntil {sleep 2; roundscomplete};
 sleep 2;
 
 hintSilent parseText "<t color='#6C7169' align='left'>Blizzard: Rounds complete. End of fire mission.</t>";

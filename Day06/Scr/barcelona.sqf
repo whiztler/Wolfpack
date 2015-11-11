@@ -1,32 +1,26 @@
-#include "ADF_JIP.sqf"
-
-waitUntil {!alive radar_1};
-
+waitUntil {sleep 2; !alive radar_1};
 // radar_1 setDamage 1;
 
 sleep 5;
 
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Uncle: Mighty fireworks Viper!<br/></t>
-";
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6c7169'>Uncle: Mighty fireworks Viper!</font>
-<br/><br/>"]];
+if (hasInterface) then {
+	hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: Mighty fireworks Viper!<br/></t>";
+	_logTime = [dayTime] call BIS_fnc_timeToString;
+	_logTimeText = "Log: " + _logTime;
+	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+	<font color='#6c7169'>Uncle: Mighty fireworks Viper!</font>
+	<br/><br/>"]];
+};
 
 objBarcelona = 1; publicVariable "objBarcelona";
 
 if  (objInstanbul == 0) exitWith {
+	if (!hasInterface) exitWith {};
 	sleep 20;
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Uncle: Viper proceed to your next objective, the AA-emplacements at Istanbul.<br/></t>
-	";
+	hintSilent parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: Viper proceed to your next objective, the AA-emplacements at Istanbul.<br/></t>";
 	_logTime = [dayTime] call BIS_fnc_timeToString;
 	_logTimeText = "Log: " + _logTime;
 	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
@@ -38,23 +32,18 @@ if  (objInstanbul == 0) exitWith {
 };
 
 if ((objInstanbul == 1) && (objBarcelona == 1)) exitWith {
-
-	sleep 30;
-
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Uncle: Viper, Satnav shows both objectives are completed.<br/><br/>Exfil is at </t><t color='#9DA698' align='left'>Agios Kosmas</t><t color='#6C7169' align='left'>. We'll upload the location to your ComLink. Exfil callsign is </t><t color='#9DA698' align='left'>Naples<br/></t>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6c7169'>Uncle: Viper, Satnav shows both objectives are completed.<br/><br/>Exfil is at </font><font color='#9DA698'>Agios Kosmas</font><font color='#6C7169'>. We'll upload the location to your ComLink. Exfil callsign is </font><font color='#9DA698'>Naples</font>
-	<br/><br/>"]];		
-	
-	_c = []; _v = [];
+	if (hasInterface) then {
+		sleep 30;
+		hintSilent parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: Viper, Satnav shows both objectives are completed.<br/><br/>Exfil is at </t><t color='#9DA698' align='left'>Agios Kosmas</t><t color='#6C7169' align='left'>. We'll upload the location to your ComLink. Exfil callsign is </t><t color='#9DA698' align='left'>Naples<br/></t>";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6c7169'>Uncle: Viper, Satnav shows both objectives are completed.<br/><br/>Exfil is at </font><font color='#9DA698'>Agios Kosmas</font><font color='#6C7169'>. We'll upload the location to your ComLink. Exfil callsign is </font><font color='#9DA698'>Naples</font>
+		<br/><br/>"]];		
+	};
 
 	if (isServer) then {
 		if !(isNil "vExf1") exitWith {}; // exfil already created
@@ -77,5 +66,5 @@ if ((objInstanbul == 1) && (objBarcelona == 1)) exitWith {
 		_v = [getMarkerPos "mExf2", markerDir "mExf2", "B_Boat_Armed_01_minigun_F", _c] call BIS_fnc_spawnVehicle;
 		vExf2 = _v select 0;
 		vExf2 setFuel 0;	
-	}	
+	};
 };

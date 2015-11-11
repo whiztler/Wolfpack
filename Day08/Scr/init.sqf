@@ -1,6 +1,16 @@
-vWolf_takeOff = false;
-vWolf_10Secs = false;
-iceTigerLocated = false;
+vWolf_takeOff		= false;
+vWolf_10Secs		= false;
+iceTigerLocated	= false;
+
+if (ADF_HC_execute || isServer) then {
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_position.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_distance.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_defendArea.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_vehiclePatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_footPatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_airPatrol.sqf";
+	call compile preprocessFileLineNumbers "Core\F\ADF_fnc_seaPatrol.sqf";
+};
 
 if (isServer) then {
 	// vWolf_1
@@ -67,105 +77,11 @@ if (isServer) then {
 		waitUntil {(currentWaypoint (_wp4 select 0)) > (_wp4 select 1)};		
 		if !(isNil "vWolf_2") then {{deleteVehicle _x} forEach (crew vWolf_2); deleteVehicle vWolf_2; vWolf_2 = nil};		
 	};
-};
-
-player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
-player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
-<br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
-The messages are logged once displayed on screen. All messages are time-stamped and saved in order of appearance.</font>
-<br/><br/>
-"]];
-
-waitUntil {scriptDone ADF_getLoadOut}; // Wait till all units have their gear before continuing
-
-sleep 3; // Loadout finished > pri weapon loaded
-
-while {time < 25} do {
-	if !(isNil "SOR_SSC_1") then {SOR_SSC_1 assignAsCargo vWolf_1; SOR_SSC_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RM_1") then {SOR_RM_1 assignAsCargo vWolf_1; SOR_RM_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_UAV_1") then {SOR_UAV_1 assignAsCargo vWolf_1; SOR_UAV_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RMM_1") then {SOR_RMM_1 assignAsCargo vWolf_1; SOR_RMM_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RTL_1") then {SOR_RTL_1 assignAsCargo vWolf_1; SOR_RTL_1 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RS_2") then {SOR_RS_2 assignAsCargo vWolf_1; SOR_RS_2 moveInCargo vWolf_1;}; sleep 0.035;
-	if !(isNil "SOR_RS_3") then {SOR_RS_3 assignAsCargo vWolf_1; SOR_RS_3 moveInCargo vWolf_1;}; sleep 0.035;
 	
-	if !(isNil "SOR_RS_4") then {SOR_RS_4 assignAsCargo vWolf_2; SOR_RS_4 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_DEM_1") then {SOR_DEM_1 assignAsCargo vWolf_2; SOR_DEM_1 moveInCargo vWolf_2;}; sleep 0.035;	
-	if !(isNil "SOR_RTL_2") then {SOR_RTL_2 assignAsCargo vWolf_2; SOR_RTL_2 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_RS_5") then {SOR_RS_5 assignAsCargo vWolf_2; SOR_RS_5 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_RS_6") then {SOR_RS_6 assignAsCargo vWolf_2; SOR_RS_6 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_RS_7") then {SOR_RS_7 assignAsCargo vWolf_2; SOR_RS_7 moveInCargo vWolf_2;}; sleep 0.035;
-	if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_2; SOR_AT_1 moveInCargo vWolf_2;};
-};
-
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>DEVGRU: Commander, call signs are as follows:<br/><br/>DEVGRU TOC: </t><t color='#9DA698' align='left'>Uncle.</t><br /><t color='#6C7169' align='left'>Your call sign: </t><t color='#9DA698' align='left'>Viper.<br/></t>
-";
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6c7169'>DEVGRU: Commander, call signs are as follows:<br/><br/>
-<font color='#6c7169'>DEVGRU TOC: </font><font color='#9DA698'>Uncle</font><br/>
-<font color='#6C7169'>Your call sign: </font><font color='#9DA698'>Viper</font>
-<br/><br/>"]];
-sleep 50;
-
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Uncle: TOC will advice a search grid in a few minutes...<br/></t>
-";
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6c7169'>Uncle: TOC will advice a search grid in a few minutes...</font>
-<br/><br/>"]];
-sleep 90;
-
-[] spawn {
-	waitUntil {vWolf_10Secs};
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>160th SOAR Lt. Randahl: Commander, 30 seconds! Get ready!<br/></t>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: Lt. Randahl</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6c7169'>160th SOAR Lt. Randahl: Commander, 30 seconds! Get ready!</font>
-	<br/><br/>"]];
-};
-
-[] spawn {
-	waitUntil {vWolf_takeOff};
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>160th SOAR Lt. Randahl: Dusting off in 5 seconds.<br/></t>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: Lt. Randahl</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6c7169'>160th SOAR Lt. Randahl: Dusting off in 5 seconds</font>
-	<br/><br/>"]];	
-};
-
-if (isServer) then {
-
-	waitUntil {time > 180};
-	
+	waitUntil {sleep 1; time > 180};	
 	deleteMarker "mBrief0";
 
+	private "_iceTiger";
 	// Spawn Ice Tiger
 	_iceTiger = [
 		["Land_HelipadEmpty_F",[0,0,0.2],0,1,0,[],"OFOB_spawn","",true,false], 
@@ -256,6 +172,7 @@ if (isServer) then {
 		["Box_East_AmmoOrd_F",[36.6367,-34.0195,-2.38419e-007],179.972,1,0.00989144,[],"","",true,false]
 	];
 
+	private ["_iceTigerPos","_iceTigerDir"];
 	iceTigerLoc = ["mOFOB_1","mOFOB_2","mOFOB_3","mOFOB_4","mOFOB_5"] call BIS_fnc_selectRandom;
 	publicVariable "iceTigerLoc";
 	_iceTigerPos = getMarkerPos iceTigerLoc;
@@ -311,23 +228,103 @@ if (isServer) then {
 	publicVariable "tIceTiger";
 };
 
+if (hasInterface) then {
+	player createDiarySubject ["Wolfpack Log","Wolfpack Log"];
+	player createDiaryRecord ["Wolfpack Log",["Wolf Communications Log","
+	<br/><br/><font color='#6c7169'>The Wolfpack Log is a logbook of all operational radio comms between Wolf and TOC<br/>
+	The messages are logged once displayed on screen. All messages are time-stamped and saved in order of appearance.</font>
+	<br/><br/>
+	"]];
+
+	waitUntil {scriptDone ADF_getLoadOut}; // Wait till all units have their gear before continuing
+
+	sleep 3; // Loadout finished > pri weapon loaded
+
+	while {time < 25} do {
+		if !(isNil "SOR_SSC_1") then {SOR_SSC_1 assignAsCargo vWolf_1; SOR_SSC_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RM_1") then {SOR_RM_1 assignAsCargo vWolf_1; SOR_RM_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_UAV_1") then {SOR_UAV_1 assignAsCargo vWolf_1; SOR_UAV_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RMM_1") then {SOR_RMM_1 assignAsCargo vWolf_1; SOR_RMM_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RTL_1") then {SOR_RTL_1 assignAsCargo vWolf_1; SOR_RTL_1 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RS_2") then {SOR_RS_2 assignAsCargo vWolf_1; SOR_RS_2 moveInCargo vWolf_1;}; sleep 0.035;
+		if !(isNil "SOR_RS_3") then {SOR_RS_3 assignAsCargo vWolf_1; SOR_RS_3 moveInCargo vWolf_1;}; sleep 0.035;
+		
+		if !(isNil "SOR_RS_4") then {SOR_RS_4 assignAsCargo vWolf_2; SOR_RS_4 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_DEM_1") then {SOR_DEM_1 assignAsCargo vWolf_2; SOR_DEM_1 moveInCargo vWolf_2;}; sleep 0.035;	
+		if !(isNil "SOR_RTL_2") then {SOR_RTL_2 assignAsCargo vWolf_2; SOR_RTL_2 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_RS_5") then {SOR_RS_5 assignAsCargo vWolf_2; SOR_RS_5 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_RS_6") then {SOR_RS_6 assignAsCargo vWolf_2; SOR_RS_6 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_RS_7") then {SOR_RS_7 assignAsCargo vWolf_2; SOR_RS_7 moveInCargo vWolf_2;}; sleep 0.035;
+		if !(isNil "SOR_AT_1") then {SOR_AT_1 assignAsCargo vWolf_2; SOR_AT_1 moveInCargo vWolf_2;};
+	};
+	
+	[] spawn {
+		waitUntil {vWolf_10Secs};
+		hintSilent parseText "<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/><t color='#6C7169' align='left'>160th SOAR Lt. Randahl: Commander, 30 seconds! Get ready!<br/></t>";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: Lt. Randahl</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6c7169'>160th SOAR Lt. Randahl: Commander, 30 seconds! Get ready!</font>
+		<br/><br/>"]];
+	};
+
+	[] spawn {
+		waitUntil {vWolf_takeOff};
+		hintSilent parseText "<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/><t color='#6C7169' align='left'>160th SOAR Lt. Randahl: Dusting off in 5 seconds.<br/></t>";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: Lt. Randahl</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6c7169'>160th SOAR Lt. Randahl: Dusting off in 5 seconds</font>
+		<br/><br/>"]];	
+	};
+	
+	waitUntil {sleep 2; ADF_missionInit}; sleep 5;
+
+	hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>DEVGRU: Commander, call signs are as follows:<br/><br/>DEVGRU TOC: </t><t color='#9DA698' align='left'>Uncle.</t><br /><t color='#6C7169' align='left'>Your call sign: </t><t color='#9DA698' align='left'>Viper.<br/></t>";
+	_logTime = [dayTime] call BIS_fnc_timeToString;
+	_logTimeText = "Log: " + _logTime;
+	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+	<font color='#6c7169'>DEVGRU: Commander, call signs are as follows:<br/><br/>
+	<font color='#6c7169'>DEVGRU TOC: </font><font color='#9DA698'>Uncle</font><br/>
+	<font color='#6C7169'>Your call sign: </font><font color='#9DA698'>Viper</font>
+	<br/><br/>"]];
+	sleep 50;
+
+	hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: TOC will advice a search grid in a few minutes...<br/></t>";
+	_logTime = [dayTime] call BIS_fnc_timeToString;
+	_logTimeText = "Log: " + _logTime;
+	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+	<font color='#6c7169'>Uncle: TOC will advice a search grid in a few minutes...</font>
+	<br/><br/>"]];
+	sleep 90;
+};
+
 if (!isDedicated) then {
-	waitUntil {!isNil "tIceTiger"};
+	waitUntil {sleep 1; !isNil "tIceTiger"};
 	tIceTiger setTriggerType "NONE";
 	tIceTiger setTriggerActivation ["WEST", "PRESENT", false];
 	tIceTiger setTriggerArea [500,500,0,false];
 	tIceTiger setTriggerStatements ["this", "hint parseText ""<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: It seems you have located Ice Tiger. Good work men!<br/><br/>Standby for orders...</t><br/>"";iceTigerLocated = true; publicVariable 'iceTigerLocated';0 = execVM ""Scr\exfil.sqf"";", ""];	
 };
 
-waitUntil {!isNil "iceTigerLoc"};
+waitUntil {sleep 1; !isNil "iceTigerLoc"};
 execVM "Scr\SOD_patrols.sqf";
 
 waitUntil {time > 1200};
 if (iceTigerLocated) exitWith {};
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Uncle: Once you have located IceTiger, get within 500 meters of IceTiger and report in.<br/></t>
-";
+hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: Once you have located IceTiger, get within 500 meters of IceTiger and report in.<br/></t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
 player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
@@ -337,12 +334,9 @@ player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
 <font color='#6c7169'>Uncle: Once you have located IceTiger, get within 500 meters of IceTiger and report in.</font>
 <br/><br/>"]];
 
-waitUntil {date select 3 >= 7};
+waitUntil {sleep 5; date select 3 >= 7};
 if (iceTigerLocated) exitWith {};
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Uncle: Viper we have just received some intel re a possible location of IceTiger. We have send the coordinates to your GPS ComLink.<br/></t>
-";
+hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: Viper we have just received some intel re a possible location of IceTiger. We have send the coordinates to your GPS ComLink.<br/></t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
 player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
@@ -362,12 +356,9 @@ if (isServer) then {
 	_m setMarkerColor "ColorRed";
 };
 
-waitUntil {date select 3 >= 8};
+waitUntil {sleep 5; date select 3 >= 8};
 if (iceTigerLocated) exitWith {};
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Uncle: Viper we have received more information about a possible target location. We have send the coordinates to your GPS ComLink.<br/></t>
-";
+hintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Uncle: Viper we have received more information about a possible target location. We have send the coordinates to your GPS ComLink.<br/></t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
 player createDiaryRecord ["Wolfpack Log", [_logTimeText,"

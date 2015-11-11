@@ -1,8 +1,5 @@
-HintSilent parseText "
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Big Foot: Don't mind the vessel to your north-west. It is a Russian Signals intelligence Trawler. We are jamming its comms. It should be of no concern to your op.<br /></t>
-";
-	
+if (!hasInterface) exitWith {};
+HintSilent parseText "<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Big Foot: Don't mind the vessel to your north-west. It is a Russian Signals intelligence Trawler. We are jamming its comms. It should be of no concern to your op.<br /></t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
 player createDiaryRecord ["Wolfpack Log", [_logTimeText,"

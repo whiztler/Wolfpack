@@ -1,4 +1,5 @@
-_unit = _this select 0;
+if (!isServer) exitWith {};
+params ["_unit"];
 _unit setVariable ["BIS_EhAnimDone", true];
 nTeam setCombatMode "GREEN";
 nTeam setBehaviour "SAFE";

@@ -3,26 +3,22 @@
 wpEnd = false; 
 sleep 10;
 
-hint parseText"
-	<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Rattler, this is Condor. ETA 5 mikes. Make sure the LZ is secure.<br/></t>
-";
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: Condor</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6c7169'>Rattler, this is Condor. ETA 5 mikes. Make sure the LZ is secure.</font>
-<br/><br/>"]];
+if (hasInterface) then {
+	hint parseText"<img size= '5' shadow='false' image='Img\soar_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Rattler, this is Condor. ETA 5 mikes. Make sure the LZ is secure.<br/></t>";
+	_logTime = [dayTime] call BIS_fnc_timeToString;
+	_logTimeText = "Log: " + _logTime;
+	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+	<br/><br/><font color='#9da698' size='14'>From: Condor</font><br/>
+	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+	<font color='#6c7169'>Rattler, this is Condor. ETA 5 mikes. Make sure the LZ is secure.</font>
+	<br/><br/>"]];
+};
 
 sleep 310;
 
-_c 	= [];
-_v 	= [];
-
 if (isServer) then { 
-
+	private ["_wolfAlive","_wp1","_v1","_v2","_wp2","_wp3"];
 	_wolfAlive = {alive _x} count playableUnits;
 
 	// create end trigger
@@ -95,6 +91,7 @@ if (isServer) then {
 
 
 waitUntil {wpEnd};
+private "_l";
 _l = ["tLayer"] call BIS_fnc_rscLayer; 
 _l cutText ["", "BLACK", 10];
 ["<img size= '10' shadow='false' image='Img\wpintro.paa'/><br/><br/><t size='.7' color='#FFFFFF'>Day 04 | Top Screen</t>",0,0,3,4] spawn BIS_fnc_dynamicText;

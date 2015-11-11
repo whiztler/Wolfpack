@@ -6,11 +6,11 @@ if (!ADF_HC_execute) exitWith {}; // Autodetect: execute on the HC else execute 
 // tCities1 (Panachori)
 if ((isNil "g1a") && (isNil "g1b") && (isNil "g1c") && (_this select 0 == "1A")) exitWith {
 	g1a = [getPos tCities1, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[g1a, getPos tCities1, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g1a, getPos tCities1, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g1b = [getPos tCities1, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[g1b, getPos tCities1, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;	
+	[g1b, getPos tCities1, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g1c = [getPos tCities1, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[g1c, getPos tCities1, 200, 3, true] call CBA_fnc_taskDefend;
+	[g1c, getPos tCities1, 200, 3, true] call ADF_fnc_defendArea;
 };
 if (_this select 0 == "1B") exitWith {
 	if !(isNil "g1a") then {{deleteVehicle _x} forEach units g1a; deleteGroup g1a; g1a = nil}; sleep 0.05;
@@ -21,11 +21,11 @@ if (_this select 0 == "1B") exitWith {
 // tCities2 (Zaros Main)
 if ((isNil "g2a") && (isNil "g2b") && (isNil "g2c") && (_this select 0 == "2A")) exitWith {
 	g2a = [getPos tCities2, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[g2a, getPos tCities2, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g2a, getPos tCities2, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g2b = [getPos tCities2, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[g2b, getPos tCities2, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;	
+	[g2b, getPos tCities2, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g2c = [getPos tCities2, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup; 
-	[g2c, getPos tCities2, 500, 3, true] call CBA_fnc_taskDefend;
+	[g2c, getPos tCities2, 500, 3, true] call ADF_fnc_defendArea;
 };
 if (_this select 0 == "2B") exitWith {
 	if !(isNil "g2a") then {{deleteVehicle _x} forEach units g2a; deleteGroup g2a; g2a = nil}; sleep 0.05;
@@ -36,11 +36,11 @@ if (_this select 0 == "2B") exitWith {
 // tCities3 (Zaros South)
 if ((isNil "g3a") && (isNil "g3b") && (isNil "g3c") && (_this select 0 == "3A")) exitWith {
 	g3a = [getPos tCities3, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[g3a, getPos tCities3, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g3a, getPos tCities3, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g3b = [getPos tCities3, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[g3b, getPos tCities3, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g3b, getPos tCities3, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g3c = [getPos tCities3, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup; 
-	[g3c, getPos tCities3, 300, 3, true] call CBA_fnc_taskDefend;
+	[g3c, getPos tCities3, 300, 3, true] call ADF_fnc_defendArea;
 };
 if (_this select 0 == "3B") exitWith {
 	if !(isNil "g3a") then {{deleteVehicle _x} forEach units g3a; deleteGroup g3a; g3a = nil}; sleep 0.05;
@@ -51,11 +51,11 @@ if (_this select 0 == "3B") exitWith {
 // tCities4 (Therisa)
 if ((isNil "g4a") && (isNil "g4b") && (isNil "g4c") && (_this select 0 == "4A")) exitWith {
 	g4a = [getPos tCities4, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-	[g4a, getPos tCities4, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g4a, getPos tCities4, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g4b = [getPos tCities4, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup; 
-	[g4b, getPos tCities4, 300, 3, true] call CBA_fnc_taskDefend; sleep 0.05;
+	[g4b, getPos tCities4, 300, 3, true] call ADF_fnc_defendArea; sleep 0.05;
 	g4c = [getPos tCities4, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup; 
-	[g4c, getPos tCities4, 300, 3, true] call CBA_fnc_taskDefend;
+	[g4c, getPos tCities4, 300, 3, true] call ADF_fnc_defendArea;
 };
 if (_this select 0 == "4B") exitWith {
 	if !(isNil "g4a") then {{deleteVehicle _x} forEach units g4a; deleteGroup g4a; g4a = nil}; sleep 0.05;
@@ -66,11 +66,11 @@ if (_this select 0 == "4B") exitWith {
 // tCities5 (Factory)
 if ((isNil "g5a") && (isNil "g5b") && (isNil "g5c") && (_this select 0 == "5A")) exitWith {
 	g5a = [getPos tCities5, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[g5a, getPos tCities5, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g5a, getPos tCities5, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g5b = [getPos tCities5, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[g5b, getPos tCities5, 300, 7, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol; sleep 0.05;
+	[g5b, getPos tCities5, 300, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	g5c = [getPos tCities5, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup; 
-	[g5c, getPos tCities5, 300, 3, true] call CBA_fnc_taskDefend;
+	[g5c, getPos tCities5, 300, 3, true] call ADF_fnc_defendArea;
 };
 if (_this select 0 == "5B") exitWith {
 	if !(isNil "g5a") then {{deleteVehicle _x} forEach units g5a; deleteGroup g5a; g5a = nil}; sleep 0.05;

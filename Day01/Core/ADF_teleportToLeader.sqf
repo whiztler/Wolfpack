@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Teleport to group leader script
 Author: Whiztler
@@ -19,7 +19,7 @@ this addAction ["<t align='left' color='#E4F2AA'>Teleport to Troop Leader</t>", 
 
 // Init
 params ["_pole","_ADF_unit"];
-_ADF_unitName		= name _ADF_unit;
+_ADF_unitName			= name _ADF_unit;
 _ADF_unitLeader		= leader (group _ADF_unit);
 _ADF_unitLeaderPos	= getPosATL _ADF_unitLeader;
 _ADF_unitLeaderDir	= getDirVisual _ADF_unitLeader;

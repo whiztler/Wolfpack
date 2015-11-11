@@ -46,6 +46,9 @@ ADF_microDAGR 				= ""; // 140B06
 ADF_gearLoaded				= false;
 ADF_log_CntHC 				= 0;
 ADF_log_rptMods 				= "";
+ADF_isHC1					= false;
+ADF_isHC2					= false;
+ADF_isHC3					= false;
 if (isNil "ADF_HC_connected") then {ADF_HC_connected = false;}; // HC init
  
 player setVariable ["BIS_noCoreConversations",true]; // Disable AI chatter.
@@ -67,7 +70,7 @@ ADF_fnc_log = { // if (ADF_debug) then {["YourTextMessageHere",true] call ADF_fn
 		_ADF_log_pre = "ADF Debug: ";
 		ADF_log_write = _ADF_log_pre + _ADF_msg;
 		diag_log ADF_log_write;
-		[ADF_log_write,"systemChat"] call BIS_fnc_MP; // v.39 B6
+		ADF_log_write remoteExec ["systemChat", -2, false]; // 142B01
 	};	
 };
 

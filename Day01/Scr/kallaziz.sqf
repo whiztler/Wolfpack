@@ -1,9 +1,5 @@
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Big Foot: We just received intel that the package has been eliminated. Good job Phoenix! Proceed to</t>
-	<t color='#9DA698'> Cap Agrios </t><t color='#6C7169'>for exfil.<br /></t>
-";
-
+if (!hasInterface) exitWith {};
+hintSilent parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Big Foot: We just received intel that the package has been eliminated. Good job Phoenix! Proceed to</t><t color='#9DA698'> Cap Agrios </t><t color='#6C7169'>for exfil.<br /></t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
 player createDiaryRecord ["Wolfpack Log", [_logTimeText,"

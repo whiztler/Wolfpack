@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: CAS request with 9-liner
 Author: Whiztler
-Script version: 1.02
+Script version: 1.03
 
 Game type: n/a
 File: ADF_SOD_CAS.sqf
@@ -194,9 +194,9 @@ ADF_fnc_destroyVars = {
 	ADF_CAS_active 		= nil;
 	ADF_CAS_marker		= nil;
 	ADF_CAS_bingoFuel 	= nil; 
-	ADF_CAS_spawn		= nil;
+	ADF_CAS_spawn			= nil;
 	ADF_CAS_vector		= nil;
-	ADF_CAS_delay		= nil;
+	ADF_CAS_delay			= nil;
 	ADF_CAS_onSite		= nil;
 	ADF_fnc_CAS_supportRq = nil;
 	ADF_fnc_CAS_Activated = nil;
@@ -209,14 +209,17 @@ ADF_fnc_destroyVars = {
 	ADF_ACO_callSign		= nil;
 	ADF_CAS_aoTriggerRad	= nil;
 	ADF_CAS_vehClass		= nil;
-	true
+	if (!isServer) exitWith {};
+	diag_log	"-----------------------------------------------------";
+	diag_log "TWO SIERRA: CAS (server) terminated";
+	diag_log	"-----------------------------------------------------";
 };
 
 // Add the action to the unit that can request CAS
 if !(isNil ADF_CAS_requesterStr) then {
 	if (player != ADF_CAS_requester) exitWith {};
 	_actionText = format ["<t align='left' color='#f4c300' shadow='false'>Request CAS: %1",ADF_CAS_callSign];
-	_actionID = ADF_CAS_requester addAction [_actionText,{[[_this select 1, _this select 2],"ADF_fnc_CAS_SupportRq"] call BIS_fnc_MP;},[],-95,false,true,"",""];
+	_actionID = ADF_CAS_requester addAction [_actionText,{[_this select 1, _this select 2] remoteExec ["ADF_fnc_CAS_SupportRq",0,true]},[],-95,false,true,"",""];
 };
 
 if (hasInterface) then {
@@ -233,6 +236,10 @@ if (hasInterface) then {
 if (!isServer) exitWith {};
 
 waitUntil {ADF_CAS_marker}; // wait till the CAS request action was executed
+
+diag_log	"-----------------------------------------------------";
+diag_log "ADF RPT: CAS (server) activated";
+diag_log	"-----------------------------------------------------";
 
 // Create the CAS circle marker
 _m = createMarker ["mRaptorSAD", ADF_CAS_pos];
@@ -297,9 +304,13 @@ if (vCASkia) exitWith {call ADF_fnc_destroyVars;};
 
 // RTB Bingo Fuel
 deleteMarker "mRaptorSAD";
+{_x disableAI "FSM"} forEach units _c; // v1.03
 ADF_CAS_bingoFuel = true; publicVariable "ADF_CAS_bingoFuel";
 vCAS setFuel 0.3;
-vCAS flyInHeight 250;
+{_x enableAI "FSM"} forEach units _c; // v1.03
+vCAS flyInHeight 800;
+_c setCombatMode "BLUE"; // v1.03
+_c setBehaviour "SAFE"; // v1.03
 
 _wp = _c addWaypoint [ADF_CAS_vector, 0];
 _wp setWaypointType "MOVE";

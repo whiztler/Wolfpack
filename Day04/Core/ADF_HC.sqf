@@ -14,19 +14,50 @@ Instructions:
 To configure one or more HC's on the server please visit and read:
 https://community.bistudio.com/wiki/Arma_3_Headless_Client
 
+Name the Headless Clients: ADF_HC1, ADF_HC2, ADF_HC3
+
+### IN CASE OF 1 HC ###
+
+In your scripts that you use to spawn objects/units, replace
+if (!isserver) exitWith {};
+with 
+if (!ADF_HC_execute) exitWith {}; // Autodetect: execute on the HC else execute on the server
+
+You can disable the load balancer in the ADF_init_config.sqf
+
+### IN CASE OF MULTIPLE HC'S ###
+
 The ADF headless clients supports automatic load balancing (when
 enabled in the mission config). When using 2 or 3 HC's the script
 will distribute AI groups across the available HC's every 60 seconds.
 
-Name the Headless Clients: ADF_HC1, ADF_HC2, ADF_HC3
+The loadbalancer is effective when at least 2 HC's are active.
+Note that it is best to spawn the AI's on the server when multiple
+HC's are active. The Loadbalancer kicks in after 2 minutes after 
+mission start and will start distributing the AI's across the HC's
 
-In your scripts that you use to spawn objects/units, replace
+You can disable the load balancer in the ADF_init_config.sqf
 
-if (!isserver) exitWith {};
+With the load balancer enabled you can blacklist groups from being
+transferred to the HC('s). To do this add the following to the group
+leaders init: 
+_grp = group this;
+_grp setVariable ["ADF_noHC_trfr", true];
 
-with 
+Note that waypoint information is retained when groups are transferred
+to a HC. 
+Other information such as garrison orders, skill information, etc is not.
+You need to store the information with setVariable and re-apply the instructions
+after transfer to the hC. For example in case with CBA_fnc_taskDefend:
 
-if (!ADF_HC_execute) exitWith {}; // Autodetect: execute on the HC else execute on the server
+_defArr = [_g, _spawnPos, 100, 2, true];
+_g setVariable ["ADF_HC_garrisonArr",_defArr];
+_defArr call CBA_fnc_taskDefend;
+
+to re-apply:
+
+_storedArr = _g getVariable "ADF_HC_garrisonArr";
+_storedArr call CBA_fnc_taskDefend;
 ****************************************************************/
 
 if (isServer) then {diag_log "ADF RPT: Init - executing ADF_HC.sqf"}; // Reporting. Do NOT edit/remove
@@ -42,9 +73,9 @@ if (!isServer && !hasInterface) then {
 	ADF_HC_execute 	= true;
 	ADF_isHC 		= true;
 	// Check which HC slot is occupied and count HC's
-	if !(isNil "ADF_HC1") then {if (player == ADF_HC1) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC";}};
-	if !(isNil "ADF_HC2") then {if (player == ADF_HC2) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC";}};
-	if !(isNil "ADF_HC3") then {if (player == ADF_HC3) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC";}};	
+	if !(isNil "ADF_HC1") then {if (player == ADF_HC1) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC1 = true}};
+	if !(isNil "ADF_HC2") then {if (player == ADF_HC2) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC2 = true}};
+	if !(isNil "ADF_HC3") then {if (player == ADF_HC3) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC3 = true}};	
 	// HC FPS reporting in RPT. The frequency of the reporting is based on HC performance.
 	if (isMultiplayer) then {ADF_log_pUnits = playableUnits;} else {ADF_log_pUnits = switchableUnits};
 	[] spawn {
@@ -78,5 +109,5 @@ if (!isServer && !hasInterface) then {
 
 // Run the HC load balancer (if enabled in ADF_init_config.sqf)
 if (!_ADF_HCLB_enable) exitWith {};
-if (!isServer) exitWith {};
+if (hasInterface) exitWith {};
 execVM "Core\F\ADF_fnc_HC_loadBalacing.sqf";

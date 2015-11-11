@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: customize call signs and radio freq/channels for groups
 Author: Whiztler
@@ -265,19 +265,22 @@ ADF_preset_2S = [
 	
 	[	"gCO_1",		"2 PLT",		40,		100],	// INF Platoon Cmd				1
 	
-	[	"gCO_11",		"2-1 SQUAD",	40,		110],	// INF 1-1 SQUAD Rifle Squad		2
-	[	"gCO_11A",		"2-1 ALPHA",	40,		111],	// INF 1-1 ALPHA Fire team		3
-	[	"gCO_11B",		"2-1 BRAVO",	40,		112],	// INF 1-1 BRAVO Fire team		4
+	[	"gCO_11",		"2-1 SQUAD",	40,		110],	// INF 2-1 SQUAD Rifle Squad		2
+	[	"gCO_11A",		"2-1 ALPHA",	40,		111],	// INF 2-1 ALPHA Fire team		3
+	[	"gCO_11B",		"2-1 BRAVO",	40,		112],	// INF 2-1 BRAVO Fire team		4
 	
-	[	"gCO_12",		"2-2 SQUAD",	40,		120],	// INF 1-2 SQUAD Rifle Squad		5
-	[	"gCO_12A",		"2-2 ALPHA",	40,		121],	// INF 1-2 ALPHA Fire team		6
-	[	"gCO_12B",		"2-2 BRAVO",	40,		122],	// INF 1-2 BRAVO Fire team		7
+	[	"gCO_12",		"2-2 SQUAD",	40,		120],	// INF 2-2 SQUAD Rifle Squad		5
+	[	"gCO_12A",		"2-2 ALPHA",	40,		121],	// INF 2-2 ALPHA Fire team		6
+	[	"gCO_12B",		"2-2 BRAVO",	40,		122],	// INF 2-2 BRAVO Fire team		7
 	
-	[	"gCO_13",		"2-3 SQUAD",	40,		130],	// INF 1-3 SQUAD Weapons Squad	8
-	[	"gCO_13A",		"2-3 ALPHA",	40,		131],	// INF 1-3 ALPHA Weapons Team		9
-	[	"gCO_13B",		"2-3 BRAVO",	40,		132],	// INF 1-3 BRAVO Weapons Team		10
-	[	"gCO_13C",		"2-3 CHARLIE",	40,		133],	// INF 1-3 BRAVO Weapons Team		11
-	[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[] 		// 		12 - 37					
+	[	"gCO_13",		"2-3 SQUAD",	40,		130],	// INF 2-3 SQUAD Weapons Squad	8
+	[	"gCO_13A",		"2-3 ALPHA",	40,		131],	// INF 2-3 ALPHA Weapons Team		9
+	[	"gCO_13B",		"2-3 BRAVO",	40,		132],	// INF 2-3 BRAVO Weapons Team		10
+	[	"gCO_13C",		"2-3 CHARLIE",	40,		133],	// INF 2-3 BRAVO Weapons Team		11
+	
+	[	"gCO_2",		"2-4 SUPPORT",	40,		140],	// INF 2-4 SUPPORT/JIP Team		12
+	
+	[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[] 		// 		13 - 37					
 ];	
 
 if (ADF_debug) then {["PRESETS - presets function processed",false] call ADF_fnc_log};

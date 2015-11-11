@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Mission Balancer
 Author: Whiztler
-Script version: 1.11
+Script version: 2.0
 
 Game type: COOP
 File: ADF_fnc_missionBalancer.sqf
@@ -46,41 +46,56 @@ Then use the If (ADF_MB_normal) then {//yourCode }; for balanced
 enemy spawn on demand.
 ****************************************************************/
 
+////////////////// WIP
+
+/*
 if (isServer) then {diag_log "ADF RPT: Init - executing ADF_fnc_missionBalancer.sqf"}; // Reporting. Do NOT edit/remove
 
-// init	the vars
-ADF_MB_lite = false;
-ADF_MB_normal = false;
-ADF_MB_heavy = false;
-ADF_missionBalanceStat = "";
-
-private ["_liteNr","_normalNr","_highNr"];
-_lowNr = _this select 0;
-_highNr = _this select 1;
-
-if (isServer) then {
-	// Game Balance function
-	ADF_fnc_missionBalance = {
-		// Set game balance vars based on the amout of playable units
-		
-		// Lite - less than X players. Configure in ADF_init_config.sqf (_ADF_ADF_missionBalanceStat_low)
-		if ((count playableUnits) <= _lowNr) then {ADF_MB_lite = true; ADF_missionBalanceStat = "Lite";};
-
-		// Normal - Average between lite and high
-		if ((count playableUnits > _lowNr) && (count playableUnits < _highNr)) then {ADF_MB_normal = true; ADF_missionBalanceStat = "Normal";};
-
-		// high - X or more players. Configure in ADF_init_config.sqf (_ADF_ADF_missionBalanceStat_high)
-		if ((count playableUnits) >= _highNr) then {ADF_MB_heavy = true; ADF_missionBalanceStat = "high";};
-		
-		ADF_missionBalanceStat;	
+ADF_fnc_missionBalanceInit = {
+	private ["_s","_n","_c","_m1","_m2"];
+	
+	_s = getNumber (missionConfigFile >> "maxPlayers");	
+	_c = {alive _x} count allPlayers;
+	
+	if (_s == 0) exitWith {
+		private "_msg";
+		_msg = parseText "<t color='#FFFFFF' size='1.5'>ERROR</t><br/><br/><t color='#A1A4AD'>The Mission Balancer activated could not initialize.<br/><br/>You need to set maxPlayers in the description.ext</t>";
+		_msg remoteExec ["hint", -2]; 
+		["The Mission Balancer activated could not initialize. You need to set maxPlayers in the description.ext",true] call ADF_fnc_log;
 	};
+	
+	_m1 = format ["Mission Balancer: maxPlayers (slots) :",_s];
+	_m1 = format ["Mission Balancer: Current players    :",_c];
+	
+	["-------------------------------------------------------------------------------------",false] call ADF_fnc_log;
+	[_m1,false] call ADF_fnc_log; [_m2,false] call ADF_fnc_log;
 
-	waitUntil {time > 130};
-	call ADF_fnc_missionBalance;
-	publicVariable "ADF_missionBalanceStat";
+	
+	[_s,_c]
 };
 
-waitUntil {sleep 5;ADF_missionBalanceStat != ""};
+
+ADF_fnc_missionBalanceInit = {
+	private ["_max","_plr","_high","_med","_low","_cur","_m3","_m4","_m5"];
+	
+	ADF_MB_
+	_a		= call ADF_fnc_missionBalanceInit;
+	_max		= _a select 0;
+	_plr		= _a select 1;
+	_high	= _max;
+	_med		= round (_max * .65);
+	_low		= round (_max / 2.5);
+	_cur		= if (_plr > _med) then {_high} else {if ()}
+	
+	_m3 = format ["Mission Balancer: HIGH : > %1 players",_high];
+	_m4 = format ["Mission Balancer: MED  :",_med];
+	_m5 = format ["Mission Balancer: LOW  :",_low];
+	_m6 = format ["Mission Balancer current setting:",_cur];
+	["-------------------------------------------------------------------------------------",false] call ADF_fnc_log;
+	[_m3,false] call ADF_fnc_log; [_m4,false] call ADF_fnc_log; [_m5,false] call ADF_fnc_log; [_m6,false] call ADF_fnc_log;
+	["-------------------------------------------------------------------------------------",false] call ADF_fnc_log;
+};
+
 
 // Display info on mission start
 HintSilent parseText format ["

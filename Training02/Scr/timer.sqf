@@ -5,6 +5,7 @@ WPtraining = "Advanced";
 sleep 2;
 
 // init
+private ["_timer","_prepTimer","_preTimerMin","_prepMinLeft","_prepMinLeft","_pause","_msg","_logTime","_logTimeText"];
 _timer = (paramsArray select 0)*60;
 _prepTimer = (paramsArray select 1)*60;
 _preTimerMin = paramsArray select 1;
@@ -68,10 +69,7 @@ while {_prepTimer > 0} do {
 if (spDetected) exitWith {};
 sleep 2;
 
-if (isServer) then {
-	_del = [timerGate_1,timerGate_2,timerGate_3,timerGate_4];
-	{deleteVehicle _x} forEach _del;
-};
+if (isServer) then {{deleteVehicle _x} forEach [timerGate_1,timerGate_2,timerGate_3,timerGate_4]};
 
 _msg = format ["
 		<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/>

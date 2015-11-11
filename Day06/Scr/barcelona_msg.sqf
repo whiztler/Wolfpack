@@ -1,7 +1,5 @@
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#A1A4AD' align='left'>Uncle: We have you on Satnav Viper. Once you have secured the objective, blow the Radar emplacement. You probably need quite a lot of explosives to pull this off. Perhaps CSAT has an ammo cache at the base.</t>
-";
+if (!hasInterface) exitWith {};
+hint parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#A1A4AD' align='left'>Uncle: We have you on Satnav Viper. Once you have secured the objective, blow the Radar emplacement. You probably need quite a lot of explosives to pull this off. Perhaps CSAT has an ammo cache at the base.</t>";
 
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;

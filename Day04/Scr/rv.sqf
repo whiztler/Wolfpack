@@ -1,7 +1,6 @@
+if (!hasInterface) exitWith {};
 if (rvDone) exitWith {};
-hint parseText"
-	<t color='#6C7169' align='left'>Commander, diz iz Dimitri. Me 100 metres north west yes. Me at chappel.</t>
-";
+hint parseText"<t color='#6C7169' align='left'>Commander, diz iz Dimitri. Me 100 metres north west yes. Me at chappel.</t>";
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
 player createDiaryRecord ["Wolfpack Log", [_logTimeText,"

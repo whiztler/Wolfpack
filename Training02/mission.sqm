@@ -1450,7 +1450,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=73;
+		items=71;
 		class Item0
 		{
 			position[]={8405.5928,179.84657,18255.789};
@@ -1971,20 +1971,6 @@ class Mission
 			type="Empty";
 			colorName="ColorCIV";
 			angle=-0.152338;
-		};
-		class Item71
-		{
-			position[]={8428.3145,182.67134,18164.029};
-			name="mCP_1_1";
-			type="Empty";
-			angle=20.634445;
-		};
-		class Item72
-		{
-			position[]={8444.2344,183.73621,18134.018};
-			name="mCP_3_1";
-			type="Empty";
-			angle=20.634399;
 		};
 	};
 	class Sensors

@@ -7507,7 +7507,7 @@ class Mission
 			position[]={19759.084,31.296005,19159.531};
 			a=500;
 			b=300;
-			angle=-80.896225;
+			angle=-80.896202;
 			activationBy="WEST";
 			timeoutMin=5;
 			timeoutMid=7;
@@ -7515,6 +7515,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tArti";
+			expActiv="0 = [] spawn ADF_fnc_WTT_tArti;";
 			class Effects
 			{
 			};
@@ -7532,7 +7533,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tAirpt";
-			expActiv="[] call ADF_fnc_WTT_tAirpt;";
+			expActiv="0 = [] spawn ADF_fnc_WTT_tAirpt;";
 			class Effects
 			{
 			};
@@ -7562,7 +7563,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tRodopoli";
-			expActiv="0 = [""1A""] execVM ""Scr\SOD_cities.sqf""; [] call ADF_fnc_WTT_tRodoCP;";
+			expActiv="0 = [""1A""] execVM ""Scr\SOD_cities.sqf"";0 = [] spawn ADF_fnc_WTT_tRodoCP;";
 			expDesactiv="0 = [""1B""] execVM ""Scr\SOD_cities.sqf"";";
 			class Effects
 			{
@@ -7578,7 +7579,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tParos";
-			expActiv="0 = [""2A""] execVM ""Scr\SOD_cities.sqf""; [] call ADF_fnc_WTT_tPetros;";
+			expActiv="0 = [""2A""] execVM ""Scr\SOD_cities.sqf"";0 = [] spawn ADF_fnc_WTT_tPetros;";
 			expDesactiv="0 = [""2B""] execVM ""Scr\SOD_cities.sqf"";";
 			class Effects
 			{
@@ -7641,7 +7642,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tAA";
-			expActiv="[] call ADF_fnc_WTT_tAA;";
+			expActiv="0 = [] spawn ADF_fnc_WTT_tAA;";
 			class Effects
 			{
 			};
@@ -7690,7 +7691,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tFuelDepot";
-			expActiv="[] call ADF_fnc_WTT_tFuelDepot;";
+			expActiv="0 = [] spawn ADF_fnc_WTT_tFuelDepot;";
 			class Effects
 			{
 			};
@@ -7722,7 +7723,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="tHotel";
-			expActiv="[] call ADF_fnc_WTT_tHotel;";
+			expActiv="0 = [] spawn ADF_fnc_WTT_tHotel;";
 			class Effects
 			{
 			};

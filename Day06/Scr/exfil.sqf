@@ -1,4 +1,4 @@
-waitUntil {(objInstanbul == 1) && (objBarcelona == 1)};
+waitUntil {sleep 2; (objInstanbul == 1) && (objBarcelona == 1)};
 sleep 25;
 
 _l = ["tLayer"] call BIS_fnc_rscLayer; 

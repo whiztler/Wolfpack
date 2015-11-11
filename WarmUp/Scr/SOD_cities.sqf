@@ -6,18 +6,18 @@ if (!ADF_HC_execute) exitWith {}; // HC Autodetect. If no HC present execute on 
 // tRodopoli
 if ((isNil "gC1a") && (isNil "gC1b") && (isNil "gC1c") && (isNil "gC1d") && (isNil "gC1e") && (isNil "gC1f") && (_this select 0 == "1A")) exitWith {
 	gC1a = [getPos tRodopoli, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[gC1a, getPos tRodopoli, 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol;
+	[gC1a, getPos tRodopoli, 400, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	gC1b = [getPos tRodopoli, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[gC1b, getPos tRodopoli, 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol;	
+	[gC1b, getPos tRodopoli, 350, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	gC1c = [getPos tRodopoli, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[gC1c, getPos tRodopoli, 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol;	
+	[gC1c, getPos tRodopoli, 400, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 
 	gC1d = [getMarkerPos "mRodopoliEIF1", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[gC1d, getMarkerPos "mRodopoliEIF1", 150, 3, true] call CBA_fnc_taskDefend;
+	[gC1d, getMarkerPos "mRodopoliEIF1", 150, 3, true] call ADF_fnc_defendArea;
 	gC1e = [getMarkerPos "mRodopoliEIF2", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[gC1e, getMarkerPos "mRodopoliEIF2", 150, 3, true] call CBA_fnc_taskDefend;
+	[gC1e, getMarkerPos "mRodopoliEIF2", 150, 3, true] call ADF_fnc_defendArea;
 	gC1f = [getMarkerPos "mRodopoliEIF3", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[gC1f, getMarkerPos "mRodopoliEIF3", 150, 3, true] call CBA_fnc_taskDefend;
+	[gC1f, getMarkerPos "mRodopoliEIF3", 150, 3, true] call ADF_fnc_defendArea;
 };
 
 if (_this select 0 == "1B") exitWith {
@@ -32,18 +32,18 @@ if (_this select 0 == "1B") exitWith {
 
 if ((isNil "gC2a") && (isNil "gC2b") && (isNil "gC2c") && (isNil "gC2d") && (isNil "gC2e") && (isNil "gC2f") && (_this select 0 == "2A")) exitWith {
 	gC2a = [getPos tParos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[gC2a, getPos tParos, 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol;
+	[gC2a, getPos tParos, 400, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	gC2b = [getPos tParos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[gC2b, getPos tParos, 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol;	
+	[gC2b, getPos tParos, 450, 4, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 	gC2c = [getPos tParos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[gC2c, getPos tParos, 400, 5, "MOVE", "SAFE", "YELLOW", "LIMITED", "COLUMN", "this spawn CBA_fnc_taskSearchHouse", [1,4,9]] call CBA_fnc_taskPatrol;	
+	[gC2c, getPos tParos, 350, 3, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
 
 	gC2d = [getMarkerPos "mParosEIF1", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[gC2d, getMarkerPos "mParosEIF1", 150, 3, true] call CBA_fnc_taskDefend;
+	[gC2d, getMarkerPos "mParosEIF1", 150, 3, true] call ADF_fnc_defendArea;
 	gC2e = [getMarkerPos "mParosEIF2", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[gC2e, getMarkerPos "mParosEIF2", 150, 3, true] call CBA_fnc_taskDefend;
+	[gC2e, getMarkerPos "mParosEIF2", 150, 3, true] call ADF_fnc_defendArea;
 	gC2f = [getMarkerPos "mParosEIF3", EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
-	[gC2f, getMarkerPos "mParosEIF3", 150, 3, true] call CBA_fnc_taskDefend;
+	[gC2f, getMarkerPos "mParosEIF3", 150, 3, true] call ADF_fnc_defendArea;
 };
 
 if (_this select 0 == "2B") exitWith {

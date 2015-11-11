@@ -14,13 +14,12 @@ ADF_fnc_MHQ_respawnClient = { // Function fired up by the 'KILLED' eventhandler 
 			<t color='#A1A4AD' align='left'>MHQ reinforcements left: </t><t color='#FFFFFF' align='left'>%2</t><br/>			
 		",(ADF_MHQ_respawn_time / 60),ADF_MHQ_respawnLeft];
 
-		if (ADF_MHQ_FOB_deployed) then { // Clean up the FOB if the MHQ was destroyed whilst the FOB was deployed
-			[[],"ADF_fnc_fobDeleteObj"] spawn BIS_fnc_MP;		
-		};
+		// Clean up the FOB if the MHQ was destroyed whilst the FOB was deployed
+		if (ADF_MHQ_FOB_deployed) then {remoteExec ["ADF_fnc_fobDeleteObj",0,true]};
 
 		ADF_MHQ_FOB_deployed = false; publicVariable "ADF_MHQ_FOB_deployed"; // Announce that the FOB is no longer deployed
 		
-		[[],"ADF_fnc_MHQ_respawn"] spawn BIS_fnc_MP; // Load the MHQ respawn function
+		remoteExec ["ADF_fnc_MHQ_respawn",0,true]; // Load the MHQ respawn function
 		
 	} else { // All mobile HQ respawns used!
 		HintSilent parseText format ["
@@ -32,8 +31,8 @@ ADF_fnc_MHQ_respawnClient = { // Function fired up by the 'KILLED' eventhandler 
 			<t color='#A1A4AD' align='left'>The new player respawn position is now at grid: </t>
 			<t color='#FFFFFF' align='left'>%1 %2</t><br/>
 		",round (ADF_MHQ_lastPos select 0),round (ADF_MHQ_lastPos select 1)];
-		
-		[[],"ADF_fnc_MHQ_FinalSpawn"] call BIS_fnc_MP;	// Create a permanent player respawn location
+
+		remoteExec ["ADF_fnc_MHQ_FinalSpawn",0,true]; // Create a permanent player respawn location
 	};
 };
 
@@ -80,14 +79,14 @@ ADF_fnc_MHQ_respawn = {
 		_m = createMarker ["mMHQ",ADF_MHQ_orgPos]; _m setMarkerShape "ICON"; _m setMarkerType "b_hq"; // Create a new 'HQ flag' marker
 		if (ADF_debug) then {["MHQ - Respawn: new vehicle created",false] call ADF_fnc_log};
 		
-		[[],"ADF_fnc_MHQ_addEH"] call BIS_fnc_MP; // Add a new KILLED eventhandler to the MHQ
+		remoteExec ["ADF_fnc_MHQ_addEH",0,true]; // Add a new KILLED eventhandler to the MHQ
 		[MHQ] execVM "Core\C\ADF_vCargo_B_MHQ.sqf"; // Load the supplies
 		
 		if (ADF_debug) then {["MHQ - Respawn: re-loading ADF_fnc_MHQ...",false] call ADF_fnc_log};
 		[] spawn ADF_fnc_MHQ_lastPos; // reload to update with new data
 		[] spawn ADF_fnc_MHQ_PlayerRespawnPos; // reload to update with new data
 		[] spawn ADF_fnc_MHQ_MHQmarker; // reload to update with new data
-		[[],"ADF_fnc_MHQ_respawned"] call BIS_fnc_MP; // Display a message that the MHQ has respawned		
+		remoteExec ["ADF_fnc_MHQ_respawned",0,true]; // Display a message that the MHQ has respawned
 		
 		if (ADF_debug) then {["MHQ - Respawn: Respawn: done (server).",false] call ADF_fnc_log};
 	};
@@ -95,7 +94,7 @@ ADF_fnc_MHQ_respawn = {
 
 ADF_fnc_MHQ_addEH = { // re-add the EH and AddAction (new spawned MHQ)
 	_ADF_MHQ_EH = MHQ addEventHandler ["killed", {[] spawn ADF_fnc_MHQ_respawnClient;}];
-	MHQ addAction ["<t align='left' color='#CEE5F6'>Deploy the F.O.B.</t>",{[[],"ADF_fnc_fobDeploy"] call BIS_fnc_MP;},[],-98,false,true,"",""];
+	MHQ addAction ["<t align='left' color='#CEE5F6'>Deploy the F.O.B.</t>",{remoteExec ["ADF_fnc_fobDeploy",0,true];},[],-98,false,true,"",""];
 };
 
 ADF_fnc_MHQ_respawned = { // Display a hint that the MHQ has respawned

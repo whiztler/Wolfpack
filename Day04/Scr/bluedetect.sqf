@@ -4,9 +4,6 @@
 		_x setCombatMode "RED";
 		_x setskill 0.65;		
 	};
-	if(side _x == EAST && _x isKindOf "Man") then {
-		_x addEventHandler ["killed", {_this call ADF_fnc_AddKill}];
-	};
 } forEach allUnits;
 
 

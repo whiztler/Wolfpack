@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Mission init / Init reporting
 Author: Whiztler
-Script version: 1.07
+Script version: 1.08
 
 Game type: n/a
 File: ADF_init_rpt.sqf
@@ -69,12 +69,14 @@ if (ADF_debug) then {
 	ADF_log_aiUnits = nil; ADF_log_rptMods = nil; ADF_log_CntHC = nil;
 };
 
-if (!ADF_mod_CBA) exitWith { // Terminate init as CBA is NOT present	
-	["### ERROR! CBA_A3 not present. CBA is required by ADF ###","systemChat"] call BIS_fnc_MP;
+if (!ADF_mod_CBA) exitWith { // Terminate init if CBA is NOT present
+	private "_cID";
+	_cID = owner player;
+	"### ERROR! CBA_A3 not present. CBA is required by to play this mission ###" remoteExec ["systemChat", _cID, false]; 
 	diag_log "";diag_log "";
-	diag_log "######################################################################################";
-	diag_log "ADF RPT: <ERROR>  CBA_A3 not present. CBA is required by ADF. Terminating init!";
-	diag_log "######################################################################################";
+	diag_log "#############################################################################################";
+	diag_log "ADF RPT: <ERROR>  CBA_A3 not present. CBA is required to play this mission. Terminating init!";
+	diag_log "#############################################################################################";
 	diag_log "";diag_log "";
 };
 

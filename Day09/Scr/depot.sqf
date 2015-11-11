@@ -1,27 +1,86 @@
-hint parseText"
-	<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Eagle Eye this is Cowboy, we are almost within visual range of the depot. How copy?<br/></t>
-";
-sleep 10;
+if (hasInterface) then {
+	hint parseText"<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Eagle Eye this is Cowboy, we are almost within visual range of the depot. How copy?<br/></t>";
+	sleep 10;
 
-hint parseText"
-	<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-	<t color='#6C7169' align='left'>Eagle Eye: Copy Cowboy. Move in closer and report in armoured CSAT material.</t><br/><br/>
-	<t color='#6C7169' align='left'>Use the radio function to call in intel, e.g. </t>
-	<t color='#9DA698' align='left'>[0-0-3] </t>
-	<t color='#6C7169' align='left'>Depot intel: 3 x BTR-K + 5 x MSE-3 Madrid.<br/></t>
-";
-_logTime = [dayTime] call BIS_fnc_timeToString;
-_logTimeText = "Log: " + _logTime;
-player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-<font color='#6C7169'>Eagle Eye: Copy Cowboy. Move in closer and report in armoured CSAT material.</font><br/><br/>
-<font color='#6C7169'>Use the radio function to call in intel, e.g. </font>
-<font color='#9DA698'>[0-0-3] </font>
-<font color='#6C7169'>Depot intel: 3 x BTR-K + 5 x MSE-3 Madrid.</font>
-<br/><br/>"]];
+	hint parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Eagle Eye: Copy Cowboy. Move in closer and report in armoured CSAT material.</t><br/><br/><t color='#6C7169' align='left'>Use the radio function to call in intel, e.g. </t><t color='#9DA698' align='left'>[0-0-3] </t><t color='#6C7169' align='left'>Depot intel: 3 x BTR-K + 5 x MSE-3 Madrid.<br/></t>";
+	_logTime = [dayTime] call BIS_fnc_timeToString;
+	_logTimeText = "Log: " + _logTime;
+	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+	<font color='#6C7169'>Eagle Eye: Copy Cowboy. Move in closer and report in armoured CSAT material.</font><br/><br/>
+	<font color='#6C7169'>Use the radio function to call in intel, e.g. </font>
+	<font color='#9DA698'>[0-0-3] </font>
+	<font color='#6C7169'>Depot intel: 3 x BTR-K + 5 x MSE-3 Madrid.</font>
+	<br/><br/>"]];
+	
+	waitUntil {(triggerActivated tDepot1) || (triggerActivated tDepot2) || (triggerActivated tDepot3)};
+
+	sleep 3; 
+
+	if (triggerActivated tDepot1) exitWith {
+		hint parseText"
+			<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
+			<t color='#6C7169' align='left'>Eagle Eye: copy that Cowboy, 3 times BTR-K APC and 5 times MSE-3 APC.</t><br/><br/>
+			<t color='#6C7169' align='left'>Unfortunately, this is not in line with our intel.</t><br/><br/>
+			<t color='#6C7169' align='left'>Cowboy, proceed to the </t>
+			<t color='#9DA698' align='left'>Stratis Air Base.</t><br/>
+		";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6C7169'>Eagle Eye: copy that Cowboy, 3 times BTR-K APC and 5 times MSE-3 APC.</font><br/><br/>
+		<font color='#6C7169'>Unfortunately, this is not in line with our intel.</font><br/><br/>
+		<font color='#6C7169'>Cowboy, proceed to the </font><font color='#9DA698'>Stratis Air Base.</font>
+		<br/><br/>"]];
+		// relocate exfil location
+	};
+
+	if (triggerActivated tDepot2) exitWith {
+		hint parseText"
+			<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
+			<t color='#6C7169' align='left'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 6 times MSE-3 APC.</t><br/><br/>
+			<t color='#6C7169' align='left'>Excellent, this seems to be valuable intel. Good job Cowboy!</t><br/><br/>
+			<t color='#6C7169' align='left'>Cowboy, proceed to the </t>
+			<t color='#9DA698' align='left'>Stratis Air Base.</t><br/>
+		";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6C7169'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 6 times MSE-3 APC.</font><br/><br/>
+		<font color='#6C7169'>Excellent, this seems to be valuable intel. Good job Cowboy!</font><br/><br/>
+		<font color='#6C7169'>Cowboy, proceed to the </font><font color='#9DA698'>Stratis Air Base.</font>
+		<br/><br/>"]];	
+	};
+
+	if (triggerActivated tDepot3) exitWith {
+		hint parseText"
+			<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
+			<t color='#6C7169' align='left'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 4 times MSE-3 APC.</t><br/><br/>
+			<t color='#6C7169' align='left'>Unfortunately, this is not in line with our intel.</t><br/><br/>
+			<t color='#6C7169' align='left'>Cowboy, proceed to the </t>
+			<t color='#9DA698' align='left'>Stratis Air Base.</t><br/>
+		";
+		_logTime = [dayTime] call BIS_fnc_timeToString;
+		_logTimeText = "Log: " + _logTime;
+		player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
+		<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
+		<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
+		<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
+		<font color='#6C7169'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 4 times MSE-3 APC.</font><br/><br/>
+		<font color='#6C7169'>Unfortunately, this is not in line with our intel.</font><br/><br/>
+		<font color='#6C7169'>Cowboy, proceed to the </font><font color='#9DA698'>Stratis Air Base.</font>
+		<br/><br/>"]];
+		// relocate exfil location
+	};
+};
 
 if (isServer) then {
 	tDepot1 = createTrigger ["EmptyDetector", getPos server]; publicVariable "tDepot1";
@@ -51,70 +110,6 @@ if !(isDedicated) then {
 	tDepot3 setTriggerStatements ["this", "tDepot1 setTriggerText """"; deleteVehicle tDepot1; tDepot2 setTriggerText """"; deleteVehicle tDepot2;", ""];
 };
 
-waitUntil {(triggerActivated tDepot1) || (triggerActivated tDepot2) || (triggerActivated tDepot3)};
 
-sleep 3; 
-
-if (triggerActivated tDepot1) exitWith {
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Eagle Eye: copy that Cowboy, 3 times BTR-K APC and 5 times MSE-3 APC.</t><br/><br/>
-		<t color='#6C7169' align='left'>Unfortunately, this is not in line with our intel.</t><br/><br/>
-		<t color='#6C7169' align='left'>Cowboy, proceed to the </t>
-		<t color='#9DA698' align='left'>Stratis Air Base.</t><br/>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6C7169'>Eagle Eye: copy that Cowboy, 3 times BTR-K APC and 5 times MSE-3 APC.</font><br/><br/>
-	<font color='#6C7169'>Unfortunately, this is not in line with our intel.</font><br/><br/>
-	<font color='#6C7169'>Cowboy, proceed to the </font><font color='#9DA698'>Stratis Air Base.</font>
-	<br/><br/>"]];
-	// relocate exfil location
-};
-
-if (triggerActivated tDepot2) exitWith {
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 6 times MSE-3 APC.</t><br/><br/>
-		<t color='#6C7169' align='left'>Excellent, this seems to be valuable intel. Good job Cowboy!</t><br/><br/>
-		<t color='#6C7169' align='left'>Cowboy, proceed to the </t>
-		<t color='#9DA698' align='left'>Stratis Air Base.</t><br/>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6C7169'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 6 times MSE-3 APC.</font><br/><br/>
-	<font color='#6C7169'>Excellent, this seems to be valuable intel. Good job Cowboy!</font><br/><br/>
-	<font color='#6C7169'>Cowboy, proceed to the </font><font color='#9DA698'>Stratis Air Base.</font>
-	<br/><br/>"]];	
-};
-
-if (triggerActivated tDepot3) exitWith {
-	hint parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 4 times MSE-3 APC.</t><br/><br/>
-		<t color='#6C7169' align='left'>Unfortunately, this is not in line with our intel.</t><br/><br/>
-		<t color='#6C7169' align='left'>Cowboy, proceed to the </t>
-		<t color='#9DA698' align='left'>Stratis Air Base.</t><br/>
-	";
-	_logTime = [dayTime] call BIS_fnc_timeToString;
-	_logTimeText = "Log: " + _logTime;
-	player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
-	<br/><br/><font color='#9da698' size='14'>From: JSOC TOC</font><br/>
-	<font color='#9da698' size='14'>Time: " + _logTime + "</font><br/><br/>
-	<font color='#6c7169'>------------------------------------------------------------------------------------------</font><br/><br/>
-	<font color='#6C7169'>Eagle Eye: copy that Cowboy, 2 times BTR-K APC and 4 times MSE-3 APC.</font><br/><br/>
-	<font color='#6C7169'>Unfortunately, this is not in line with our intel.</font><br/><br/>
-	<font color='#6C7169'>Cowboy, proceed to the </font><font color='#9DA698'>Stratis Air Base.</font>
-	<br/><br/>"]];
-	// relocate exfil location
-};
 
 

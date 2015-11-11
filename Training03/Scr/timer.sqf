@@ -5,6 +5,7 @@ WPtraining = "Expert";
 sleep 2;
 
 // init
+private ["_timer1","_timer2","_prepTimer","_preTimerMin","_prepMinLeft","_pause","_msg"];
 _timer1 = 2700; // 45 min
 _timer2 = 1800; // 30 min
 _prepTimer = 180;
@@ -99,7 +100,7 @@ while {_timer1 > 0} do {
 
 if (spDetected) exitWith {};
 
-waitUntil {obj1Done};
+waitUntil {sleep 2; obj1Done};
 
 _msg = format ["
 		<img size= '5' shadow='false' image='Img\wolf_logo.paa'/><br/><br/>
@@ -145,7 +146,7 @@ while {_timer2 > 0} do {
 
 if (spDetected) exitWith {};
 
-waitUntil {obj2Done};
+waitUntil {sleep 2; obj2Done};
 
 deleteVehicle blueDect1;
 deleteVehicle blueDect2;

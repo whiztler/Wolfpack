@@ -9,6 +9,9 @@ if (isServer) then {
 	};
 };
 
+if (!hasInterface) exitWith {};
+
+private ["_cnt","_logTime","_logTimeText",];
 _cnt = 0;
 _logTime = [dayTime] call BIS_fnc_timeToString;
 _logTimeText = "Log: " + _logTime;
@@ -23,13 +26,7 @@ player createDiaryRecord ["Wolfpack Log", [_logTimeText,"
 <br/><br/>"]];
 while {(_cnt != 20)} do {
 	_cnt = _cnt + 1;
-	hintSilent parseText"
-		<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/>
-		<t color='#6C7169' align='left'>Mother: Rattler, we got you on Satnav. The ABC buildings have large antenna's on the roof. You can't miss them.</t><br/><br/>
-		<t color='#6C7169' align='left'>Disable the </t><t color='#9DA698' align='left'>power generators</t><t color='#6C7169' align='left'> on the roofs of both buildings.</t><br/>
-		<t color='#6C7169' align='left'>Each building has </t><t color='#9DA698' align='left'>three</t><t color='#6C7169' align='left'> power generators.</t><br/><br/>	
-		<t color='#6C7169' align='left'>I hope you brought enough explosives. Else you'll need to look for explosives at one of the CSAT bases.</t>
-	";
+	hintSilent parseText"<img size= '5' shadow='false' image='Img\jsoc_logo.paa'/><br/><br/><t color='#6C7169' align='left'>Mother: Rattler, we got you on Satnav. The ABC buildings have large antenna's on the roof. You can't miss them.</t><br/><br/><t color='#6C7169' align='left'>Disable the </t><t color='#9DA698' align='left'>power generators</t><t color='#6C7169' align='left'> on the roofs of both buildings.</t><br/><t color='#6C7169' align='left'>Each building has </t><t color='#9DA698' align='left'>three</t><t color='#6C7169' align='left'> power generators.</t><br/><br/><t color='#6C7169' align='left'>I hope you brought enough explosives. Else you'll need to look for explosives at one of the CSAT bases.</t>";
 	sleep 1;
 };
 

@@ -2,8 +2,9 @@ kryaActive = false;
 
 if (!isServer) exitWith {};
 
-waitUntil {kryaActive};
+waitUntil {sleep 2; kryaActive};
 
+private ["_th1","_th2","_th3","_th4","_th5"];
 _th1 = "Bo_GBU12_LGB" createVehicle (getPos gbu1); deletevehicle gbu1;
 _th2 = "Bo_GBU12_LGB" createVehicle (getPos gbu2); deletevehicle gbu2;
 _th3 = "Bo_GBU12_LGB" createVehicle (getPos gbu3); deletevehicle gbu3;

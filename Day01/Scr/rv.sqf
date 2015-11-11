@@ -1,3 +1,4 @@
+if (!hasInterface) exitWith {};
 if (rvDone) exitWith {};
 hint parseText"<t color='#6C7169' align='left'>Nikos: Phoenix, I am at the church</t><br />";
 _logTime = [dayTime] call BIS_fnc_timeToString;

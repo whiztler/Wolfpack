@@ -95,7 +95,7 @@ player createDiaryRecord ["Diary",["Objectives","
 
 <font color='#9da698' size='14'>MISSION OBJECTIVES</font><br/>
 <font color='#6C7169'>Primary objective: Sabotage the </font><marker name='mBrief2' color='#9DA698'>communications station</marker><font color='#6C7169'>.<br/>
-Secondary objective: Sabotage the </font><marker name='mBrief3' color='#9DA698'>power station</marker><font color='#6C7169'>.</font>
+Secondary objective: Sabotage transformers at the </font><marker name='mBrief3' color='#9DA698'>power station</marker><font color='#6C7169'>.</font>
 "]];
 
 

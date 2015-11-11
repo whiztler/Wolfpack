@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.40 / JUNE 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Mission Config
 Author: Whiztler
-Script version: 1.58
+Script version: 1.60
 
 Game type: n/a
 File: ADF_init_config.sqf
@@ -14,7 +14,7 @@ modules and scripts.
 ****************************************************************/
 
 /********** GENERAL **********/
-ADF_mission_version = 1.62; // Mission version
+ADF_mission_version = 1.63; // Mission version
 _ADF_mission_init_time = 20; // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.
 _ADF_HC_init = true; // Enable the Headless Client [true/false].
 _ADF_HCLB_enable = false; // Enable load balancing across multiple HC's (max 3)
@@ -138,6 +138,6 @@ _ADF_zeusEagle = true; // Enable the Zeus Eagle? False removes the eagle [true/f
 _ADF_altitude = false; // Enable altitude based fatigue (altitude mountain sickness)? True increases fatigue when > 1500 meter altitude [true/false].
 
 /********** ADF DEV BUILD SETTINGS **********/
-ADF_tpl_version = 1.41; // ADF version DO NOT EDIT
+ADF_tpl_version = 1.42; // ADF version DO NOT EDIT
 _ADF_devBuild = "Production"; // [Alpha/Beta/Production] DO NOT EDIT
-_ADF_devBuildNr = "02"; // Build number. DO NOT EDIT
+_ADF_devBuildNr = "03"; // Build number. DO NOT EDIT

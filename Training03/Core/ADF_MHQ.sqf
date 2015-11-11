@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.42 / SEPTEMBER 2015
 
 Script: Mobile Respawn
 Author: Whiztler
@@ -70,7 +70,7 @@ _avail_tickets = [west] call BIS_fnc_respawnTickets;
 // Add the MHQ eventhandler and the FOB deploy action menu item
 _ADF_MHQ_EH = MHQ addEventHandler ["killed", {[] spawn ADF_fnc_MHQ_respawnClient;}];
 if (ADF_debug) then {["MHQ - Init done, EH loaded onto MHQ",false] call ADF_fnc_log;};// debug
-ADF_MHQ_FOB_deployAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Deploy the F.O.B.</t>",{[[],"ADF_fnc_fobDeploy"] call BIS_fnc_MP;},[],-95,false,true,"",""];
+ADF_MHQ_FOB_deployAction = MHQ addAction ["<t align='left' color='#CEE5F6'>Deploy the F.O.B.</t>",{remoteExec ["ADF_fnc_fobDeploy"]},[],-95,false,true,"",""];
 
 ADF_MHQ_PlayerRespawnDelay = getNumber (missionConfigFile >> "respawnDelay");  
 if (ADF_MHQ_PlayerRespawnDelay >= 60) then {
