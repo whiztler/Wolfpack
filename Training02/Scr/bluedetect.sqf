@@ -1,5 +1,6 @@
 //spDetected = true; publicVariable "spDetected";
 
+if (isNil "mdev") then {missionNamespace setVariable ["mdev", objNull]};
 if (player == mdev) exitWith {};
 
 sleep 2;

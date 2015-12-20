@@ -56,7 +56,7 @@ if (ADF_HC_execute) exitWith { // HC Autodetect. If no HC present execute on the
 		private ["_spawnPos","_g"];
 		_spawnPos = format ["mIP_%1",_i];
 		_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-		[_g, getMarkerPos _spawnPos, 800, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5] call ADF_fnc_footPatrol;
+		[_g, getMarkerPos _spawnPos, 800, 5, "MOVE", "SAFE", "RED", "LIMITED", "FILE", 5, true] call ADF_fnc_footPatrol;
 	};		
 
 	// Vehicle patrols

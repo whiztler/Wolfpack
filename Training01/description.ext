@@ -32,7 +32,7 @@ respawnTemplatesWest[] = {"Seagull", "f_spectator"};
 
 /**********  Loading Screen **********/
 author = "Whiztler";
-overviewText = "Wolfpack Basic Training - v1.62";
+overviewText = "Wolfpack Basic Training - v1.63";
 onLoadName = "Basic Training";
 onLoadMission = "Wolfpack Basic Training. Covertly get to Thronos Castle within the pre-defined time frame";
 onLoadIntroTime = false;

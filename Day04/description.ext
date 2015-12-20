@@ -32,7 +32,7 @@ respawnTemplatesWest[] = {"Seagull", "f_spectator"};
 
 /**********  Loading Screen **********/
 author = "Whiztler";
-overviewText = "Wolfpack Vol. 1 / Day 04 - v1.62";
+overviewText = "Wolfpack Vol. 1 / Day 04 - v1.63";
 onLoadName = "Top Screen";
 onLoadMission = "Day 04 - Operation Top Screen";
 onLoadIntroTime = false;

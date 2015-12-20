@@ -16,8 +16,6 @@ Change the "Text goes here..." line with your info. Use a <br/> to
 start a new line.
 ****************************************************************/
 
-#include "ADF_JIP.sqf"
-
 ///// CREDITS
 
 player createDiaryRecord ["Diary",["Credits","

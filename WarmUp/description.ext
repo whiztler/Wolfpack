@@ -32,7 +32,7 @@ respawnTemplatesWest[] = {"Counter"};
 
 /**********  Loading Screen **********/
 author = "Whiztler";
-overviewText = "Wolfpack WTT - v1.62";
+overviewText = "Wolfpack WTT - v1.63";
 onLoadName = "Wolfpack W.T.T.";
 onLoadMission = "Warmup, Testing &amp; Training";
 onLoadIntroTime = false;

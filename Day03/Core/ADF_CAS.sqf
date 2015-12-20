@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: CAS request with 9-liner
 Author: Whiztler
@@ -211,7 +211,7 @@ ADF_fnc_destroyVars = {
 	ADF_CAS_vehClass		= nil;
 	if (!isServer) exitWith {};
 	diag_log	"-----------------------------------------------------";
-	diag_log "TWO SIERRA: CAS (server) terminated";
+	diag_log "WOLFPACK: CAS (server) terminated";
 	diag_log	"-----------------------------------------------------";
 };
 

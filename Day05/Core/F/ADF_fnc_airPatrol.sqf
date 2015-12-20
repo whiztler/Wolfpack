@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: air patrol script
 Author: Whiztler
@@ -123,7 +123,7 @@ ADF_fnc_airPatrol = {
 	_a = [_g,_p,_r,_t,_b,_m,_s,_f,_cr];
 
 	// Loop through the number of waypoints needed
-	for "_i" from 0 to _c do {
+	for "_i" from 0 to (_c - 1) do {
 		_a call ADF_fnc_addAirWaypoint;
 		if (ADF_debug) then {diag_log " "; diag_log format ["ADF Debug: ADF_fnc_airPatrol - called ADF_fnc_addAirWaypoint for WP %1",_i]};
 	};

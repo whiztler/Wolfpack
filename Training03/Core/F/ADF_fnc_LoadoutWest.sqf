@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Loadout Gear West
 Author: Whiztler
@@ -498,7 +498,7 @@ ADF_fnc_loudoutInf = {
 	
 	if ((_r == "hmg") || (_r == "ahmg") || (_r == "gmg") || (_r == "agmg") || (_r == "mkg") || (_r == "amk")) exitWith { 
 		// Containers	
-		if (_r == "hmg") then {_ADF_unit addBackpack "B_HMG_01_A_weapon_F";}; // HMG Gunner
+		if (_r == "hmg") then {_ADF_unit addBackpack "B_HMG_01_weapon_F";}; // HMG Gunner
 		if ((_r == "ahmg") || (_r == "agmg")) then {_ADF_unit addBackpack "B_HMG_01_support_F";}; // Asst. HMG/GMG
 		if (_r == "gmg") then {_ADF_unit addBackpack "B_GMG_01_weapon_F";}; // GMG Gunner
 		if (_r == "mkg") then {_ADF_unit addBackpack "B_Mortar_01_weapon_F";}; // MK6 Gunner

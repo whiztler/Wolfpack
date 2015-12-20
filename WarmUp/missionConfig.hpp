@@ -43,6 +43,15 @@ class cfgNotifications { // Preconfigured messages
 	};
 };
 
+class CfgSounds {
+	sounds[] = {};
+	class radioTransmit {
+		name = "Radio_Transmit_Sound";
+		sound[] = {"Core\S\in2c.ogg", 1, 1}; 		// filename, volume, pitch
+		titles[] = {};
+	};
+};
+
 // End Screen / Debriefing
 class CfgDebriefing {  
 	class End1 {
@@ -70,7 +79,7 @@ class CfgDebriefing {
 };
 
 /// ACE3 settings v. 3.3.2.0
-
+/*
 class ACE_Settings {
 	// Custom ACE3 Setting below
 

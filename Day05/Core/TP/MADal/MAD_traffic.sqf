@@ -122,6 +122,7 @@ MAD_spawnCar = {
 		_spawndir = getdir _roadseg;
 		_car = _carlist select (floor (random (count _carlist)));
 		_sqname = creategroup civilian;
+		_sqname setVariable ["ADF_noHC_transfer", true];
 		_spawncar = _car createVehicle _spawnpos;
 		_spawncar setdir _spawndir; 
 		_spawncar setfuel 0.5 + (random 0.5);

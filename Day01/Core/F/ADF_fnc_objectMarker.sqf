@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Detect Sensor
 Author: Whiztler
@@ -18,7 +18,7 @@ Usage:
 _array = ["ClassName","ClassName","ClassName"]; // Array of classnames of objects to mark on the map
 
 [
-	_array,				// Array
+	_array,			// Array
 	"MyMarker"		// Center position (object, marker, trigger, etc)
 	,150				// radius from center position
 ] call ADF_fnc_objectMarker;

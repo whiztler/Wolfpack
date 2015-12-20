@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Storm vehicle loadout (arti)
 Author: Whiztler

@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Vehicle Cargo Script (BLUEFOR) (BLUEFOR) - Car Infantry Weapons Team
 Author: Whiztler
@@ -62,20 +62,20 @@ _vSupply addItemCargoGlobal ["B_HMG_01_weapon_F", 1];
 _vSupply addItemCargoGlobal ["B_HMG_01_support_F", 2];
 
 // Static weapon Ammunition
-_vSupply addMagazineCargoGlobal ["500Rnd_127x99_mag", 2];
-_vSupply addMagazineCargoGlobal ["40Rnd_20mm_g_belt", 2];
+//_vSupply addMagazineCargoGlobal ["500Rnd_127x99_mag", 2];
+//_vSupply addMagazineCargoGlobal ["40Rnd_20mm_g_belt", 2];
 
 // Mortar
-_vSupply addMagazineCargoGlobal ["8Rnd_82mm_Mo_guided", 4];
-_vSupply addMagazineCargoGlobal ["8Rnd_82mm_Mo_shells", 4];
-_vSupply addMagazineCargoGlobal ["8Rnd_82mm_Mo_LG", 2];
+//_vSupply addMagazineCargoGlobal ["8Rnd_82mm_Mo_guided", 4];
+//_vSupply addMagazineCargoGlobal ["8Rnd_82mm_Mo_shells", 4];
+//_vSupply addMagazineCargoGlobal ["8Rnd_82mm_Mo_LG", 2];
 
 // Launchers
 _vSupply addWeaponCargoGlobal ["launch_B_Titan_F", 1];
 _vSupply addWeaponCargoGlobal ["launch_B_Titan_short_F", 1];
 
 // Rockets/Missiles
-_vSupply addMagazineCargoGlobal ["Titan_AT", 5];
+_vSupply addMagazineCargoGlobal ["Titan_AT", 2];
 _vSupply addMagazineCargoGlobal ["Titan_AP", 2];
 _vSupply addMagazineCargoGlobal ["Titan_AA", 2];
 
@@ -180,8 +180,8 @@ if (ADF_mod_ACE3) then {
 };	
 
 // Gear kit 
-_vSupply addBackpackCargoGlobal ["B_Carryall_Base", 3];
-_vSupply addBackpackCargoGlobal ["B_AssaultPack_blk", 5];
+//_vSupply addBackpackCargoGlobal ["B_Carryall_Base", 3];
+//_vSupply addBackpackCargoGlobal ["B_AssaultPack_blk", 5];
 
 // Misc items
-_vSupply addItemCargoGlobal ["ToolKit", 3];
+_vSupply addItemCargoGlobal ["ToolKit", 2];

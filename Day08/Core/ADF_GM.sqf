@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Game Master/Instructor/Zeus configuration
 Author: Whiztler
@@ -23,7 +23,6 @@ Place a 'ZEUS Game Master' module for each unit:
 ****************************************************************/
 
 if (isServer) then {diag_log "ADF RPT: Init - executing ADF_GM.sqf"}; // Reporting. Do NOT edit/remove
-if (ADF_isHC) exitWith {}; // HC exits script
 
 // Init
 if ((isNil "GM_1") && (isNil "GM_2")) exitWith {// No Zeus playable slots detected

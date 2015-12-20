@@ -69,7 +69,7 @@ for "_i" from 1 to 18 do {
 	private ["_spawnPos","_g"];
 	_spawnPos = format ["mIP_%1",_i];
 	_g = [getMarkerPos _spawnPos, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry")] call BIS_fnc_spawnGroup;
-	[_g, getMarkerPos _spawnPos, 800, 5, "MOVE", "SAFE", "RED", "LIMITED","FILE", 5] call ADF_fnc_footPatrol;
+	[_g, getMarkerPos _spawnPos, 800, 5, "MOVE", "SAFE", "RED", "LIMITED","FILE", 5, true] call ADF_fnc_footPatrol;
 };		
 
 // Vehicle patrols

@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Simple Server/Mission Stats (Headless Client enabled)
 Author: Whiztler
-Script version: 3.10
+Script version: 3.11
 
 Game type: n/a
 File: ADF_simpleStats.sqf
@@ -77,10 +77,10 @@ while {(_ADF_cnt != 20)} do {
 		<t color='#FFFFFF' align='right' font='PuristaMedium' size='.9'>%3</t><br/>	
 		<t color='#A1A4AD' align='left' font='PuristaMedium' size='.9'>Total Groups:</t>
 		<t color='#FFFFFF' align='right' font='PuristaMedium' size='.9'>%4</t><br/><br/>",
-		[(round time)] call BIS_fnc_secondsToString, 	//1
-		count allUnits,								//2
-		{alive _x} count allPlayers,					//3
-		count allGroups								//4		
+		[(round time)] call BIS_fnc_secondsToString, 					//1
+		count allUnits,												//2
+		{alive _x} count (allPlayers - entities "HeadlessClient_F"),	//3
+		count allGroups												//4		
 	];
 		
 	if (hasInterface) then {hintSilent parseText (_ADF_textIntro + ADF_sStats_textServer + ADF_sStats_textHeadless1 + ADF_sStats_textHeadless2 + ADF_sStats_textHeadless3)}; // v1.42B01

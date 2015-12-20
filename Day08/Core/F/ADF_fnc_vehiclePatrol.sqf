@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: (Create) Vehicle patrol script
 Author: Whiztler
@@ -123,7 +123,7 @@ ADF_fnc_vehiclePatrol = {
 	_a = [_g,_p,_r,_c,_t,_b,_m,_s,_cr];
 	
 	// Loop through the number of waypoints needed
-	for "_i" from 0 to _c do {
+	for "_i" from 0 to (_c - 1) do {
 		_a call ADF_fnc_addRoadWaypoint;
 		if (ADF_debug) then {diag_log " "; diag_log format ["ADF Debug: ADF_fnc_vehiclePatrol - called ADF_fnc_addRoadWaypoint for WP %1",_i]};
 	};
@@ -165,14 +165,14 @@ ADF_fnc_createVehiclePatrol = {
 	_g 	= createGroup _gs;
 	_ps 	= [_vs] call ADF_fnc_checkPosition;
 	_pp 	= [_vp] call ADF_fnc_checkPosition;
-	_vd	= if (typeName _vs == "STRING") then {markerDir _vs} else {getDir _vs};
+	_vd	= if (typeName _vs == "STRING") then {markerDir _vs} else {random 360};
 	_v 	= [_ps, _vd, _vc, _g] call BIS_fnc_spawnVehicle;
 	
 	// Array to pass
 	_a = [_g,_pp,_r,_c,_t,_b,_m,_s,_cr];	
 	
 	// Loop through the number of waypoints needed
-	for "_i" from 0 to _c do {_a call ADF_fnc_addRoadWaypoint;};
+	for "_i" from 0 to (_c - 1) do {_a call ADF_fnc_addRoadWaypoint;};
 	
 	// Add a cycle waypoint
 	_cycle =+ _a;

@@ -1,6 +1,6 @@
 #include "ADF_JIP.sqf"
 
-If (IsDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 if !(local player) exitWith {};
 
 waitUntil {time > 1};

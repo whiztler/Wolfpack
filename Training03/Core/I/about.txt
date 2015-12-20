@@ -1,3 +1,0 @@
-ARMA Mission Development Framework
-
-ADF core images only!

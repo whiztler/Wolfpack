@@ -24,6 +24,8 @@ zbe_mapsize = [] call bis_fnc_mapSize;
 zbe_mapside = zbe_mapsize / 2;
 zbe_centerPOS = [zbe_mapside, zbe_mapside, 0];
 
+waitUntil {sleep 1; time > 120}; // delayed start so that AO's can initialize before caching process starts
+
 [] spawn  {
 	while {true} do {
 		sleep 15;

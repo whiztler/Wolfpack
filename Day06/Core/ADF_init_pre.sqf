@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Mission init / Variables init
 Author: Whiztler

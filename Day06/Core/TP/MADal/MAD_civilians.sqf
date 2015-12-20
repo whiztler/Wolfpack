@@ -113,6 +113,7 @@ MAD_spawnciv = {
 			_class = MAD_civlist select (floor (random (count MAD_civlist)));
 
 			_sqname = creategroup civilian;
+			_sqname setVariable ["ADF_noHC_transfer", true];
 			_class createUnit [_spawnpos, _sqname];
 
 			_civ = leader _sqname;

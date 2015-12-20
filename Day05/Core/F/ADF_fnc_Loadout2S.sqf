@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Loadout Gear 2 SIERRA campaign
 Author: Whiztler
@@ -400,7 +400,7 @@ if (_r == "ams") exitWith {
 
 // Weapons Team: HMG specialist
 if (_r == "hmg") exitWith {
-	_ADF_unit addBackpack "B_HMG_01_A_weapon_F";
+	_ADF_unit addBackpack "B_HMG_01_weapon_F";
 	_ADF_unit addGoggles "G_Combat";
 	
 	for "_i" from 1 to 5 do {_ADF_unit addMagazine _ADF_INF_priWpnMag;};

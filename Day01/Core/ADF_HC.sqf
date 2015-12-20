@@ -1,10 +1,10 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.41 / JULY 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Headless Client init
 Author: Whiztler
-Script version: 2.51
+Script version: 2.55
 
 Game type: N/A
 File: ADF_HC.sqf
@@ -72,30 +72,32 @@ if (!isServer && !hasInterface) then {
 	ADF_HC_connected 	= true; publicVariable "ADF_HC_connected";
 	ADF_HC_execute 	= true;
 	ADF_isHC 		= true;
+	
 	// Check which HC slot is occupied and count HC's
-	if !(isNil "ADF_HC1") then {if (player == ADF_HC1) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC1 = true}};
-	if !(isNil "ADF_HC2") then {if (player == ADF_HC2) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC2 = true}};
-	if !(isNil "ADF_HC3") then {if (player == ADF_HC3) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC3 = true}};	
+	if !(isNil "ADF_HC1") then {if (player == ADF_HC1) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC1 = true; diag_log "ADF RPT: HC - Headless Client detected: ADF_HC1";}};
+	if !(isNil "ADF_HC2") then {if (player == ADF_HC2) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC2 = true; diag_log "ADF RPT: HC - Headless Client detected: ADF_HC2";}};
+	if !(isNil "ADF_HC3") then {if (player == ADF_HC3) then {ADF_log_CntHC = ADF_log_CntHC + 1; publicVariable "ADF_log_CntHC"; ADF_isHC3 = true; diag_log "ADF RPT: HC - Headless Client detected: ADF_HC3";}};	
+	
 	// HC FPS reporting in RPT. The frequency of the reporting is based on HC performance.
-	if (isMultiplayer) then {ADF_log_pUnits = playableUnits;} else {ADF_log_pUnits = switchableUnits};
 	[] spawn {
 		waitUntil {			
-			private ["_ADF_rptSnooz","_ADF_hcFPS","_ADF_GameTime_HMS"];
+			private ["_ADF_log_ai","_ADF_players","_ADF_rptSnooz","_ADF_hcFPS","_ADF_GameTime_HMS"];			
 			_ADF_rptSnooz = 60;
-			_ADF_hcFPS = round (diag_fps);			
-			if (((count allUnits)-(count ADF_log_pUnits)) < 0) then {ADF_log_ai = 0} else {ADF_log_ai = ((count allUnits)-(count ADF_log_pUnits))};
+			_ADF_hcFPS = round (diag_fps);	
+			_ADF_players = {alive _x} count allPlayers;
+			_ADF_log_ai = {(local _x) && (alive _x)} count allUnits;
+			if (_ADF_log_ai < 0) then {_ADF_log_ai = 0};
 			if (_ADF_hcFPS < 40) then {_ADF_rptSnooz = 15};
 			if (_ADF_hcFPS < 30) then {_ADF_rptSnooz = 10};
 			if (_ADF_hcFPS < 20) then {_ADF_rptSnooz = 5};
 			if (_ADF_hcFPS < 15) then {_ADF_rptSnooz = 1};
 			_ADF_GameTime_HMS = [(round time)] call BIS_fnc_secondsToString;
-			diag_log format ["ADF RPT: PERF - Total players: %1  --  Total AI's: %2",count ADF_log_pUnits,ADF_log_ai];
-			diag_log format ["ADF RPT: PERF - Elapsed time: %1  --  HC FPS: %2  --  HC Min FPS: %3",_ADF_GameTime_HMS,_ADF_hcFPS,round (diag_fpsmin)];
+			diag_log format ["ADF RPT: PERF - Total players: %1  --  Total AI's: %2",_ADF_players,_ADF_log_ai];
+			diag_log format ["ADF RPT: PERF - Elapsed time: %1  --  %2 FPS: %3  --  %2 Min FPS: %4",_ADF_GameTime_HMS,name player,_ADF_hcFPS,round (diag_fpsmin)];
 			uiSleep _ADF_rptSnooz;
 			false
 		};
 	};
-	if (ADF_debug) then {["HC - Headless Client detected",false] call ADF_fnc_log} else {diag_log "ADF RPT: HC - Headless Client detected"};
 } else {	
 	sleep 3; // Wait for HC to publicVar ADF_HC_connected (if a HC is present)
 	if (!ADF_HC_connected && isServer) then { // No HC present. Disable ADF_HC_execute on all clients except the server

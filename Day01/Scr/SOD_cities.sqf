@@ -2,9 +2,10 @@
 // Cities, 600 radius
 
 if (!ADF_HC_execute) exitWith {}; // HC Autodetect. If no HC present execute on the Server.
+params ["_t"];
 
 // Frini
-if ((isNil "g1a") && (isNil "g1b") && (isNil "g1c") && (_this select 0 == "1A")) exitWith {
+if ((isNil "g1a") && (isNil "g1b") && (isNil "g1c") && (_t == "1A")) exitWith {
 	// Sentries
 	private "_p";
 	g1d = CreateGroup EAST; 
@@ -18,7 +19,7 @@ if ((isNil "g1a") && (isNil "g1b") && (isNil "g1c") && (_this select 0 == "1A"))
 	g1c = [getPos tFriniCity, EAST, (configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad")] call BIS_fnc_spawnGroup;
 	[g1c, getPos tFriniCity, 200, 2, true] call ADF_fnc_defendArea;
 };
-if (_this select 0 == "1B") exitWith {
+if (_t == "1B") exitWith {
 	if !(isNil "g1a") then {{deleteVehicle _x} forEach units g1a; deleteGroup g1a; g1a = nil};
 	if !(isNil "g1b") then {{deleteVehicle _x} forEach units g1b; deleteGroup g1b; g1b = nil};
 	if !(isNil "g1c") then {{deleteVehicle _x} forEach units g1c; deleteGroup g1c; g1c = nil};

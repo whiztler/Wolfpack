@@ -1,6 +1,6 @@
 /****************************************************************
 ARMA Mission Development Framework
-ADF version: 1.42 / SEPTEMBER 2015
+ADF version: 1.43 / NOVEMBER 2015
 
 Script: Mission initialization countdown timer
 Author: Whiztler
@@ -118,4 +118,4 @@ finishMissionInit;
 sleep 3; hintSilent "";
 ADF_missionInit = true; //publicVariable "ADF_missionInit"; // > 140B06
 if (ADF_debug) then {["INIT - MissionInit Timer done",false] call ADF_fnc_log};
-ADF_postInitMsg = nil; ADF_initMsg = nil; _ADF_mapMrkText = nil;
+ADF_postInitMsg = nil; ADF_initMsg = nil;

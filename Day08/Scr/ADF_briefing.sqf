@@ -1,4 +1,4 @@
-/****************************************************************
+/****************************************************************
 ARMA Mission Development Framework
 ADF version: 1.40 / JUNE 2015
 
@@ -15,8 +15,6 @@ Note the reverse order of topics. Start from the bottom.
 Change the "Text goes here..." line with your info. Use a <br/> to
 start a new line.
 ****************************************************************/
-
-#include "ADF_JIP.sqf"
 
 ///// CREDITS
 
