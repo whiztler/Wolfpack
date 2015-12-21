@@ -2,6 +2,17 @@
 
 # Changelog
 
+**Version 1.63**
+- Fixed: Map ID checks removed.
+- Fixed: Warmup mission objective success markers.
+- Added: Additional debug and performance reporting. HC's report individually (RPT).
+- Updated: code base. Completely re-written in line with Nexus 1.54 update.
+- Updated: Applied ADF 1.42 framework.
+- Updated: code base CBA dependencies removed.
+- Updated: (Advanced) ACE3 settings removed. Missions now use server settings.
+- Updated: Briefings.
+- Updated: Wolfpack website: http://whiztler.github.io/Wolfpack
+
 **Version 1.62**
 - Updated: ACE3 mission config in line with ACE 3.2.1 update 
 - Updated: ADF Framework to 1.41 
