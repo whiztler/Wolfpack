@@ -2333,7 +2333,7 @@ body.landing #page-wrapper {
 #banner {
 	background-attachment: scroll, fixed;
 	background-color: #666;
-	background-image: url("images/overlay.png"), url("../../images/wp_cover.jpg");
+	background-image: url("images/overlay.png"), url("../../images/2sierra_takistan_02.jpg");
 	background-position: top left, center center;
 	background-repeat: repeat, no-repeat;
 	background-size: auto, cover;
@@ -2937,4 +2937,14 @@ ul.actions.small li:first-child {
 #banner p.wp_version strong{
 	color: #E8F8B1;
 }
-	
+
+/* YouTube */
+.embed-container { 
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+max-width: 100%; }
+.embed-container iframe, .embed-container object, .embed-container embed {
+position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
